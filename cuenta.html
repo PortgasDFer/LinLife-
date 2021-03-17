@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="assets/dist/css/adminlte.min.css">
+  <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 
@@ -387,7 +388,7 @@
                 </a>
               </h5>
             </div>
-            <div id="datos" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div id="datos" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
               <div class="card-body">
                 <form>
                   <div class="form-group row">
@@ -555,7 +556,7 @@
                 </a>
               </h5>
             </div>
-            <div id="facturacion" class="collapse show" aria-labelledby="fac" data-parent="#accordionExample">
+            <div id="facturacion" class="collapse" aria-labelledby="fac" data-parent="#accordionExample">
               <div class="card-body">   
                 <form>
                   <div class="form-group row">
@@ -587,13 +588,27 @@
                       <input type="text" class="form-control" id="rfc" name="rfc" placeholder="RFC">
                     </div>
                     <div class="col-sm-4">
-                      <p><i class="fa fa-exclamation-triangle" style="color: red;" aria-hidden="true"></i> No verificada</p>
+                      <p style="font-size: 15px;"><i class="fa fa-exclamation-triangle" style="color: red;" aria-hidden="true"></i> No verificada</p>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Constancia en PDF</label>
                     <div class="col-sm-4">
                         <input type="file" name="constancia">
+                    </div>
+                    <div class="col-sm-6">
+                      <p style="font-size: 12px;"> Para verificar tu RFC, necesitas: <br> 1.Asegurarte que tu correo electrónico esté activo, pues será el medio de contacto para la facturación. <br> 2.Cargar tu Constancia de Situación Fiscal actualizada la cual puedes obtener en el Portal del SAT.</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;"></label>
+                    <div class="col-sm-4">
+                        <input type="checkbox" checked data-toggle="toggle" data-on="X" data-off="✔" data-onstyle="success" data-offstyle="warning" name="sexo">
+                        NO-RETENCION ISR DESACTIVADA
+                    </div>
+                    <div class="col-sm-6">
+                      <p style="font-size: 12px;"> Por Ley, LINLIFE retiene el ISR antes del pago de comisiones semanales. Si tu deseas que NO se te retenga y hacerte cargo tu mismo de su declaración ante las autoridades, activa esta casilla.</p>
                     </div>
                   </div>
                 </form>               
@@ -608,7 +623,7 @@
                 </a>
               </h5>
             </div>
-            <div id="foto" class="collapse" aria-labelledby="fot" data-parent="#accordionExample">
+            <div id="foto" class="collapse show" aria-labelledby="fot" data-parent="#accordionExample">
               <div class="card-body">   
                 <div class="alert alert-secondary" role="alert" style="background-color:  #E4E4E4; color: black; font-size: 12px;">
                   Una vez cargada la imagen, ajusta la posición y presiona en el botón GUARDAR para que tu foto quede registrada.
@@ -667,6 +682,7 @@
 <script src="assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 <script>
   $(function () {
     $("#example1").DataTable({
