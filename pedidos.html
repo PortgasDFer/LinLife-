@@ -29,7 +29,7 @@
     </div>
   </nav>
   <div class="content">
-    <div class="alert alert-primary" role="alert" style="border-radius: 0px; text-align: center; background-color: #4025A6;">
+    <div class="alert alert-primary" role="alert" style="border-radius: 0px; text-align: center; background-color: #4025A6; font-size: 12px; ">
       info de LinLife
     </div>
   </div>
@@ -71,70 +71,57 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;
         <div class="col-sm-1 text-right">
           <p style="color: #aaa;">$ 0.00</p>
         </div>
       </div>
       <hr>
       <div class="form-group row">
-        <div class="col-sm-4">            
-          <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar" style="width: 80px;">
-          <strong>DANIEL ISAI</strong> VELA HERNANDEZ<br>
-          <span class="badge badge-dark"> 52828</span>
-   
-              <p style="font-weight:bold;margin-top:5px">
-                  <span class="label label-negro"><span class="plantilla_id"></span></span> 
-                  <span class="plantilla_esbiex label label-morado" style="display:none">BIEX</span>
-                  <span class="plantilla_esplus label label-azul" style="display:none">PLUS</span>
-                  <span class="plantilla_estatus label label-morado">NUEVO</span>
-              </p> 
-              
-              <div class="tabla_pendientes" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Productos de promoción disonibles por tus puntos BIEX acumulados"><div class="bg-gris text-blanco"><i class="i-cupon"></i><strong>PROMO</strong></div>
-              <span class="promospendientes bg-gris">0</span></div>
-
-              <div class="tabla_pendientes" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Promociones PLUS disponibles por tus puntos BIEX acumulados"><div class="bg-gris text-blanco"><i class="i-escudo"></i><strong>PLUS</strong></div>
-              <span class="pluspendientes bg-gris">0</span></div>
-
-              <div class="hide tabla_pendientes" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Boletos para Semillero de líderes" style="display: none;"><div class="bg-gris text-blanco"><i class="i-semillero"></i><strong>EVENTO</strong></div>
-              <span class="semilleropendientes bg-gris">0</span></div>
-
-              <div class="tabla_pendientes" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Paquetes de viaje adquiridos/disponibles" style="display: none;"><div class="bg-gris text-blanco"><i class="i-viaje"></i><strong>VIAJE</strong></div>
-              <span class="viajependientes bg-gris">0</span></div>
-
-              <div style="clear:left"></div>                           
-
-              <span id="signal" style="display:none">&nbsp;<p class="text-verde">Configuración de pedido<br>para calificación automática por<br>acumulación de comisiones</p></span>
-              <p class="plantilla_calificacion">
-                  Compra aplica en <select class="form-control input-xs" style="display:inline;width:auto">
-                      <option value="1" selected="">MARZO</option>
-                      <option value="2">FEBRERO</option>
-                  </select>
-                  <a href="javascript:$('#modal_info_mes').modal('show')"><i class="i-ayuda text-amarillo"></i></a>
-              </p>
-              <p style="text-transform: uppercase;display: none"><span class="label label-verde">
-                  <i class="i-dinero-2"></i> Saldo a favor por $ <strong class="plantilla_saldoafavor" moneda="0">0.00</strong>
-              </span></p>
-              <span class="plantilla_borra"><span class="text-verde"><i class="i-usuario"></i> Titular del pedido</span></span>
-
-            </div>
-        &nbsp;
-        <div class="col-sm-7">
-          <div class="alert alert-secondary" role="alert" style="background-color:  #E4E4E4; color: black;font-size: 12px; ">
-            <i class="fa fa-exclamation-triangle" aria-hidden="true" style="color: red"></i>   Si deseas solicitar factura electrónica por tu compra, necesitas proporcionar los datos de facturación requeridos en tu oficina virtual BENELEIT
+        <br>
+        <div class="col-sm-1">            
+          <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar" style="width: 70px;">
+        </div>
+        <div class="col-sm-3 text-align center">                      
+          <p style="font-size: 12px;"><strong>DANIEL ISAI</strong> VELA HERNANDEZ<br>
+          <span class="badge badge-dark" style="font-size: 12px;"> 52828</span><br><i class="fa fa-user" aria-hidden="true"></i> Titular del pedido <br>
+          Compra aplica en
+          <select id="compra" name="compra" class="form-control" style="width: 100px; height: 20px;">
+            <option selected>Selecciona...</option>
+            <option>...</option>
+          </select>
+          </p>
+        </div>
+        <div class="col-sm-7">          
+          <div class="alert alert-secondary" role="alert" style="background-color:  #E4E4E4; color: black;font-size: 22px; border-color: #E4E4E4;">
+            <i class="fa fa-exclamation-circle" aria-hidden="true"></i> Pedido vacío
           </div>
-        </div>          
+        </div>
+        <div class="col-md-2 offset-md-4">
+          <button type="button" class="btn btn-success btn-sm btn-block" style="background-color: #4025A6; border-color: #4025A6;"><i class="fa fa-plus" aria-hidden="true"></i> Agregar Productos</button>
+        </div> 
+        <div class="col-md-2 offset-md-4">                 
+          <p style="font-size: 14px;">Puntos BIEX <span class="badge badge-dark">0.0</span></p>
+        </div> 
+        <div class="col-md-6 offset-md-4">                 
+          <p style="font-size: 14px; color: red;">Antes de elegir productos, debes seleccionar las opciones de entrega y método de pago</p>
+        </div>        
+        <div class="col-md-4 offset-md-7">                 
+          <h5 style="text-align: right;">Subtotal de productos <strong>$ 0.00</strong></h5>
+        </div> 
+        <div class="col-md-4 offset-md-7">                 
+          <h1 style="text-align: right;">Total <strong>$ 0.00</strong></h1>
+        </div>              
       </div>
       <div class="form-group row">
         <div class="col-sm-7">
-           <div class="alert alert-secondary" role="alert" style="background-color:  #E4E4E4; color: black;font-size: 12px; ">
-            <i class="fa fa-exclamation-triangle" aria-hidden="true" style="color: red"></i>   Si deseas solicitar factura electrónica por tu compra, necesitas proporcionar los datos de facturación requeridos en tu oficina virtual BENELEIT
+           <div class="alert alert-secondary" role="alert" style="background-color:  #E4E4E4; color: black;font-size: 12px; border-color: #E4E4E4;">
+            <i class="fa fa-exclamation-triangle" aria-hidden="true" style="color: red;"></i>   Si deseas solicitar factura electrónica por tu compra, necesitas proporcionar los datos de facturación requeridos en tu oficina virtual BENELEIT
           </div>
         </div>
         &nbsp;
         <div class="col-sm-4">
-          <button type="button" class="btn btn-success btn-lg btn-block">Block level button</button>
+          <button type="button" class="btn btn-success btn-lg btn-block"><i class="fa fa-check" aria-hidden="true"></i> Finalizar Pedido</button>
         </div>
         <div class="col-sm-4">
            <a href="" style="color: black;"><i class="fas fa-book"></i> Aviso de privacidad</a>&nbsp;|&nbsp; 
