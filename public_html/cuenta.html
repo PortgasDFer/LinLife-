@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Starter</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="assets/dist/css/adminlte.min.css">
+  <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+</head>
+<style type="text/css" media="screen">
+    a {color: white;  text-decoration: none;}
+    a:hover {color: white;text-decoration: none;}
+    a:visited {color: white;text-decoration: none;}
+  </style>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="../../index3.html" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Contact</a>
+      </li>
+    </ul>
+
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-comments"></i>
+          <span class="badge badge-danger navbar-badge">3</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="../../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can
+
+                </p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="../../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="../../dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+          <i class="fas fa-th-large"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link navbar-primary">
+      <img src="recursos/logo.jpg" alt="LinLife Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">LinLife</span>
+    </a>
+
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="https://64.media.tumblr.com/4500aac2869c2d6c9cd1e042e9f8ac67/tumblr_pf1xbcWc3E1w0po92_500.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Usuario Registrado</a>
+        </div>
+      </div>
+
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-home nav-icon"></i>
+              <p>Página principal</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-info-circle nav-icon"></i>
+              <p>Detalles de mi cuenta</p>
+            </a>
+          </li>
+          <li class="nav nav-treeview">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Mi red
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Estructura de red</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Lista</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Registrar socio</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Mis ingresos
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Esta semana</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Este mes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Desglose</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Mis compras
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Realizar pedido</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Cobro sobre comisiones</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Historial</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Herramientas
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mensajes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Documentos</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Configuración
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mi cuenta</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Domicilios</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>
+              Configuración             
+            </h1>            
+          </div>
+          <div class="col-sm-6">
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6 h4" style="margin:0;">
+            <h4>Detalle de socio <span class="badge badge-dark">New</span></h4>
+          </div>
+          <div class="col-sm">
+            <div class="btn-group btn-group-justified" role="group" aria-label="Basic mixed styles example">
+              <button type="button" class="btn btn-secondary "><i class="fa fa-home" aria-hidden="true"></i> Inicio</button>
+              <button type="button" class="btn btn-info"><i class='fas fa-money-bill-alt'></i> Pagos</button>
+              <button type="button" class="btn btn-success"><i class="fa fa-download" aria-hidden="true"></i> Downline</button>
+              <button type="button" class="btn btn-success"><i class="fa fa-upload" aria-hidden="true"></i> Upline</button>
+              <button type="button" class="btn btn-warning"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Pedidos</button>
+            </div>
+          </div>
+         </div>
+         &nbsp;
+         <div class="alert alert-secondary" role="alert" style="background-color:  #E4E4E4; color: black; ">
+          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>  Verifica que tus datos personales, bancarios y de contacto sean correctos.
+        </div>
+        <div class="accordion" id="accordionExample">
+          <div class="card">
+            <div class="card-header" id="headingOne" style="background-color: #6c757d; color: #ffffff;">
+              <h5 class="mb-0" style="color: #ffffff;">
+                <a data-toggle="collapse" data-target="#datos" aria-expanded="true" aria-controls="collapseOne" style="font-size: 15px;" style="color: #ffffff;">
+                  <i class="fa fa-user" aria-hidden="true"></i> Datos generales 
+                </a>
+              </h5>
+            </div>
+            <div id="datos" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                <form>
+                  <div class="form-group row">
+                    <div class="form-group col-md-2">
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="inputEmail4">Nombre(s)</label>
+                      <input type="nombre" class="form-control" id="nombre" placeholder="Nombre(s)" readonly="">
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label>Apellido Paterno</label>
+                      <input type="text" class="form-control" id="apaterno" name="apaterno" placeholder="Apellido Paterno" readonly="">
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label>Apellido Materno</label>
+                      <input type="text" class="form-control" id="apmaterno" name="apmaterno" placeholder="Apellido Materno" readonly="">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Correo Electrónico</label>
+                    <div class="col-sm-4">
+                      <input type="email" class="form-control" id="colFormLabel" placeholder="Correo Electrónico">
+                    </div>
+                    <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">País</label>
+                    <div class="col-sm-4">
+                      <select id="pais" name="pais" class="form-control">
+                        <option selected>Selecciona...</option>
+                        <option>...</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Fecha de Nacimiento</label>
+                    <div class="col-sm-4">
+                      <input type="date" name="fecha" class="form-control" id="fecha" placeholder="Fecha de Nacimiento">
+                    </div>
+                    <label for="colFormLabel" class="col-sm-3 col-form-label" style="text-align: right;">Entidad de Nacimiento</label>
+                    <div class="col-sm-3">
+                      <select id="entidad" name="entidad" class="form-control">
+                        <option selected>Selecciona...</option>
+                        <option>...</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-sm-4">
+                      <button type="submit" class="btn btn-warning btn-block"><i class='fas fa-pencil-alt'></i> Actualizar Datos</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="card" >
+            <div class="card-header" id="headingTwo" style="background-color: #6c757d; color: #ffffff;">
+              <h5 class="mb-0">
+                <a data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="font-size: 15px;" style="color: #ffffff;">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i> Domicilios
+                </a>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div class="card-body">
+                <div class="form-group col-sm-4-offset">
+                    <button type="submit" class="btn btn-warning btn-block"><i class="fa fa-map-marker" aria-hidden="true"></i> Editar Domicilios</button>
+                  </div>
+                <div class="card bg-light mb-3" style="max-width: 18rem;">
+                  <div class="card-header">Header   <span class="badge badge-dark">51597</span></div>
+                  <div class="card-body">
+                    <p>GUERRILLERA No. 212 <br>Colonia Aurora Segunda Sección (Benito Juárez)<br>Nezahualcóyotl, México <br>C.P. 57000<br><strong>México</strong><br></p>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="pass" style="background-color: #6c757d; color: #ffffff;">
+              <h5 class="mb-0" style="color: #ffffff;">
+                <a data-toggle="collapse" data-target="#passwords" aria-expanded="true" aria-controls="collapseOne" style="font-size: 15px;" style="color: #ffffff;">
+                  <i class="fa fa-key" aria-hidden="true"></i> Contraseña 
+                </a>
+              </h5>
+            </div>
+            <div id="passwords" class="collapse" aria-labelledby="pass" data-parent="#accordionExample">
+              <div class="card-body">
+                <form>
+                <div class="form-group row">
+                  <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Contraseña Actual</label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" id="passact" name="passact" placeholder="Contraseña Actual" readonly="">
+                  </div>
+                  <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Contraseña Nueva</label>
+                  <div class="col-sm-4">
+                    <input type="password" class="form-control" id="pass" name="pass" placeholder="Contraseña Nueva">
+                  </div>                  
+                </div>
+                <div class="form-group row">                  
+                  <div class="col-sm-12">
+                    <div class="alert alert-danger" role="alert" style="background-color:  #E4E4E4; color: black; font-size: 12px;">
+                      <i class='fas fa-exclamation-circle'></i> Al cambiar la contraseña, se enviará un mensaje a la dirección de correo electrónico relacionada con la cuenta de socio.
+                    </div>
+                  </div>            
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-2">
+                  </div>
+                  <div class="col-sm-4">
+                    <button type="submit" class="btn btn-warning btn-block"><i class='fas fa-pencil-alt'></i> Cambiar Contraseña</button>
+                  </div>
+                </div>
+              </form>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="tel" style="background-color: #6c757d; color: #ffffff;">
+              <h5 class="mb-0" style="color: #ffffff;">
+                <a data-toggle="collapse" data-target="#telefonos" aria-expanded="true" aria-controls="collapseOne" style="font-size: 15px;" style="color: #ffffff;">
+                  <i class="fa fa-phone" aria-hidden="true"></i> Teléfonos
+                </a>
+              </h5>
+            </div>
+            <div id="telefonos" class="collapse" aria-labelledby="tel" data-parent="#accordionExample">
+              <div class="card-body">
+              <div class="alert alert-danger" role="alert" style="background-color:  #E4E4E4; color: black; font-size: 12px;">
+                      <i class='fas fa-exclamation-circle'></i> Al igual que tu correo electrónico, tus números telefonicos son muy importantes ya que son nuestro medio de contacto directo contigo. ¡Mantenlos actualizados!.
+                    </div>                
+                <div class="form-group row">
+                  <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Fijo</label>
+                  <div class="col-sm-4">
+                    <input type="email" class="form-control" id="fijo" placeholder="Fijo" readonly="">
+                  </div>
+                  <div class="col-sm-3">
+                    <button type="button" class="btn btn-danger btn-block"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Celular</label>
+                  <div class="col-sm-4">
+                    <input type="email" class="form-control" id="celular" placeholder="Celular" readonly="">
+                  </div>
+                  <div class="col-sm-3">
+                    <button type="button" class="btn btn-danger btn-block"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-2">
+                    &nbsp;
+                  </div>
+                  <div class="col-sm-4">
+                    <button type="button" class="btn btn-success btn-block"><i class="fa fa-plus" aria-hidden="true"></i> Agregar Número</button>
+                  </div>                  
+                </div>                
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="fac" style="background-color: #E94C4C; color: #ffffff;">
+              <h5 class="mb-0" style="color: #ffffff;">
+                <a data-toggle="collapse" data-target="#facturacion" aria-expanded="true" aria-controls="collapseOne" style="font-size: 15px;" style="color: #ffffff;">
+                  <i class="fa fa-file" aria-hidden="true"></i> Facturación
+                </a>
+              </h5>
+            </div>
+            <div id="facturacion" class="collapse" aria-labelledby="fac" data-parent="#accordionExample">
+              <div class="card-body">   
+                <form>
+                  <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">CURP</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="curp" name="curp" placeholder="CURP">
+                    </div>                                      
+                  </div>
+                  <hr>
+                  <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Banco</label>
+                    <div class="col-sm-4">
+                      <select id="banco" name="banco" class="form-control">
+                        <option selected>Selecciona...</option>
+                        <option>...</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right; color: red;"><i class="fa fa-exclamation-triangle" style="color: red;" aria-hidden="true"></i> CLABE Interbancaria</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="clabe" name="clabe" placeholder="CLABE Interbancaria">
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">RFC</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="rfc" name="rfc" placeholder="RFC">
+                    </div>
+                    <div class="col-sm-4">
+                      <p style="font-size: 15px;"><i class="fa fa-exclamation-triangle" style="color: red;" aria-hidden="true"></i> No verificada</p>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Constancia en PDF</label>
+                    <div class="col-sm-4">
+                        <input type="file" name="constancia">
+                    </div>
+                    <div class="col-sm-6">
+                      <p style="font-size: 12px;"> Para verificar tu RFC, necesitas: <br> 1.Asegurarte que tu correo electrónico esté activo, pues será el medio de contacto para la facturación. <br> 2.Cargar tu Constancia de Situación Fiscal actualizada la cual puedes obtener en el Portal del SAT.</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;"></label>
+                    <div class="col-sm-4">
+                        <input type="checkbox" checked data-toggle="toggle" data-on="X" data-off="✔" data-onstyle="success" data-offstyle="warning" name="sexo">
+                        NO-RETENCION ISR DESACTIVADA
+                    </div>
+                    <div class="col-sm-6">
+                      <p style="font-size: 12px;"> Por Ley, LINLIFE retiene el ISR antes del pago de comisiones semanales. Si tu deseas que NO se te retenga y hacerte cargo tu mismo de su declaración ante las autoridades, activa esta casilla.</p>
+                    </div>
+                  </div>
+                </form>               
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="fot" style="background-color: #6c757d; color: #ffffff;">
+              <h5 class="mb-0" style="color: #ffffff;">
+                <a data-toggle="collapse" data-target="#foto" aria-expanded="true" aria-controls="collapseOne" style="font-size: 15px;" style="color: #ffffff;">
+                  <i class="fa fa-user-circle" aria-hidden="true"></i> Fotografía
+                </a>
+              </h5>
+            </div>
+            <div id="foto" class="collapse show" aria-labelledby="fot" data-parent="#accordionExample">
+              <div class="card-body">   
+                <div class="alert alert-secondary" role="alert" style="background-color:  #E4E4E4; color: black; font-size: 12px;">
+                  Una vez cargada la imagen, ajusta la posición y presiona en el botón GUARDAR para que tu foto quede registrada.
+                </div>
+                <form>
+                  <div class="form-group row">
+                  <div class="col-sm-2">
+                    &nbsp;
+                  </div>
+                  <div class="col-sm-4">
+                    <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg"
+                class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar" style="width: 160px;">
+                  </div>
+                  <div class="col-sm-4">
+                    <br>
+                    <br>
+                    <input type="file" name="foto">
+                  </div>                  
+                </div> 
+                </form>               
+              </div>
+            </div>
+          </div> 
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.1.0-rc
+    </div>
+    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="assets/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="assets/dist/js/adminlte.min.js"></script>
+
+<script src="assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
+</body>
+</html>
