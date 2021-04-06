@@ -14,9 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('inicio');
 });
-
+Route::get('/catalogo', function () {
+    return view('ShpInterfaces.catalogo');
+});
+Route::get('/registro',function(){
+	return view('UsrInterfaces.registro');
+});
+Route::get('/iniciar',function(){
+	return view('UsrInterfaces.login');
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
