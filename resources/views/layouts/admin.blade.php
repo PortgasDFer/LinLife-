@@ -177,7 +177,16 @@
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
-        @include('UsrInterfaces.menus.admin')
+        @if(Auth::user()->hasRole('admin'))
+          <!--Menú de administrador-->
+          @include('UsrInterfaces.menus.admin')
+          <!--/Menú de administrador-->
+        @elseif(Auth::user()->hasRole('user'))
+          <!--Menú de usuario-->
+          @include('UsrInterfaces.menus.user')
+          <!--/Menú de usuario-->
+        @endif
+
       </nav>
       <!-- /.sidebar-menu -->
     </div>
