@@ -205,7 +205,7 @@
 		                                @csrf
 		      </form>
 		    <i class="fa fa-sign-out" aria-hidden="true"></i>
-		    <p>Cerrar sesión</p>
+		    <button class="btn btn-block btn-primary">Cerrar sesión</button>
 		  </a>
 		</li>
       </ul>
