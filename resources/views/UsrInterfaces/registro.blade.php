@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Registro de nuevo socio</title>
-
+    <link rel="icon" href="{{asset('recursos/favicon.ico')}}" type="image/png">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -36,7 +36,7 @@
               </div>
               <div class="form-group col-md-4">
                 <label>Apellido Materno</label>
-                <input type="text" class="form-control" id="apmaterno" name="apmaterno" placeholder="Apellido Materno">
+                <input type="text" class="form-control" id="amaterno" name="amaterno" placeholder="Apellido Materno">
               </div>
             </div>
             <div class="form-row">
@@ -96,23 +96,23 @@
             <div class="form-row">
               <div class="form-group col-md-3">
                 <label>Teléfono de Casa</label>
-                <input type="text" class="form-control" id="telefono" placeholder="Teléfono de Casa" name="telefono">
+                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono de Casa" name="telefono">
               </div>
               <div class="form-group col-md-3">
                 <label>Teléfono Celular</label>
-                <input type="text" class="form-control" id="tel_cel" name="tel_cel" placeholder="Teléfono Celular">
+                <input type="text" class="form-control" id="cel" name="cel" placeholder="Teléfono Celular">
               </div>
               <div class="form-group col-md-2">
                 <label>INE</label>
                 <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                  <input type="file" class="custom-file-input" id="customFileLang" lang="es" name="frente">
                   <label class="custom-file-label" for="customFileLang">Frente</label>
                 </div>                
               </div>
               <div class="form-group col-md-2">
                 <label><br></label>                
                 <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                  <input type="file" class="custom-file-input" id="customFileLang" lang="es" name="atras">
                   <label class="custom-file-label" for="customFileLang">Atras</label>
                 </div>                
               </div>
@@ -124,11 +124,11 @@
             <div class="form-row">
               <div class="form-group col-md-3">
                 <label>CURP</label>
-                <input type="text" name="curp" class="form-control" id="curp" placeholder="CURP">
+                <input type="text" name="curp" class="form-control" id="curp" name="curp" placeholder="CURP">
               </div>
               <div class="form-group col-md-3">
                 <label>Fecha de Nacimiento</label>
-                <input type="date" name="fecha" class="form-control" id="fecha" placeholder="Fecha de Nacimiento">
+                <input type="date" name="fecha" class="form-control" id="fecha" name="fecha" placeholder="Fecha de Nacimiento">
               </div>
               <div class="form-group col-md-3">
                 <label>Entidad de Nacimiento</label>
@@ -163,7 +163,7 @@
               </div>
               <div class="form-group col-md-3">
                 <label>Beneficiario</label>
-                <input type="text" name="beneficiario" class="form-control" id="beneficiario" placeholder="Beneficiario">
+                <input type="text" name="beneficiario" class="form-control" id="beneficiario"  placeholder="Beneficiario" name="beneficiario">
               </div>
               <div class="form-group col-md-2">
                 <br>
