@@ -182,11 +182,10 @@
           @include('UsrInterfaces.menus.admin')
           <!--/Menú de administrador-->
         @elseif(Auth::user()->hasRole('user'))
-          <!--Menú de usuario-->
+          <!--Menú de usuarios-->
           @include('UsrInterfaces.menus.user')
-          <!--/Menú de usuario-->
+          <!--/Menú de usuarios-->
         @endif
-
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -235,7 +234,7 @@
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
-
+@include('sweetalert::alert')
 <!-- jQuery -->
 <script src="assets/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
