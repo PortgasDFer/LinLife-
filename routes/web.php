@@ -25,6 +25,10 @@ Route::get('/registro',function(){
 Route::get('/iniciar',function(){
 	return view('UsrInterfaces.login');
 });
+
+Route::get('/obtenerProductos','ProductosController@datatable')->name('datatable.producto');
+Route::resource('/productos','ProductosController');
 Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');

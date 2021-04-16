@@ -8,9 +8,12 @@
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="assets/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome-free/css/all.min.css')}}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css"> 
   <!-- Theme style -->
-  <link rel="stylesheet" href="assets/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="{{asset('assets/dist/css/adminlte.min.css')}}">
+  <script src="{{asset('vendor/sweetalert/sweetalert.all.js')}}"></script>
   @yield('scripts-header')
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -147,7 +150,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="starter.html" class="brand-link navbar-primary">
-      <img src="recursos/logo.jpg" alt="LinLife Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="{{asset('recursos/logo.jpg')}}" alt="LinLife Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">LinLife</span>
     </a>
 
@@ -235,12 +238,14 @@
 
 <!-- REQUIRED SCRIPTS -->
 @include('sweetalert::alert')
+<script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>
 <!-- jQuery -->
-<script src="assets/plugins/jquery/jquery.min.js"></script>
+<script src="{{asset('assets/plugins/jquery/jquery.min.js')}}"></script>
 <!-- Bootstrap 4 -->
-<script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
-<script src="assets/dist/js/adminlte.min.js"></script>
+<script src="{{asset('assets/dist/js/adminlte.min.js')}}"></script>
+@yield('scripts')
 </body>
 </head>	
 </html>
