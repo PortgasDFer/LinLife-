@@ -28,6 +28,9 @@ Route::get('/iniciar',function(){
 
 Route::get('/obtenerProductos','ProductosController@datatable')->name('datatable.producto');
 Route::resource('/productos','ProductosController');
+
+Route::get('/obtenerUsers','UsersController@datatable')->name('datatable.user');
+Route::resource('/usuarios','UsersController');
 Auth::routes();
 
 

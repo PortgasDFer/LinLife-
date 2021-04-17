@@ -71,4 +71,9 @@ class User extends Authenticatable
         }
         return false;
     }
+
+    public function createCode($value)
+    {
+       $this->attributes['name']=strtolower($value);
+    }
 }

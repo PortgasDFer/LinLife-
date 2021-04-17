@@ -22,10 +22,10 @@ class ProductosController extends Controller
     {
         $productos=Producto::all();
         return DataTables::of($productos)
-                        ->addColumn('edit','AdmInterfaces.IntProductos.botones.edit')
-                        ->addColumn('delete','AdmInterfaces.IntProductos.botones.delete')
-                        ->rawColumns(['edit','delete'])
-                        ->toJson();  
+                ->addColumn('edit','AdmInterfaces.IntProductos.botones.edit')
+                ->addColumn('delete','AdmInterfaces.IntProductos.botones.delete')
+                ->rawColumns(['edit','delete'])
+                ->toJson();  
     }
 
 
