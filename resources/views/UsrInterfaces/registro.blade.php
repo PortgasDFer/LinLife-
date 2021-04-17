@@ -214,26 +214,9 @@
   <script src="{{asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <!-- AdminLTE App -->
   <script src="{{asset('assets/dist/js/adminlte.min.js')}}"></script>
+  <!-- API sepomex -->
+  <script src="{{asset('js/sepomex.js')}}"></script>
 
   <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
-  <script language="javascript">
-    function cargar_datos(cp){
-      //var cp = document.getElementById("cp");
-      console.log(cp);
-      $.get('https://api-sepomex.hckdrk.mx/query/info_cp/'+cp+'?token=099e8302-1414-4f99-9f28-62c14163138c', function (data){
-          console.log(data);
-          var string = JSON.stringify(data)
-          var datos = JSON.parse(string);
-          document.registro.localidad.value=datos[0].response.municipio;
-          document.getElementById("entidad").value=datos[0].response.estado;
-          $('#colonia').empty();
-          $('#colonia').append('<option value="" class="form-control" disable="true" selected="true">Seleccione una colonia</option>');
-          $.each(datos,function(fetch, colonia){
-            //console.log(colonia.response.asentamiento);
-            $('#colonia').append('<option class="form-control" value="'+colonia.response.asentamiento+'" disable="true" selected="true">'+colonia.response.asentamiento+'</option>');
-          })
-      })
-    }
-  </script>
   </body>
 </html>
