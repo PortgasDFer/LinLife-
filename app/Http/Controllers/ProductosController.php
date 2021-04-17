@@ -120,7 +120,7 @@ class ProductosController extends Controller
      */
     public function edit($code)
     {
-        $producto=Producto::find($code)->firstOrFail();
+        $producto=Producto::find($code);
         //return $producto;
         return view('AdmInterfaces.IntProductos.edit',compact('producto'));
     }
@@ -134,7 +134,7 @@ class ProductosController extends Controller
      */
     public function update(Request $request, $code)
     {
-        $producto=Producto::find($code)->firstOrFail();
+        $producto=Producto::find($code);
         $request->validate([
             'code'        => 'required|min:2',
             'nombre'      => 'required|min:4',
@@ -153,6 +153,7 @@ class ProductosController extends Controller
         if($request->hasFile('imagen')){
              $file_path = public_path() . "/productoimg/$producto->imagen";
             \File::delete($file_path);
+
             $file=$request->file('imagen');
             $foto=$producto->nombre.$file->getClientOriginalExtension();
             $image= Image::make($file)->encode('webp',90)->save(public_path('/productoimg/' . $foto.'.webp'));
@@ -170,9 +171,8 @@ class ProductosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($code)
+    public function destroy(Producto $producto)
     {
-        $producto=Producto::find($code)->firstOrFail();
         $producto->delete();
         alert()->info('LIN LIFE', 'Producto eliminado');
         return Redirect::to('/productos');

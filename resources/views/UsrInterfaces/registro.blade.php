@@ -19,12 +19,32 @@
   <section class="bg-light">
     <div class="container">
       <br>
-      <br>      
+      <br>
+      @if (count($errors) > 0)
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="alert alert-danger">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+            </div>
+          </div>
+        </div>
+      @endif
+      @if ($message = Session::get('success'))
+          <div class="alert alert-success alert-block">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <strong>{{ $message }}</strong>
+          </div>
+      @endif
       <div class="card">
         <h5 class="card-header">Registro de nuevo socio</h5>
         <div class="card-body">
           <p style="font-size:90%;">Proporciona en el siguiente formulario la información que se te solicita. Es importante que la verifiques antes de enviarla. Asegurate que tus datos personales coincidan con tu documentación oficial y que tu correo electrónico y tus teléfonos esten vigentes. Solicitamos tu domicilio postal por que ahí es donde haremos llegar el envío de tus productos, promociones y regalos.</p>
-          <form>
+          <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+            @csrf
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label>Nombre</label>
@@ -40,18 +60,25 @@
               </div>
             </div>
             <div class="form-row">
-              <div class="form-group col-md-9">
+              <div class="form-group col-md-4">
                 <label>Correo Electrónico</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Correo Electrónico">
               </div>
-              <div class="form-group col-md-1">
+              <div class="col-md-4">
+                <label for="">Contraseña</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
+              </div>
+              <div class="form-group col-md-4">
+                <label>Confirmar contraseña</label>
+                <input type="password" class="form-control" id="password" name="password_confirmation" placeholder="Correo Electrónico">             
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
                 <label>Sexo</label>
                 <br>
-                <input type="checkbox" checked data-toggle="toggle" data-on="H" data-off="M" data-onstyle="success" data-offstyle="warning" name="sexo">                
-              </div>
-              <div class="form-group col-md-1">
-                <br>
-                <p style="font-size:80%;">H (Hombre) <br> M (Mujer)</p>               
+                <input type="checkbox" checked data-toggle="toggle" data-on="H" data-off="M" data-onstyle="success" data-offstyle="warning" name="sexo"> 
+                <p style="font-size:80%;">H (Hombre) <br> M (Mujer)</p>                   
               </div>
             </div>
             <hr>
@@ -81,11 +108,11 @@
               </div>
               <div class="form-group col-md-3">
                 <label>Localidad</label>
-                <input type="text" class="form-control" id="localidad" name="localidad" placeholder="Localidad" disabled="disabled">
+                <input type="text" class="form-control" id="localidad" name="localidad" placeholder="Localidad">
               </div>
               <div class="form-group col-md-3">
                 <label>Entidad</label>
-                <input type="text" class="form-control" id="entidad" name="entidad" placeholder="Entidad" disabled="disabled">
+                <input type="text" class="form-control" id="entidad" name="entidad" placeholder="Entidad">
               </div>              
               <div class="form-group col-md-12">
                 <label>Descripción de la ubicación</label>                
@@ -147,8 +174,8 @@
             </div>
             <div class="form-row">
               <div class="form-group col-md-2">
-                <label>Patrocinador</label>
-                <input type="text" name="patrocinador" class="form-control" id="patrocinador" placeholder="Patrocinador">
+                <label>Invitación</label>
+                <input type="text" name="invitacion" class="form-control" id="invitacion" placeholder="Patrocinador">
               </div>
               <div class="form-group col-md-2">
                 <label>Banco</label>

@@ -53,8 +53,8 @@
         <div class="row"> 
           <div class="col-lg-8">
             <div class="card">
-                <div class="card-header border-transparent">
-                  <h3 class="card-title bg-primary">Productos</h3>
+                <div class="card-header border-transparent bg-primary">
+                  <h3 class="card-title">Productos</h3>
 
                   <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -67,7 +67,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body p-0">
-                  <div class="table-responsive">
+                  <div class="table-responsive mt-2">
                     <table id="productos" class="table table-striped table-bordered" style="width:100%">
                       <thead>
                         <tr>
@@ -175,6 +175,24 @@
           }
         }
     });
+  });
+
+ $('.delete-confirm').click(function(event) {
+      var form =  $(this).closest("form");
+      var name = $(this).data("name");
+      event.preventDefault();
+      swal({
+          title: `Are you sure you want to delete ${name}?`,
+          text: "If you delete this, it will be gone forever.",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          form.submit();
+        }
+      });
   });
 </script>
 @endsection
