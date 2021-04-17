@@ -14,6 +14,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('assets/dist/css/adminlte.min.css')}}">
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <script src=" http://servicios.apiqroo.com.mx/sepomex/public/js/sepomex_js/sepomex.js"></script>
   </head>
   <body>    
   <section class="bg-light">
@@ -43,7 +44,7 @@
         <h5 class="card-header">Registro de nuevo socio</h5>
         <div class="card-body">
           <p style="font-size:90%;">Proporciona en el siguiente formulario la información que se te solicita. Es importante que la verifiques antes de enviarla. Asegurate que tus datos personales coincidan con tu documentación oficial y que tu correo electrónico y tus teléfonos esten vigentes. Solicitamos tu domicilio postal por que ahí es donde haremos llegar el envío de tus productos, promociones y regalos.</p>
-          <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+          <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" name="registro">
             @csrf
             <div class="form-row">
               <div class="form-group col-md-4">
@@ -97,7 +98,7 @@
               </div>
               <div class="form-group col-md-4">
                 <label>Código Postal</label>                
-                <input type="text" class="form-control" id="cp" name="cp" placeholder="Código Postal">
+                <input type="text" class="form-control" id="cp" name="cp" placeholder="Código Postal" onchange="cargar_datos(this.value)">
               </div>
               <div class="form-group col-md-6">
                 <label>Colonia</label>
@@ -107,12 +108,12 @@
                 </select>
               </div>
               <div class="form-group col-md-3">
-                <label>Localidad</label>
-                <input type="text" class="form-control" id="localidad" name="localidad" placeholder="Localidad">
+                <label>Municipio</label>
+                <input type="text" class="form-control" id="localidad" name="localidad" placeholder="Localidad" readonly="">
               </div>
               <div class="form-group col-md-3">
-                <label>Entidad</label>
-                <input type="text" class="form-control" id="entidad" name="entidad" placeholder="Entidad">
+                <label>Estado</label>
+                <input type="text" class="form-control" id="entidad" name="entidad" placeholder="Entidad" readonly="">
               </div>              
               <div class="form-group col-md-12">
                 <label>Descripción de la ubicación</label>                
@@ -215,5 +216,19 @@
   <script src="{{asset('assets/dist/js/adminlte.min.js')}}"></script>
 
   <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+  <script language="javascript">
+    function cargar_datos(cp){
+      //var cp = document.getElementById("cp");
+      console.log(cp);
+      $.get('https://api-sepomex.hckdrk.mx/query/info_cp/'+cp+'?token=099e8302-1414-4f99-9f28-62c14163138c', function (data){
+          console.log(data);
+          var string = JSON.stringify(data)
+          var datos = JSON.parse(string);
+          console.log(datos[0].response.estado);
+          document.registro.localidad.value=datos[0].response.municipio;
+          document.getElementById("entidad").value=datos[0].response.estado;
+      })
+    }
+  </script>
   </body>
 </html>
