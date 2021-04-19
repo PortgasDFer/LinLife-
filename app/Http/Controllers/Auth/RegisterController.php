@@ -98,7 +98,7 @@ class RegisterController extends Controller
             $image= Image::make($atras)->encode('webp',90)->save(public_path('/identificaciones/' . $filename_atras.'.webp'));
         }
 
-        $slug=Str::slug($data['nombre'].time());
+        
         $user = User::create([
             'name'      => $data['nombre'],
             'aPaterno'  => $data['apaterno'],
@@ -118,9 +118,10 @@ class RegisterController extends Controller
             'atras'     => $filename_atras,
             'baja'      => 0,
             'status_cuenta' => 'PENDIENTE',
-            'slug'      => $slug,
         ]);
         $user->roles()->attach(Role::where('name', 'user')->first());
+        $user->slug=Str::slug($user->name.time(),"-");
+        $user->save();
         $domicilio = Domicilio::create([
             'calle' =>$data['calle'],
             'noext' =>$data['ext'],
@@ -132,6 +133,8 @@ class RegisterController extends Controller
             'descripcion'=>$data['descripcion'],
             'id_user' => $user->id,
         ]);
+
+
         return $user;
     }
 }
