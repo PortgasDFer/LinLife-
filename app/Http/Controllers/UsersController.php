@@ -27,7 +27,7 @@ class UsersController extends Controller
         $users=User::where('baja','=',0)->get();
         return DataTables::of($users)
                 ->addColumn('edit','AdmInterfaces.IntUsers.botones.edit')
-                ->addColumn('delete','AdmInterfaces.IntUsers.botones.view')
+                ->addColumn('view','AdmInterfaces.IntUsers.botones.view')
                 ->addColumn('delete','AdmInterfaces.IntUsers.botones.delete')
                 ->rawColumns(['edit','view','delete'])
                 ->toJson();  
@@ -72,7 +72,8 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        $user=User::find($id);
+        return $user;
     }
 
     /**

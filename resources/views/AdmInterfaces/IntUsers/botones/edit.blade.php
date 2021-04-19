@@ -1,1 +1,1 @@
-<button class="btn btn-danger"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+<a href="/usuarios/{{$id}}"><button class="btn btn-danger"><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
