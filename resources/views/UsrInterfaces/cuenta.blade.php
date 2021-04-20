@@ -61,39 +61,32 @@
                     </div>
                     <div class="form-group col-md-3">
                       <label for="inputEmail4">Nombre(s)</label>
-                      <input type="nombre" class="form-control" id="nombre" placeholder="Nombre(s)" readonly="">
+                      <input type="nombre" class="form-control" id="nombre" placeholder="Nombre(s)" readonly="" value="{{ auth()->user()->name }}">
                     </div>
                     <div class="form-group col-md-3">
                       <label>Apellido Paterno</label>
-                      <input type="text" class="form-control" id="apaterno" name="apaterno" placeholder="Apellido Paterno" readonly="">
+                      <input type="text" class="form-control" id="apaterno" name="apaterno" placeholder="Apellido Paterno" readonly="" value="{{ auth()->user()->aPaterno }}">
                     </div>
                     <div class="form-group col-md-3">
                       <label>Apellido Materno</label>
-                      <input type="text" class="form-control" id="apmaterno" name="apmaterno" placeholder="Apellido Materno" readonly="">
+                      <input type="text" class="form-control" id="apmaterno" name="apmaterno"readonly="" placeholder="Apellido Materno" value="{{ auth()->user()->aMaterno }}"> 
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Correo Electrónico</label>
                     <div class="col-sm-4">
-                      <input type="email" class="form-control" id="colFormLabel" placeholder="Correo Electrónico">
-                    </div>
-                    <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">País</label>
-                    <div class="col-sm-4">
-                      <select id="pais" name="pais" class="form-control">
-                        <option selected>Selecciona...</option>
-                        <option>...</option>
-                      </select>
+                      <input type="email" class="form-control" id="colFormLabel" placeholder="Correo Electrónico" value="{{ auth()->user()->email }}">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Fecha de Nacimiento</label>
                     <div class="col-sm-4">
-                      <input type="date" name="fecha" class="form-control" id="fecha" placeholder="Fecha de Nacimiento">
+                      <input type="date" name="fecha" class="form-control" id="fecha" placeholder="Fecha de Nacimiento" value="{{ auth()->user()->fechanac }} ">
                     </div>
                     <label for="colFormLabel" class="col-sm-3 col-form-label" style="text-align: right;">Entidad de Nacimiento</label>
                     <div class="col-sm-3">
                       <select id="entidad" name="entidad" class="form-control">
-                        <option selected>Selecciona...</option>
+                        <option selected>{{ auth()->user()->entidad }}</option>
                         <option>...</option>
                       </select>
                     </div>
@@ -124,7 +117,7 @@
                     <button type="submit" class="btn btn-warning btn-block"><i class="fa fa-map-marker" aria-hidden="true"></i> Editar Domicilios</button>
                   </div>
                 <div class="card bg-light mb-3" style="max-width: 18rem;">
-                  <div class="card-header">Header   <span class="badge badge-dark">51597</span></div>
+                  <div class="card-header">Casa   <span class="badge badge-dark">51597</span></div>
                   <div class="card-body">
                     <p>GUERRILLERA No. 212 <br>Colonia Aurora Segunda Sección (Benito Juárez)<br>Nezahualcóyotl, México <br>C.P. 57000<br><strong>México</strong><br></p>
                   </div>
@@ -146,7 +139,7 @@
                 <div class="form-group row">
                   <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Contraseña Actual</label>
                   <div class="col-sm-4">
-                    <input type="text" class="form-control" id="passact" name="passact" placeholder="Contraseña Actual" readonly="">
+                    <input type="text" class="form-control" id="passact" name="passact" placeholder="Contraseña Actual" readonly=""value="{{ auth()->user()->password }}" >
                   </div>
                   <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Contraseña Nueva</label>
                   <div class="col-sm-4">
@@ -182,34 +175,30 @@
             <div id="telefonos" class="collapse" aria-labelledby="tel" data-parent="#accordionExample">
               <div class="card-body">
               <div class="alert alert-danger" role="alert" style="background-color:  #E4E4E4; color: black; font-size: 12px;">
-                      <i class='fas fa-exclamation-circle'></i> Al igual que tu correo electrónico, tus números telefonicos son muy importantes ya que son nuestro medio de contacto directo contigo. ¡Mantenlos actualizados!.
-                    </div>                
+                <i class='fas fa-exclamation-circle'></i> Al igual que tu correo electrónico, tus números telefonicos son muy importantes ya que son nuestro medio de contacto directo contigo. ¡Mantenlos actualizados!.
+              </div>
+              <form method="GET" action="/tel/{{auth()->id()}}" enctype="multipart/form-data">                
+                @csrf
                 <div class="form-group row">
                   <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Fijo</label>
                   <div class="col-sm-4">
-                    <input type="email" class="form-control" id="fijo" placeholder="Fijo" readonly="">
+                    <input type="input" class="form-control" id="fijo" name="fijo" placeholder="Fijo" value="{{ auth()->user()->telcasa }}">
                   </div>
                   <div class="col-sm-3">
-                    <button type="button" class="btn btn-danger btn-block"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                    <button type="submit" class="btn btn-warning btn-block"><i class='fas fa-pencil-alt'></i> Actualizar</button>
                   </div>
                 </div>
+                 </form>
                 <div class="form-group row">
                   <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Celular</label>
                   <div class="col-sm-4">
-                    <input type="email" class="form-control" id="celular" placeholder="Celular" readonly="">
+                    <input type="input" class="form-control" id="celular" name="celular" placeholder="Celular" value="{{ auth()->user()->telcel }}">
                   </div>
                   <div class="col-sm-3">
-                    <button type="button" class="btn btn-danger btn-block"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                    <button type="button" class="btn btn-warning btn-block"><i class='fas fa-pencil-alt'></i> Actualizar</button>
                   </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-sm-2">
-                    &nbsp;
-                  </div>
-                  <div class="col-sm-4">
-                    <button type="button" class="btn btn-success btn-block"><i class="fa fa-plus" aria-hidden="true"></i> Agregar Número</button>
-                  </div>                  
-                </div>                
+                </div> 
+                            
               </div>
             </div>
           </div>
@@ -316,3 +305,7 @@
     </section>
     <!-- /.content -->
 @endsection
+<script src=" http://servicios.apiqroo.com.mx/sepomex/public/js/sepomex_js/sepomex.js"></script>
+<script src="{{asset('js/sepomex.js')}}"></script>
+  
+

@@ -29,6 +29,7 @@ Route::get('/cuenta',function(){
 	return view('UsrInterfaces.cuenta');
 });
 
+
 Route::get('/obtenerProductos','ProductosController@datatable')->name('datatable.producto');
 Route::resource('/productos','ProductosController');
 
@@ -38,3 +39,6 @@ Auth::routes();
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/tel/{{id}}', 'CuentaController@telefonos')->name('tel');
+
+
