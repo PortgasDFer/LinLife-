@@ -41,5 +41,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/cuenta','CuentaController');
 Route::post('/tel/{user}', 'CuentaController@telefonos')->name('tel');
-
+Route::post('/datos/{user}', 'CuentaController@datospersonales')->name('datos');
+Route::post('/contra/{user}', 'CuentaController@contraseña')->name('contra');
+Route::post('/fac/{user}', 'CuentaController@facturacion')->name('fac');
+Route::post('/fotoperfil/{user}', 'CuentaController@foto')->name('fotoperfil');
 

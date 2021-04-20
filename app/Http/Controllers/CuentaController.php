@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Domicilio;
+use Image;
 use Alert;
 use Redirect,Response;
 
@@ -17,8 +19,9 @@ class CuentaController extends Controller
     public function index()
     {
         $usuario = User::find(auth()->id());
+        $domicilio=Domicilio::where('id_user','=',auth()->id())->get();
         //return $usuario;
-        return view('UsrInterfaces.cuenta', compact('usuario'));
+        return view('UsrInterfaces.cuenta', compact('usuario','domicilio'));
     }
 
     /**
@@ -30,14 +33,102 @@ class CuentaController extends Controller
     {
         //
     }
+
+    public function datospersonales(Request $request, $id)
+    {          
+        $validate = $request->validate([
+            'email' => 'required',
+            'fecha' => 'required|max:200',
+            'entidad' => 'required',
+            //'nombre' => 'required|regex:/^[\pL\s\-]+$/u',
+        ]);           
+        $user = User::find($id);
+        $user->email=$request->input('email');
+        $user->fechanac=$request->input('fecha');
+        $user->entidadnac=$request->input('entidad');
+        $user->save();
+        alert()->success('LIN LIFE', 'Datos actualizados');
+        return Redirect::to('/cuenta');
+    }
+
     public function telefonos(Request $request, $id)
-    {                     
+    {              
+        $validate = $request->validate([
+            'fijo'   => ['required','numeric','min:10','max'],
+            'celular'   => ['required','numeric','min:10','max'],
+            //'nombre' => 'required|regex:/^[\pL\s\-]+$/u',
+        ]);       
         $user = User::find($id);
         $user->telcasa=$request->input('fijo');
         $user->telcel=$request->input('celular');
         $user->save();
         alert()->success('LIN LIFE', 'Telefonos actualizados');
         return Redirect::to('/cuenta');
+    }
+
+    
+
+    public function contraseña(Request $request, $id)
+    {   
+        $validate = $request->validate([
+            'password'   => ['required'],
+            //'nombre' => 'required|regex:/^[\pL\s\-]+$/u',
+        ]);                   
+        $user = User::find($id);
+        $user->password=$request->input('password');
+        $user->save();
+        alert()->success('LIN LIFE', 'Contraseña actualizada');
+        return Redirect::to('/cuenta');
+    }
+
+    public function facturacion(Request $request, $id)
+    {   
+        $validate = $request->validate([
+            'curp'   => ['required'],
+            'banco'   => ['required'],
+            'clabe'   => ['required'],  
+            'rfc'   => ['required'],
+            'constancia'   => ['required'],            
+        ]);
+        $user = User::find($id);
+
+        if($request->hasFile('constancia')){
+            $file = $request->file('constancia');
+            $pdf = time().$file->getClientOriginalName();
+            $file->move(public_path().'/constancias/',$pdf);
+        }
+
+        $user->curp=$request->input('curp');
+        $user->banco=$request->input('banco');
+        $user->clabe=$request->input('clabe');
+        $user->rfc=$request->input('rfc');
+        $user->constancia=$pdf;
+        $user->save();
+        alert()->success('LIN LIFE', 'Datos bancarios actualizados');
+        return Redirect::to('/cuenta');
+
+    }
+
+    public function foto(Request $request, $id)
+    {   
+        $validate = $request->validate([
+            'foto'   => ['required'],           
+        ]);
+
+        $user = User::find($id);
+
+        if($request->hasFile('foto')){
+             $file_path = public_path() . "/imgusers/$user->avatar";
+            \File::delete($file_path);
+            $file=$request->file('foto');
+            $foto=$user->nombre.$file->getClientOriginalExtension();
+            $image= Image::make($file)->encode('webp',90)->save(public_path('/imgusers/' . $foto.'.webp'));
+            $user->avatar=$foto.'.webp';
+        }
+        $user->save();
+        alert()->success('LIN LIFE', 'Foto de perfil actualizada');
+        return Redirect::to('/cuenta');
+
     }
     /**
      * Store a newly created resource in storage.
