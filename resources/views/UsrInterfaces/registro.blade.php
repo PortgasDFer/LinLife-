@@ -49,21 +49,21 @@
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label>Nombre</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" value="{{ old('nombre') }}">
               </div>
               <div class="form-group col-md-4">
                 <label>Apellido Paterno</label>
-                <input type="text" class="form-control" id="apaterno" name="apaterno" placeholder="Apellido Paterno">
+                <input type="text" class="form-control" id="apaterno" name="apaterno" placeholder="Apellido Paterno" value="{{ old('apaterno') }}">
               </div>
               <div class="form-group col-md-4">
                 <label>Apellido Materno</label>
-                <input type="text" class="form-control" id="amaterno" name="amaterno" placeholder="Apellido Materno">
+                <input type="text" class="form-control" id="amaterno" name="amaterno" placeholder="Apellido Materno"value="{{ old('amaterno') }}">
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label>Correo Electrónico</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Correo Electrónico">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Correo Electrónico" value="{{ old('email') }}">
               </div>
               <div class="col-md-4">
                 <label for="">Contraseña</label>
@@ -86,19 +86,19 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label>Calle</label>
-                <input type="text" class="form-control" id="calle" name="calle" placeholder="Calle">
+                <input type="text" class="form-control" id="calle" name="calle" placeholder="Calle" value="{{ old('calle') }}">
               </div>
               <div class="form-group col-md-1">
                 <label>No. Ext.</label>
-                <input type="text" class="form-control" id="ext" name="ext" placeholder="No. Ext.">
+                <input type="text" class="form-control" id="ext" name="ext" placeholder="No. Ext." value="{{ old('ext') }}">
               </div>
               <div class="form-group col-md-1">
                 <label>No. Int.</label>
-                <input type="text" class="form-control" id="int" name="int" placeholder="No. Int." >
+                <input type="text" class="form-control" id="int" name="int" placeholder="No. Int." value="{{ old('int') }}">
               </div>
               <div class="form-group col-md-4">
                 <label>Código Postal</label>                
-                <input type="text" class="form-control" id="cp" name="cp" placeholder="Código Postal" onchange="cargar_datos(this.value)">
+                <input type="text" class="form-control" id="cp" name="cp" placeholder="Código Postal" onchange="cargar_datos(this.value)" value="{{ old('cp') }}">
               </div>
               <div class="form-group col-md-6">
                 <label>Colonia</label>
@@ -117,18 +117,18 @@
               </div>              
               <div class="form-group col-md-12">
                 <label>Descripción de la ubicación</label>                
-                <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripción de la ubicación">
+                <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripción de la ubicación" value="{{ old('descripcion') }}">
               </div>
             </div>
             <hr>
             <div class="form-row">
               <div class="form-group col-md-3">
                 <label>Teléfono de Casa</label>
-                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono de Casa" name="telefono">
+                <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono de Casa" name="telefono" value="{{ old('telefono') }}">
               </div>
               <div class="form-group col-md-3">
                 <label>Teléfono Celular</label>
-                <input type="text" class="form-control" id="cel" name="cel" placeholder="Teléfono Celular">
+                <input type="text" class="form-control" id="cel" name="cel" placeholder="Teléfono Celular" value="{{ old('cel') }}">
               </div>
               <div class="form-group col-md-2">
                 <label>INE</label>
@@ -152,22 +152,22 @@
             <div class="form-row">
               <div class="form-group col-md-3">
                 <label>CURP</label>
-                <input type="text" name="curp" class="form-control" id="curp" name="curp" placeholder="CURP">
+                <input type="text" name="curp" class="form-control" id="curp" name="curp" placeholder="CURP" value="{{ old('curp') }}">
               </div>
               <div class="form-group col-md-3">
                 <label>Fecha de Nacimiento</label>
-                <input type="date" name="fecha" class="form-control" id="fecha" name="fecha" placeholder="Fecha de Nacimiento">
+                <input type="date" name="fecha" class="form-control" id="fecha" name="fecha" placeholder="Fecha de Nacimiento" value="{{ old('fecha') }}">
               </div>
               <div class="form-group col-md-3">
                 <label>Entidad de Nacimiento</label>
-                <select id="entidad" name="entidad" class="form-control">
+                <select id="entidad" name="entidad" class="form-control" value="{{ old('entidad') }}">
                   <option selected>Selecciona...</option>
                   <option>...</option>
                 </select>
               </div>
               <div class="form-group col-md-3">
                 <label>Estado Civil</label>
-                <select id="estado" name="estado" class="form-control">
+                <select id="estado" name="estado" class="form-control"> value="{{ old('estado') }}"
                   <option selected>Selecciona...</option>
                   <option>...</option>
                 </select>
@@ -176,11 +176,11 @@
             <div class="form-row">
               <div class="form-group col-md-2">
                 <label>Invitación</label>
-                <input type="text" name="invitacion" class="form-control" id="invitacion" placeholder="Patrocinador">
+                <input type="text" name="invitacion" class="form-control" id="invitacion" placeholder="Patrocinador" value="{{ old('invitacion') }}">
               </div>
               <div class="form-group col-md-2">
                 <label>Banco</label>
-                <select id="banco" name="banco" class="form-control">
+                <select id="banco" name="banco" class="form-control" value="{{ old('banco') }}">
                   <option selected>Selecciona...</option>
                   <option>...</option>
                 </select>
@@ -191,7 +191,7 @@
               </div>
               <div class="form-group col-md-3">
                 <label>Beneficiario</label>
-                <input type="text" name="beneficiario" class="form-control" id="beneficiario"  placeholder="Beneficiario" name="beneficiario">
+                <input type="text" name="beneficiario" class="form-control" id="beneficiario"  placeholder="Beneficiario" name="beneficiario" value="{{ old('beneficiario') }}">
               </div>
               <div class="form-group col-md-2">
                 <br>
