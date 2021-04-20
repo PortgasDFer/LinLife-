@@ -177,7 +177,7 @@
               <div class="alert alert-danger" role="alert" style="background-color:  #E4E4E4; color: black; font-size: 12px;">
                 <i class='fas fa-exclamation-circle'></i> Al igual que tu correo electrónico, tus números telefonicos son muy importantes ya que son nuestro medio de contacto directo contigo. ¡Mantenlos actualizados!.
               </div>
-              <form method="GET" action="/tel/{{auth()->id()}}" enctype="multipart/form-data">                
+              <form method="POST" action="/tel/{{auth()->id()}}" enctype="multipart/form-data">                
                 @csrf
                 <div class="form-group row">
                   <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Fijo</label>

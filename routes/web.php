@@ -39,6 +39,7 @@ Auth::routes();
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/tel/{{id}}', 'CuentaController@telefonos')->name('tel');
+Route::resource('/cuenta','CuentaController');
+Route::post('/tel/{user}', 'CuentaController@telefonos')->name('tel');
 
 

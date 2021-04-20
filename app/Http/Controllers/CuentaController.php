@@ -14,10 +14,11 @@ class CuentaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
         $usuario = User::find(auth()->id());
-        return view('UsrInterfaces.cuenta', compact('dato'));
+        //return $usuario;
+        return view('UsrInterfaces.cuenta', compact('usuario'));
     }
 
     /**
