@@ -18,4 +18,10 @@
   </div><!-- /.container-fluid -->
 </div>
 <!-- /.content-header -->
+<section class="content">
+  <div class="container-fluid">
+    
+  </div>
+</section>
+
 @endsection

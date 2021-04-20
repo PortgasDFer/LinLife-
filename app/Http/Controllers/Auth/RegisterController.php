@@ -10,6 +10,7 @@ use Image;
 use App\Domicilio;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str as Str;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -96,6 +97,8 @@ class RegisterController extends Controller
             $filename_atras= time(). '.' .$atras->getClientOriginalExtension();
             $image= Image::make($atras)->encode('webp',90)->save(public_path('/identificaciones/' . $filename_atras.'.webp'));
         }
+
+        
         $user = User::create([
             'name'      => $data['nombre'],
             'aPaterno'  => $data['apaterno'],
@@ -114,9 +117,11 @@ class RegisterController extends Controller
             'frente'    => $filename,
             'atras'     => $filename_atras,
             'baja'      => 0,
-
+            'status_cuenta' => 'PENDIENTE',
         ]);
         $user->roles()->attach(Role::where('name', 'user')->first());
+        $user->slug=Str::slug($user->name.time(),"-");
+        $user->save();
         $domicilio = Domicilio::create([
             'calle' =>$data['calle'],
             'noext' =>$data['ext'],
@@ -128,6 +133,8 @@ class RegisterController extends Controller
             'descripcion'=>$data['descripcion'],
             'id_user' => $user->id,
         ]);
+
+
         return $user;
     }
 

@@ -59,7 +59,7 @@
                     <th colspan="3">Nombre</th>
                     <th>Telefono casa</th>
                     <th>Celular</th>
-                    <th colspan="">Acciones</th>
+                    <th colspan="3">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>	
@@ -85,10 +85,11 @@
             {data:'name'},
             {data:'aPaterno'},
             {data:'aMaterno'},
-            {data:'created_at'},
             {data:'telcasa'},
             {data:'telcel'},
-            {data:'edit',orderable:false, searchable:false}
+            {data:'edit',orderable:false, searchable:false},
+            {data:'view',orderable:false,searchable:false},
+            {data:'delete',orderable:false,searchable:false}
         ],
         language: {
           "decimal": "",

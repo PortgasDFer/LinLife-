@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name','aPaterno','aMaterno', 'email', 'password','code','avatar','sexo','telcasa','telcel','frente','atras','curp','fechanac','entidadnac','estado','invitacion','baja'
+        'name','aPaterno','aMaterno', 'email', 'password','code','avatar','sexo','telcasa','telcel','frente','atras','curp','fechanac','entidadnac','estado','invitacion','baja','status_cuenta'
     ];
 
     /**
@@ -37,6 +37,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
 
     public function roles()
     {
