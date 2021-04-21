@@ -225,4 +225,10 @@ class UsersController extends Controller
         alert()->success('LIN LIFE', 'Status de cuenta actualizado con éxito');
         return Redirect::to('/validar-identidades');
     }
+
+    public function validarCodigo($code)
+    {
+        $usuario=User::where('code','=',$code)->firstOrFail();
+        return Response::json($usuario);
+    }
 }

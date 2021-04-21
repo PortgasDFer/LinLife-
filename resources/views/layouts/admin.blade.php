@@ -69,10 +69,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="https://64.media.tumblr.com/4500aac2869c2d6c9cd1e042e9f8ac67/tumblr_pf1xbcWc3E1w0po92_500.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="/imgusers/{{Auth::user()->avatar}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Usuario Registrado</a>
+          <a href="#" class="d-block">{{ Auth::user()->name }} {{Auth::user()->aPaterno}} {{Auth::user()->aMaterno}}</a>
         </div>
       </div>
 

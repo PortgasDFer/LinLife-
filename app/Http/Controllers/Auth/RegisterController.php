@@ -73,7 +73,7 @@ class RegisterController extends Controller
             'fecha'   => ['required'],
             'entidad' => ['required'],
             'estado'     => ['required'],
-            'invitacion' => ['required','string'],
+            'invitacion' => ['required','string','min:10','max:10'],
         ]);
     }
 

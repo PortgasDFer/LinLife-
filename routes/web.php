@@ -39,6 +39,7 @@ Route::get('/validar-identidades','UsersController@identificaciones')->name('val
 Route::get('/verificar/{usuario}','UsersController@verificarUsuario')->name('verificar.usuario');
 Route::post('/status/{usuario}','UsersController@statusCuenta')->name('status.usuario');
 Auth::routes();
+Route::get('/validar-codigo/{usuario}','UsersController@validarCodigo')->name('usuario.validar');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

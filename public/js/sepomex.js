@@ -16,14 +16,12 @@ function cargar_datos(cp){
 const d = document;
 $selectEstados = d.getElementById("entidad");
 function cargarEstados(){
-  console.log($selectEstados);
   fetch("https://api-sepomex.hckdrk.mx/query/get_estados?token=099e8302-1414-4f99-9f28-62c14163138c")
   .then(res=>res.ok ? res.json():Promise.reject(res))
   .then(json=>{
     let $options = `<option value="" name="entidad" class="form-control">Elige un Estado</option>`;
     json.response.estado.forEach(el=>$options+=`<option name="entidad" class="form-control" value="${el}">${el}</option>`);
     $selectEstados.innerHTML=$options;
-    console.log($options);
   })
   .catch(err=>{
       console.log(err);

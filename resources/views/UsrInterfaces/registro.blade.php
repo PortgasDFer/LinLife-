@@ -175,11 +175,7 @@
               </div>
             </div>
             <div class="form-row">
-              <div class="form-group col-md-2">
-                <label>Invitación</label>
-                <input type="text" name="invitacion" class="form-control" id="invitacion" placeholder="Patrocinador" value="{{ old('invitacion') }}">
-              </div>
-              <div class="form-group col-md-2">
+              <div class="form-group col-md-4">
                 <label>Banco</label>
                 <select id="banco" name="banco" class="form-control" value="{{ old('banco') }}">
                   <option selected>Selecciona...</option>
@@ -196,11 +192,23 @@
               </div>
               <div class="form-group col-md-2">
                 <br>
-                <p style="font-size:80%;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Escriba su nombre tal como aparece en la credencial del INE.</p>               
+                <p style="font-size:80%;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Escriba su nombre tal como aparece en la credencial del INE.</p>  
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Invitación</label>
+                <input type="text" name="invitacion" class="form-control" id="invitacion" placeholder="Código de invitación" value="{{ old('invitacion') }}">
+                <button class="btn btn-primary form-control" onclick="validar_codigo(invitacion.value)" type="button">Validar</button>
+              </div>
+              <div class="form-group col-md-6">
+                <p id="nombre-codigo">Ingrese un código de invitación</p>
+                <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar" style="width: 160px;" id="patrocinador">
+
               </div>
             </div>
             <hr>
-            <button type="submit" class="btn btn-primary">Finalizar Registro</button>
+            <button type="submit" class="btn btn-primary" disabled="" id="finalizar">Finalizar Registro</button>
           </form>
         </div>
       </div>  
@@ -219,5 +227,23 @@
   <script src="{{asset('js/sepomex.js')}}"></script>
 
   <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+  <script>
+    function validar_codigo(codigo){
+      var img=document.getElementById("patrocinador");
+      var nombre=document.getElementById("nombre-codigo");
+      var boton=document.getElementById("finalizar");
+      var img_dir='/imgusers/';
+      $.get('/validar-codigo/'+codigo,function(data){
+        //console.log(data);
+        if(data!=null){
+          img.src=img_dir+data.avatar;
+          nombre.innerHTML=data.name+" "+data.aPaterno+" "+data.aMaterno;
+          boton.disabled=false;
+        }else{
+          nombre.innerHTML="INGRESA UN CÓDIGO VALIDO";
+        }
+      })
+    }
+  </script>
   </body>
 </html>
