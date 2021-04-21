@@ -28,7 +28,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-sm-6 h4" style="margin:0;">
-            <h4>Detalle de socio <span class="badge badge-dark">New</span></h4>
+            <h4>Detalle de socio <span class="badge badge-dark">{{ $usuario->code }}</span></h4>
           </div>
           <div class="col-sm">
             <div class="btn-group btn-group-justified" role="group" aria-label="Basic mixed styles example">
@@ -52,43 +52,90 @@
                   <i class="fa fa-user" aria-hidden="true"></i> Datos generales 
                 </a>
               </h5>
-            </div>
+            </div>            
             <div id="datos" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
               <div class="card-body">
-                <form>
+                <form method="POST" action="/datos/{{auth()->id()}}" enctype="multipart/form-data">
+                  @csrf
                   <div class="form-group row">
                     <div class="form-group col-md-2">
                     </div>
                     <div class="form-group col-md-3">
                       <label for="inputEmail4">Nombre(s)</label>
-                      <input type="nombre" class="form-control" id="nombre" placeholder="Nombre(s)" readonly="" value="{{ auth()->user()->name }}">
+                      <input type="input" class="form-control" id="nombre" name="nombre" placeholder="Nombre(s)" readonly="" value="{{ $usuario->name }}">
                     </div>
                     <div class="form-group col-md-3">
                       <label>Apellido Paterno</label>
-                      <input type="text" class="form-control" id="apaterno" name="apaterno" placeholder="Apellido Paterno" readonly="" value="{{ auth()->user()->aPaterno }}">
+                      <input type="input" class="form-control" id="apaterno" name="apaterno" placeholder="Apellido Paterno" readonly="" value="{{ $usuario->aPaterno }}">
                     </div>
                     <div class="form-group col-md-3">
                       <label>Apellido Materno</label>
-                      <input type="text" class="form-control" id="apmaterno" name="apmaterno"readonly="" placeholder="Apellido Materno" value="{{ auth()->user()->aMaterno }}"> 
+                      <input type="input" class="form-control" id="apmaterno" name="apmaterno"readonly="" placeholder="Apellido Materno" value="{{ $usuario->aMaterno }}"> 
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Correo Electrónico</label>
                     <div class="col-sm-4">
-                      <input type="email" class="form-control" id="colFormLabel" placeholder="Correo Electrónico" value="{{ auth()->user()->email }}">
+                      <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Correo Electrónico" autocomplete="email"  value="{{ $usuario->email }}">
+                      @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Fecha de Nacimiento</label>
                     <div class="col-sm-4">
-                      <input type="date" name="fecha" class="form-control" id="fecha" placeholder="Fecha de Nacimiento" value="{{ auth()->user()->fechanac }} ">
+                      <input type="date" name="fecha" class="form-control @error('fecha') is-invalid @enderror" id="fecha" placeholder="Fecha de Nacimiento" value="{{$usuario->fechanac}}">
+                      @error('fecha')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror                      
                     </div>
-                    <label for="colFormLabel" class="col-sm-3 col-form-label" style="text-align: right;">Entidad de Nacimiento</label>
+                    <label for="colFormLabel" class="col-sm-3 col-form-label @error('entidad') is-invalid @enderror" style="text-align: right;">Entidad de Nacimiento</label>
                     <div class="col-sm-3">
                       <select id="entidad" name="entidad" class="form-control">
-                        <option selected>{{ auth()->user()->entidad }}</option>
-                        <option>...</option>
+                        <option selected>{{ $usuario->entidadnac }}</option>
+                        <option value="Aguascalientes">Aguascalientes</option>
+                        <option value="Baja California">Baja California</option>
+                        <option value="Baja California Sur">Baja California Sur</option>
+                        <option value="Campeche">Campeche</option>
+                        <option value="Chiapas">Chiapas</option>
+                        <option value="Chihuahua">Chihuahua</option>
+                        <option value="CDMX">Ciudad de México</option>
+                        <option value="Coahuila">Coahuila</option>
+                        <option value="Colima">Colima</option>
+                        <option value="Durango">Durango</option>
+                        <option value="Estado de México">Estado de México</option>
+                        <option value="Guanajuato">Guanajuato</option>
+                        <option value="Guerrero">Guerrero</option>
+                        <option value="Hidalgo">Hidalgo</option>
+                        <option value="Jalisco">Jalisco</option>
+                        <option value="Michoacán">Michoacán</option>
+                        <option value="Morelos">Morelos</option>
+                        <option value="Nayarit">Nayarit</option>
+                        <option value="Nuevo León">Nuevo León</option>
+                        <option value="Oaxaca">Oaxaca</option>
+                        <option value="Puebla">Puebla</option>
+                        <option value="Querétaro">Querétaro</option>
+                        <option value="Quintana Roo">Quintana Roo</option>
+                        <option value="San Luis Potosí">San Luis Potosí</option>
+                        <option value="Sinaloa">Sinaloa</option>
+                        <option value="Sonora">Sonora</option>
+                        <option value="Tabasco">Tabasco</option>
+                        <option value="Tamaulipas">Tamaulipas</option>
+                        <option value="Tlaxcala">Tlaxcala</option>
+                        <option value="Veracruz">Veracruz</option>
+                        <option value="Yucatán">Yucatán</option>
+                        <option value="Zacatecas">Zacatecas</option>                        
                       </select>
+                      @error('entidad')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror 
                     </div>
                   </div>
                   <div class="form-group row">
@@ -119,7 +166,7 @@
                 <div class="card bg-light mb-3" style="max-width: 18rem;">
                   <div class="card-header">Casa   <span class="badge badge-dark">51597</span></div>
                   <div class="card-body">
-                    <p>GUERRILLERA No. 212 <br>Colonia Aurora Segunda Sección (Benito Juárez)<br>Nezahualcóyotl, México <br>C.P. 57000<br><strong>México</strong><br></p>
+                    <p>{{ $domicilio}} <br>Colonia Aurora Segunda Sección (Benito Juárez)<br>Nezahualcóyotl, México <br>C.P. 57000<br><strong>México</strong><br></p>
                   </div>
                 </div>
             </div>
@@ -135,15 +182,21 @@
             </div>
             <div id="passwords" class="collapse" aria-labelledby="pass" data-parent="#accordionExample">
               <div class="card-body">
-                <form>
+                <form method="POST" action="/contra/{{auth()->id()}}" enctype="multipart/form-data">                
+                @csrf
                 <div class="form-group row">
                   <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Contraseña Actual</label>
                   <div class="col-sm-4">
-                    <input type="text" class="form-control" id="passact" name="passact" placeholder="Contraseña Actual" readonly=""value="{{ auth()->user()->password }}" >
+                    <input type="text" class="form-control" id="passact" name="passact" placeholder="Contraseña Actual" readonly=""value="{{ $usuario->password }}" >
                   </div>
                   <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Contraseña Nueva</label>
                   <div class="col-sm-4">
-                    <input type="password" class="form-control" id="pass" name="pass" placeholder="Contraseña Nueva">
+                    <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Contraseña Nueva">
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror 
                   </div>                  
                 </div>
                 <div class="form-group row">                  
@@ -182,23 +235,33 @@
                 <div class="form-group row">
                   <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Fijo</label>
                   <div class="col-sm-4">
-                    <input type="input" class="form-control" id="fijo" name="fijo" placeholder="Fijo" value="{{ auth()->user()->telcasa }}">
+                    <input type="input" class="form-control @error('fijo') is-invalid @enderror" id="fijo" name="fijo" placeholder="Fijo" value="{{ $usuario->telcasa }}">
+                    @error('fijo')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror 
                   </div>
                   <div class="col-sm-3">
                     <button type="submit" class="btn btn-warning btn-block"><i class='fas fa-pencil-alt'></i> Actualizar</button>
                   </div>
                 </div>
-                 </form>
+
                 <div class="form-group row">
                   <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Celular</label>
                   <div class="col-sm-4">
-                    <input type="input" class="form-control" id="celular" name="celular" placeholder="Celular" value="{{ auth()->user()->telcel }}">
+                    <input type="input" class="form-control @error('celular') is-invalid @enderror" id="celular" name="celular" placeholder="Celular" value="{{ $usuario->telcel }}">
+                    @error('celular')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror 
                   </div>
                   <div class="col-sm-3">
-                    <button type="button" class="btn btn-warning btn-block"><i class='fas fa-pencil-alt'></i> Actualizar</button>
+                    <button type="submit" class="btn btn-warning btn-block"><i class='fas fa-pencil-alt'></i> Actualizar</button>
                   </div>
                 </div> 
-                            
+                    </form>        
               </div>
             </div>
           </div>
@@ -212,34 +275,57 @@
             </div>
             <div id="facturacion" class="collapse" aria-labelledby="fac" data-parent="#accordionExample">
               <div class="card-body">   
-                <form>
+                <form method="POST" action="/fac/{{auth()->id()}}" enctype="multipart/form-data">                
+                @csrf
                   <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">CURP</label>
                     <div class="col-sm-4">
-                      <input type="text" class="form-control" id="curp" name="curp" placeholder="CURP">
+                      <input type="text" style="text-transform:uppercase;" class="form-control @error('curp') is-invalid @enderror" id="curp" name="curp" placeholder="CURP" value="{{$usuario->curp}}">
+                      @error('curp')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror 
                     </div>                                      
                   </div>
                   <hr>
                   <div class="form-group row">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Banco</label>
+                   <label for="colFormLabel" class="col-sm-2 col-form-label @error('banco') is-invalid @enderror" style="text-align: right;">Banco</label>
+
                     <div class="col-sm-4">
                       <select id="banco" name="banco" class="form-control">
-                        <option selected>Selecciona...</option>
-                        <option>...</option>
-                      </select>
+                        <option selected>{{$usuario->banco}}</option>
+                        <option value="Azteca">Azteca</option>
+                        @error('banco')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
+                      </select>                      
                     </div>
+                    
                   </div>
                   <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right; color: red;"><i class="fa fa-exclamation-triangle" style="color: red;" aria-hidden="true"></i> CLABE Interbancaria</label>
                     <div class="col-sm-4">
-                      <input type="text" class="form-control" id="clabe" name="clabe" placeholder="CLABE Interbancaria">
+                      <input type="text" class="form-control  @error('clabe') is-invalid @enderror" id="clabe" name="clabe" placeholder="CLABE Interbancaria" value="{{$usuario->clabe}}">
+                      @error('clabe')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror 
                     </div>
                   </div>
                   <hr>
                   <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">RFC</label>
                     <div class="col-sm-4">
-                      <input type="text" class="form-control" id="rfc" name="rfc" placeholder="RFC">
+                      <input type="text" style="text-transform:uppercase;" class="form-control  @error('rfc') is-invalid @enderror" id="rfc" name="rfc" placeholder="RFC" value="{{$usuario->rfc}}">
+                      @error('rfc')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror 
                     </div>
                     <div class="col-sm-4">
                       <p style="font-size: 15px;"><i class="fa fa-exclamation-triangle" style="color: red;" aria-hidden="true"></i> No verificada</p>
@@ -248,7 +334,12 @@
                   <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Constancia en PDF</label>
                     <div class="col-sm-4">
-                        <input type="file" name="constancia">
+                        <input type="file" name="constancia" class="form-control  @error('constancia') is-invalid @enderror">
+                        @error('constancia')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror 
                     </div>
                     <div class="col-sm-6">
                       <p style="font-size: 12px;"> Para verificar tu RFC, necesitas: <br> 1.Asegurarte que tu correo electrónico esté activo, pues será el medio de contacto para la facturación. <br> 2.Cargar tu Constancia de Situación Fiscal actualizada la cual puedes obtener en el Portal del SAT.</p>
@@ -264,7 +355,11 @@
                     <div class="col-sm-6">
                       <p style="font-size: 12px;"> Por Ley, LINLIFE retiene el ISR antes del pago de comisiones semanales. Si tu deseas que NO se te retenga y hacerte cargo tu mismo de su declaración ante las autoridades, activa esta casilla.</p>
                     </div>
-                  </div>
+                     <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;"></label>
+                    <div class="col-sm-3">
+                    <button type="submit" class="btn btn-warning btn-block"><i class='fas fa-pencil-alt'></i> Actualizar</button>
+                  </div>                    
+                  </div>                                  
                 </form>               
               </div>
             </div>
@@ -279,23 +374,33 @@
             </div>
             <div id="foto" class="collapse show" aria-labelledby="fot" data-parent="#accordionExample">
               <div class="card-body">   
-                <div class="alert alert-secondary" role="alert" style="background-color:  #E4E4E4; color: black; font-size: 12px;">
-                  Una vez cargada la imagen, ajusta la posición y presiona en el botón GUARDAR para que tu foto quede registrada.
-                </div>
-                <form>
+                <form method="POST" action="/fotoperfil/{{auth()->id()}}" enctype="multipart/form-data">                
+                @csrf
                   <div class="form-group row">
                   <div class="col-sm-2">
                     &nbsp;
                   </div>
                   <div class="col-sm-4">
-                    <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg"
-                class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar" style="width: 160px;">
-                  </div>
+                    @if($usuario->avatar!=null)                      
+                      <img src="/imgusers/{{$usuario->avatar}}" class="rounded-circle z-depth-1-half avatar-pic" style="width: 160px;"/>
+                    @else
+                      <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar" style="width: 160px;">
+                      @endif
+                   </div>
                   <div class="col-sm-4">
                     <br>
                     <br>
-                    <input type="file" name="foto">
-                  </div>                  
+                    <input type="file" name="foto" id="foto" class="form-control @error('foto') is-invalid @enderror">
+                    @error('foto')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
+                    &nbsp;
+                    <div class="col-sm-112">
+                    <button type="submit" class="btn btn-warning btn-block"><i class='fas fa-pencil-alt'></i> Actualizar</button>
+                  </div>
+
                 </div> 
                 </form>               
               </div>
