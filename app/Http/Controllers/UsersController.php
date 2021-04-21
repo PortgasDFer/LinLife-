@@ -137,10 +137,10 @@ class UsersController extends Controller
         $user->telcel=$request->input('cel');
         $request = app('request');
         if($request->hasfile('frente')){
-            $file_path = public_path() . "/identificaciones/$user->frente=$filename";
+            $file_path = public_path() . "/identificaciones/$user->frente";
             \File::delete($file_path);
             $frente=$request->file('frente');
-            $filename= time(). '.'. $frente->getClientOriginalExtension();
+            $filename= time().$frente->getClientOriginalExtension();
             $image= Image::make($frente)->encode('webp',90)->save(public_path('/identificaciones/' . $filename.'.webp'));
             $user->frente=$filename;
         }
@@ -154,7 +154,7 @@ class UsersController extends Controller
         }
         $user->curp=$request->input('curp');
         $user->fechanac=$request->input('fecha');
-        $user->estado=$request->input('estado');
+        $user->estado_civil=$request->input('estado-civil');
         $user->slug=Str::slug($user->name.time());
         $user->save();
 
@@ -186,5 +186,35 @@ class UsersController extends Controller
         $user->save();
         alert()->success('LIN LIFE', 'Usuario eliminado');
         return Redirect::to('/usuarios');
+    }
+
+
+    public function identificaciones()
+    {
+        $users=User::all()->count();
+        $verificados=User::where('status_cuenta','=','VERIFICADO')->count();
+        $pendientes=User::where('status_cuenta','=','PENDIENTE')->count();
+
+        $verificar=User::select('users.name','users.aPaterno','users.aMaterno','domicilios.localidad','domicilios.colonia','domicilios.entidad','users.slug','users.status_cuenta')
+        ->join("domicilios","domicilios.id_user","=","users.id")
+        ->where('users.status_cuenta','=','PENDIENTE')
+        ->paginate(6);
+        return view('AdmInterfaces.IntUsers.validaciones',compact('users','verificados','pendientes','verificar'));
+    }
+
+    public function verificarUsuario($slug)
+    {
+        $user=User::where('slug','=',$slug)->firstOrFail();
+        $domicilio = Domicilio::where('id_user','=',$user->id)->firstOrFail();
+        return view('AdmInterfaces.IntUsers.verificar',compact('user','domicilio'));
+    }
+
+    public function statusCuenta(Request $request, $slug)
+    {
+        $user=User::where('slug','=',$slug)->firstOrFail();
+        $user->status_cuenta=$request->input('status');
+        $user->save();
+        alert()->success('LIN LIFE', 'Status de cuenta actualizado con éxito');
+        return Redirect::to('/validar-identidades');
     }
 }

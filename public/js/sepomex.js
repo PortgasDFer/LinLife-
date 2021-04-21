@@ -5,7 +5,7 @@ function cargar_datos(cp){
       var string = JSON.stringify(data)
       var datos = JSON.parse(string);
       document.registro.localidad.value=datos[0].response.municipio;
-      document.getElementById("entidad").value=datos[0].response.estado;
+      document.getElementById("estado").value=datos[0].response.estado;
       $('#colonia').empty();
       $('#colonia').append('<option value="" class="form-control" disable="true" selected="true">Seleccione una colonia</option>');
       $.each(datos,function(fetch, colonia){

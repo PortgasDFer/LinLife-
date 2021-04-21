@@ -112,7 +112,8 @@ class RegisterController extends Controller
             'atras'     => $data['atras'],
             'curp'      => $data['curp'],
             'fechanac'  => $data['fecha'],
-            'estado'    => $data['estado'],
+            'entidadnac'    => $data['entidad'],
+            'estado_civil'=>$data['estado_civil'],
             'invitacion'=> $data['invitacion'],
             'frente'    => $filename,
             'atras'     => $filename_atras,
@@ -129,7 +130,7 @@ class RegisterController extends Controller
             'cp'    =>$data['cp'],
             'colonia' =>$data['colonia'],
             'localidad'=>$data['localidad'],
-            'entidad'   => $data['entidad'],
+            'entidad'   => $data['estado'],
             'descripcion'=>$data['descripcion'],
             'id_user' => $user->id,
         ]);

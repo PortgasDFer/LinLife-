@@ -108,7 +108,7 @@
               </div>
               <div class="form-group col-md-3">
                 <label>Estado</label>
-                <input type="text" class="form-control" id="entidad" name="entidad" placeholder="Entidad" readonly="">
+                <input type="text" class="form-control" id="estado" name="estado" placeholder="Estado" readonly="">
               </div>              
               <div class="form-group col-md-12">
                 <label>Descripción de la ubicación</label>                
@@ -162,9 +162,11 @@
               </div>
               <div class="form-group col-md-3">
                 <label>Estado Civil</label>
-                <select id="estado" name="estado" class="form-control">
+                <select id="estado-civil" name="estado-civil" class="form-control">
                   <option selected>Selecciona...</option>
-                  <option>...</option>
+                  <option value="Soltero">Soltero</option>
+                  <option value="Casado">Casado</option>
+                  <option value="Unión Libre">Unión Libre</option>
                 </select>
               </div>
             </div>
