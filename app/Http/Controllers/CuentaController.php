@@ -121,7 +121,7 @@ class CuentaController extends Controller
              $file_path = public_path() . "/imgusers/$user->avatar";
             \File::delete($file_path);
             $file=$request->file('foto');
-            $foto=$user->nombre.$file->getClientOriginalExtension();
+            $foto=time().$user->nombre.$file->getClientOriginalExtension();
             $image= Image::make($file)->encode('webp',90)->save(public_path('/imgusers/' . $foto.'.webp'));
             $user->avatar=$foto.'.webp';
         }
