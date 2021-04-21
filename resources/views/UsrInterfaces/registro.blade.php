@@ -161,8 +161,7 @@
               <div class="form-group col-md-3">
                 <label>Entidad de Nacimiento</label>
                 <select id="entidad" name="entidad" class="form-control" value="{{ old('entidad') }}">
-                  <option selected>Selecciona...</option>
-                  <option>...</option>
+                  <option value="">Elige un estado</option>
                 </select>
               </div>
               <div class="form-group col-md-3">
