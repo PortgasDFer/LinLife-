@@ -72,7 +72,7 @@ class RegisterController extends Controller
             'curp'       => ['required','string','min:18','max:18'],
             'fecha'   => ['required'],
             'entidad' => ['required'],
-            'estado'     => ['required'],
+            'estado-civil'     => ['required'],
             'invitacion' => ['required','string','min:10','max:10'],
         ]);
     }
@@ -91,11 +91,15 @@ class RegisterController extends Controller
             $frente=$request->file('frente');
             $filename= time(). '.'. $frente->getClientOriginalExtension();
             $image= Image::make($frente)->encode('webp',90)->save(public_path('/identificaciones/' . $filename.'.webp'));
+        }else{
+            $filename="";
         }
         if($request->hasfile('atras')){
             $atras=$request->file('atras');
             $filename_atras= time(). '.' .$atras->getClientOriginalExtension();
             $image= Image::make($atras)->encode('webp',90)->save(public_path('/identificaciones/' . $filename_atras.'.webp'));
+        }else{
+            $filename_atras="";
         }
 
         
@@ -108,12 +112,10 @@ class RegisterController extends Controller
             'sexo'      => $data['sexo'],
             'telcasa'   => $data['telefono'],
             'telcel'    => $data['cel'],
-            'frente'    => $data['frente'],
-            'atras'     => $data['atras'],
             'curp'      => $data['curp'],
             'fechanac'  => $data['fecha'],
             'entidadnac'    => $data['entidad'],
-            'estado_civil'=>$data['estado_civil'],
+            'estado_civil'=>$data['estado-civil'],
             'invitacion'=> $data['invitacion'],
             'frente'    => $filename,
             'atras'     => $filename_atras,
