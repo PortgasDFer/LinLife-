@@ -98,7 +98,7 @@
               </div>
               <div class="form-group col-md-4">
                 <label>Código Postal</label>                
-                <input type="text" class="form-control" id="cp" name="cp" placeholder="Código Postal" onchange="cargar_datos(this.value)" value="{{ old('cp') }}">
+                <input type="text" class="form-control" id="cp" name="cp" placeholder="Código Postal" onchange="cargar_datos(this.value)" >
               </div>
               <div class="form-group col-md-6">
                 <label>Colonia</label>
