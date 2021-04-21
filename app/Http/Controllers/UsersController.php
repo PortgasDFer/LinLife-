@@ -213,6 +213,14 @@ class UsersController extends Controller
     {
         $user=User::where('slug','=',$slug)->firstOrFail();
         $user->status_cuenta=$request->input('status');
+        if($user->status_cuenta=='VERIFICADO'){
+            $codigobase=User::select('code')->orderby('code','DESC')->first();
+            $codigonuevo=substr($codigobase, 9,-7);
+            $numero=substr($codigobase,14,-2);
+            $contador=$numero+1;
+            $codigo=$codigonuevo.$contador;
+            $user->code=$codigo;
+        }
         $user->save();
         alert()->success('LIN LIFE', 'Status de cuenta actualizado con éxito');
         return Redirect::to('/validar-identidades');
