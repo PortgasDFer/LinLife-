@@ -72,11 +72,9 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <p>Primer Nivel</p>
-
                 <div class="progress">
-                  <div class="progress-bar bg-primary progress-bar-striped" role="progressbar"
-                       aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
-                    <span class="sr-only">10% completado</span>
+                  <div class="progress-bar bg-primary progress-bar-striped" role="progressbar" aria-valuenow="{{$porcentaje}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$porcentaje}}%">
+                    <span class="sr-only">{{$porcentaje}}% completado</span>
                   </div>
                 </div>
               </div>
@@ -115,34 +113,29 @@
                 <table class="table table-bordered">
                   <thead>
                     <tr>
-                      <th style="width: 10px">#</th>
-                      <th>Socio</th>
                       <th>Estado</th>
+                      <th>Socio</th>
+                      <th></th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>14154</td>
-                      <td>Socio Nuevo 1</td>
-                      <td><span class="badge bg-danger">INACTIVO</span></td>
-                    </tr>
-                    <tr>
-                      <td>14155</td>
-                      <td>Socio Nuevo 2</td>
-                      <td><span class="badge bg-success">ACTIVO</span></td>
-                    </tr>
+                  	@forelse($invitados as $invitado)
+                  		<tr>
+	                      <td><span class="badge badge-primary">{{$invitado->status_cuenta}}</span></td>
+	                      <td>{{$invitado->name}} {{$invitado->aPaterno}} {{$invitado->aMaterno}}</td>
+	                      <td></td>
+	                    </tr>
+                  	@empty
+                  	<h2>Aún no invitas a nadie a registrarse.</h2>
+                  	<p>
+                  		Utiliza tú código de invitación para registrar a un amigo
+                  		<br>
+                  		Tú código es: {{Auth::user()->code}}
+                  	</p>
+                  	@endforelse
+                    
                   </tbody>
                 </table>
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer clearfix">
-                <ul class="pagination pagination-sm m-0 float-right">
-                  <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                </ul>
               </div>
             </div>
         </div>

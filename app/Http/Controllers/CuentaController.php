@@ -139,7 +139,15 @@ class CuentaController extends Controller
             alert()->info('LIN LIFE',' Los datos de los perfiles son personales');
             $user=User::where('slug','=',\Auth::user()->slug)->firstOrFail();
         }
-        return view('UsrInterfaces.detalles',compact('user'));
+        $invitados=$user::where('invitacion','=',$user->code)->get();
+        
+        $noInvitados=$user::where('invitacion','=',$user->code)->count();
+
+        $porcentaje=$noInvitados/10*100;
+
+
+        
+        return view('UsrInterfaces.detalles',compact('user','invitados','porcentaje'));
     }
     /**
      * Store a newly created resource in storage.
