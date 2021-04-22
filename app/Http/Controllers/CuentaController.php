@@ -21,9 +21,8 @@ class CuentaController extends Controller
         $usuario = User::find(auth()->id());
         $domicilio=Domicilio::where('id_user','=',auth()->id())->get();
         //return $usuario;
-        return view('UsrInterfaces.cuenta', compact('usuario','domicilio'));
+        return view('UsrInterfaces.cuenta', compact('usuario','domicilio'));        
     }
-
     /**
      * Show the form for creating a new resource.
      *
