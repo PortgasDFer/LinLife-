@@ -130,6 +130,17 @@ class CuentaController extends Controller
         return Redirect::to('/cuenta');
 
     }
+
+
+    public function detallesCuenta($slug)
+    {
+        $user=User::where('slug','=', $slug)->firstOrFail();
+        if($slug!=\Auth::user()->slug){
+            alert()->info('LIN LIFE',' Los datos de los perfiles son personales');
+            $user=User::where('slug','=',\Auth::user()->slug)->firstOrFail();
+        }
+        return view('UsrInterfaces.detalles',compact('user'));
+    }
     /**
      * Store a newly created resource in storage.
      *

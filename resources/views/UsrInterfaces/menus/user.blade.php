@@ -8,7 +8,7 @@
     </a>
   </li>
   <li class="nav-item">
-    <a href="vistas/detalles/detalles.html" class="nav-link">
+    <a href="/micuenta/{{Auth::user()->slug}}" class="nav-link">
       <i class="fas fa-info-circle nav-icon"></i>
       <p>Detalles de mi cuenta</p>
     </a>

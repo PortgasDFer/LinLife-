@@ -45,6 +45,7 @@ Route::get('/validar-codigo/{usuario}','UsersController@validarCodigo')->name('u
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/micuenta/{usuario}','CuentaController@detallesCuenta');
 Route::resource('/cuenta','CuentaController');
 Route::post('/tel/{user}', 'CuentaController@telefonos')->name('tel');
 Route::post('/datos/{user}', 'CuentaController@datospersonales')->name('datos');
