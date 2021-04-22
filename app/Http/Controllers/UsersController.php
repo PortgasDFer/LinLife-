@@ -231,4 +231,29 @@ class UsersController extends Controller
         $usuario=User::where('code','=',$code)->firstOrFail();
         return Response::json($usuario);
     }
+
+    public function subirIdentificacion()
+    {
+        return view('UsrInterfaces.identificaciones');
+    }
+
+    public function guardarIne(Request $request, $slug)
+    {
+        $user=User::where('slug','=',$slug)->firstOrFail();
+        if($request->hasfile('frente')){
+            $frente=$request->file('frente');
+            $filename= time(). '.'. $frente->getClientOriginalExtension();
+            $image= Image::make($frente)->encode('webp',90)->save(public_path('/identificaciones/' . $filename.'.webp'));
+        }
+         if($request->hasfile('atras')){
+            $atras=$request->file('atras');
+            $filename_atras= time(). '.' .$atras->getClientOriginalExtension();
+            $image= Image::make($atras)->encode('webp',90)->save(public_path('/identificaciones/' . $filename_atras.'.webp'));
+        }
+        $user->frente=$filename;
+        $user->atras=$filename_atras;
+        $user->save();
+        alert()->success('LIN LIFE', 'Identificaciones cargadas con éxito ');
+        return Redirect::to('/home');
+    }
 }
