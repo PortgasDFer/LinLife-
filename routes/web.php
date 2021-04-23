@@ -45,7 +45,8 @@ Route::get('/validar-codigo/{usuario}','UsersController@validarCodigo')->name('u
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/micuenta/{usuario}','CuentaController@detallesCuenta');
+Route::get('/micuenta/{usuario}','CuentaController@detallesCuenta')->name('cuenta.usuario');
+Route::get('/estructura-de-red/{usuario}','CuentaController@miEstructura')->name('estructura.usuario');
 Route::resource('/cuenta','CuentaController');
 Route::post('/tel/{user}', 'CuentaController@telefonos')->name('tel');
 Route::post('/datos/{user}', 'CuentaController@datospersonales')->name('datos');

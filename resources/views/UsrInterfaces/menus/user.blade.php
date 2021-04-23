@@ -23,7 +23,7 @@
     </a>
     <ul class="nav nav-treeview">
       <li class="nav-item">
-        <a href="vistas/red/estructura.html" class="nav-link">
+        <a href="/estructura-de-red/{{Auth::user()->slug}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>Estructura de red</p>
         </a>
