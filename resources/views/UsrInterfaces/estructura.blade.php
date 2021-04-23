@@ -93,7 +93,7 @@
             </div>
             <!-- /.card-body -->
             <div class="card-footer text-center">
-              <a href="/lista-de-red/{{Auth::user()->slug}}">Ver lista completa</a>
+              <a href="/lista-de-red/{{Auth::user()->slug}}a?">Ver lista completa</a>
             </div>
             <!-- /.card-footer -->
           </div>

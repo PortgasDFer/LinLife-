@@ -54,5 +54,5 @@ Route::post('/contra/{user}', 'CuentaController@contraseña')->name('contra');
 Route::post('/fac/{user}', 'CuentaController@facturacion')->name('fac');
 Route::post('/fotoperfil/{user}', 'CuentaController@foto')->name('fotoperfil');
 
-Route::get('/obtenerDomicilios','DomiciliosController@datatable')->name('datatable.domicilio');
+Route::get('/obtenerDomicilios','DomicilioController@datatable')->name('datatable.domicilio');
 

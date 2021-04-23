@@ -48,7 +48,6 @@
                     <table id="domicilios" class="table table-striped table-bordered" style="width:100%">
                       <thead>
                         <tr>                                                        
-                          <th>Nombre</th>
                           <th>Calle</th>
                           <th>No Exterior</th>                            
                           <th>CP</th>
@@ -80,7 +79,6 @@
         "autoWidth": false,
         "ajax": "/obtenerDomicilios",
         "columns": [            
-            {data:'nombre'},
             {data:'calle'},
             {data:'noext'},
             {data:'cp'},
