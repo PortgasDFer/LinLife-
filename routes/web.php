@@ -25,9 +25,7 @@ Route::get('/registro',function(){
 Route::get('/iniciar',function(){
 	return view('UsrInterfaces.login');
 });
-Route::get('/cuenta',function(){
-	return view('UsrInterfaces.cuenta');
-});
+
 
 
 Route::get('/obtenerProductos','ProductosController@datatable')->name('datatable.producto');
@@ -49,9 +47,12 @@ Route::get('/micuenta/{usuario}','CuentaController@detallesCuenta')->name('cuent
 Route::get('/estructura-de-red/{usuario}','CuentaController@miEstructura')->name('estructura.usuario');
 Route::get('/lista-de-red/{usuario}','CuentaController@miLista')->name('lista.usuario');
 Route::resource('/cuenta','CuentaController');
+Route::resource('/domicilios','DomicilioController');
 Route::post('/tel/{user}', 'CuentaController@telefonos')->name('tel');
 Route::post('/datos/{user}', 'CuentaController@datospersonales')->name('datos');
 Route::post('/contra/{user}', 'CuentaController@contraseña')->name('contra');
 Route::post('/fac/{user}', 'CuentaController@facturacion')->name('fac');
 Route::post('/fotoperfil/{user}', 'CuentaController@foto')->name('fotoperfil');
+
+Route::get('/obtenerDomicilios','DomiciliosController@datatable')->name('datatable.domicilio');
 

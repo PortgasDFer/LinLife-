@@ -109,7 +109,7 @@
               </div>
               <div class="form-group col-md-3">
                 <label>Municipio</label>
-                <input type="text" class="form-control" id="localidad" name="localidad" placeholder="Localidad" readonly="">
+                <input type="text" class="form-control" id="localidad" name="localidad" placeholder="Municipio" readonly="">
               </div>
               <div class="form-group col-md-3">
                 <label>Estado</label>

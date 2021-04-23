@@ -21,9 +21,8 @@ class CuentaController extends Controller
         $usuario = User::find(auth()->id());
         $domicilio=Domicilio::where('id_user','=',auth()->id())->get();
         //return $usuario;
-        return view('UsrInterfaces.cuenta', compact('usuario','domicilio'));
+        return view('UsrInterfaces.cuenta', compact('usuario','domicilio'));        
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -121,7 +120,7 @@ class CuentaController extends Controller
              $file_path = public_path() . "/imgusers/$user->avatar";
             \File::delete($file_path);
             $file=$request->file('foto');
-            $foto=$user->nombre.$file->getClientOriginalExtension();
+            $foto=time().$user->nombre.$file->getClientOriginalExtension();
             $image= Image::make($file)->encode('webp',90)->save(public_path('/imgusers/' . $foto.'.webp'));
             $user->avatar=$foto.'.webp';
         }

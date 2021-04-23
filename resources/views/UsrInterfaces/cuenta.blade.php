@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+  @extends('layouts.admin')
 @section('title','Cuenta')
 @section('content')
 <style type="text/css" media="screen">
@@ -28,7 +28,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-sm-6 h4" style="margin:0;">
-            <h4>Detalle de socio <span class="badge badge-dark">{{ $usuario->code }}</span></h4>
+            <h4>Detalle de socio <span class="badge badge-dark">{{ $usuario->invitacion }}</span></h4>
           </div>
           <div class="col-sm">
             <div class="btn-group btn-group-justified" role="group" aria-label="Basic mixed styles example">
@@ -161,14 +161,16 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
               <div class="card-body">
                 <div class="form-group col-sm-4-offset">
-                    <button type="submit" class="btn btn-warning btn-block"><i class="fa fa-map-marker" aria-hidden="true"></i> Editar Domicilios</button>
+                    <a href="/domicilios"><button type="button" class="btn btn-warning btn-block"><i class="fa fa-map-marker" aria-hidden="true"></i> Editar Domicilios</button></a>
                   </div>
-                <div class="card bg-light mb-3" style="max-width: 18rem;">
-                  <div class="card-header">Casa   <span class="badge badge-dark">51597</span></div>
-                  <div class="card-body">
-                    <p>{{ $domicilio}} <br>Colonia Aurora Segunda Sección (Benito Juárez)<br>Nezahualcóyotl, México <br>C.P. 57000<br><strong>México</strong><br></p>
+                  @foreach($domicilio as $d)
+                <div class="card bg-light mb-2" style="max-width: 18rem;">
+                  <div class="card-header">{{$d->nombre}}</div>
+                  <div class="card-body">                    
+                    <p>{{$d->calle}} #{{ $d->noext}} {{ $d->noint}} <br>{{$d->colonia}}<br>{{ $d->entidad}} <br>C.P. {{ $d->cp}}<br><strong>México</strong><br></p>                    
                   </div>
                 </div>
+                @endforeach
             </div>
           </div>
         </div>
@@ -410,7 +412,6 @@
     </section>
     <!-- /.content -->
 @endsection
-<script src=" http://servicios.apiqroo.com.mx/sepomex/public/js/sepomex_js/sepomex.js"></script>
-<script src="{{asset('js/sepomex.js')}}"></script>
+
   
 
