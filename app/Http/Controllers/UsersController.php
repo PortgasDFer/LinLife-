@@ -51,7 +51,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return view('UsrInterfaces.invitar');
     }
 
     protected function validator(array $data)
@@ -87,7 +87,51 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user=new User();
+         $user->name=$request->input('nombre');
+        $user->aPaterno=$request->input('apaterno');
+        $user->aMaterno=$request->input('amaterno');
+        $user->email=$request->input('email');
+        $user->sexo=$request->input('sexo');
+        $user->telcasa=$request->input('telefono');
+        $user->telcel=$request->input('cel');
+        $request = app('request');
+        if($request->hasfile('frente')){
+            $frente=$request->file('frente');
+            $filename= time().$frente->getClientOriginalExtension();
+            $image= Image::make($frente)->encode('webp',90)->save(public_path('/identificaciones/' . $filename.'.webp'));
+            $user->frente=$filename;
+        }else{
+            $user->frente="";
+        }
+        if($request->hasfile('atras')){
+            $atras=$request->file('atras');
+            $filename_atras= time(). '.' .$atras->getClientOriginalExtension();
+            $image= Image::make($atras)->encode('webp',90)->save(public_path('/identificaciones/' . $filename_atras.'.webp'));
+            $user->atras=$filename_atras;
+        }else{
+            $user->atras="";
+        }
+        $user->curp=$request->input('curp');
+        $user->fechanac=$request->input('fecha');
+        $user->estado_civil=$request->input('estado-civil');
+        $user->slug=Str::slug($user->name.time());
+        $user->save();
+
+        $domicilio = Domicilio::where('id_user','=',$user->id)->firstOrFail();
+        $domicilio->calle=$request->input('calle');
+        $domicilio->noext=$request->input('ext');
+        $domicilio->noint=$request->input('int');
+        $domicilio->cp=$request->input('cp');
+        $domicilio->colonia=$request->input('colonia');
+        $domicilio->localidad=$request->input('localidad');
+        $domicilio->entidad=$request->input('entidad');
+        $domicilio->descripcion=$request->input('descripcion');
+        $domicilio->save();
+
+        alert()->success('LIN LIFE', 'Ha registrado a un nuevo usuario');
+        return Redirect::to('/home');
+
     }
 
     /**

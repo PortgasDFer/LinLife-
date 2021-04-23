@@ -35,7 +35,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="registro.html" class="nav-link">
+        <a href="/usuarios/create" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>Registrar socio</p>
         </a>
