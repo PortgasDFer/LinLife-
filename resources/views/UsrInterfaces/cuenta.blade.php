@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+  @extends('layouts.admin')
 @section('title','Cuenta')
 @section('content')
 <style type="text/css" media="screen">
@@ -163,14 +163,14 @@
                 <div class="form-group col-sm-4-offset">
                     <a href="/domicilios"><button type="button" class="btn btn-warning btn-block"><i class="fa fa-map-marker" aria-hidden="true"></i> Editar Domicilios</button></a>
                   </div>
-                <div class="card bg-light mb-3" style="max-width: 18rem;">
-                  <div class="card-header">Casa   <span class="badge badge-dark">{{ $usuario->invitacion }}</span></div>
-                  <div class="card-body">
-                    @foreach($domicilio as $d)
-                    <p>{{$d->calle}} #{{ $d->noext}} {{ $d->noint}} <br>{{$d->colonia}}<br>{{ $d->entidad}} <br>C.P. {{ $d->cp}}<br><strong>México</strong><br></p>
-                    @endforeach
+                  @foreach($domicilio as $d)
+                <div class="card bg-light mb-2" style="max-width: 18rem;">
+                  <div class="card-header">{{$d->nombre}}</div>
+                  <div class="card-body">                    
+                    <p>{{$d->calle}} #{{ $d->noext}} {{ $d->noint}} <br>{{$d->colonia}}<br>{{ $d->entidad}} <br>C.P. {{ $d->cp}}<br><strong>México</strong><br></p>                    
                   </div>
                 </div>
+                @endforeach
             </div>
           </div>
         </div>

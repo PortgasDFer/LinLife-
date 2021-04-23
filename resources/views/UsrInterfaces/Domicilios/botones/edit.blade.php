@@ -1,1 +1,1 @@
-<a href="/productos/{{$code}}/edit"><button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
+<a href="/domicilios/{{$id}}/edit"><button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
