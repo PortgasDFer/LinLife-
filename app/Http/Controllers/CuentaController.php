@@ -165,15 +165,19 @@ class CuentaController extends Controller
         $porcentaje=$noInvitados/10*100;
         return view('UsrInterfaces.estructura',compact('user','invitados','porcentaje','domicilio','noInvitados'));
     }
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    
+    public function miLista($slug)
     {
-        //
+        $user=User::where('slug','=', $slug)->firstOrFail();
+        if($slug!=\Auth::user()->slug){
+            alert()->info('LIN LIFE',' Los datos de los perfiles son personales');
+            $user=User::where('slug','=',\Auth::user()->slug)->firstOrFail();
+        }
+        $invitados=User::select('users.name','users.aPaterno','users.aMaterno','domicilios.localidad','domicilios.colonia','domicilios.entidad','users.slug','users.status_cuenta','users.telcasa','users.telcel','users.email','users.fechanac')
+        ->join("domicilios","domicilios.id_user","=","users.id")
+        ->where('users.invitacion','=',$user->code)
+        ->get();
+        return view('UsrInterfaces.lista',compact('user','invitados'));
     }
 
     /**

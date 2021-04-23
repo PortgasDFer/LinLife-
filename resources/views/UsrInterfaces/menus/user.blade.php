@@ -29,7 +29,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="vistas/red/lista.html" class="nav-link">
+        <a href="/lista-de-red/{{Auth::user()->slug}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>Lista</p>
         </a>

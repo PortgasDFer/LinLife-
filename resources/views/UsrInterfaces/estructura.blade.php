@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('title','Estructura de red')
-@section('content')
+@section('content')
 <!-- Content Header (Page header) -->
 <div class="content-header">
   <div class="container-fluid">
@@ -93,7 +93,7 @@
             </div>
             <!-- /.card-body -->
             <div class="card-footer text-center">
-              <a href="#">Ver lista completa</a>
+              <a href="/lista-de-red/{{Auth::user()->slug}}">Ver lista completa</a>
             </div>
             <!-- /.card-footer -->
           </div>
