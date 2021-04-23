@@ -36,11 +36,15 @@ Route::resource('/usuarios','UsersController');
 Route::get('/validar-identidades','UsersController@identificaciones')->name('validar-identidades');
 Route::get('/verificar/{usuario}','UsersController@verificarUsuario')->name('verificar.usuario');
 Route::post('/status/{usuario}','UsersController@statusCuenta')->name('status.usuario');
+Route::get('/subir-identificacion','UsersController@subirIdentificacion')->name('subir.identificación');
+Route::post('/guardarine/{usuario}','UsersController@guardarIne')->name('guardar.ine');
 Auth::routes();
 Route::get('/validar-codigo/{usuario}','UsersController@validarCodigo')->name('usuario.validar');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/micuenta/{usuario}','CuentaController@detallesCuenta')->name('cuenta.usuario');
+Route::get('/estructura-de-red/{usuario}','CuentaController@miEstructura')->name('estructura.usuario');
 Route::resource('/cuenta','CuentaController');
 Route::resource('/domicilios','DomicilioController');
 Route::post('/tel/{user}', 'CuentaController@telefonos')->name('tel');

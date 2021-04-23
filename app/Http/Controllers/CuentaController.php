@@ -129,17 +129,41 @@ class CuentaController extends Controller
         return Redirect::to('/cuenta');
 
     }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+
+    public function detallesCuenta($slug)
     {
-        //
+        $user=User::where('slug','=', $slug)->firstOrFail();
+        if($slug!=\Auth::user()->slug){
+            alert()->info('LIN LIFE',' Los datos de los perfiles son personales');
+            $user=User::where('slug','=',\Auth::user()->slug)->firstOrFail();
+        }
+        $invitados=$user::where('invitacion','=',$user->code)->get();
+        
+        $noInvitados=$user::where('invitacion','=',$user->code)->count();
+
+        $porcentaje=$noInvitados/10*100;
+
+
+        
+        return view('UsrInterfaces.detalles',compact('user','invitados','porcentaje'));
     }
 
+    public function miEstructura($slug)
+    {
+        $user=User::where('slug','=', $slug)->firstOrFail();
+        if($slug!=\Auth::user()->slug){
+            alert()->info('LIN LIFE',' Los datos de los perfiles son personales');
+            $user=User::where('slug','=',\Auth::user()->slug)->firstOrFail();
+        }
+        $invitados=$user::where('invitacion','=',$user->code)->get();
+        
+        $noInvitados=$user::where('invitacion','=',$user->code)->count();
+        $domicilio=Domicilio::where('id_user','=',$user->id)->firstOrFail();
+
+        $porcentaje=$noInvitados/10*100;
+        return view('UsrInterfaces.estructura',compact('user','invitados','porcentaje','domicilio','noInvitados'));
+    }
     /**
      * Display the specified resource.
      *

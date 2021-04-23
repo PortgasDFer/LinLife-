@@ -2,13 +2,13 @@
   <!-- Add icons to the links using the .nav-icon class
        with font-awesome or any other icon font library -->
   <li class="nav-item">
-    <a href="starter.html" class="nav-link">
+    <a href="/home" class="nav-link">
       <i class="fas fa-home nav-icon"></i>
       <p>Página principal</p>
     </a>
   </li>
   <li class="nav-item">
-    <a href="vistas/detalles/detalles.html" class="nav-link">
+    <a href="/micuenta/{{Auth::user()->slug}}" class="nav-link">
       <i class="fas fa-info-circle nav-icon"></i>
       <p>Detalles de mi cuenta</p>
     </a>
@@ -23,7 +23,7 @@
     </a>
     <ul class="nav nav-treeview">
       <li class="nav-item">
-        <a href="vistas/red/estructura.html" class="nav-link">
+        <a href="/estructura-de-red/{{Auth::user()->slug}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>Estructura de red</p>
         </a>

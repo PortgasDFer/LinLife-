@@ -20,7 +20,26 @@
 <!-- /.content-header -->
 <section class="content">
   <div class="container-fluid">
-    
+    <div class="row">
+      @if(Auth::user()->frente==null and Auth::user()->atras==null)
+      <div class="col-lg-12">
+        <div class="alert alert-warning alert-dismissible progress-bar-striped">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <h5><i class="icon fas fa-exclamation-triangle"></i> ¡ATENCIÓN!</h5>
+          Debes confirmar tu identidad escaneando o subiendo una fotografía de tu identificación oficial.
+          <a href="/subir-identificacion"><button class="btn btn-primary">Subir identificación</button></a>
+        </div> 
+      </div>
+      @elseif(Auth::user()->status_cuenta="PENDIENTE")
+      <div class="col-lg-12">
+        <div class="alert alert-success alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <h5><i class="icon fas fa-exclamation-triangle"></i> ¡ATENCIÓN!</h5>
+          Una vez aprobada tu cuenta, podrás registrar más usuarios con tú código único de invitación, invita a tus amigos y gana dinero $$$. 
+        </div> 
+      </div>
+      @endif
+    </div>
   </div>
 </section>
 
