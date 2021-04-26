@@ -38,7 +38,7 @@ Route::get('/verificar/{usuario}','UsersController@verificarUsuario')->name('ver
 Route::post('/status/{usuario}','UsersController@statusCuenta')->name('status.usuario');
 Route::get('/subir-identificacion','UsersController@subirIdentificacion')->name('subir.identificación');
 Route::post('/guardarine/{usuario}','UsersController@guardarIne')->name('guardar.ine');
-Auth::routes();
+Auth::routes(['verify' => true]);
 Route::get('/validar-codigo/{usuario}','UsersController@validarCodigo')->name('usuario.validar');
 
 
