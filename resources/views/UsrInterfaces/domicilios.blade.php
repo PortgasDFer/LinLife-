@@ -47,7 +47,8 @@
                   <div class="table-responsive mt-2">
                     <table id="domicilios" class="table table-striped table-bordered" style="width:100%">
                       <thead>
-                        <tr>                                                        
+                        <tr>
+                          <th>Nombre</th>                                                        
                           <th>Calle</th>
                           <th>No Exterior</th>                            
                           <th>CP</th>
@@ -78,7 +79,8 @@
         "serverSide": true,
         "autoWidth": false,
         "ajax": "/obtenerDomicilios",
-        "columns": [            
+        "columns": [   
+            {data:'nombre'},         
             {data:'calle'},
             {data:'noext'},
             {data:'cp'},

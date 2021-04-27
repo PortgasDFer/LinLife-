@@ -8,6 +8,6 @@ class Domicilio extends Model
 {
     protected $table = 'domicilios';
     protected $fillable = [
-        'calle','noext','noint','cp','colonia','localidad','entidad','descripcion','id_user'    
+        'nombre','calle','noext','noint','cp','colonia','localidad','entidad','descripcion','id_user'    
     ];
 }

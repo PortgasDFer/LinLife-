@@ -97,7 +97,7 @@
                     <label for="colFormLabel" class="col-sm-3 col-form-label @error('entidad') is-invalid @enderror" style="text-align: right;">Entidad de Nacimiento</label>
                     <div class="col-sm-3">
                       <select id="entidad" name="entidad" class="form-control">
-                        <option selected>{{ $usuario->entidadnac }}</option>
+                        <option>{{$usuario->entidadnac}}</option>
                         <option value="Aguascalientes">Aguascalientes</option>
                         <option value="Baja California">Baja California</option>
                         <option value="Baja California Sur">Baja California Sur</option>
