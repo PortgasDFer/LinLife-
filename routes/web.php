@@ -40,7 +40,8 @@ Route::get('/subir-identificacion','UsersController@subirIdentificacion')->name(
 Route::post('/guardarine/{usuario}','UsersController@guardarIne')->name('guardar.ine');
 Auth::routes(['verify' => true]);
 Route::get('/validar-codigo/{usuario}','UsersController@validarCodigo')->name('usuario.validar');
-
+Route::resource('/promociones','PromocionesController');
+Route::get('/obtenerPromos','PromocionesController@datatable')->name('datatable.promociones');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/micuenta/{usuario}','CuentaController@detallesCuenta')->name('cuenta.usuario');

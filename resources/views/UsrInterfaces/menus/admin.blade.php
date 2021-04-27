@@ -64,15 +64,15 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/promociones" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Este mes</p>
+                  <p>Promociones</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/productos/create" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Desglose</p>
+                  <p>Registrar nuevo producto</p>
                 </a>
               </li>
             </ul>
