@@ -65,23 +65,27 @@
                 <label>Correo Electrónico</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Correo Electrónico" value="{{ old('email') }}">
               </div>
-              <div class="col-md-4">
+              <div class="form-group col-md-3">
                 <label for="">Contraseña</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
               </div>
-              <div class="form-group col-md-4">
+              <div class="form-group col-md-3">
                 <label>Confirmar contraseña</label>
-                <input type="password" class="form-control" id="password" name="password_confirmation" placeholder="Correo Electrónico">             
+                <input type="password" class="form-control" id="password" name="password_confirmation" placeholder="Confirmar contraseña">             
               </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-4">
+              <div class="form-group col-md-1">
                 <label>Sexo</label>
                 <br>
-                <input type="checkbox" checked data-toggle="toggle" data-on="H" data-off="M" data-onstyle="success" data-offstyle="warning" name="sexo"> 
-                <p style="font-size:80%;">H (Hombre) <br> M (Mujer)</p>                   
+                <input type="checkbox" checked data-toggle="toggle" data-on="H" data-off="M" data-onstyle="success" data-offstyle="warning" name="sexo">                                    
+              </div>
+              <div class="form-group col-md-1">
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                <p style="font-size:65%;">H (Hombre) <br> M (Mujer)</p>
               </div>
             </div>
+
             <hr>
             <div class="form-row">
               <div class="form-group col-md-6">

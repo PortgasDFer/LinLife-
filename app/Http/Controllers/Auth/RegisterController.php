@@ -126,6 +126,7 @@ class RegisterController extends Controller
         $user->slug=Str::slug($user->name.time(),"-");
         $user->save();
         $domicilio = Domicilio::create([
+            'nombre' => 'Casa',
             'calle' =>$data['calle'],
             'noext' =>$data['ext'],
             'noint' =>$data['int'],
