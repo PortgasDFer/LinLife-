@@ -85,17 +85,45 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    
     public function store(Request $request)
     {
+
+
+    }
+    public function invitar(Request $request)
+    {
+        $validate = $request->validate([
+            'nombre'     => ['required', 'string', 'max:50'],
+            'apaterno'   => ['required','string','max:35'],
+            'amaterno'   => ['required','string','max:35'],
+            'email'      => ['required', 'string', 'email', 'max:191', 'unique:users'],
+            'sexo'       => ['required','string','max:10'],
+            'calle'      => ['required','string'],
+            'ext'        => ['required','string'],
+            'cp'         => ['required','min:4'],
+            'colonia'    => ['required'],
+            'localidad'  => ['required'],
+            'entidad'    => ['required'],
+            'descripcion'=> ['required','string','min:10'],
+            'telefono'   => ['required','numeric','min:10'],
+            'cel'        => ['required','numeric','min:10'],
+            'curp'       => ['required','string','min:18','max:18'],
+            'fecha'   => ['required'],
+            'entidad' => ['required'],
+            'estado'     => ['required'],
+            'invitacion' => ['required','string'],
+        ]);
+
         $user=new User();
-         $user->name=$request->input('nombre');
+        $user->name=$request->input('nombre');
         $user->aPaterno=$request->input('apaterno');
         $user->aMaterno=$request->input('amaterno');
         $user->email=$request->input('email');
+        $user->password=Hash::make($request->input('password'));
         $user->sexo=$request->input('sexo');
         $user->telcasa=$request->input('telefono');
         $user->telcel=$request->input('cel');
-        $request = app('request');
         if($request->hasfile('frente')){
             $frente=$request->file('frente');
             $filename= time().$frente->getClientOriginalExtension();
@@ -117,8 +145,10 @@ class UsersController extends Controller
         $user->estado_civil=$request->input('estado-civil');
         $user->slug=Str::slug($user->name.time());
         $user->save();
-
-        $domicilio = Domicilio::where('id_user','=',$user->id)->firstOrFail();
+        $user->roles()->attach(Role::where('name', 'user')->first());
+      
+        $domicilio = new Domicilio();
+        $domicilio->nombre="Principal";
         $domicilio->calle=$request->input('calle');
         $domicilio->noext=$request->input('ext');
         $domicilio->noint=$request->input('int');
@@ -126,10 +156,12 @@ class UsersController extends Controller
         $domicilio->colonia=$request->input('colonia');
         $domicilio->localidad=$request->input('localidad');
         $domicilio->entidad=$request->input('entidad');
+        $domicilio->id_user=$user->id;
         $domicilio->descripcion=$request->input('descripcion');
         $domicilio->save();
 
-        alert()->success('LIN LIFE', 'Ha registrado a un nuevo usuario');
+        //dd($domicilio);
+        alert()->success('LIN LIFE', 'Datos del usuario actualizados correctamente');
         return Redirect::to('/home');
 
     }
