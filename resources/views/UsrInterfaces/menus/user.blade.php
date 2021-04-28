@@ -87,7 +87,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="vistas/compras/cobro-sobre-comisiones.html" class="nav-link">
+        <a href="/cobros-sobre-comisiones" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>Cobro sobre comisiones</p>
         </a>

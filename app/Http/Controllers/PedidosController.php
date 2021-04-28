@@ -21,6 +21,18 @@ class PedidosController extends Controller
         return view('UsrInterfaces.pedido', compact('usuario'));
     }
 
+
+    public function automaticos()
+    {
+        $usuario = User::find(auth()->id());
+        $domicilios=Domicilio::where('id_user','=',$usuario->id)->get();
+        return view('UsrInterfaces.pedidos-automaticos',compact('domicilios'));
+    }
+
+    public function cobrosComisiones()
+    {
+        return view('UsrInterfaces.cobroscomisiones');
+    }
     /**
      * Show the form for creating a new resource.
      *
