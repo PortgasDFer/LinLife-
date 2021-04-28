@@ -39,20 +39,21 @@
     </div>
   </div>
   <div class="container">
-    <form>
+    <form name="formulario1">
       <div class="form-group row">
         <label for="colFormLabel" class="col-sm-2 col-form-label"><i class="  fas fa-credit-card" aria-hidden="true"></i> Tipo de entrega</label>
         <div class="col-sm-4">
-           <select id="tipo" name="tipo" class="form-control">
-            <option selected>Choose...</option>
-            <option>...</option>
-          </select>
+           <select name="entrega" onchange="cambia()" class="form-control">
+              <option value="0">Selecciona...</option>
+              <option value="1">DHL</option>
+              <option value="2">Fedex</option>
+              <option value="3">UPS</option>
+            </select>
         </div>
         &nbsp;
         <div class="col-sm-4">
-          <select id="destino" name="destino" class="form-control">
-            <option selected>Choose...</option>
-            <option>...</option>
+          <select id="opt" name="opt" class="form-control">
+            <option selected>Selecciona...</option>
           </select>
         </div>
         &nbsp;
@@ -92,7 +93,7 @@
           <span class="badge badge-dark" style="font-size: 12px;"> {{$usuario->invitacion}}</span><br><i class="fa fa-user" aria-hidden="true"></i> Titular del pedido <br>
           Compra aplica en
           <select id="compra" name="compra" class="form-control" style="width: 100px; height: 20px;">
-            <option selected>Selecciona...</option>
+            <option value="cargar_entrega();">Selecciona...</option>
             <option>...</option>
           </select>
           </p>
@@ -148,5 +149,6 @@
   <script src="assets/dist/js/adminlte.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+  <script src="{{asset('js/pedidos.js')}}"></script>
   </body>
 </html>
