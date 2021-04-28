@@ -86,7 +86,11 @@
       <div class="form-group row">
         <br>
         <div class="col-sm-1">            
-          <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar" style="width: 70px;">
+          @if($usuario->avatar!=null)                      
+            <img src="/imgusers/{{$usuario->avatar}}" class="rounded-circle z-depth-1-half avatar-pic" style="width: 70px;"/>
+          @else
+            <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar" style="width: 70px;">
+            @endif
         </div>
         <div class="col-sm-3 text-align center">                      
           <p style="font-size: 12px;"><strong>{{$usuario->name}}</strong> {{$usuario->aPaterno}} {{$usuario->aMaterno}}<br>
