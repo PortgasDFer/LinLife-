@@ -44,7 +44,7 @@
         <h5 class="card-header">Invite a un amigo</h5>
         <div class="card-body">
           <p style="font-size:90%;">Proporciona en el siguiente formulario la información que se te solicita. Es importante que la verifiques antes de enviarla. Asegurate que tus datos personales coincidan con tu documentación oficial y que tu correo electrónico y tus teléfonos esten vigentes. Solicitamos tu domicilio postal por que ahí es donde haremos llegar el envío de tus productos, promociones y regalos.</p>
-          <form method="POST" action="/usuarios" enctype="multipart/form-data" name="registro">
+           <form action="/invitar-usuarios"  method="POST" enctype="multipart/form-data" name="registro">
             @csrf
             <div class="form-row">
               <div class="form-group col-md-4">

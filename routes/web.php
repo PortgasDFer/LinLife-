@@ -33,6 +33,7 @@ Route::resource('/productos','ProductosController');
 
 Route::get('/obtenerUsers','UsersController@datatable')->name('datatable.user');
 Route::resource('/usuarios','UsersController');
+Route::post('/invitar-usuarios','UsersController@invitar')->name('invitar.usuarios');
 Route::get('/validar-identidades','UsersController@identificaciones')->name('validar-identidades');
 Route::get('/verificar/{usuario}','UsersController@verificarUsuario')->name('verificar.usuario');
 Route::post('/status/{usuario}','UsersController@statusCuenta')->name('status.usuario');
