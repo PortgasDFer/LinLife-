@@ -88,29 +88,7 @@ class ProductosController extends Controller
 
 
     }
-    /**
-     * Get the error messages for the defined validation rules.
-     *
-     * @return array
-     */
-    public function messages()
-    {
-        return [
-            'code.required' => 'Cagaste Light.',
-            'nombre.required' => 'Cagaste Light.',
-        ];
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -176,5 +154,15 @@ class ProductosController extends Controller
         $producto->delete();
         alert()->info('LIN LIFE', 'Producto eliminado');
         return Redirect::to('/productos');
+    }
+
+    public function ingreso()
+    {
+        return view('AdmInterfaces.IntInventario.entrada');
+    }
+
+    public function existencias()
+    {
+        return view('AdmInterfaces.IntInventario.existencias');
     }
 }

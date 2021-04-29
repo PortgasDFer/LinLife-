@@ -30,7 +30,8 @@ Route::get('/iniciar',function(){
 
 Route::get('/obtenerProductos','ProductosController@datatable')->name('datatable.producto');
 Route::resource('/productos','ProductosController');
-
+Route::get('/ingreso-de-producto','ProductosController@ingreso')->name('ingreso.producto');
+Route::get('/existencias','ProductosController@existencias')->name('existencias.productos');
 Route::get('/obtenerUsers','UsersController@datatable')->name('datatable.user');
 Route::resource('/usuarios','UsersController');
 Route::post('/invitar-usuarios','UsersController@invitar')->name('invitar.usuarios');

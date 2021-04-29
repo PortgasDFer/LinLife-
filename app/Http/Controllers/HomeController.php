@@ -32,7 +32,7 @@ class HomeController extends Controller
            
             return view('userdashboard',compact('domicilio'));
         } else{
-            return"Hola admin";
+            return view('dashboard');
         }
         //return view('dashboard');
     }
