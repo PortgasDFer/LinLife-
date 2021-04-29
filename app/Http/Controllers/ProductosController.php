@@ -66,7 +66,8 @@ class ProductosController extends Controller
             'nivel-1'     => 'required',
             'nivel-2'     => 'required',
             'nivel-3'     => 'required',
-            'imagen'      => 'required|image'
+            'imagen'      => 'required|image',
+            'existencia'  => 'required|numeric'
         ]);
 
         $producto->code=$request->input('code');
@@ -82,6 +83,7 @@ class ProductosController extends Controller
             $image= Image::make($file)->encode('webp',90)->save(public_path('/productoimg/' . $foto.'.webp'));
             $producto->imagen=$foto.'.webp';
         }
+        $producto->cantidad=$request->input('existencia');
         $producto->save();
         alert()->success('LIN LIFE', 'Producto registrado correctamente');
         return Redirect::to('/productos');
@@ -158,11 +160,32 @@ class ProductosController extends Controller
 
     public function ingreso()
     {
-        return view('AdmInterfaces.IntInventario.entrada');
+        $fechaactual=now()->toDateString();
+        $productos=Producto::all();
+        return view('AdmInterfaces.IntInventario.entrada', compact('productos','fechaactual'));
     }
 
     public function existencias()
     {
+       
         return view('AdmInterfaces.IntInventario.existencias');
+    }
+
+    public function obtenerDatos($code)
+    {
+        $producto=Producto::find($code)->firstOrFail();
+        return Response::json($producto);
+    }
+    
+    public function entradaMercancia(Request $request)
+    {       
+        $producto=Producto::find($request->input('code'));
+        $cantidad_nueva=$request->input('ingresa');
+        $producto->cantidad=$producto->cantidad+$cantidad_nueva;
+        $producto->precio_publico=$request->input('precio_nuevo');
+        $producto->valor_dist=$request->input('valor_distn');
+        $producto->save();
+        alert()->info('LIN LIFE', 'Producto ingresado');
+        return Redirect::to('/home');
     }
 }

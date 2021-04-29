@@ -1,5 +1,5 @@
 function cargar_datos(cp){
-  console.log(cp);
+  //console.log(cp);
   $.get('https://api-sepomex.hckdrk.mx/query/info_cp/'+cp+'?token=099e8302-1414-4f99-9f28-62c14163138c', function (data){
       console.log(data);
       var string = JSON.stringify(data)

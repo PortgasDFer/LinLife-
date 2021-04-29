@@ -110,12 +110,18 @@
                     </div>
                   </div>
                   <div class="row">
-                  	<div class="col-xs-12">
+                  	<div class="col-xs-12  col-sm-12 col-md-4">
                   		<div class="form-group">
                   			<label for="">Imagen del producto</label>
                   			<input type="file" class="form-control" name="imagen" id="imagen">
                   		</div>
                   	</div>
+                    <div class="col-xs-12  col-sm-12 col-md-8">
+                      <div class="form-group">
+                        <label for="">Existencia</label>
+                        <input type="text" name="existencia" class="form-control" id="existencia" placeholder="Existencia de producto">
+                      </div>
+                    </div>
                   </div>
                   <div class="row">
                     <div class="col-lg-12">
