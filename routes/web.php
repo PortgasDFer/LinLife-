@@ -66,18 +66,14 @@ Route::get('/obtenerDomicilios','DomicilioController@datatable')->name('datatabl
 Route::resource('/pedidos','PedidosController');
 
 Route::resource('/dvp','DvpController');
-=======
-Route::get('/pedidos-automaticos','PedidosController@automaticos')->name('pedidos.automaticos');
-Route::get('/cobros-sobre-comisiones','PedidosController@cobrosComisiones')->name('cobros.comisiones');
->>>>>>> ac20f0722ee0d519ed3ff07ed46b88aa310d0c63
-=======
-Route::get('/pedidos-automaticos','PedidosController@automaticos')->name('pedidos.automaticos');
-Route::get('/cobros-sobre-comisiones','PedidosController@cobrosComisiones')->name('cobros.comisiones');
->>>>>>> ac20f0722ee0d519ed3ff07ed46b88aa310d0c63
-=======
-Route::get('/pedidos-automaticos','PedidosController@automaticos')->name('pedidos.automaticos');
-Route::get('/cobros-sobre-comisiones','PedidosController@cobrosComisiones')->name('cobros.comisiones');
->>>>>>> 96e238d62f5ac555f0faa55b375b631253ab91f1
 
+Route::get('/pedidos-automaticos','PedidosController@automaticos')->name('pedidos.automaticos');
+Route::get('/cobros-sobre-comisiones','PedidosController@cobrosComisiones')->name('cobros.comisiones');
+
+Route::get('/pedidos-automaticos','PedidosController@automaticos')->name('pedidos.automaticos');
+Route::get('/cobros-sobre-comisiones','PedidosController@cobrosComisiones')->name('cobros.comisiones');
+
+Route::get('/pedidos-automaticos','PedidosController@automaticos')->name('pedidos.automaticos');
+Route::get('/cobros-sobre-comisiones','PedidosController@cobrosComisiones')->name('cobros.comisiones');
 
 Route::get('/saludo');
