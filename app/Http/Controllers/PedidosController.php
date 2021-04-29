@@ -19,7 +19,8 @@ class PedidosController extends Controller
     public function index()
     {
         $usuario = User::find(auth()->id());
-        return view('UsrInterfaces.pedidos', compact('usuario'));
+        $domicilios=Domicilio::where('id_user','=',$usuario->id)->get();
+        return view('UsrInterfaces.pedidos', compact('usuario', 'domicilios'));
     }
 
 

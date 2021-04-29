@@ -64,14 +64,27 @@
         <label for="colFormLabel" class="col-sm-2 col-form-label"><i class="  fas fa-credit-card" aria-hidden="true"></i> Método de pago</label>
         <div class="col-sm-4">
            <select id="tipo" name="tipo" class="form-control">
-            <option selected>Choose...</option>
-            <option>...</option>
+            <option selected>Selecciona...</option>
+            <option value="Efectivo">Efectivo</option>
+            <option value="Tarjeta de Credito">Tarjeta de Credito</option>
           </select>
         </div>
-        <div class="col-sm-11 text-right">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-1 text-right">
           <p style="color: #aaa;">$ 0.00</p>
         </div>
       </div>
+      <div class="form-group row">
+        <label for="colFormLabel" class="col-sm-2 col-form-label"><i class="  fas fa-home" aria-hidden="true"></i> Domicilio</label>
+        <div class="col-sm-4">
+           <select id="destino" name="destino" class="form-control">
+              <option selected>Selecciona un domicilio... </option>
+              @foreach($domicilios as $d)
+                <option value="{{$d->id}}">{{$d->nombre}}</option>
+              @endforeach
+            </select>
+          </div>
+        </div>
       <hr>
       <div class="form-group row">
         <br>
