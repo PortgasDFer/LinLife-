@@ -48,6 +48,7 @@ Route::get('/validar-codigo/{usuario}','UsersController@validarCodigo')->name('u
 Route::resource('/promociones','PromocionesController');
 Route::get('/obtenerPromos','PromocionesController@datatable')->name('datatable.promociones');
 
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/micuenta/{usuario}','CuentaController@detallesCuenta')->name('cuenta.usuario');
 Route::get('/estructura-de-red/{usuario}','CuentaController@miEstructura')->name('estructura.usuario');
@@ -63,8 +64,7 @@ Route::post('/fotoperfil/{user}', 'CuentaController@foto')->name('fotoperfil');
 Route::get('/obtenerDomicilios','DomicilioController@datatable')->name('datatable.domicilio');
 
 Route::resource('/pedidos','PedidosController');
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 Route::resource('/dvp','DvpController');
 =======
 Route::get('/pedidos-automaticos','PedidosController@automaticos')->name('pedidos.automaticos');
@@ -74,5 +74,10 @@ Route::get('/cobros-sobre-comisiones','PedidosController@cobrosComisiones')->nam
 Route::get('/pedidos-automaticos','PedidosController@automaticos')->name('pedidos.automaticos');
 Route::get('/cobros-sobre-comisiones','PedidosController@cobrosComisiones')->name('cobros.comisiones');
 >>>>>>> ac20f0722ee0d519ed3ff07ed46b88aa310d0c63
+=======
+Route::get('/pedidos-automaticos','PedidosController@automaticos')->name('pedidos.automaticos');
+Route::get('/cobros-sobre-comisiones','PedidosController@cobrosComisiones')->name('cobros.comisiones');
+>>>>>>> 96e238d62f5ac555f0faa55b375b631253ab91f1
 
 
+Route::get('/saludo');
