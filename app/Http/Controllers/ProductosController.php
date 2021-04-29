@@ -27,6 +27,15 @@ class ProductosController extends Controller
                 ->rawColumns(['edit','delete'])
                 ->toJson();  
     }
+     public function existenciasTable()
+    {
+        $productos=Producto::orderBy('cantidad','DESC')->get();
+        return DataTables::of($productos)
+                ->addColumn('promos','AdmInterfaces.IntProductos.botones.promos')
+                ->addColumn('ingreso','AdmInterfaces.IntProductos.botones.ingreso')
+                ->rawColumns(['promos','ingreso'])
+                ->toJson();  
+    }
 
 
     /**
@@ -167,7 +176,6 @@ class ProductosController extends Controller
 
     public function existencias()
     {
-       
         return view('AdmInterfaces.IntInventario.existencias');
     }
 
@@ -186,6 +194,6 @@ class ProductosController extends Controller
         $producto->valor_dist=$request->input('valor_distn');
         $producto->save();
         alert()->info('LIN LIFE', 'Producto ingresado');
-        return Redirect::to('/home');
+        return Redirect::to('/existencias');
     }
 }
