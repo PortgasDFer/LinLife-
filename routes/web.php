@@ -48,6 +48,7 @@ Route::get('/validar-codigo/{usuario}','UsersController@validarCodigo')->name('u
 Route::resource('/promociones','PromocionesController');
 Route::get('/obtenerPromos','PromocionesController@datatable')->name('datatable.promociones');
 
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/micuenta/{usuario}','CuentaController@detallesCuenta')->name('cuenta.usuario');
 Route::get('/estructura-de-red/{usuario}','CuentaController@miEstructura')->name('estructura.usuario');
@@ -67,3 +68,4 @@ Route::get('/pedidos-automaticos','PedidosController@automaticos')->name('pedido
 Route::get('/cobros-sobre-comisiones','PedidosController@cobrosComisiones')->name('cobros.comisiones');
 
 
+Route::get('/saludo');
