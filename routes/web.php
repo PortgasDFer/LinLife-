@@ -30,7 +30,11 @@ Route::get('/iniciar',function(){
 
 Route::get('/obtenerProductos','ProductosController@datatable')->name('datatable.producto');
 Route::resource('/productos','ProductosController');
-
+Route::get('/ingreso-de-producto','ProductosController@ingreso')->name('ingreso.producto');
+Route::get('/existencias','ProductosController@existencias')->name('existencias.productos');
+Route::get('/obtenerExistencias','ProductosController@existenciasTable')->name('existencias.table');
+Route::get('/obtenerProducto/{producto}','ProductosController@obtenerDatos')->name('obtener.producto');
+Route::post('/entrada','ProductosController@entradaMercancia')->name('entrada.mercancia');
 Route::get('/obtenerUsers','UsersController@datatable')->name('datatable.user');
 Route::resource('/usuarios','UsersController');
 Route::post('/invitar-usuarios','UsersController@invitar')->name('invitar.usuarios');
@@ -59,5 +63,16 @@ Route::post('/fotoperfil/{user}', 'CuentaController@foto')->name('fotoperfil');
 Route::get('/obtenerDomicilios','DomicilioController@datatable')->name('datatable.domicilio');
 
 Route::resource('/pedidos','PedidosController');
+<<<<<<< HEAD
+<<<<<<< HEAD
+Route::resource('/dvp','DvpController');
+=======
+Route::get('/pedidos-automaticos','PedidosController@automaticos')->name('pedidos.automaticos');
+Route::get('/cobros-sobre-comisiones','PedidosController@cobrosComisiones')->name('cobros.comisiones');
+>>>>>>> ac20f0722ee0d519ed3ff07ed46b88aa310d0c63
+=======
+Route::get('/pedidos-automaticos','PedidosController@automaticos')->name('pedidos.automaticos');
+Route::get('/cobros-sobre-comisiones','PedidosController@cobrosComisiones')->name('cobros.comisiones');
+>>>>>>> ac20f0722ee0d519ed3ff07ed46b88aa310d0c63
 
 

@@ -1,0 +1,1 @@
+<a href="/ingreso-de-producto"><button class="btn bg-purple">Ingreso</button></a>

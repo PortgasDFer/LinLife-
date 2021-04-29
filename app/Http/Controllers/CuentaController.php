@@ -38,13 +38,13 @@ class CuentaController extends Controller
         $validate = $request->validate([
             'email' => 'required',
             'fecha' => 'required|max:200',
-            'entidad' => 'required',
+            'entidadnac' => 'required',
             //'nombre' => 'required|regex:/^[\pL\s\-]+$/u',
         ]);           
         $user = User::find($id);
         $user->email=$request->input('email');
         $user->fechanac=$request->input('fecha');
-        $user->entidadnac=$request->input('entidad');
+        $user->entidadnac=$request->input('entidadnac');
         $user->save();
         alert()->success('LIN LIFE', 'Datos actualizados');
         return Redirect::to('/cuenta');

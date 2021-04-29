@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Domicilio;
 
 class HomeController extends Controller
 {
@@ -24,7 +26,15 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $request->user()->authorizeRoles(['user', 'admin']);
-        return view('dashboard');
+        if($request->user()->hasRole('user')){
+            $usuario = User::find(auth()->id());
+            $domicilio=Domicilio::where('id_user','=',$usuario->id)->first();
+           
+            return view('userdashboard',compact('domicilio'));
+        } else{
+            return view('dashboard');
+        }
+        //return view('dashboard');
     }
     
 }

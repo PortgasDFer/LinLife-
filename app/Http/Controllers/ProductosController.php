@@ -27,6 +27,15 @@ class ProductosController extends Controller
                 ->rawColumns(['edit','delete'])
                 ->toJson();  
     }
+     public function existenciasTable()
+    {
+        $productos=Producto::orderBy('cantidad','DESC')->get();
+        return DataTables::of($productos)
+                ->addColumn('promos','AdmInterfaces.IntProductos.botones.promos')
+                ->addColumn('ingreso','AdmInterfaces.IntProductos.botones.ingreso')
+                ->rawColumns(['promos','ingreso'])
+                ->toJson();  
+    }
 
 
     /**
@@ -66,7 +75,8 @@ class ProductosController extends Controller
             'nivel-1'     => 'required',
             'nivel-2'     => 'required',
             'nivel-3'     => 'required',
-            'imagen'      => 'required|image'
+            'imagen'      => 'required|image',
+            'existencia'  => 'required|numeric'
         ]);
 
         $producto->code=$request->input('code');
@@ -82,35 +92,14 @@ class ProductosController extends Controller
             $image= Image::make($file)->encode('webp',90)->save(public_path('/productoimg/' . $foto.'.webp'));
             $producto->imagen=$foto.'.webp';
         }
+        $producto->cantidad=$request->input('existencia');
         $producto->save();
         alert()->success('LIN LIFE', 'Producto registrado correctamente');
         return Redirect::to('/productos');
 
 
     }
-    /**
-     * Get the error messages for the defined validation rules.
-     *
-     * @return array
-     */
-    public function messages()
-    {
-        return [
-            'code.required' => 'Cagaste Light.',
-            'nombre.required' => 'Cagaste Light.',
-        ];
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -176,5 +165,35 @@ class ProductosController extends Controller
         $producto->delete();
         alert()->info('LIN LIFE', 'Producto eliminado');
         return Redirect::to('/productos');
+    }
+
+    public function ingreso()
+    {
+        $fechaactual=now()->toDateString();
+        $productos=Producto::all();
+        return view('AdmInterfaces.IntInventario.entrada', compact('productos','fechaactual'));
+    }
+
+    public function existencias()
+    {
+        return view('AdmInterfaces.IntInventario.existencias');
+    }
+
+    public function obtenerDatos($code)
+    {
+        $producto=Producto::find($code)->firstOrFail();
+        return Response::json($producto);
+    }
+    
+    public function entradaMercancia(Request $request)
+    {       
+        $producto=Producto::find($request->input('code'));
+        $cantidad_nueva=$request->input('ingresa');
+        $producto->cantidad=$producto->cantidad+$cantidad_nueva;
+        $producto->precio_publico=$request->input('precio_nuevo');
+        $producto->valor_dist=$request->input('valor_distn');
+        $producto->save();
+        alert()->info('LIN LIFE', 'Producto ingresado');
+        return Redirect::to('/existencias');
     }
 }

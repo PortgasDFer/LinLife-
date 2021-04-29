@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-use App\Domicilio;
 use App\Producto;
 use Alert;
 use Redirect,Response;
 
-class PedidosController extends Controller
+class DvpController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,22 +16,9 @@ class PedidosController extends Controller
      */
     public function index()
     {
-        $usuario = User::find(auth()->id());
-        return view('UsrInterfaces.pedidos', compact('usuario'));
+        //
     }
 
-
-    public function automaticos()
-    {
-        $usuario = User::find(auth()->id());
-        $domicilios=Domicilio::where('id_user','=',$usuario->id)->get();
-        return view('UsrInterfaces.pedidos-automaticos',compact('domicilios'));
-    }
-
-    public function cobrosComisiones()
-    {
-        return view('UsrInterfaces.cobroscomisiones');
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -52,7 +37,8 @@ class PedidosController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $producto=Producto::find($code);
+        return view('pedidos',compact('productos'));
     }
 
     /**

@@ -55,9 +55,8 @@
           <select id="opt" name="opt" class="form-control">
             <option selected>Selecciona...</option>
           </select>
-        </div>
-        &nbsp;
-        <div class="col-sm-1">
+        </div>        
+        <div class="col-sm-1 text-right">
           <p style="color: #aaa;">$ 0.00</p>
         </div>
       </div>
@@ -69,16 +68,7 @@
             <option>...</option>
           </select>
         </div>
-        &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;
-        <div class="col-sm-1 text-right">
+        <div class="col-sm-11 text-right">
           <p style="color: #aaa;">$ 0.00</p>
         </div>
       </div>
@@ -108,7 +98,41 @@
           </div>
         </div>
         <div class="col-md-2 offset-md-4">
-          <button type="button" class="btn btn-success btn-sm btn-block" style="background-color: #4025A6; border-color: #4025A6;"><i class="fa fa-plus" aria-hidden="true"></i> Agregar Productos</button>
+          <button type="button" class="btn btn-success btn-sm btn-block" style="background-color: #4025A6; border-color: #4025A6;" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fa fa-plus" aria-hidden="true"></i> Agregar Productos</button>
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Agregar Producto</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form action="/dvp" method="POST" name="producto" id="agregar">
+                    <div class="form-group">
+                      <label for="recipient-name" class="col-form-label">Code</label>
+                      <input type="input" class="form-control pull-right" name="folio" id="folio" readonly="" value="">
+                      <input type="hidden" value="" name="fecha">
+                    </div>
+                    <div class="form-group">
+                      <label for="message-text" class="col-form-label">Buscar Producto</label>
+                      <select id="idcliente" name="codebar" class="form-control pull-right" style="width: 100%" autofocus="" onchange="obtener_datos(this.value)">
+                        <option value="0">Buscar producto</option>
+                        
+                            <option value=""></option>
+                        
+                      </select> 
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary" style="background-color: #4025A6; border-color: #4025A6;">Agregar</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div> 
         <div class="col-md-2 offset-md-4">                 
           <p style="font-size: 14px;">Puntos BIEX <span class="badge badge-dark">0.0</span></p>

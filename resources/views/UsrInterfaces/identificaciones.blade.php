@@ -20,39 +20,91 @@
 <!-- /.content-header -->
 <!-- Main content -->
 <section class="content">
-    <div class="container-fluid">
-    	<div class="row">
-    		<div class="col-lg-12">
-    			<div class="card">
-    				<div class="card-header bg-purple">
-    					SUBIR IDENTIFICACIÓN
-    				</div>
-    				<div class="card-body">
-    					<p>Tome una foto o escaneé su identificación por ambos lados y adjuntela en formato .jpg o .png</p>
-    					<form action="/guardarine/{{Auth::user()->slug}}" enctype="multipart/form-data" method="POST">
-                @csrf
-    						<div class="form-group row">
-    							<div class="col-xs-12 col-sm-12 col-md-4">
-                    <label for="">INE frente</label>
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="customFileLang" lang="es" name="frente">
-                      <label class="custom-file-label" for="customFileLang">Frente</label>
-                    </div>      
-                  </div>
-    							<div class="col-xs-12 col-sm-12 col-md-4">
-                    <label for="">INE reverso</label>
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="customFileLang" lang="es" name="atras">
-                      <label class="custom-file-label" for="customFileLang">Atras</label>
-                    </div>       
-                  </div>
-    							<div class="col-xs-12 col-sm-12 col-md-4"><button class="btn btn-lg btn-block bg-purple" type="submit"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar identificaciones</button></div>
-    						</div>
-    					</form>
-    				</div>
-    			</div>
-    		</div>
-    	</div>	
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Frente</h3>
+
+      <div class="card-tools">
+        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+          <i class="fas fa-minus"></i>
+        </button>
+        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
     </div>
+    <div class="card-body">
+      <form action="/guardarine/{{Auth::user()->slug}}" enctype="multipart/form-data" method="POST">
+        @csrf
+        <div class="form-group row">
+          <div class="col-sm-2">
+            &nbsp;
+          </div>
+          <div class="col-sm-4">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/002/165/416/small/line-icon-for-identity-vector.jpg" style="width: 140px;">
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">                  
+              <div class="input-group">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="frente" name="frente" lang="es">
+                  <label class="custom-file-label" for="exampleInputFile">Seleccionar Archivo</label>
+                </div>
+              </div>
+              <br>
+              <button type="submit" class="btn btn-warning btn-block btn-sm"><i class="fa fa-upload" aria-hidden="true"></i> Cargar</button>
+            </div>
+          </div>                  
+        </div> 
+      </form>
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer">
+       Carga la fotografía de tu credencial IFE/INE de <strong>frente</strong>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Reverso</h3>
+
+      <div class="card-tools">
+        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+          <i class="fas fa-minus"></i>
+        </button>
+        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+    <div class="card-body">
+      <form action="/guardarine/{{Auth::user()->slug}}" enctype="multipart/form-data" method="POST">
+        @csrf
+        <div class="form-group row">
+          <div class="col-sm-2">
+            &nbsp;
+          </div>
+          <div class="col-sm-4">
+            <img src="https://www.vippng.com/png/full/190-1906997_tarjetas-de-identificacin-graphics.png" alt="example placeholder avatar" style="width: 140px;">
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">                  
+              <div class="input-group">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="reverso" name="reverso">
+                  <label class="custom-file-label" for="exampleInputFile">Seleccionar Archivo</label>
+                </div>
+              </div>
+              <br>
+              <button type="submit" class="btn btn-warning btn-block btn-sm"><i class="fa fa-upload" aria-hidden="true"></i> Cargar</button>
+            </div>
+          </div>                  
+        </div> 
+      </form>
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer">
+       Carga la fotografía de tu credencial IFE/INE de <strong>reverso</strong>
+    </div>
+  </div>
 </section>
 @endsection

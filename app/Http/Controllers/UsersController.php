@@ -320,16 +320,45 @@ class UsersController extends Controller
             $frente=$request->file('frente');
             $filename= time(). '.'. $frente->getClientOriginalExtension();
             $image= Image::make($frente)->encode('webp',90)->save(public_path('/identificaciones/' . $filename.'.webp'));
+            $user->frente=$filename;
         }
          if($request->hasfile('atras')){
             $atras=$request->file('atras');
             $filename_atras= time(). '.' .$atras->getClientOriginalExtension();
             $image= Image::make($atras)->encode('webp',90)->save(public_path('/identificaciones/' . $filename_atras.'.webp'));
+            $user->atras=$filename_atras;
         }
-        $user->frente=$filename;
-        $user->atras=$filename_atras;
+        
+        
         $user->save();
         alert()->success('LIN LIFE', 'Identificaciones cargadas con éxito ');
+        return Redirect::to('/subir-identificacion');
+    }
+
+    public function frente(Request $request, $slug)
+    {
+        $user=User::where('slug','=',$slug)->firstOrFail();
+        if($request->hasfile('frente')){
+            $frente=$request->file('frente');
+            $filename= time(). '.'. $frente->getClientOriginalExtension();
+            $image= Image::make($frente)->encode('webp',90)->save(public_path('/identificaciones/' . $filename.'.webp'));
+        }
+        $user->save();
+        alert()->success('LIN LIFE', 'Parte de enfrente cargada con éxito');
+        return Redirect::to('/home');
+    }
+
+    public function atras(Request $request, $slug)
+    {
+        $user=User::where('slug','=',$slug)->firstOrFail();
+        if($request->hasfile('atras')){
+            $atras=$request->file('atras');
+            $filename_atras= time(). '.' .$atras->getClientOriginalExtension();
+            $image= Image::make($atras)->encode('webp',90)->save(public_path('/identificaciones/' . $filename_atras.'.webp'));
+        }
+        $user->atras=$filename_atras;
+        $user->save();
+        alert()->success('LIN LIFE', 'Parte de enfrente cargada con éxito');
         return Redirect::to('/home');
     }
 }

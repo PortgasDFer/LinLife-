@@ -33,7 +33,7 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Rendimiento</p>
                 </a>
-              </li>
+              </li>https://www.facebook.com/
               <li class="nav-item">
                 <a href="/usuarios" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -87,21 +87,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="/ingreso-de-producto" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Realizar pedido</p>
+                  <p>Ingreso de producto</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/existencias" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Cobro sobre comisiones</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Historial</p>
+                  <p>Existencias</p>
                 </a>
               </li>
             </ul>

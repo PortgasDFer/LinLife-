@@ -122,8 +122,7 @@
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
     <div class="p-3">
-		<h5>{{ auth()->user()->name }}</h5>
-		<p>Sidebar content</p>
+		<h5>{{ auth()->user()->name }}</h5>		
 		<p>Avisos de LinLife</p>
 		<p>¿Desea cerrar sesión?</p>
 		<ul class="nav nav-pills nav-sidebar flex-column">
@@ -132,8 +131,8 @@
 		     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 		                                @csrf
 		      </form>
-		    <i class="fa fa-sign-out" aria-hidden="true"></i>
-		    <button class="btn btn-block btn-primary">Cerrar sesión</button>
+		    
+		    <button class="btn btn-block btn-primary"><i class="fa fa-sign-out" aria-hidden="true"></i> Cerrar sesión</button>
 		  </a>
 		</li>
       </ul>
