@@ -70,10 +70,4 @@ Route::resource('/dvp','DvpController');
 Route::get('/pedidos-automaticos','PedidosController@automaticos')->name('pedidos.automaticos');
 Route::get('/cobros-sobre-comisiones','PedidosController@cobrosComisiones')->name('cobros.comisiones');
 
-Route::get('/pedidos-automaticos','PedidosController@automaticos')->name('pedidos.automaticos');
-Route::get('/cobros-sobre-comisiones','PedidosController@cobrosComisiones')->name('cobros.comisiones');
-
-Route::get('/pedidos-automaticos','PedidosController@automaticos')->name('pedidos.automaticos');
-Route::get('/cobros-sobre-comisiones','PedidosController@cobrosComisiones')->name('cobros.comisiones');
-
 Route::get('/saludo');
