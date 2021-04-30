@@ -64,8 +64,11 @@ Route::post('/fotoperfil/{user}', 'CuentaController@foto')->name('fotoperfil');
 Route::get('/obtenerDomicilios','DomicilioController@datatable')->name('datatable.domicilio');
 
 Route::resource('/pedidos','PedidosController');
+Route::get('/pre-pedido','PedidosController@prepedido');
 
 Route::resource('/dvp','DvpController');
+Route::resource('/ventas','VentasController');
+
 
 Route::get('/pedidos-automaticos','PedidosController@automaticos')->name('pedidos.automaticos');
 Route::get('/cobros-sobre-comisiones','PedidosController@cobrosComisiones')->name('cobros.comisiones');

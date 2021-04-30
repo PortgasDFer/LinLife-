@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Domicilio;
 use App\Producto;
+use App\Ventas;
 use Alert;
 use Redirect,Response;
 
@@ -18,10 +19,20 @@ class PedidosController extends Controller
      */
     public function index()
     {
-        $usuario = User::find(auth()->id());
-        $domicilios=Domicilio::where('id_user','=',$usuario->id)->get();
+
+    }
+
+    public function prepedido()
+    {
+        $foliobase=Ventas::select('folio')->orderby('folio','DESC')->first();
+        $folionuevo=substr($foliobase,10,-8);
+        $numero=substr($foliobase, 14,-2);
+        $contador=$numero+1;
+        $nuevofolio=$folionuevo.$contador;
+        $fechaactual=now()->format('Y-m-d');
+
         $productos=Producto::all();
-        return view('UsrInterfaces.pedidos', compact('usuario', 'domicilios','productos'));
+        return view('UsrInterfaces.pre-pedido', compact('nuevofolio','fechaactual','productos'));
     }
 
 
