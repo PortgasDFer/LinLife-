@@ -45,4 +45,15 @@ class VentasController extends Controller
         alert()->success('LIN LIFE', 'Comience a agregar productos');
         return view('UsrInterfaces.pedidos',compact('datos','tabla','usuario', 'domicilios','productos'));
     }
+
+    public function detalleVenta($folio)
+    {
+        $venta =    DB::table('ventas')
+                    ->join('dvp','ventas.folio','=','dvp.folio_venta')
+                    ->join('productos','productos.code','=','dvp.code_producto')
+                    ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
+                    ->where('ventas.folio','=',$folio)
+                    ->get();
+        return $venta;
+    }
 }

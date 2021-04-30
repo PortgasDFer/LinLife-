@@ -68,6 +68,7 @@ Route::get('/pre-pedido','PedidosController@prepedido');
 
 Route::resource('/dvp','DvpController');
 Route::resource('/ventas','VentasController');
+Route::get('/detalle-venta/{venta}','VentasController@detalleVenta')->name('detalle.venta');
 
 
 Route::get('/pedidos-automaticos','PedidosController@automaticos')->name('pedidos.automaticos');

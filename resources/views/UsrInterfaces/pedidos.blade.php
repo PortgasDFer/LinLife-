@@ -231,8 +231,9 @@
         if (img) {
           img.src = img_dir+data.imagen;
         }
-        costo=data.precio_publico;              
-        document.productos.precio.value=costo;        
+                     
+        let precio=document.getElementById("precio");
+        precio.value=data.precio_publico;       
       })
     }
 </script>

@@ -102,7 +102,7 @@
                     <td>{{$v->name}} {{$v->aPaterno}} {{$v->aMaterno}}</td>
                     <td>$  {{$v->total}}</td>
                     <td>
-                      <a href=""><button class="btn btn-primary">Detalles</button></a>
+                      <a href="/detalle-venta/{{$v->folio}}"><button class="btn btn-primary">Detalles</button></a>
                       <a href=""><button class="btn btn-warning">Eliminar</button></a>
                     </td>
                   </tr>
