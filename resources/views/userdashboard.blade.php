@@ -66,7 +66,11 @@
             <h5 class="widget-user-desc">{{$domicilio->entidad}}, {{$domicilio->localidad}}</h5>
           </div>
           <div class="widget-user-image">
-            <img class="img-circle elevation-2" src="https://64.media.tumblr.com/4500aac2869c2d6c9cd1e042e9f8ac67/tumblr_pf1xbcWc3E1w0po92_500.jpg" alt="User Avatar">
+            @if(Auth::user()->avatar!=null)                      
+              <img src="/imgusers/{{Auth::user()->avatar}}"  class="img-circle elevation-2">
+            @else
+              <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg"  class="img-circle elevation-2" alt="example placeholder avatar">
+              @endif
           </div>
           <div class="card-footer">
             <div class="row">
