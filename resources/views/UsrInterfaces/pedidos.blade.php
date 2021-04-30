@@ -138,7 +138,7 @@
                   </button>                  
                 </div>
                 <div class="modal-body">
-                  <form action="/dvp" method="POST" id="productos">
+                  <form action="/dvp" method="POST" name="productos">
                     @csrf
                     <div class="form-group">
                       <label for="message-text" class="col-form-label">Buscar Producto</label>
