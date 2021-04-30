@@ -69,6 +69,7 @@
             <option value="Tarjeta de Credito">Tarjeta de Credito</option>
           </select>
         </div>
+        &nbsp;
         <div class="col-sm-4"></div>
         <div class="col-sm-1 text-right">
           <p style="color: #aaa;">$ 0.00</p>
@@ -109,6 +110,21 @@
           <div class="alert alert-secondary" role="alert" style="background-color:  #E4E4E4; color: black;font-size: 22px; border-color: #E4E4E4;">
             <i class="fa fa-exclamation-circle" aria-hidden="true"></i> Pedido vacío
           </div>
+          <div class="table-responsive">
+            <table class="table border" id="">
+              <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Total</th>
+                    <th>Remover</th>
+                  </tr>
+              </thead>            
+              <tbody>
+              </tbody>
+            </table>
+          </div>
         </div>
         <div class="col-md-2 offset-md-4">
           <button type="button" class="btn btn-success btn-sm btn-block" style="background-color: #4025A6; border-color: #4025A6;" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fa fa-plus" aria-hidden="true"></i> Agregar Productos</button>
@@ -119,23 +135,37 @@
                   <h5 class="modal-title" id="exampleModalLabel">Agregar Producto</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                  </button>
+                  </button>                  
                 </div>
                 <div class="modal-body">
-                  <form action="/dvp" method="POST" name="producto" id="agregar">
-                    <div class="form-group">
-                      <label for="recipient-name" class="col-form-label">Code</label>
-                      <input type="input" class="form-control pull-right" name="folio" id="folio" readonly="" value="">
-                      <input type="hidden" value="" name="fecha">
-                    </div>
+                  <form action="/dvp" method="POST" id="productos">
+                    @csrf
                     <div class="form-group">
                       <label for="message-text" class="col-form-label">Buscar Producto</label>
-                      <select id="idcliente" name="codebar" class="form-control pull-right" style="width: 100%" autofocus="" onchange="obtener_datos(this.value)">
-                        <option value="0">Buscar producto</option>
-                        
-                            <option value=""></option>
-                        
+                      <select id="code" name="code" class="form-control pull-right js-example-basic-single"autofocus="" onchange="obtener_datos(this.value)">
+                        <option value="0">Selecciona</option>
+                        @foreach($productos as $p)                          
+                          <option value="{{$p->code}}">{{$p->code}} - {{$p->nombre}}</option>
+                        @endforeach>                        
                       </select> 
+                    </div>
+                    <div class="form-group">
+                      <label for="message-text" class="col-form-label">Imagen del Producto</label><br>
+                      <center>
+                        <img src="/productoimg/cargando.gif" alt="" class="img-fluid" id="myimage" width="100">
+                      </center>
+                    </div>
+                    <div class="form-group">
+                      <label for="message-text" class="col-form-label">Precio</label><br>
+                      <center>
+                        <input type="input" class="form-control pull-right" name="precio" id="precio" readonly="">
+                      </center>
+                    </div>
+                    <div class="form-group">
+                      <label for="message-text" class="col-form-label">Cantidad</label><br>
+                      <center>
+                        <input type="input" class="form-control pull-right" name="cantidad" id="cantidad">
+                      </center>
                     </div>
                   </form>
                 </div>
@@ -146,8 +176,9 @@
               </div>
             </div>
           </div>
-        </div> 
-        <div class="col-md-2 offset-md-4">                 
+        </div>        
+        &nbsp;
+        <div class="col-md-2 offset-md-3 text-right">                 
           <p style="font-size: 14px;">Puntos BIEX <span class="badge badge-dark">0.0</span></p>
         </div> 
         <div class="col-md-6 offset-md-4">                 
@@ -170,6 +201,7 @@
         <div class="col-sm-4">
           <button type="button" class="btn btn-success btn-lg btn-block"><i class="fa fa-check" aria-hidden="true"></i> Finalizar Pedido</button>
         </div>
+        &nbsp;
         <div class="col-sm-4">
            <a href="" style="color: black;"><i class="fas fa-book"></i> Aviso de privacidad</a>&nbsp;|&nbsp; 
            <a href="" style="color: black;"><i class="fas fa-book"></i>  Políticas de devolución</a>
@@ -177,10 +209,6 @@
       </div>
     </form>
   </div>
-
-
-
-
 
   <!-- jQuery -->
   <script src="assets/plugins/jquery/jquery.min.js"></script>
@@ -191,5 +219,22 @@
 
   <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
   <script src="{{asset('js/pedidos.js')}}"></script>
+
+
+<script language="javascript">
+   function obtener_datos(code) {
+      var img = document.getElementById("myimage");
+      
+      var img_dir = "/productoimg/";
+      $.get('/obtenerProducto/' + code, function (data) {
+        console.log(data);
+        if (img) {
+          img.src = img_dir+data.imagen;
+        }
+        costo=data.precio_publico;              
+        document.productos.precio.value=costo;        
+      })
+    }
+</script>
   </body>
 </html>
