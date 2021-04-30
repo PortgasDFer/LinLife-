@@ -48,12 +48,18 @@ class VentasController extends Controller
 
     public function detalleVenta($folio)
     {
-        $venta =    DB::table('ventas')
+        $detalle =    DB::table('ventas')
                     ->join('dvp','ventas.folio','=','dvp.folio_venta')
                     ->join('productos','productos.code','=','dvp.code_producto')
                     ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
                     ->where('ventas.folio','=',$folio)
                     ->get();
-        return $venta;
+        $venta = Ventas::find($folio)->firstOrFail();
+        $asociado=Ventas::join('users','ventas.id_user','=','users.id')
+            ->select(array('users.name','users.aPaterno','users.aMaterno','ventas.folio','ventas.fecha','ventas.total'))
+            ->where('ventas.folio','=',$folio)
+            ->first();
+
+        return view('AdmInterfaces.IntVentas.detalle',compact('venta','detalle','asociado'));
     }
 }
