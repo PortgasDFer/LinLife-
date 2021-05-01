@@ -72,7 +72,7 @@
           <div class="icon">
             <i class="fa fa-money" aria-hidden="true"></i>
           </div>
-          <a href="/productos/create" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="/listado-de-ventas" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
     </div>

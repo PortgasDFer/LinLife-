@@ -24,6 +24,11 @@ class VentasController extends Controller
                 ->toJson();
     }
 
+    public function ventas()
+    {
+        return view('AdmInterfaces.IntVentas.index');
+    }
+
     public function store(Request $request)
     {
         $venta=new Ventas();
