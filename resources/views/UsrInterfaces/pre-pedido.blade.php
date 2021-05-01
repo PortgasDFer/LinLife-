@@ -39,7 +39,7 @@
     </div>
   </div>
   <div class="container">
-    <form action="/ventas" method="POST" enctype="multipart/form-data">
+    <form action="/ventas" method="POST">
       @csrf
       <div class="mb-3">
         <label class="form-label">Folio</label>

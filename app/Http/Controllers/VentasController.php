@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Ventas;
 use App\Producto;
 use App\User;
+use App\Dvp;
 use App\Domicilio;
 use Alert;
 use Redirect,Response;
@@ -14,6 +15,11 @@ use DataTables;
 
 class VentasController extends Controller
 {
+    public function index()
+    {
+        //
+    }
+
     public function datatable()
     {
     	$ventas=Ventas::where('baja','=',1)->get();
@@ -22,6 +28,19 @@ class VentasController extends Controller
                 ->addColumn('ingreso','AdmInterfaces.IntProductos.botones.ingreso')
                 ->rawColumns(['promos','ingreso'])
                 ->toJson();
+    }
+
+    public function create()
+    {   
+        $foliobase=Ventas::select('folio')->orderby('folio','DESC')->first();
+        $folionuevo=substr($foliobase,10,-8);
+        $numero=substr($foliobase, 14,-2);
+        $contador=$numero+1;
+        $nuevofolio=$folionuevo.$contador;
+        $fechaactual=now()->format('Y-m-d');
+
+        $productos=Producto::all();
+        return view('UsrInterfaces.pre-pedido', compact('nuevofolio','fechaactual','productos'));
     }
 
     public function store(Request $request)
@@ -46,14 +65,4 @@ class VentasController extends Controller
         return view('UsrInterfaces.pedidos',compact('datos','tabla','usuario', 'domicilios','productos'));
     }
 
-    public function detalleVenta($folio)
-    {
-        $venta =    DB::table('ventas')
-                    ->join('dvp','ventas.folio','=','dvp.folio_venta')
-                    ->join('productos','productos.code','=','dvp.code_producto')
-                    ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
-                    ->where('ventas.folio','=',$folio)
-                    ->get();
-        return $venta;
-    }
 }

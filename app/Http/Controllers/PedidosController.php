@@ -24,15 +24,7 @@ class PedidosController extends Controller
 
     public function prepedido()
     {
-        $foliobase=Ventas::select('folio')->orderby('folio','DESC')->first();
-        $folionuevo=substr($foliobase,10,-8);
-        $numero=substr($foliobase, 14,-2);
-        $contador=$numero+1;
-        $nuevofolio=$folionuevo.$contador;
-        $fechaactual=now()->format('Y-m-d');
-
-        $productos=Producto::all();
-        return view('UsrInterfaces.pre-pedido', compact('nuevofolio','fechaactual','productos'));
+        
     }
 
 
@@ -65,7 +57,86 @@ class PedidosController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $folio=$request->input('folio');
+        $code=$request->input('code');
+        $producto=Producto::find($code);
+        $existente=$producto->cantidad;
+        $productos=Producto::all();
+        $datos=Ventas::find($folio);
+
+        $tabla =  DB::table('ventas')
+                ->join('dvp','ventas.folio','=','dvp.folio_venta')
+                ->join('productos','productos.code','=','dvp.code_producto')
+                ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
+                ->where('ventas.folio','=',$venta->folio)
+                ->get();
+
+        foreach ($tabla as $t) {
+            if($t->code==$code){
+                $dvp=Dvp::find($t->id);
+                $dvp->cantidad+=1;
+                $dvp->save();
+                $tabla =  DB::table('ventas')
+                    ->join('dvp','ventas.folio','=','dvp.folio_venta')
+                    ->join('productos','productos.code','=','dvp.code_producto')
+                    ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
+                    ->where('ventas.folio','=',$venta->folio)
+                    ->get();
+                alert()->success('LIN LIFE', 'Producto Agregado');
+                return view('UsrInterfaces.pedidos',compact('datos','tabla','productos'));
+            }
+        }
+
+        $dvp=new Dvp();
+        $restante=$request->input('cantidad');
+        $dvp->folio_venta=$request->input('folio');
+        $dvp->code_producto=$request->input('code');
+        $dvp->costo=$request->input('precio');
+        $dvp->cantidad=$request->input('cantidad');
+
+        $tabla =  DB::table('ventas')
+                ->join('dvp','ventas.folio','=','dvp.folio_venta')
+                ->join('productos','productos.code','=','dvp.code_producto')
+                ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
+                ->where('ventas.folio','=',$venta->folio)
+                ->get();
+
+        /*Consultamos que contemos con más cantidad que la que se vendera*/
+        if($existente<$restante){
+            /*Si no contamos con mayor cantidad el sistema arrojará un mensaje de alerta y no permitira agregar el producto.*/
+            alert()->error('LIN LIFE', 'No cuenta con esa cantidad de producto');
+            return view('UsrInterfaces.pedidos',compact('datos','tabla','productos'));
+        }else{
+            $producto->cantidad=$existente-$restante;
+            $producto->save();
+        }
+
+        if(empty($dvp->costo)){
+            /*En caso de no agregar precio al producto a la hora de realizar la nota de venta, se obtendra el precio previamente asignado al producto.*/
+            $dvp->costo=$producto->pventa;
+        }
+        $dvp->save();
+
+        $tabla =  DB::table('ventas')
+                ->join('dvp','ventas.folio','=','dvp.folio_venta')
+                ->join('productos','productos.code','=','dvp.code_producto')
+                ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
+                ->where('ventas.folio','=',$venta->folio)
+                ->get();
+
+        alert()->success('LIN LIFE', 'Producto Agregado');
+        return view('UsrInterfaces.pedidos',compact('datos','tabla','productos'));
+    }
+
+    public function detalleVenta($folio)
+    {
+        $venta =    DB::table('ventas')
+                    ->join('dvp','ventas.folio','=','dvp.folio_venta')
+                    ->join('productos','productos.code','=','dvp.code_producto')
+                    ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
+                    ->where('ventas.folio','=',$folio)
+                    ->get();
+        return $venta;
     }
 
     /**

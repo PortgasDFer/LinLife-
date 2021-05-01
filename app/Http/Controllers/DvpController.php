@@ -37,69 +37,8 @@ class DvpController extends Controller
      */
     public function store(Request $request)
     {   
-        $folio=$request->input('folio');
-        $producto=Producto::find($code);
-        return view('pedidos',compact('productos'));
 
-        $tabla =    DB::table('ventas')
-
-
-        foreach ($tabla as $t) {
-            if($t->code==$code){
-                $dvp=Dvp::find($t->id);
-                $dvp->cantidad+=1;
-                $dvp->save();
-                $tabla = DB::table('ventas')
-                    ->join('dvp','ventas.folio','=','dvp.folio_venta')
-                    ->join('productos','productos.code','=','dvp.code_producto')
-                    ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
-                    ->where('ventas.folio','=',$folio)
-                    ->get();
-                alert()->success('LIN LIFE', 'Producto Agregado');
-                return view('UsrInterfaces.pedidos',compact('datos','tabla','productos'));
-            }
-        }
-
-        $dvp=new Dvp();
-        $restante=$request->input('cantidad');
-        $dvp->folio_venta=$request->input('folio');
-        $dvp->code_producto=$request->input('codebar');
-        $dvp->costo=$request->input('precio');
-        $dvp->cantidad=$request->input('cantidad');
-
-        $tabla = DB::table('ventas')
-                    ->join('dvp','ventas.folio','=','dvp.folio_venta')
-                    ->join('productos','productos.code','=','dvp.code_producto')
-                    ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
-                    ->where('ventas.folio','=',$folio)
-                    ->get();
-
-        /*Consultamos que contemos con más cantidad que la que se vendera*/
-        if($existente<$restante){
-            /*Si no contamos con mayor cantidad el sistema arrojará un mensaje de alerta y no permitira agregar el producto.*/
-            alert()->error('LIN LIFE', 'No cuenta con esa cantidad de producto');
-            return view('UsrInterfaces.pedidos',compact('datos','tabla','productos'));
-        }else{
-            $producto->cantidad=$existente-$restante;
-            $producto->save();
-        }
-
-        if(empty($dvp->costo)){
-            /*En caso de no agregar precio al producto a la hora de realizar la nota de venta, se obtendra el precio previamente asignado al producto.*/
-            $dvp->costo=$producto->precio_publico;
-        }
-
-        $dvp->save();
-        $tabla = DB::table('ventas')
-                    ->join('dvp','ventas.folio','=','dvp.folio_venta')
-                    ->join('productos','productos.code','=','dvp.code_producto')
-                    ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
-                    ->where('ventas.folio','=',$folio)                
-                    ->get();
-
-
-        alert()->success('LIN LIFE', 'Producto agregado');
-        return view('UsrInterfaces.pedidos',compact('datos','tabla','productos'));
+    }
 
     /**
      * Display the specified resource.

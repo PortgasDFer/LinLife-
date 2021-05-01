@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- icheck bootstrap -->
     <link rel="stylesheet" href="{{asset('assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+    <script src="{{asset('vendor/sweetalert/sweetalert.all.js')}}"></script> 
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('assets/dist/css/adminlte.min.css')}}">
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
@@ -138,8 +139,14 @@
                   </button>                  
                 </div>
                 <div class="modal-body">
-                  <form action="/dvp" method="POST" name="productos">
+                  <form action="/pedidos" method="POST" name="productos" id="agregar">
                     @csrf
+                    <div class="form-group">
+                      <label for="message-text" class="col-form-label">Folio</label><br>
+                      <center>
+                        <input type="input" class="form-control pull-right" name="folio" id="folio" readonly="" value="{{$datos->folio}}">                        
+                      </center>
+                    </div>
                     <div class="form-group">
                       <label for="message-text" class="col-form-label">Buscar Producto</label>
                       <select id="code" name="code" class="form-control pull-right js-example-basic-single"autofocus="" onchange="obtener_datos(this.value)">
@@ -167,11 +174,12 @@
                         <input type="input" class="form-control pull-right" name="cantidad" id="cantidad">
                       </center>
                     </div>
-                  </form>
+                    <button type="submit" class="btn btn-primary" style="background-color: #4025A6; border-color: #4025A6;">Agregar</button>  
+                    </form>                  
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                  <button type="button" class="btn btn-primary" style="background-color: #4025A6; border-color: #4025A6;">Agregar</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>                              
+                </div>
                 </div>
               </div>
             </div>
@@ -211,6 +219,7 @@
   </div>
 
   <!-- jQuery -->
+  @include('sweetalert::alert')
   <script src="assets/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
