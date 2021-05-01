@@ -67,10 +67,10 @@ Route::resource('/pedidos','PedidosController');
 
 
 Route::resource('/ventas','VentasController');
+Route::get('/listado-de-ventas','VentasController@ventas')->name('listado.ventas');
 Route::get('/detalle-venta/{venta}','VentasController@detalleVenta')->name('detalle.venta');
+Route::get('/obtenerVentas','VentasController@datatable')->name('datatable.ventas');
 
 
 Route::get('/pedidos-automaticos','PedidosController@automaticos')->name('pedidos.automaticos');
 Route::get('/cobros-sobre-comisiones','PedidosController@cobrosComisiones')->name('cobros.comisiones');
-
-Route::get('/saludo');

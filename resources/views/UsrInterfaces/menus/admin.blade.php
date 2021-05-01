@@ -33,7 +33,7 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Rendimiento</p>
                 </a>
-              </li>https://www.facebook.com/
+              </li>
               <li class="nav-item">
                 <a href="/usuarios" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>

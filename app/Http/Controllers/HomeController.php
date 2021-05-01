@@ -42,6 +42,11 @@ class HomeController extends Controller
             ->where('ventas.baja','=',1)
             ->take(5)
             ->get();
+            $ventas=Ventas::join('users','ventas.id_user','=','users.id')
+            ->select(array('users.name','users.aPaterno','users.aMaterno','ventas.folio','ventas.fecha','ventas.total'))
+            ->where('ventas.baja','=',1)
+            ->take(5)
+            ->get();
             return view('dashboard',compact('noProductos','noUsuarios','noVentas','ventas'));
         }
         //return view('dashboard');
