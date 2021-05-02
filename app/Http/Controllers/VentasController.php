@@ -42,6 +42,7 @@ class VentasController extends Controller
 
         $productos=Producto::all();
         return view('UsrInterfaces.pre-pedido', compact('nuevofolio','fechaactual','productos'));
+    }
 
     public function ventas()
     {

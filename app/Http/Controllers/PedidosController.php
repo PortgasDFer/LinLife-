@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Domicilio;
 use App\Producto;
 use App\Ventas;
+use App\Dvp;
 use Alert;
 use Redirect,Response;
 
@@ -57,6 +59,8 @@ class PedidosController extends Controller
      */
     public function store(Request $request)
     {
+        $usuario = User::find(auth()->id());
+        $domicilios=Domicilio::where('id_user','=',$usuario->id)->get();
         $folio=$request->input('folio');
         $code=$request->input('code');
         $producto=Producto::find($code);
@@ -68,7 +72,7 @@ class PedidosController extends Controller
                 ->join('dvp','ventas.folio','=','dvp.folio_venta')
                 ->join('productos','productos.code','=','dvp.code_producto')
                 ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
-                ->where('ventas.folio','=',$venta->folio)
+                ->where('ventas.folio','=', $folio)
                 ->get();
 
         foreach ($tabla as $t) {
@@ -80,10 +84,10 @@ class PedidosController extends Controller
                     ->join('dvp','ventas.folio','=','dvp.folio_venta')
                     ->join('productos','productos.code','=','dvp.code_producto')
                     ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
-                    ->where('ventas.folio','=',$venta->folio)
+                    ->where('ventas.folio','=',$folio)
                     ->get();
                 alert()->success('LIN LIFE', 'Producto Agregado');
-                return view('UsrInterfaces.pedidos',compact('datos','tabla','productos'));
+                return view('UsrInterfaces.pedidos',compact('datos','tabla','productos','domicilios','usuario'));
             }
         }
 
@@ -98,14 +102,14 @@ class PedidosController extends Controller
                 ->join('dvp','ventas.folio','=','dvp.folio_venta')
                 ->join('productos','productos.code','=','dvp.code_producto')
                 ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
-                ->where('ventas.folio','=',$venta->folio)
+                ->where('ventas.folio','=',$folio)
                 ->get();
 
         /*Consultamos que contemos con más cantidad que la que se vendera*/
         if($existente<$restante){
             /*Si no contamos con mayor cantidad el sistema arrojará un mensaje de alerta y no permitira agregar el producto.*/
             alert()->error('LIN LIFE', 'No cuenta con esa cantidad de producto');
-            return view('UsrInterfaces.pedidos',compact('datos','tabla','productos'));
+            return view('UsrInterfaces.pedidos',compact('datos','tabla','productos','domicilios','usuario'));
         }else{
             $producto->cantidad=$existente-$restante;
             $producto->save();
@@ -121,11 +125,11 @@ class PedidosController extends Controller
                 ->join('dvp','ventas.folio','=','dvp.folio_venta')
                 ->join('productos','productos.code','=','dvp.code_producto')
                 ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
-                ->where('ventas.folio','=',$venta->folio)
+                ->where('ventas.folio','=',$folio)
                 ->get();
 
         alert()->success('LIN LIFE', 'Producto Agregado');
-        return view('UsrInterfaces.pedidos',compact('datos','tabla','productos'));
+        return view('UsrInterfaces.pedidos',compact('datos','tabla','productos','domicilios','usuario'));
     }
 
     public function detalleVenta($folio)
@@ -179,8 +183,27 @@ class PedidosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $usuario = User::find(auth()->id());
+        $domicilios=Domicilio::where('id_user','=',$usuario->id)->get();
+        $folio=$request->input('folio');
+        $dvp=Dvp::find($id);
+        $code=$request->input('code');
+        $producto=Producto::find($code);
+        $dvp->delete();
+        $datos=Ventas::find($folio);
+
+        $tabla =    DB::table('ventas')
+                ->join('dvp','ventas.folio','=','dvp.folio_venta')
+                ->join('productos','productos.code','=','dvp.code_producto')
+                ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
+                ->where('ventas.folio','=', $folio)
+                ->get();
+
+        $productos=Producto::all();
+
+        alert()->warning('LINF LIFE', 'Producto Eliminado');
+        return view('UsrInterfaces.pedidos',compact('datos','tabla','productos','domicilios','usuario'));
     }
 }

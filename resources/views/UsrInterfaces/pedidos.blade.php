@@ -87,6 +87,7 @@
             </select>
           </div>
         </div>
+    </form>
       <hr>
       <div class="form-group row">
         <br>
@@ -108,9 +109,6 @@
           </p>
         </div>
         <div class="col-sm-7">          
-          <div class="alert alert-secondary" role="alert" style="background-color:  #E4E4E4; color: black;font-size: 22px; border-color: #E4E4E4;">
-            <i class="fa fa-exclamation-circle" aria-hidden="true"></i> Pedido vacío
-          </div>
           <div class="table-responsive">
             <table class="table border" id="">
               <thead>
@@ -123,10 +121,32 @@
                   </tr>
               </thead>            
               <tbody>
+                @forelse($tabla as $t)
+                <tr>
+                <td>{{$t->nombre}}</td>
+                <td>{{$t->cantidad}}</td>
+                <td>${{number_format($t->costo, 2, '.', ',')}}</td>
+                <td>${{number_format($t->cantidad*$t->costo, 2, '.', ',')}}</td>
+                <td> 
+                  <form action="/pedidos/{{$t->id}}" method="POST">
+                      @csrf 
+                      @method('DELETE')
+                      <input type="hidden" name="folio" value="{{$datos->folio}}">
+                      <input type="hidden" name="codebar" value="{{$t->code}}">
+                      <button class="btn btn-warning" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                  </form>
+                </td>
+                @empty
+                <div class="alert alert-secondary" role="alert" style="background-color:  #E4E4E4; color: black;font-size: 22px; border-color: #E4E4E4;">
+                  <i class="fa fa-exclamation-circle" aria-hidden="true"></i> Pedido vacío
+                </div>
+                </tr>
+                @endforelse                                                         
               </tbody>
             </table>
           </div>
         </div>
+
         <div class="col-md-2 offset-md-4">
           <button type="button" class="btn btn-success btn-sm btn-block" style="background-color: #4025A6; border-color: #4025A6;" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fa fa-plus" aria-hidden="true"></i> Agregar Productos</button>
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -183,21 +203,22 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>        
-        &nbsp;
-        <div class="col-md-2 offset-md-3 text-right">                 
-          <p style="font-size: 14px;">Puntos BIEX <span class="badge badge-dark">0.0</span></p>
         </div> 
+
+        <div class="col-md-2 offset-md-4">                 
+          <p style="font-size: 14px;">Puntos BIEX <span class="badge badge-dark">0.0</span></p>
+        </div>
+        @forelse($tabla as $t) 
         <div class="col-md-6 offset-md-4">                 
           <p style="font-size: 14px; color: red;">Antes de elegir productos, debes seleccionar las opciones de entrega y método de pago</p>
         </div>        
         <div class="col-md-4 offset-md-7">                 
-          <h5 style="text-align: right;">Subtotal de productos <strong>$ 0.00</strong></h5>
+          <h5 style="text-align: right;">Subtotal de productos <strong>$ {{number_format($t->cantidad*$t->costo, 2, '.', ',')}}</strong></h5>
         </div> 
         <div class="col-md-4 offset-md-7">                 
           <h1 style="text-align: right;">Total <strong>$ 0.00</strong></h1>
-        </div>              
+        </div>
+        @endforeach              
       </div>
       <div class="form-group row">
         <div class="col-sm-7">
@@ -209,14 +230,16 @@
         <div class="col-sm-4">
           <button type="button" class="btn btn-success btn-lg btn-block"><i class="fa fa-check" aria-hidden="true"></i> Finalizar Pedido</button>
         </div>
-        &nbsp;
         <div class="col-sm-4">
            <a href="" style="color: black;"><i class="fas fa-book"></i> Aviso de privacidad</a>&nbsp;|&nbsp; 
            <a href="" style="color: black;"><i class="fas fa-book"></i>  Políticas de devolución</a>
         </div>        
-      </div>
-    </form>
+      </div>  
   </div>
+
+
+
+
 
   <!-- jQuery -->
   @include('sweetalert::alert')
@@ -230,7 +253,7 @@
   <script src="{{asset('js/pedidos.js')}}"></script>
 
 
-<script language="javascript">
+  <script language="javascript">
    function obtener_datos(code) {
       var img = document.getElementById("myimage");
       
