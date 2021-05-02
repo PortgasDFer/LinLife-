@@ -44,6 +44,12 @@ class VentasController extends Controller
         return view('UsrInterfaces.pre-pedido', compact('nuevofolio','fechaactual','productos'));
     }
 
+    public function indventas()
+    {
+        alert()->success('LIN LIFE', 'Pedido realizado con éxito');
+        return Redirect::to('/home');
+    }
+
     public function ventas()
     {
         return view('AdmInterfaces.IntVentas.index');

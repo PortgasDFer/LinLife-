@@ -64,6 +64,7 @@ Route::post('/fotoperfil/{user}', 'CuentaController@foto')->name('fotoperfil');
 Route::get('/obtenerDomicilios','DomicilioController@datatable')->name('datatable.domicilio');
 
 Route::resource('/pedidos','PedidosController');
+Route::get('/indexventas/','VentasController@indventas')->name('ventas.indexof');
 
 
 Route::resource('/ventas','VentasController');

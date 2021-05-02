@@ -132,7 +132,7 @@
                       @csrf 
                       @method('DELETE')
                       <input type="hidden" name="folio" value="{{$datos->folio}}">
-                      <input type="hidden" name="codebar" value="{{$t->code}}">
+                      <input type="hidden" name="code" value="{{$t->code}}">
                       <button class="btn btn-warning" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
                   </form>
                 </td>
@@ -207,18 +207,18 @@
 
         <div class="col-md-2 offset-md-4">                 
           <p style="font-size: 14px;">Puntos BIEX <span class="badge badge-dark">0.0</span></p>
-        </div>
-        @forelse($tabla as $t) 
+        </div>     
         <div class="col-md-6 offset-md-4">                 
           <p style="font-size: 14px; color: red;">Antes de elegir productos, debes seleccionar las opciones de entrega y método de pago</p>
-        </div>        
+        </div>
+        @forelse($tabla as $t)         
         <div class="col-md-4 offset-md-7">                 
           <h5 style="text-align: right;">Subtotal de productos <strong>$ {{number_format($t->cantidad*$t->costo, 2, '.', ',')}}</strong></h5>
         </div> 
+         @endforeach  
         <div class="col-md-4 offset-md-7">                 
           <h1 style="text-align: right;">Total <strong>$ 0.00</strong></h1>
-        </div>
-        @endforeach              
+        </div>                   
       </div>
       <div class="form-group row">
         <div class="col-sm-7">
@@ -228,7 +228,7 @@
         </div>
         &nbsp;
         <div class="col-sm-4">
-          <button type="button" class="btn btn-success btn-lg btn-block"><i class="fa fa-check" aria-hidden="true"></i> Finalizar Pedido</button>
+          <a href="/indexventas/"><button type="submit" class="btn btn-success btn-lg btn-block"><i class="fa fa-check" aria-hidden="true"></i> Finalizar Pedido</button></a>
         </div>
         <div class="col-sm-4">
            <a href="" style="color: black;"><i class="fas fa-book"></i> Aviso de privacidad</a>&nbsp;|&nbsp; 
@@ -236,10 +236,6 @@
         </div>        
       </div>  
   </div>
-
-
-
-
 
   <!-- jQuery -->
   @include('sweetalert::alert')
@@ -251,7 +247,6 @@
 
   <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
   <script src="{{asset('js/pedidos.js')}}"></script>
-
 
   <script language="javascript">
    function obtener_datos(code) {
