@@ -30,7 +30,11 @@
               <h5 class="widget-user-desc">{{$domicilio->localidad}}, {{$domicilio->entidad}}</h5>
             </div>
             <div class="widget-user-image">
-              <img class="img-circle elevation-2" src="https://64.media.tumblr.com/4500aac2869c2d6c9cd1e042e9f8ac67/tumblr_pf1xbcWc3E1w0po92_500.jpg" alt="User Avatar">
+              @if($user->avatar!=null)                      
+              <img src="/imgusers/{{$user->avatar}}"  class="img-circle elevation-2">
+            @else
+              <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg"  class="img-circle elevation-2" alt="example placeholder avatar">
+              @endif
             </div>
             <div class="card-footer">
               <div class="row">
@@ -42,9 +46,9 @@
                 </div>
                 <div class="col-sm-6 border-right">
                   <p>Domicilio</p>
-                  Calle:{{$domicilio->calle}} No. Ext: {{$domicilio->noext}} No int {{$domicilio->noint}}
+                  Calle: {{$domicilio->calle}} No. Ext: {{$domicilio->noext}} No int {{$domicilio->noint}}
                   <br>
-                  Colonia:{{$domicilio->colonia}} C.P.:{{$domicilio->cp}}
+                  Colonia: {{$domicilio->colonia}} C.P.:{{$domicilio->cp}}
                   <br>
                   {{$domicilio->localidad}},{{$domicilio->entidad}}
                 </div>

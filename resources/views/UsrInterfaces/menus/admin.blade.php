@@ -2,19 +2,19 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/home" class="nav-link">
               <i class="fas fa-home nav-icon"></i>
               <p>Página principal</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="fas fa-info-circle nav-icon"></i>
+              <i class="fa fa-user-circle nav-icon"></i>
               <p>Panel de administración</p>
             </a>
           </li>
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+          <li class="nav-item">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Control de usuarios
@@ -24,33 +24,33 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-dot-circle nav-icon"></i>
                   <p>Registrar usuarios</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-dot-circle nav-icon"></i>
                   <p>Rendimiento</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/usuarios" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-dot-circle nav-icon"></i>
                   <p>Lista de usuarios</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-dot-circle nav-icon"></i>
                   <p>Verificación de usuarios</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-shopping-bag"></i>
               <p>
                 Productos
                 <i class="right fas fa-angle-left"></i>
@@ -59,27 +59,27 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/productos" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-dot-circle nav-icon"></i>
                   <p>Lista de productos</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/promociones" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-dot-circle nav-icon"></i>
                   <p>Promociones</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/productos/create" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-dot-circle nav-icon"></i>
                   <p>Registrar nuevo producto</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-indent"></i>
               <p>
                 Inventario
                 <i class="right fas fa-angle-left"></i>
@@ -87,22 +87,22 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/ingreso-de-producto" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
+                <a href="/ingreso-de-producto" class="nav-link">
+                  <i class="far fa-dot-circle nav-icon"></i>
                   <p>Ingreso de producto</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/existencias" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-dot-circle nav-icon"></i>
                   <p>Existencias</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-id-card"></i>
               <p>
                  Identidades
                 <i class="right fas fa-angle-left"></i>
@@ -110,8 +110,8 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/validar-identidades" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
+                <a href="/validar-identidades" class="nav-link">
+                  <i class="far fa-dot-circle nav-icon"></i>
                   <p>Validar identidades</p>
                 </a>
               </li>

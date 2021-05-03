@@ -63,7 +63,7 @@
           <!-- Add the bg color to the header using any of the bg-* classes -->
           <div class="widget-user-header bg-info">
             <h3 class="widget-user-username">{{Auth::user()->name}} {{Auth::user()->aPaterno}} {{Auth::user()->aMaterno}}</h3>
-            <h5 class="widget-user-desc">{{$domicilio->entidad}}, {{$domicilio->localidad}}</h5>
+            <h5 class="widget-user-desc">{{$domicilio->localidad}}, {{$domicilio->entidad}}</h5>
           </div>
           <div class="widget-user-image">
             @if(Auth::user()->avatar!=null)                      
@@ -76,7 +76,7 @@
             <div class="row">
               <div class="col-sm-4 border-right">
                 <div class="description-block">
-                  <h5 class="description-header">0</h5>
+                  <h5 class="description-header">{{$invitados}}</h5>
                   <span class="description-text">Socios</span>
                 </div>
                 <!-- /.description-block -->
@@ -84,7 +84,7 @@
               <!-- /.col -->
               <div class="col-sm-4 border-right">
                 <div class="description-block">
-                  <h5 class="description-header">0</h5>
+                  <h5 class="description-header">{{$ventas}}</h5>
                   <span class="description-text">Compras</span>
                 </div>
                 <!-- /.description-block -->

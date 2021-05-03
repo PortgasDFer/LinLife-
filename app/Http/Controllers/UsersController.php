@@ -361,4 +361,22 @@ class UsersController extends Controller
         alert()->success('LIN LIFE', 'Parte de enfrente cargada con éxito');
         return Redirect::to('/home');
     }
+
+    public function desglose($slug)
+    {
+        $usuario=User::where('slug','=',$slug)->firstOrFail();
+        return view('UsrInterfaces.Ingresos.desglose',compact('usuario'));
+    }
+
+    public function mes($slug)
+    {
+        $usuario=User::where('slug','=',$slug)->firstOrFail();
+        return view('UsrInterfaces.Ingresos.mes',compact('usuario'));
+    }
+
+    public function semana($slug)
+    {
+        $usuario=User::where('slug','=',$slug)->firstOrFail();
+        return view('UsrInterfaces.Ingresos.semana',compact('usuario'));
+    }
 }

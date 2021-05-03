@@ -31,8 +31,9 @@ class HomeController extends Controller
         if($request->user()->hasRole('user')){
             $usuario = User::find(auth()->id());
             $domicilio=Domicilio::where('id_user','=',$usuario->id)->first();
-           
-            return view('userdashboard',compact('domicilio'));
+            $ventas=Ventas::where('id_user','=',$usuario->id)->count();
+            $invitados=User::where('invitacion','=',$usuario->code)->count();
+            return view('userdashboard',compact('domicilio','ventas','invitados'));
         } else{
             $noProductos=Producto::all()->count();
             $noUsuarios=User::all()->count();

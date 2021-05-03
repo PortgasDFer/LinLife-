@@ -13,7 +13,7 @@
       <p>Detalles de mi cuenta</p>
     </a>
   </li>
-  <li class="nav-item menu-open">
+  <li class="nav-item">
     <a href="#" class="nav-link active">
       <i class="nav-icon fas fa-users"></i>
       <p>
@@ -24,19 +24,19 @@
     <ul class="nav nav-treeview">
       <li class="nav-item">
         <a href="/estructura-de-red/{{Auth::user()->slug}}" class="nav-link">
-          <i class="far fa-circle nav-icon"></i>
+          <i class="far fa-dot-circle nav-icon"></i>
           <p>Estructura de red</p>
         </a>
       </li>
       <li class="nav-item">
         <a href="/lista-de-red/{{Auth::user()->slug}}" class="nav-link">
-          <i class="far fa-circle nav-icon"></i>
+          <i class="far fa-dot-circle nav-icon"></i>
           <p>Lista</p>
         </a>
       </li>
       <li class="nav-item">
         <a href="/usuarios/create" class="nav-link">
-          <i class="far fa-circle nav-icon"></i>
+          <i class="far fa-dot-circle nav-icon"></i>
           <p>Registrar socio</p>
         </a>
       </li>
@@ -44,7 +44,7 @@
   </li>
   <li class="nav-item">
     <a href="#" class="nav-link active">
-      <i class="nav-icon fas fa-tachometer-alt"></i>
+      <i class="nav-icon fas fa-dollar-sign"></i>
       <p>
         Mis ingresos
         <i class="right fas fa-angle-left"></i>
@@ -53,18 +53,24 @@
     <ul class="nav nav-treeview">
       <li class="nav-item">
         <a href="vistas/ingresos/semana.html" class="nav-link">
+          <i class="far fa-dot-circle nav-icon"></i>
+        <a href="/semana/{{Auth::user()->slug}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>Esta semana</p>
         </a>
       </li>
       <li class="nav-item">
         <a href="vistas/ingresos/mes.html" class="nav-link">
+          <i class="far fa-dot-circle nav-icon"></i>
+        <a href="/mes/{{Auth::user()->slug}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>Este mes</p>
         </a>
       </li>
       <li class="nav-item">
         <a href="vistas/ingresos/desglose.html" class="nav-link">
+          <i class="far fa-dot-circle nav-icon"></i>
+        <a href="/desglose/{{Auth::user()->slug}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>Desglose</p>
         </a>
@@ -73,7 +79,7 @@
   </li>
   <li class="nav-item">
     <a href="#" class="nav-link active">
-      <i class="nav-icon fas fa-tachometer-alt"></i>
+      <i class="nav-icon fas fa-shopping-cart"></i>
       <p>
         Mis compras
         <i class="right fas fa-angle-left"></i>
@@ -81,20 +87,20 @@
     </a>
     <ul class="nav nav-treeview">
       <li class="nav-item">
-        <a href="{{ action('VentasController@create') }}" class="nav-link active">
-          <i class="far fa-circle nav-icon"></i>
+        <a href="{{ action('VentasController@create') }}" class="nav-link">
+          <i class="far fa-dot-circle nav-icon"></i>
           <p>Realizar pedido</p>
         </a>
       </li>
       <li class="nav-item">
         <a href="/cobros-sobre-comisiones" class="nav-link">
-          <i class="far fa-circle nav-icon"></i>
+          <i class="far fa-dot-circle nav-icon"></i>
           <p>Cobro sobre comisiones</p>
         </a>
       </li>
       <li class="nav-item">
         <a href="ventas.html" class="nav-link">
-          <i class="far fa-circle nav-icon"></i>
+          <i class="far fa-dot-circle nav-icon"></i>
           <p>Historial</p>
         </a>
       </li>
@@ -102,7 +108,7 @@
   </li>
   <li class="nav-item">
     <a href="#" class="nav-link active">
-      <i class="nav-icon fas fa-tachometer-alt"></i>
+      <i class="nav-icon fas fa-wrench"></i> 
       <p>
         Herramientas
         <i class="right fas fa-angle-left"></i>
@@ -110,14 +116,14 @@
     </a>
     <ul class="nav nav-treeview">
       <li class="nav-item">
-        <a href="mensajes.html" class="nav-link active">
-          <i class="far fa-circle nav-icon"></i>
+        <a href="mensajes.html" class="nav-link">
+          <i class="far fa-dot-circle nav-icon"></i>
           <p>Mensajes</p>
         </a>
       </li>
       <li class="nav-item">
         <a href="#" class="nav-link">
-          <i class="far fa-circle nav-icon"></i>
+          <i class="far fa-dot-circle nav-icon"></i>
           <p>Documentos</p>
         </a>
       </li>
@@ -125,7 +131,7 @@
   </li>
   <li class="nav-item">
     <a href="#" class="nav-link active">
-      <i class="nav-icon fas fa-tachometer-alt"></i>
+      <i class="nav-icon fas fa-cog"></i>
       <p>
         Configuración
         <i class="right fas fa-angle-left"></i>
@@ -134,13 +140,13 @@
     <ul class="nav nav-treeview">
       <li class="nav-item">
         <a href="/cuenta" class="nav-link">
-          <i class="far fa-circle nav-icon"></i>
+          <i class="far fa-dot-circle nav-icon"></i>
           <p>Mi cuenta</p>
         </a>
       </li>
       <li class="nav-item">
         <a href="/domicilios" class="nav-link">
-          <i class="far fa-circle nav-icon"></i>
+          <i class="far fa-dot-circle nav-icon"></i>
           <p>Domicilios</p>
         </a>
       </li>

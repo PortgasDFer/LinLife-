@@ -31,7 +31,7 @@
                 <div class="icon">
                   <i class="fa fa-users" aria-hidden="true"></i>
                 </div>
-                <a href="#" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="/usuarios" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
               </div>
 			</div>
 			<div class="col-sm-12 col-md-4">

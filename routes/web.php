@@ -43,6 +43,9 @@ Route::get('/verificar/{usuario}','UsersController@verificarUsuario')->name('ver
 Route::post('/status/{usuario}','UsersController@statusCuenta')->name('status.usuario');
 Route::get('/subir-identificacion','UsersController@subirIdentificacion')->name('subir.identificación');
 Route::post('/guardarine/{usuario}','UsersController@guardarIne')->name('guardar.ine');
+Route::get('/desglose/{usuario}','UsersController@desglose')->name('usuario.desglose');
+Route::get('/semana/{usuario}','UsersController@semana')->name('usuario.semana');
+Route::get('/mes/{usuario}','UsersController@mes')->name('usuario.mes');
 Auth::routes(['verify' => true]);
 Route::get('/validar-codigo/{usuario}','UsersController@validarCodigo')->name('usuario.validar');
 Route::resource('/promociones','PromocionesController');
