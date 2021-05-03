@@ -76,7 +76,7 @@
             <div class="row">
               <div class="col-sm-4 border-right">
                 <div class="description-block">
-                  <h5 class="description-header">0</h5>
+                  <h5 class="description-header">{{$invitados}}</h5>
                   <span class="description-text">Socios</span>
                 </div>
                 <!-- /.description-block -->
@@ -84,7 +84,7 @@
               <!-- /.col -->
               <div class="col-sm-4 border-right">
                 <div class="description-block">
-                  <h5 class="description-header">0</h5>
+                  <h5 class="description-header">{{$ventas}}</h5>
                   <span class="description-text">Compras</span>
                 </div>
                 <!-- /.description-block -->

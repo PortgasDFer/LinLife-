@@ -52,19 +52,19 @@
     </a>
     <ul class="nav nav-treeview">
       <li class="nav-item">
-        <a href="vistas/ingresos/semana.html" class="nav-link">
+        <a href="/semana/{{Auth::user()->slug}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>Esta semana</p>
         </a>
       </li>
       <li class="nav-item">
-        <a href="vistas/ingresos/mes.html" class="nav-link">
+        <a href="/mes/{{Auth::user()->slug}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>Este mes</p>
         </a>
       </li>
       <li class="nav-item">
-        <a href="vistas/ingresos/desglose.html" class="nav-link">
+        <a href="/desglose/{{Auth::user()->slug}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>Desglose</p>
         </a>
