@@ -27,45 +27,34 @@
           <div class="card-body">
              <i class="fa fa-map-marker" aria-hidden="true"></i> Domicilios de socio <span class="badge badge-dark">{{$usu->invitacion}}</span> {{$usu->name}} {{$usu->aPaterno}} {{$usu->aMaterno}}         
            </div>
-        </div>        
-        <div class="row"> 
-          <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header border-transparent bg-primary">
-                  <h3 class="card-title"></h3>
-                  <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                      <i class="fas fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove">
-                      <i class="fas fa-times"></i>
-                    </button>
-                  </div>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body p-0">
-                  <div class="table-responsive mt-2">
-                    <table id="domicilios" class="table table-striped table-bordered" style="width:100%">
-                      <thead>
-                        <tr>
-                          <th>Nombre</th>                                                        
-                          <th>Calle</th>
-                          <th>No Exterior</th>                            
-                          <th>CP</th>
-                          <th>Colonia</th>
-                          <th>Localidad</th>                            
-                          <th>Editar</th>
-                          <th>Elminar</th>
-                        </tr>
-                      </thead>
-                    </table>
-                  </div>
-                  <!-- /.table-responsive -->
-                </div>
-                <!-- /.card-body -->
-              </div>  
-          </div>
+        </div>              
+        <div class="row">
+      <div class="col-md-12"> 
+        <div class="card">  
+          <div class="card-header bg-primary">Lista de usuarios</div>
+          <div class="card-body"> 
+            <div class="table-responsive">  
+              <table id="domicilios" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>                                                        
+                    <th>Calle</th>
+                    <th>No Exterior</th>                            
+                    <th>CP</th>
+                    <th>Colonia</th>
+                    <th>Localidad</th>                            
+                    <th>Editar</th>
+                    <th>Elminar</th>
+                  </tr>
+                </thead>
+                <tbody> 
+                </tbody>
+              </table>
+            </div>  
+          </div>  
         </div>
+      </div>  
+    </div>  
       </div>
     </section>
     <!-- /.content -->

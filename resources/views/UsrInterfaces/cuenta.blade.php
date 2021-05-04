@@ -4,7 +4,8 @@
 <style type="text/css" media="screen">
     a {color: white;  text-decoration: none;}
     a:hover {color: white;text-decoration: none;}
-    a:visited {color: white;text-decoration: none;}
+    a:visited {color: white;text-decoration: none;}    
+}
   </style>
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -15,7 +16,7 @@
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="/home">Home</a></li>
+          <li class="breadcrumb-item"><a href="/home" style="color: blue;">Home</a></li>
           <li class="breadcrumb-item active">Cuenta</li>
         </ol>
       </div><!-- /.col -->
@@ -32,7 +33,7 @@
           </div>
           <div class="col-sm">
             <div class="btn-group btn-group-justified" role="group" aria-label="Basic mixed styles example">
-              <button type="button" class="btn btn-secondary "><i class="fa fa-home" aria-hidden="true"></i> Inicio</button>
+              <a href="/home"><button type="button" class="btn btn-secondary "><i class="fa fa-home" aria-hidden="true"></i> Inicio</button></a>
               <button type="button" class="btn btn-info"><i class='fas fa-money-bill-alt'></i> Pagos</button>
               <button type="button" class="btn btn-success"><i class="fa fa-download" aria-hidden="true"></i> Downline</button>
               <button type="button" class="btn btn-success"><i class="fa fa-upload" aria-hidden="true"></i> Upline</button>
@@ -150,7 +151,7 @@
               </div>
             </div>
           </div>
-          <div class="card" >
+          <div class="card">
             <div class="card-header" id="headingTwo" style="background-color: #6c757d; color: #ffffff;">
               <h5 class="mb-0">
                 <a data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="font-size: 15px;" style="color: #ffffff;">
@@ -164,10 +165,10 @@
                     <a href="/domicilios"><button type="button" class="btn btn-warning btn-block"><i class="fa fa-map-marker" aria-hidden="true"></i> Editar Domicilios</button></a>
                   </div>
                   @foreach($domicilio as $d)
-                <div class="card bg-light mb-2" style="max-width: 18rem;">
+                <div class="card bg-light mb-12" style="max-width: 18rem;">
                   <div class="card-header">{{$d->nombre}}</div>
                   <div class="card-body">                    
-                    <p>{{$d->calle}} #{{ $d->noext}} {{ $d->noint}} <br>{{$d->colonia}}<br>{{ $d->entidad}} <br>C.P. {{ $d->cp}}<br><strong>México</strong><br></p>                    
+                    <p>Calle: {{$d->calle}} #{{ $d->noext}} {{ $d->noint}} <br>Colonia: {{$d->colonia}}<br>C.P.: {{ $d->cp}}<br><strong>{{ $d->entidad}} </strong><br></p>                    
                   </div>
                 </div>
                 @endforeach
@@ -292,18 +293,17 @@
                   </div>
                   <hr>
                   <div class="form-group row">
-                   <label for="colFormLabel" class="col-sm-2 col-form-label @error('banco') is-invalid @enderror" style="text-align: right;">Banco</label>
-
+                   <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Banco</label>
                     <div class="col-sm-4">
-                      <select id="banco" name="banco" class="form-control">
+                      <select id="banco" name="banco" class="form-control @error('banco') is-invalid @enderror">
                         <option selected>{{$usuario->banco}}</option>
-                        <option value="Azteca">Azteca</option>
-                        @error('banco')
+                        <option value="Azteca">Azteca</option>                        
+                      </select>                      
+                      @error('banco')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                       @enderror
-                      </select>                      
                     </div>
                     
                   </div>

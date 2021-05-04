@@ -63,7 +63,7 @@
           <!-- Add the bg color to the header using any of the bg-* classes -->
           <div class="widget-user-header bg-info">
             <h3 class="widget-user-username">{{Auth::user()->name}} {{Auth::user()->aPaterno}} {{Auth::user()->aMaterno}}</h3>
-            <h5 class="widget-user-desc">{{$domicilio->entidad}}, {{$domicilio->localidad}}</h5>
+            <h5 class="widget-user-desc">{{$domicilio->localidad}}, {{$domicilio->entidad}}</h5>
           </div>
           <div class="widget-user-image">
             @if(Auth::user()->avatar!=null)                      

@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="{{asset('assets/shop/vendors/owl-carousel/owl.theme.default.min.css')}}">
 		<link rel="stylesheet" href="{{asset('assets/shop/vendors/owl-carousel/owl.carousel.min.css')}}">
 		<link rel="stylesheet" href="{{asset('assets/shop/css/style.css')}}">
+		<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 	</head>
 	<body>
 		<!--================ Start Header Menu Area =================-->
