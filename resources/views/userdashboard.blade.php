@@ -148,21 +148,21 @@
               <table class="table m-0">
                 <thead>
                 <tr>
-                  <th>Order ID</th>
-                  <th>Item</th>
-                  <th>Status</th>
-                  <th>Popularity</th>
+                  <th>Folio</th>
+                  <th>Fecha</th>
+                  <th>Total</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                  <td>Call of Duty IV</td>
-                  <td><span class="badge badge-success">Shipped</span></td>
-                  <td>
-                    <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                  </td>
-                </tr>
+                @forelse($ventas_tabla as $ventas)
+                  <tr>
+                    <td>{{$ventas->folio}}</td>
+                    <td>{{$ventas->fecha}}</td>
+                    <td>{{$ventas->total}}</td>
+                  </tr>
+                @empty
+                <h2>Aún no ha realizado compras</h2>
+                @endforelse
                 </tbody>
               </table>
             </div>
@@ -170,7 +170,7 @@
           </div>
           <!-- /.card-body -->
           <div class="card-footer clearfix">
-            <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Nueva compra</a>
+            <a href="/pre-pedido" class="btn btn-sm btn-info float-left">Nueva compra</a>
             <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">Ver todas mis compras</a>
           </div>
           <!-- /.card-footer -->

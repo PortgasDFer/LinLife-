@@ -33,7 +33,8 @@ class HomeController extends Controller
             $domicilio=Domicilio::where('id_user','=',$usuario->id)->first();
             $ventas=Ventas::where('id_user','=',$usuario->id)->count();
             $invitados=User::where('invitacion','=',$usuario->code)->count();
-            return view('userdashboard',compact('domicilio','ventas','invitados'));
+            $ventas_tabla=Ventas::where('id_user','=',$usuario->id)->get();
+            return view('userdashboard',compact('domicilio','ventas','invitados','ventas_tabla'));
         } else{
             $noProductos=Producto::all()->count();
             $noUsuarios=User::all()->count();
