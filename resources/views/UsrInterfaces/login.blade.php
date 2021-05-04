@@ -1,23 +1,24 @@
 @extends('layouts.sitio')
 @section('content')
-<!-- ================ start banner area ================= -->	
-<section class="blog-banner-area" id="category">
-	<div class="container h-100">
-		<div class="blog-banner">
-			<div class="text-center">
-				<h1>Login / Registro</h1>
-				<nav aria-label="breadcrumb" class="banner-breadcrumb">
-			        <ol class="breadcrumb">
-			          <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-			          <li class="breadcrumb-item active" aria-current="page">Login/Registrarse</li>
-			        </ol>
-      			</nav>
+<main class="site-main">
+	<!-- ================ start banner area ================= -->	
+	<section class="blog-banner-area" id="category">
+		<div class="container h-100">
+			<div class="blog-banner">
+				<div class="text-center">
+					<h1>Login / Registro</h1>
+					<nav aria-label="breadcrumb" class="banner-breadcrumb">
+				        <ol class="breadcrumb">
+				          <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+				          <li class="breadcrumb-item active" aria-current="page">Login/Registrarse</li>
+				        </ol>
+	      			</nav>
+				</div>
 			</div>
 		</div>
-	</div>
-</section>
-<!-- ================ end banner area ================= -->
-<!--================Login Box Area =================-->
+	</section>
+	<!-- ================ end banner area ================= -->
+	<!--================Login Box Area =================-->
 	<section class="login_box_area section-margin">
 		<div class="container">
 			<div class="row">
@@ -69,4 +70,5 @@
 		</div>
 	</section>
 	<!--================End Login Box Area =================-->
+</main>
 @endsection

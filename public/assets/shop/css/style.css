@@ -4012,3 +4012,7 @@ a {
         padding-bottom: 115px !important
     }
 }
+body {
+   overflow: scroll;
+   overflow-x: hidden;    
+}
