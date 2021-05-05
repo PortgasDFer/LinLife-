@@ -23,7 +23,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="/recursos/linlife.png" style="width:100px; margin:3px 0;">
+        <img src="{{asset('recursos/linlife.png')}}" style="width:100px; margin:3px 0;">
       </a>
       <span class="navbar-text">
         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color: #aaa;"><i class="fas fa-sign-out-alt" style="color: #4025A6"></i> Salir
@@ -170,7 +170,7 @@
                     </div>
                     <div class="form-group">
                       <label for="message-text" class="col-form-label">Buscar Producto</label>
-                      <select id="code" name="code" class="form-control pull-right js-example-basic-single"autofocus="" onchange="obtener_datos(this.value)">
+                      <select id="code" name="code" class="form-control pull-right js-example-basic-single" onchange="obtener_datos(this.value)">
                         <option value="0">Selecciona</option>
                         @foreach($productos as $p)                          
                           <option value="{{$p->code}}">{{$p->code}} - {{$p->nombre}}</option>
@@ -240,13 +240,13 @@
 
   <!-- jQuery -->
   @include('sweetalert::alert')
-  <script src="assets/plugins/jquery/jquery.min.js"></script>
+  <script src="{{asset('assets/plugins/jquery/jquery.min.js')}}"></script>
   <!-- Bootstrap 4 -->
-  <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{{asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <!-- AdminLTE App -->
-  <script src="assets/dist/js/adminlte.min.js"></script>
+  <script src="{{asset('assets/dist/js/adminlte.min.js')}}"></script>
 
-  <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+  <script src="{{asset('https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js')}}"></script>
   <script src="{{asset('js/pedidos.js')}}"></script>
 
   <script language="javascript">
@@ -254,6 +254,7 @@
       var img = document.getElementById("myimage");
       
       var img_dir = "/productoimg/";
+      console.log(code);
       $.get('/obtenerProducto/' + code, function (data) {
         console.log(data);
         if (img) {

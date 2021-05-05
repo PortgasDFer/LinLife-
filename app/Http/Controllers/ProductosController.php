@@ -181,7 +181,7 @@ class ProductosController extends Controller
 
     public function obtenerDatos($code)
     {
-        $producto=Producto::find($code)->firstOrFail();
+        $producto=Producto::where('code','=',$code)->firstOrFail();
         return Response::json($producto);
     }
     
