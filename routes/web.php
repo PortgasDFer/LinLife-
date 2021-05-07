@@ -13,12 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('inicio');
-});
-Route::get('/catalogo', function () {
-    return view('ShpInterfaces.catalogo');
-});
+
+Route::get('/','PaginasController@index')->name('inicio');
+Route::get('/catalogo','PaginasController@catalogo')->name('catalogo');
+Route::get('/detalle/{producto}','PaginasController@detalle')->name('detalle');
+Route::get('/contacto','PaginasController@contacto')->name('contacto');
+
 Route::get('/registro',function(){
 	return view('UsrInterfaces.registro');
 });

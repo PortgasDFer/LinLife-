@@ -9,7 +9,7 @@
 				<nav aria-label="breadcrumb" class="banner-breadcrumb">
 			        <ol class="breadcrumb">
 			          <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-			          <li class="breadcrumb-item active" aria-current="page">Nuestros productos</li>
+			          <li class="breadcrumb-item active" aria-current="page">Productos</li>
 			        </ol>
 			    </nav>
 			</div>
@@ -97,160 +97,23 @@
 	      <!-- Start Best Seller -->
 	      <section class="lattest-product-area pb-40 category-list">
 	        <div class="row">
+	          @foreach($productos as $p)
 	          <div class="col-md-6 col-lg-4">
 	            <div class="card text-center card-product">
-	              <div class="card-product__img">
-	                <img class="card-img" src="https://i.pinimg.com/originals/7d/78/92/7d7892b32c7b45f838ce392edd006f6d.png" alt="">
-	                <ul class="card-product__imgOverlay">
-	                  <li><button><i class="ti-search"></i></button></li>
-	                  <li><button><i class="ti-shopping-cart"></i></button></li>
-	                  <li><button><i class="ti-heart"></i></button></li>
+	              <div class="card-product__img" >
+	                <img class="card-img" src="/productoimg/{{$p->imagen}}" style="width: 255px; height: 263px;">
+	                <ul class="card-product__imgOverlay">	                  
+	                  <li><button><i class="ti-shopping-cart"></i></button></li>	                  
 	                </ul>
 	              </div>
 	              <div class="card-body">
 	                <p>Suplementos</p>
-	                <h4 class="card-product__title"><a href="#">Producto 1</a></h4>
-	                <p class="card-product__price">$150.00</p>
+	                <h4 class="card-product__title"><a href="/detalle/{{$p->slug}}">{{$p->nombre}}</a></h4>
+	                <p class="card-product__price">${{$p->precio_publico}}</p>
 	              </div>
 	            </div>
 	          </div>
-	          <div class="col-md-6 col-lg-4">
-	            <div class="card text-center card-product">
-	              <div class="card-product__img">
-	                <img class="card-img" src="https://i.pinimg.com/originals/7d/78/92/7d7892b32c7b45f838ce392edd006f6d.png" alt="">
-	                <ul class="card-product__imgOverlay">
-	                  <li><button><i class="ti-search"></i></button></li>
-	                  <li><button><i class="ti-shopping-cart"></i></button></li>
-	                  <li><button><i class="ti-heart"></i></button></li>
-	                </ul>
-	              </div>
-	              <div class="card-body">
-	                <p>Suplementos</p>
-	                <h4 class="card-product__title"><a href="#">Producto 2</a></h4>
-	                <p class="card-product__price">$550.00</p>
-	              </div>
-	            </div>
-	          </div>
-	          <div class="col-md-6 col-lg-4">
-	            <div class="card text-center card-product">
-	              <div class="card-product__img">
-	                <img class="card-img" src="https://i.pinimg.com/originals/7d/78/92/7d7892b32c7b45f838ce392edd006f6d.png" alt="">
-	                <ul class="card-product__imgOverlay">
-	                  <li><button><i class="ti-search"></i></button></li>
-	                  <li><button><i class="ti-shopping-cart"></i></button></li>
-	                  <li><button><i class="ti-heart"></i></button></li>
-	                </ul>
-	              </div>
-	              <div class="card-body">
-	                <p>Suplementos</p>
-	                <h4 class="card-product__title"><a href="#">Producto 3</a></h4>
-	                <p class="card-product__price">$100.00</p>
-	              </div>
-	            </div>
-	          </div>
-	          <div class="col-md-6 col-lg-4">
-	            <div class="card text-center card-product">
-	              <div class="card-product__img">
-	                <img class="card-img" src="https://i.pinimg.com/originals/7d/78/92/7d7892b32c7b45f838ce392edd006f6d.png" alt="">
-	                <ul class="card-product__imgOverlay">
-	                  <li><button><i class="ti-search"></i></button></li>
-	                  <li><button><i class="ti-shopping-cart"></i></button></li>
-	                  <li><button><i class="ti-heart"></i></button></li>
-	                </ul>
-	              </div>
-	              <div class="card-body">
-	                <p>Bebidas</p>
-	                <h4 class="card-product__title"><a href="#">Producto Cuatro</a></h4>
-	                <p class="card-product__price">$320.00</p>
-	              </div>
-	            </div>
-	          </div>
-	          <div class="col-md-6 col-lg-4">
-	            <div class="card text-center card-product">
-	              <div class="card-product__img">
-	                <img class="card-img" src="https://i.pinimg.com/originals/7d/78/92/7d7892b32c7b45f838ce392edd006f6d.png" alt="">
-	                <ul class="card-product__imgOverlay">
-	                  <li><button><i class="ti-search"></i></button></li>
-	                  <li><button><i class="ti-shopping-cart"></i></button></li>
-	                  <li><button><i class="ti-heart"></i></button></li>
-	                </ul>
-	              </div>
-	              <div class="card-body">
-	                <p>Bebidas</p>
-	                <h4 class="card-product__title"><a href="#">Producto Cinco</a></h4>
-	                <p class="card-product__price">$330.00</p>
-	              </div>
-	            </div>
-	          </div>
-	          <div class="col-md-6 col-lg-4">
-	            <div class="card text-center card-product">
-	              <div class="card-product__img">
-	                <img class="card-img" src="https://i.pinimg.com/originals/7d/78/92/7d7892b32c7b45f838ce392edd006f6d.png" alt="">
-	                <ul class="card-product__imgOverlay">
-	                  <li><button><i class="ti-search"></i></button></li>
-	                  <li><button><i class="ti-shopping-cart"></i></button></li>
-	                  <li><button><i class="ti-heart"></i></button></li>
-	                </ul>
-	              </div>
-	              <div class="card-body">
-	                <p>Bebidas</p>
-	                <h4 class="card-product__title"><a href="#">Producto Seis
-	                </a></h4>
-	                <p class="card-product__price">$320.00</p>
-	              </div>
-	            </div>
-	          </div>
-	          <div class="col-md-6 col-lg-4">
-	            <div class="card text-center card-product">
-	              <div class="card-product__img">
-	                <img class="card-img" src="https://i.pinimg.com/originals/7d/78/92/7d7892b32c7b45f838ce392edd006f6d.png" alt="">
-	                <ul class="card-product__imgOverlay">
-	                  <li><button><i class="ti-search"></i></button></li>
-	                  <li><button><i class="ti-shopping-cart"></i></button></li>
-	                  <li><button><i class="ti-heart"></i></button></li>
-	                </ul>
-	              </div>
-	              <div class="card-body">
-	                <p>Alimentos</p>
-	                <h4 class="card-product__title"><a href="#">Producto 7</a></h4>
-	                <p class="card-product__price">$620.00</p>
-	              </div>
-	            </div>
-	          </div>
-	          <div class="col-md-6 col-lg-4">
-	            <div class="card text-center card-product">
-	              <div class="card-product__img">
-	                <img class="card-img" src="https://i.pinimg.com/originals/7d/78/92/7d7892b32c7b45f838ce392edd006f6d.png" alt="">
-	                <ul class="card-product__imgOverlay">
-	                  <li><button><i class="ti-search"></i></button></li>
-	                  <li><button><i class="ti-shopping-cart"></i></button></li>
-	                  <li><button><i class="ti-heart"></i></button></li>
-	                </ul>
-	              </div>
-	              <div class="card-body">
-	                <p>Alimentos</p>
-	                <h4 class="card-product__title"><a href="#">Producto 8</a></h4>
-	                <p class="card-product__price">$620.00</p>
-	              </div>
-	            </div>
-	          </div>
-	          <div class="col-md-6 col-lg-4">
-	            <div class="card text-center card-product">
-	              <div class="card-product__img">
-	                <img class="card-img" src="https://i.pinimg.com/originals/7d/78/92/7d7892b32c7b45f838ce392edd006f6d.png" alt="">
-	                <ul class="card-product__imgOverlay">
-	                  <li><button><i class="ti-search"></i></button></li>
-	                  <li><button><i class="ti-shopping-cart"></i></button></li>
-	                  <li><button><i class="ti-heart"></i></button></li>
-	                </ul>
-	              </div>
-	              <div class="card-body">
-	                <p>Alimentos</p>
-	                <h4 class="card-product__title"><a href="#">Producto 9</a></h4>
-	                <p class="card-product__price">$620.00</p>
-	              </div>
-	            </div>
-	          </div>
+	          @endforeach
 	        </div>
 	      </section>
 	      <!-- End Best Seller -->

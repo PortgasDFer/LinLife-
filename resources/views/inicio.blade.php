@@ -58,78 +58,27 @@
     <section class="section-margin calc-60px">
       <div class="container">
         <div class="section-intro pb-60px">
-          <p>Popular Item in the market</p>
-          <h2>Trending <span class="section-intro__style">Product</span></h2>
+          <p>Nuevos productos</p>
+          <h2>Últimos <span class="section-intro__style">Productos</span></h2>
         </div>
         <div class="row">
+          @foreach($productos as $p)
           <div class="col-md-6 col-lg-4 col-xl-3">
             <div class="card text-center card-product">
               <div class="card-product__img">
-                <img class="card-img" src="assets/shop/img/home/frasco1.png" style="height: 280px; width: 263px;">
-                <ul class="card-product__imgOverlay">
-                  <li><button><i class="ti-search"></i></button></li>
-                  <li><button><i class="ti-shopping-cart"></i></button></li>
-                  <li><button><i class="ti-heart"></i></button></li>
+                <img class="card-img" src="/productoimg/{{$p->imagen}}" style="height: 280px; width: 255px;">
+                <ul class="card-product__imgOverlay">                  
+                  <li><button><i class="ti-shopping-cart"></i></button></li>                  
                 </ul>
               </div>
               <div class="card-body">
                 <p>Accessories</p>
-                <h4 class="card-product__title"><a href="single-product.html">Man Office Bag</a></h4>
-                <p class="card-product__price">$150.00</p>
+                <h4 class="card-product__title"><a href="/detalle/{{$p->slug}}">{{$p->nombre}}</a></h4>
+                <p class="card-product__price">${{$p->precio_publico}}</p>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4 col-xl-3">
-            <div class="card text-center card-product">
-              <div class="card-product__img">
-                <img class="card-img" src="assets/shop/img/home/frasco2.png" style="height: 280px; width: 263px;">
-                <ul class="card-product__imgOverlay">
-                  <li><button><i class="ti-search"></i></button></li>
-                  <li><button><i class="ti-shopping-cart"></i></button></li>
-                  <li><button><i class="ti-heart"></i></button></li>
-                </ul>
-              </div>
-              <div class="card-body">
-                <p>Kids Toy</p>
-                <h4 class="card-product__title"><a href="single-product.html">Charging Car</a></h4>
-                <p class="card-product__price">$150.00</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 col-xl-3">
-            <div class="card text-center card-product">
-              <div class="card-product__img">
-                <img class="card-img" src="assets/shop/img/home/crema1.png" style="height: 280px; width: 263px;">
-                <ul class="card-product__imgOverlay">
-                  <li><button><i class="ti-search"></i></button></li>
-                  <li><button><i class="ti-shopping-cart"></i></button></li>
-                  <li><button><i class="ti-heart"></i></button></li>
-                </ul>
-              </div>
-              <div class="card-body">
-                <p>Accessories</p>
-                <h4 class="card-product__title"><a href="single-product.html">Blutooth Speaker</a></h4>
-                <p class="card-product__price">$150.00</p>
-              </div> 
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 col-xl-3">
-            <div class="card text-center card-product">
-              <div class="card-product__img">
-                <img class="card-img" src="assets/shop/img/home/crema2.png" style="height: 280px; width: 263px;">
-                <ul class="card-product__imgOverlay">
-                  <li><button><i class="ti-search"></i></button></li>
-                  <li><button><i class="ti-shopping-cart"></i></button></li>
-                  <li><button><i class="ti-heart"></i></button></li>
-                </ul>
-              </div>
-              <div class="card-body">
-                <p>Kids Toy</p>
-                <h4 class="card-product__title"><a href="#">Charging Car</a></h4>
-                <p class="card-product__price">$150.00</p>
-              </div>
-            </div>
-          </div>
+          @endforeach
         </div>
       </div>
     </section>

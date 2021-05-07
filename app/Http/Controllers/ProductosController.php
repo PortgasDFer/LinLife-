@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str as Str;
 use App\Producto;
 use Image;
 use Alert;
@@ -93,6 +94,7 @@ class ProductosController extends Controller
             $producto->imagen=$foto.'.webp';
         }
         $producto->cantidad=$request->input('existencia');
+        $producto->slug=Str::slug($producto->nombre);
         $producto->save();
         alert()->success('LIN LIFE', 'Producto registrado correctamente');
         return Redirect::to('/productos');
@@ -148,6 +150,7 @@ class ProductosController extends Controller
             $image= Image::make($file)->encode('webp',90)->save(public_path('/productoimg/' . $foto.'.webp'));
             $producto->imagen=$foto.'.webp';
         }
+        $producto->slug=Str::slug($producto->nombre);
         $producto->save();
         alert()->success('LIN LIFE', 'Producto actualizado correctamente');
         return Redirect::to('/productos');
