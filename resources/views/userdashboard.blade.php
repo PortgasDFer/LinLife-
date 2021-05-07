@@ -35,7 +35,7 @@
         <div class="alert alert-success alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
           <h5><i class="icon fas fa-exclamation-triangle"></i> ¡ATENCIÓN!</h5>
-          Una vez aprobada tu cuenta, podrás registrar más usuarios con tú código único de invitación, invita a tus amigos y gana dinero $$$. 
+         Tú cuenta ha sido aprobada.  Invita a tus amigos a registrarse con el código <span class="bg-primary">{{Auth::user()->code}}</span>, y comienza a generar ingresos con LinLife. 
         </div> 
       </div>
       @endif

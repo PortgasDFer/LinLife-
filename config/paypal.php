@@ -11,4 +11,4 @@ return [
 		'log.LogLevel' => 'ERROR'
 
 	]
-]
+];

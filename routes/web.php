@@ -42,6 +42,7 @@ Route::get('/validar-identidades','UsersController@identificaciones')->name('val
 Route::get('/verificar/{usuario}','UsersController@verificarUsuario')->name('verificar.usuario');
 Route::post('/status/{usuario}','UsersController@statusCuenta')->name('status.usuario');
 Route::get('/subir-identificacion','UsersController@subirIdentificacion')->name('subir.identificación');
+Route::post('/guardarineReverso/{usuario}','UsersController@atras')->name('identificacion.atras');
 Route::post('/guardarine/{usuario}','UsersController@guardarIne')->name('guardar.ine');
 Route::get('/desglose/{usuario}','UsersController@desglose')->name('usuario.desglose');
 Route::get('/semana/{usuario}','UsersController@semana')->name('usuario.semana');
@@ -78,3 +79,7 @@ Route::get('/obtenerVentas','VentasController@datatable')->name('datatable.venta
 
 Route::get('/pedidos-automaticos','PedidosController@automaticos')->name('pedidos.automaticos');
 Route::get('/cobros-sobre-comisiones','PedidosController@cobrosComisiones')->name('cobros.comisiones');
+
+
+//PayPal
+Route::post('/pay/{venta}','PaymentController@payWithPayPal')->name('pay.paypal');

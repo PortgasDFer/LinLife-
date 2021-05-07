@@ -77,7 +77,7 @@
       </div>
     </div>
     <div class="card-body">
-      <form action="/guardarine/{{Auth::user()->slug}}" enctype="multipart/form-data" method="POST">
+      <form action="/guardarineReverso/{{Auth::user()->slug}}" enctype="multipart/form-data" method="POST">
         @csrf
         <div class="form-group row">
           <div class="col-sm-2">
@@ -90,7 +90,7 @@
             <div class="form-group">                  
               <div class="input-group">
                 <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="reverso" name="reverso">
+                  <input type="file" class="custom-file-input" id="atras" name="atras">
                   <label class="custom-file-label" for="exampleInputFile">Seleccionar Archivo</label>
                 </div>
               </div>
