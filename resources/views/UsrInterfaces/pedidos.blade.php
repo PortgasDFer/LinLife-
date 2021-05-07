@@ -122,7 +122,9 @@
                   </tr>
               </thead>            
               <tbody>
-                @forelse($tabla as $t)
+                <?php $sum=0.0;?>
+                @if(count($tabla)>0)
+                @foreach($tabla as $t)
                 <tr>
                 <td>{{$t->nombre}}</td>
                 <td>{{$t->cantidad}}</td>
@@ -137,12 +139,14 @@
                       <button class="btn btn-warning" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
                   </form>
                 </td>
-                @empty
+                </tr>
+                <?php $sum+= $t->costo*$t->cantidad;?>
+                @endforeach
+                @else
                 <div class="alert alert-secondary" role="alert" style="background-color:  #E4E4E4; color: black;font-size: 22px; border-color: #E4E4E4;">
                   <i class="fa fa-exclamation-circle" aria-hidden="true"></i> Pedido vacío
                 </div>
-                </tr>
-                @endforelse                                                         
+                @endif                                                        
               </tbody>
             </table>
           </div>
@@ -207,18 +211,16 @@
         </div> 
 
         <div class="col-md-2 offset-md-4">                 
-          <p style="font-size: 14px;">Puntos BIEX <span class="badge badge-dark">0.0</span></p>
+          <p style="font-size: 14px;">Puntos <span class="badge badge-dark">0.0</span></p>
         </div>     
         <div class="col-md-6 offset-md-4">                 
-          <p style="font-size: 14px; color: red;">Antes de elegir productos, debes seleccionar las opciones de entrega y método de pago</p>
-        </div>
-        @forelse($tabla as $t)         
+          <p style="font-size: 14px; color: red; text-align: left;">Antes de elegir productos, debes seleccionar las opciones de entrega y método de pago</p>
+        </div>        
         <div class="col-md-4 offset-md-7">                 
-          <h5 style="text-align: right;">Subtotal de productos <strong>$ {{number_format($t->cantidad*$t->costo, 2, '.', ',')}}</strong></h5>
+          <h5 style="text-align: right;">Subtotal de productos <strong>$ {{number_format($sum, 2, '.', ',')}}</strong></h5>
         </div> 
-         @endforeach  
         <div class="col-md-4 offset-md-7">                 
-          <h1 style="text-align: right;">Total <strong>$ 0.00</strong></h1>
+          <h1 style="text-align: right;">Total <strong>$ {{number_format($sum, 2, '.', ',')}}</strong></h1>
         </div>                   
       </div>
       <div class="form-group row">
@@ -234,6 +236,7 @@
           </form>
           <a href="/indexventas/"><button type="submit" class="btn btn-success btn-lg btn-block"><i class="fa fa-check" aria-hidden="true"></i> Finalizar Pedido</button></a>
         </div>
+        &nbsp;
         <div class="col-sm-4">
            <a href="" style="color: black;"><i class="fas fa-book"></i> Aviso de privacidad</a>&nbsp;|&nbsp; 
            <a href="" style="color: black;"><i class="fas fa-book"></i>  Políticas de devolución</a>
