@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Domicilio;
 use Image;
@@ -74,7 +75,7 @@ class CuentaController extends Controller
             //'nombre' => 'required|regex:/^[\pL\s\-]+$/u',
         ]);                   
         $user = User::find($id);
-        $user->password=$request->input('password');
+        $user->password=Hash::make($request->input('password'));
         $user->save();
         alert()->success('LIN LIFE', 'Contraseña actualizada');
         return Redirect::to('/cuenta');
