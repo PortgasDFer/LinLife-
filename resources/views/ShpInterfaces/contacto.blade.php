@@ -48,22 +48,43 @@
           </div>
         </div>
         <div class="col-md-8 col-lg-9">
-          <form action="#/" class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+          <form action="/mensaje" method="post" enctype="multipart/form-data">
+            @csrf  
             <div class="row">
               <div class="col-lg-5">
                 <div class="form-group">
-                  <input class="form-control" name="name" id="name" type="text" placeholder="Nombre Completo">
+                  <input class="form-control @error('nombre') is-invalid @enderror" name="nombre" id="nombre" type="text" placeholder="Nombre Completo" value="{{ old('nombre') }}">
+                  @error('nombre')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
                 </div>
                 <div class="form-group">
-                  <input class="form-control" name="email" id="email" type="email" placeholder="Correo Electronico">
+                  <input class="form-control @error('email') is-invalid @enderror" name="email" id="email" type="email" placeholder="Correo Electronico" value="{{ old('email') }}">
+                  @error('email')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
                 </div>
                 <div class="form-group">
-                  <input class="form-control" name="tema" id="tema" type="text" placeholder="Tema">
+                  <input class="form-control @error('tema') is-invalid @enderror" name="tema" id="tema" type="text" placeholder="Tema" value="{{ old('tema') }}">
+                  @error('tema')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
                 </div>
               </div>
               <div class="col-lg-7">
                 <div class="form-group">
-                    <textarea class="form-control different-control w-100" name="mensaje" id="mensaje" cols="30" rows="5" placeholder="Mensaje"></textarea>
+                    <textarea class="form-control different-control w-100 @error('mensaje') is-invalid @enderror" name="mensaje" id="mensaje" cols="30" rows="5" placeholder="Mensaje">{{ old('mensaje') }}</textarea>
+                    @error('mensaje')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
                 </div>
               </div>
             </div>

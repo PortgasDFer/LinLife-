@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','PaginasController@index')->name('inicio');
 Route::get('/catalogo','PaginasController@catalogo')->name('catalogo');
 Route::get('/detalle/{producto}','PaginasController@detalle')->name('detalle');
-Route::get('/contacto','PaginasController@contacto')->name('contacto');
+Route::get('/contacto','PaginasController@contacto');
+Route::post('/mensaje','PaginasController@mensaje');
 
 Route::get('/registro',function(){
 	return view('UsrInterfaces.registro');

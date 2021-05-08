@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="{{asset('assets/shop/vendors/owl-carousel/owl.theme.default.min.css')}}">
 		<link rel="stylesheet" href="{{asset('assets/shop/vendors/owl-carousel/owl.carousel.min.css')}}">
 		<link rel="stylesheet" href="{{asset('assets/shop/css/style.css')}}">
+		<script src="{{asset('vendor/sweetalert/sweetalert.all.js')}}"></script>
 		<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 	</head>
 	<body>
@@ -21,7 +22,7 @@
 		    <div class="main_menu">
 		      <nav class="navbar navbar-expand-lg navbar-light">
 		        <div class="container">
-		          <a class="navbar-brand logo_h" href="index.html"><img src="/recursos/linlife.png" alt="" width="120"></a>
+		          <a class="navbar-brand logo_h" href="/"><img src="/recursos/linlife.png" alt="" width="120"></a>
 		          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 		            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		            <span class="icon-bar"></span>
@@ -136,6 +137,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		</div>
 	</footer>
 		<!--================ End footer Area  =================-->
+	@include('sweetalert::alert')	
 	<script src="{{asset('assets/shop/vendors/jquery/jquery-3.2.1.min.js')}}"></script>
 	<script src="{{asset('assets/shop/vendors/bootstrap/bootstrap.bundle.min.js')}}"></script>
 	<!--<script src="{{asset('assets/shop/vendors/skrollr.min.js')}}"></script>Scroll no funciona en moviles-->
