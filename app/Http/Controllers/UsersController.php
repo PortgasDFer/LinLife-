@@ -355,8 +355,8 @@ class UsersController extends Controller
             $filename_atras= time(). '.' .$atras->getClientOriginalExtension();
             $image= Image::make($atras)->encode('webp',90)->save(public_path('/identificaciones/' . $filename_atras.'.webp'));
         }
-        $user->atras=$filename_atras;
-         $user->status_cuenta='VERIFICADO';
+            $user->atras=$filename_atras;
+            $user->status_cuenta='VERIFICADO';
             $codigobase=User::select('code')->orderby('code','DESC')->first();
             $codigonuevo=substr($codigobase, 9,-7);
             $numero=substr($codigobase,14,-2);

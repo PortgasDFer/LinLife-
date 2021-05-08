@@ -83,3 +83,4 @@ Route::get('/cobros-sobre-comisiones','PedidosController@cobrosComisiones')->nam
 
 //PayPal
 Route::post('/pay/{venta}','PaymentController@payWithPayPal')->name('pay.paypal');
+Route::post('/paypal/status','PaymentController@payPalStatus')->name('paypal.status');
