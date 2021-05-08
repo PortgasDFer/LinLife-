@@ -231,9 +231,10 @@
         </div>
         &nbsp;
         <div class="col-sm-4">
-          <form action="/pay/{{$datos->folio}}" method="POST">
+          <form action="/pay" method="POST">
             @csrf
             <input type="hidden" name="monto" value="{{$sum}}" >
+            <input type="hidden" name="folio" value="{{$datos->folio}}">
             <button type="submit" class="btn btn-success btn-lg btn-block"><i class="fa fa-check" aria-hidden="true"></i> Finalizar Pedido</button>
           </form>
         </div>

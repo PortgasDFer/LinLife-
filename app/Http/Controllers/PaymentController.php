@@ -12,34 +12,40 @@ use PayPal\Api\Amount;
 use PayPal\Api\Transaction;
 use PayPal\Api\RedirectUrls;
 use PayPal\Api\Payment;
+use App\Ventas;
 
 class PaymentController extends Controller
 {
    
 	private $apiContext;
 
-	public function __construct()
-	{
-	$payPalConfig = Config::get('paypal');
+    public function __construct()
+    {
+        $payPalConfig = Config::get('paypal');
 
-    $this->apiContext = new ApiContext(
-    	new OAuthTokenCredential(
-    			$payPalConfig['client_id'],
-    			$payPalConfig['secret']
-    		)
-    	);
-	}
+        $this->apiContext = new ApiContext(
+            new OAuthTokenCredential(
+                $payPalConfig['client_id'],
+                $payPalConfig['secret']
+            )
+        );
 
-	public function payWithPayPal(Request $request,$folio)
+        $this->apiContext->setConfig($payPalConfig['settings']);
+    }
+
+	public function payWithPayPal(Request $request)
 	{
 		
+		
+		$venta=Ventas::where('folio','=',$request->input('folio'))->firstOrFail();
+
+
 		$total=$request->input('monto');
 		$payer = new Payer();
 		$payer->setPaymentMethod('paypal');
 
 		$amount = new Amount();
-		$amount->setTotal($total);
-		$amount->setCurrency('MXN');
+		$amount->setCurrency('MXN')->setTotal($total);
 
 		$transaction = new Transaction();
 		$transaction->setAmount($amount);
@@ -57,14 +63,15 @@ class PaymentController extends Controller
 		    ->setRedirectUrls($redirectUrls);
 		    //dd($payment);
 		try {
-		    $payment->create($this->apiContext);
-		    echo $payment;
-
-		    return redirect()->away($payment->getApprovalLink());
-		}
-		catch (PayPalConnectionException $ex) {
-		    //REALLY HELPFUL FOR DEBUGGING
-		    echo $ex->getData(); 
+            $payment->create($this->apiContext);
+            //
+            return redirect()->away($payment->getApprovalLink());
+       } catch (PayPal\Exception\PayPalConnectionException $ex) {
+		  echo $ex->getCode();
+		  echo $ex->getData();
+		  die($ex);
+		} catch (Exception $ex) {
+		  die($ex);
 		}
 
 	}
