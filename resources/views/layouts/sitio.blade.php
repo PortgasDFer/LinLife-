@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="{{asset('assets/shop/vendors/owl-carousel/owl.theme.default.min.css')}}">
 		<link rel="stylesheet" href="{{asset('assets/shop/vendors/owl-carousel/owl.carousel.min.css')}}">
 		<link rel="stylesheet" href="{{asset('assets/shop/css/style.css')}}">
+		<script src="{{asset('vendor/sweetalert/sweetalert.all.js')}}"></script>
 		<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 	</head>
 	<body>
@@ -136,6 +137,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		</div>
 	</footer>
 		<!--================ End footer Area  =================-->
+	@include('sweetalert::alert')	
 	<script src="{{asset('assets/shop/vendors/jquery/jquery-3.2.1.min.js')}}"></script>
 	<script src="{{asset('assets/shop/vendors/bootstrap/bootstrap.bundle.min.js')}}"></script>
 	<!--<script src="{{asset('assets/shop/vendors/skrollr.min.js')}}"></script>Scroll no funciona en moviles-->
