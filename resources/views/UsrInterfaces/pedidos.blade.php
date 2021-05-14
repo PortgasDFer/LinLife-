@@ -231,7 +231,7 @@
         </div>
         &nbsp;
         <div class="col-sm-4">
-          <form action="/pay" method="POST">
+          <form action="/pay/{{$datos->folio}}" method="POST">
             @csrf
             <input type="hidden" name="monto" value="{{$sum}}" >
             <input type="hidden" name="folio" value="{{$datos->folio}}">

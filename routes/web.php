@@ -27,6 +27,10 @@ Route::get('/iniciar',function(){
 	return view('UsrInterfaces.login');
 });
 
+Route::get('/previa', function(){
+	return view('UsrInterfaces.failed');
+});
+
 
 
 Route::get('/obtenerProductos','ProductosController@datatable')->name('datatable.producto');
@@ -83,5 +87,7 @@ Route::get('/cobros-sobre-comisiones','PedidosController@cobrosComisiones')->nam
 
 
 //PayPal
-Route::post('/pay','PaymentController@payWithPayPal')->name('pay.paypal');
+Route::post('/pay/{venta}','PaymentController@payWithPayPal')->name('pay.paypal');
 Route::get('/paypal/status','PaymentController@payPalStatus')->name('paypal.status');
+Route::get('/paypal/failed','PaymentController@payPalFail')->name('paypal.fail');
+Route::get('/paypal/ok','PaymentController@payPalOk')->name('paypal.ok');
