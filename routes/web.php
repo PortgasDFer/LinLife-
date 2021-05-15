@@ -85,3 +85,10 @@ Route::get('/cobros-sobre-comisiones','PedidosController@cobrosComisiones')->nam
 //PayPal
 Route::post('/pay/{venta}','PaymentController@payWithPayPal')->name('pay.paypal');
 Route::post('/paypal/status','PaymentController@payPalStatus')->name('paypal.status');
+
+//Carrito
+Route::post('/cart-add', 'CartController@add')->name('cart.add');
+Route::post('/cart-agregar', 'CartController@agregar')->name('cart.agregar');
+Route::get('/cart-checkout', 'CartController@cart')->name('cart.checkout');
+Route::post('/cart-removeitem', 'CartController@removeitem')->name('cart.removeitem');
+Route::get('/cart-clear', 'CartController@clear')->name('cart.clear');

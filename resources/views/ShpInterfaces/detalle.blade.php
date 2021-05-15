@@ -36,11 +36,17 @@
 						</ul>
 						<p>{{$detalle->descripcion}}</p>
 						<br>
-						<div class="product_count">
-              				<label for="qty">Cantidad:</label>
-							<input type="number" name="qty" id="sst" size="2" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-							<a class="button primary-btn" href="#">Añadir al carrito</a>               
-						</div>
+						<form method="POST" action="{{route('cart.agregar')}}">
+							@csrf
+							<div class="product_count">								
+								<input type="hidden" name="code_producto" value="{{$detalle->code}}">
+	              				<label for="qty">Cantidad:</label>
+								<input type="number" name="quantity" size="2" maxlength="12" value="0" class="input-text qty">				
+							</div>
+							<div class="review_box">
+								<button type="submit" class="button button--active button-review">Agregar al Carrito</button>
+							</div>
+						</form>               			
 						<div class="card_area d-flex align-items-center">							
 							<a class="icon_btn" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
 						</div>

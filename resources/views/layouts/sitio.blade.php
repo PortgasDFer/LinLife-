@@ -13,6 +13,8 @@
 		<link rel="stylesheet" href="{{asset('assets/shop/vendors/owl-carousel/owl.theme.default.min.css')}}">
 		<link rel="stylesheet" href="{{asset('assets/shop/vendors/owl-carousel/owl.carousel.min.css')}}">
 		<link rel="stylesheet" href="{{asset('assets/shop/css/style.css')}}">
+		<link rel="stylesheet" href="{{asset('assets/shop/vendors/nouislider/nouislider.min.css')}}">
+		<link rel="stylesheet" href="{{asset('assets/shop/vendorsvendors/nice-select/nice-select.css')}}">
 		<script src="{{asset('vendor/sweetalert/sweetalert.all.js')}}"></script>
 		<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 	</head>
@@ -39,7 +41,13 @@
 		            </ul>
 
 		            <ul class="nav-shop">
-		              <li class="nav-item"><a class="button button-header" href="#">Carrito</a></li>
+		            	<li class="nav-item"><button><i class="ti-search"></i></button></li>
+		            	@if(count(Cart::getContent()))
+              			<li class="nav-item"><a href="{{route('cart.checkout')}}"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">{{count(Cart::getContent())}}</span></button> </a></li>
+              			@else
+              			<li class="nav-item"><a href="{{route('cart.checkout')}}"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">0</span></button> </a></li>
+              			@endif
+		              <li class="nav-item"><a class="button button-header" href="{{route('cart.checkout')}}">Ver Carrito</a></li>
 		            </ul>
 		          </div>
 		        </div>

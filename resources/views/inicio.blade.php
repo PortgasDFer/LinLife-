@@ -68,7 +68,11 @@
               <div class="card-product__img">
                 <img class="card-img" src="/productoimg/{{$p->imagen}}" style="height: 280px; width: 255px;">
                 <ul class="card-product__imgOverlay">                  
-                  <li><button><i class="ti-shopping-cart"></i></button></li>                  
+                  <form method="POST" action="{{route('cart.add')}}">
+                    @csrf                     
+                    <input type="hidden" name="code_producto" value="{{$p->code}}">
+                      <li><button type="submit" ><i class="ti-shopping-cart"></i></button></li>
+                    </form>                   
                 </ul>
               </div>
               <div class="card-body">
