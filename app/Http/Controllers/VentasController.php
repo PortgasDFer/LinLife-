@@ -95,4 +95,11 @@ class VentasController extends Controller
         return view('AdmInterfaces.IntVentas.detalle',compact('venta','detalle','asociado'));
     }
 
+    public function historial()
+    {
+        $usuario = User::find(auth()->id());
+        $ventas=Ventas::where('id_user','=',$usuario->id)->get();
+        return view('UsrInterfaces.historial',compact('ventas'));
+    }
+
 }

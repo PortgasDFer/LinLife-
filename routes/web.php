@@ -27,6 +27,10 @@ Route::get('/iniciar',function(){
 	return view('UsrInterfaces.login');
 });
 
+Route::get('/previa', function(){
+	return view('UsrInterfaces.failed');
+});
+
 
 
 Route::get('/obtenerProductos','ProductosController@datatable')->name('datatable.producto');
@@ -65,6 +69,7 @@ Route::post('/datos/{user}', 'CuentaController@datospersonales')->name('datos');
 Route::post('/contra/{user}', 'CuentaController@contraseña')->name('contra');
 Route::post('/fac/{user}', 'CuentaController@facturacion')->name('fac');
 Route::post('/fotoperfil/{user}', 'CuentaController@foto')->name('fotoperfil');
+Route::get('/historial','VentasController@historial')->name('historial.compras');
 
 Route::get('/obtenerDomicilios','DomicilioController@datatable')->name('datatable.domicilio');
 
@@ -84,6 +89,7 @@ Route::get('/cobros-sobre-comisiones','PedidosController@cobrosComisiones')->nam
 
 //PayPal
 Route::post('/pay/{venta}','PaymentController@payWithPayPal')->name('pay.paypal');
+
 Route::post('/paypal/status','PaymentController@payPalStatus')->name('paypal.status');
 
 //Carrito
@@ -92,3 +98,7 @@ Route::post('/cart-agregar', 'CartController@agregar')->name('cart.agregar');
 Route::get('/cart-checkout', 'CartController@cart')->name('cart.checkout');
 Route::post('/cart-removeitem', 'CartController@removeitem')->name('cart.removeitem');
 Route::get('/cart-clear', 'CartController@clear')->name('cart.clear');
+
+Route::get('/paypal/status','PaymentController@payPalStatus')->name('paypal.status');
+Route::get('/paypal/failed','PaymentController@payPalFail')->name('paypal.fail');
+Route::get('/paypal/ok','PaymentController@payPalOk')->name('paypal.ok');
