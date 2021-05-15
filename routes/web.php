@@ -69,6 +69,7 @@ Route::post('/datos/{user}', 'CuentaController@datospersonales')->name('datos');
 Route::post('/contra/{user}', 'CuentaController@contraseña')->name('contra');
 Route::post('/fac/{user}', 'CuentaController@facturacion')->name('fac');
 Route::post('/fotoperfil/{user}', 'CuentaController@foto')->name('fotoperfil');
+Route::get('/historial','VentasController@historial')->name('historial.compras');
 
 Route::get('/obtenerDomicilios','DomicilioController@datatable')->name('datatable.domicilio');
 

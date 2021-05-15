@@ -57,7 +57,7 @@
             <p class="card-text"><i class="fa fa-smile-o fa-5x" aria-hidden="true"></i></p>
             <p class="card-text">¿Qué sigue?. Nuestro sistema ha procesado su pedido, a la brevedad nos pondremos en contacto vía correo electronico para proporcionarle la guía de rastreo, su paquete llegará al domicilio que selecciono.</p>
             <p>Puede comprobar el status de su pedido en sus compras</p>
-            <a href="#" class="btn btn-primary">Ir a mis compras</a>
+            <a href="/historial" class="btn btn-primary">Ir a mis compras</a>
           </div>
           <div class="card-footer text-muted">
             El equipo de LinLife
