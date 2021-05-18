@@ -39,7 +39,6 @@
 		              <li class="nav-item"><a class="nav-link" href="/iniciar">Iniciar sesión</a></li>
 		              <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
 		            </ul>
-
 		            <ul class="nav-shop">
 		            	<li class="nav-item"><button><i class="ti-search"></i></button></li>
 		            	@if(count(Cart::getContent()))
