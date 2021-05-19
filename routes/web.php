@@ -74,6 +74,7 @@ Route::get('/historial','VentasController@historial')->name('historial.compras')
 Route::get('/obtenerDomicilios','DomicilioController@datatable')->name('datatable.domicilio');
 
 Route::resource('/pedidos','PedidosController');
+Route::get('/pedido/{venta}','PedidosController@detallePedido')->name('detalle.pedido');
 Route::get('/indexventas/','VentasController@indventas')->name('ventas.indexof');
 
 

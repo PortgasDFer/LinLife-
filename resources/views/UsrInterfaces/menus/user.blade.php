@@ -94,7 +94,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="ventas.html" class="nav-link">
+        <a href="/historial" class="nav-link">
           <i class="far fa-dot-circle nav-icon"></i>
           <p>Historial</p>
         </a>
