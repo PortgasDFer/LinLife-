@@ -206,4 +206,15 @@ class PedidosController extends Controller
         alert()->warning('LINF LIFE', 'Producto Eliminado');
         return view('UsrInterfaces.pedidos',compact('datos','tabla','productos','domicilios','usuario'));
     }
+
+    public function detallePedido($folio)
+    {
+        $pedido=Ventas::join('dvp','ventas.folio','=','dvp.folio_venta')
+                    ->join('productos','productos.code','=','dvp.code_producto')
+                    ->select(array('productos.nombre','dvp.cantidad','dvp.costo','ventas.fecha','ventas.folio'))
+                    ->where('ventas.folio','=', $folio)
+                    ->get();
+        return $pedido;
+
+    }
 }

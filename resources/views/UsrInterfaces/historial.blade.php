@@ -51,10 +51,10 @@
                 	@forelse($ventas as $v)
                 	<tr>
 	                  <td><a href="#">{{$v->folio}}</a></td>
-	                  <td><span class="badge badge-success">Shipped</spano><td>
+	                  <td><span class="badge badge-success">Shipped</span></td>
 	                  <td>{{$v->fecha}}</td>
 	                  <td>
-	                    <button class="btn btn-block btn-primary">Ver</button>
+	                    <a href="/pedido/{{$v->folio}}"><button class="btn btn-block btn-primary">Ver</button></a>
 	                  </td>
 	                </tr>
                 	@empty
