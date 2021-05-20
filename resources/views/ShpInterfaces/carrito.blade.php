@@ -173,7 +173,7 @@
                   @else
                   <center>
                     <h1>¡Carrito Vacio!</h1><br>
-                  <img src="/recursos/carritovacio.png" class="img-fluid" style="width: 300px;"><br><br>
+                  <img src="/recursos/carritovacio.png" class="img-fluid"><br><br>
                   <a href="/catalogo"><button type="submit" class="btn btn-primary">Agregar Productos</button></a>
                   </center>                                                         
                 @endif
