@@ -62,15 +62,17 @@ class CartController extends Controller
     }
 
     public function actualizar(Request $request)
-    {            
-        Cart::update(456, array(
-            'quantity' => 10,
+    {    
+        \Cart::update($request->id,
+            array(
+                'quantity' => array(
+                    'relative' => false,
+                    'value' => $request->quantity
+                ),
         ));
 
-        alert()->success('LIN LIFE', 'Cantidad actualizada');
+        alert()->success('LIN LIFE', 'Cantidad Actualizada');
         return back();
-
-        //dd($request);
     }
 
 }
