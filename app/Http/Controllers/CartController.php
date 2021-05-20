@@ -64,7 +64,7 @@ class CartController extends Controller
     public function actualizar(Request $request)
     {            
         Cart::update(456, array(
-            'cantidad' => 1,
+            'quantity' => 10,
         ));
 
         alert()->success('LIN LIFE', 'Cantidad actualizada');

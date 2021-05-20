@@ -23,7 +23,7 @@
           <div class="cart_inner">
               <div class="table-responsive">
                 @if(count(Cart::getContent())) 
-                <!--{{Cart::getContent()}}-->               
+                {{Cart::getContent()}}
                   <table class="table">
                       <thead>
                           <tr>
@@ -53,7 +53,8 @@
                               </td>
                               <td>
                                 <form method="POST" action="{{route('cart.actualizar')}}">
-                                @csrf                                
+                                @csrf      
+                                <input type="hidden" name="code_producto" value="{{$pro->id}}">                          
                                   <div class="product_count">
                                     <input type="text" name="quantity" id="sst" maxlength="12" value="{{$pro->quantity}}" title="Quantity:" class="input-text qty">
                                     <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
