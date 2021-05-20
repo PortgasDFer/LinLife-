@@ -103,17 +103,28 @@
 	              <div class="card-product__img" >
 	                <img class="card-img" src="/productoimg/{{$p->imagen}}" style="width: 255px; height: 263px;">
 	                <ul class="card-product__imgOverlay">
-		                <form method="POST" action="{{route('cart.add')}}">
-		                @csrf		                  
-		                	<input type="hidden" name="code_producto" value="{{$p->code}}">
-		                  	<li><button type="submit" ><i class="ti-shopping-cart"></i></button></li>
-	                  	</form>	                  
+		                @guest                   
+                    		<li><button type="submit" onClick="Swal.fire({
+                                                        icon: 'error',
+                                                        title: 'Oops...',
+                                                        confirmButtonText: `Aceptar`,
+                                                        text: 'Necesitas Iniciar Sesión',
+                                                        footer: '<a href=/iniciar>Inicia Sesión o Registrate</a>'
+                                                      })">
+                      		<i class="ti-shopping-cart"></i></button></li>
+                		@else
+		                  <form method="POST" action="{{route('cart.add')}}">
+		                  @csrf                     
+		                  <input type="hidden" name="code_producto" value="{{$p->code}}">
+		                    <li><button type="submit" ><i class="ti-shopping-cart"></i></button></li>
+		                  </form>
+		                @endguest	                  
 	                </ul>
 	              </div>
 	              <div class="card-body">
 	                <p>Suplementos</p>
 	                <h4 class="card-product__title"><a href="/detalle/{{$p->slug}}">{{$p->nombre}}</a></h4>
-	                <p class="card-product__price">${{$p->precio_publico}}</p>
+	                <p class="card-product__price">${{number_format($p->precio_publico, 2, '.', ',')}}</p>
 	              </div>
 	            </div>
 	          </div>

@@ -60,4 +60,17 @@ class CartController extends Controller
         alert()->success('LIN LIFE', 'Carrito vacio');
         return back();
     }
+
+    public function actualizar(Request $request)
+    {            
+        Cart::update(456, array(
+            'cantidad' => 1,
+        ));
+
+        alert()->success('LIN LIFE', 'Cantidad actualizada');
+        return back();
+
+        //dd($request);
+    }
+
 }

@@ -36,6 +36,19 @@
 						</ul>
 						<p>{{$detalle->descripcion}}</p>
 						<br>
+						@guest
+						<div class="product_count">
+							<label for="qty">Cantidad:</label>
+							<input type="number" name="quantity" size="2" maxlength="12" value="0" class="input-text qty">                   	                      	
+	                    </div>
+	                    <button type="submit" class="button button--active button-review" onClick="Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            confirmButtonText: `Aceptar`,
+                            text: 'Necesitas Iniciar Sesión',
+                            footer: '<a href=/iniciar>Inicia Sesión o Registrate</a>'
+                          })">Agregar al Carrito</button>
+                		@else
 						<form method="POST" action="{{route('cart.agregar')}}">
 							@csrf
 							<div class="product_count">								
@@ -46,7 +59,8 @@
 							<div class="review_box">
 								<button type="submit" class="button button--active button-review">Agregar al Carrito</button>
 							</div>
-						</form>               			
+						</form>
+						@endguest                			
 						<div class="card_area d-flex align-items-center">							
 							<a class="icon_btn" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
 						</div>

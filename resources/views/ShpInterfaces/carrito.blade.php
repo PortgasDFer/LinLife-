@@ -49,16 +49,21 @@
                                   </div>
                               </td>
                               <td>
-                                  <h5>${{$pro->price}}</h5>
+                                  <h5>${{number_format($pro->price, 2, '.', ',')}}</h5>
                               </td>
                               <td>
+                                <form method="POST" action="{{route('cart.actualizar')}}">
+                                @csrf                                
                                   <div class="product_count">
-                                      <input type="text" name="qty" id="sst" maxlength="12" value="{{$pro->quantity}}" title="Quantity:" class="input-text qty">
-                                      <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-                                          class="increase items-count" type="button"><i class="fa fa-chevron-up" aria-hidden="true"></i></i></button>
-                                      <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-                                          class="reduced items-count" type="button"><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+                                    <input type="text" name="quantity" id="sst" maxlength="12" value="{{$pro->quantity}}" title="Quantity:" class="input-text qty">
+                                    <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
+                                        class="increase items-count" type="button"><i class="fa fa-chevron-up" aria-hidden="true"></i></i></button>
+                                    <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
+                                        class="reduced items-count" type="button"><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+
                                   </div>
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-undo" aria-hidden="true"></i></button>
+                                  </form>
                               </td>
                               <td>                                
                                 <form method="POST" action="{{route('cart.removeitem')}}">                                    

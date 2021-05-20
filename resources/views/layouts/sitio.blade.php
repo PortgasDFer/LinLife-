@@ -21,37 +21,13 @@
 	<body>
 		<!--================ Start Header Menu Area =================-->
 		<header class="header_area">
-		    <div class="main_menu">
-		      <nav class="navbar navbar-expand-lg navbar-light">
-		        <div class="container">
-		          <a class="navbar-brand logo_h" href="/"><img src="/recursos/linlife.png" alt="" width="120"></a>
-		          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-		            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		            <span class="icon-bar"></span>
-		            <span class="icon-bar"></span>
-		            <span class="icon-bar"></span>
-		          </button>
-		          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-		            <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-		              <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
-		              <li class="nav-item"><a class="nav-link" href="/catalogo">Productos</a></li>
-		              <li class="nav-item"><a class="nav-link" href="/registro">Registrarse</a></li>
-		              <li class="nav-item"><a class="nav-link" href="/iniciar">Iniciar sesión</a></li>
-		              <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
-		            </ul>
-		            <ul class="nav-shop">
-		            	<li class="nav-item"><button><i class="ti-search"></i></button></li>
-		            	@if(count(Cart::getContent()))
-              			<li class="nav-item"><a href="{{route('cart.checkout')}}"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">{{count(Cart::getContent())}}</span></button> </a></li>
-              			@else
-              			<li class="nav-item"><a href="{{route('cart.checkout')}}"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">0</span></button> </a></li>
-              			@endif
-		              <li class="nav-item"><a class="button button-header" href="{{route('cart.checkout')}}">Ver Carrito</a></li>
-		            </ul>
-		          </div>
-		        </div>
-		      </nav>
-		    </div>
+		    <!--Menú de invitado-->
+	     	@guest
+                @include('UsrInterfaces.menus.invitado')
+            @else
+                @include('UsrInterfaces.menus.sesion')
+            @endguest
+      		
 		</header>
 		<!--================ End Header Menu Area =================-->
 		@yield('content')
@@ -62,7 +38,7 @@
 				<div class="row section_gap">
 					<div class="col-lg-3 col-md-6 col-sm-6">
 						<div class="single-footer-widget tp_widgets ">
-							<h4 class="footer_title large_title">Our Mission</h4>
+							<h4 class="footer_title large_title">LinLife</h4>
 							<p>
 								So seed seed green that winged cattle in. Gathering thing made fly you're no 
 								divided deep moved us lan Gathering thing us land years living.
@@ -74,7 +50,7 @@
 					</div>
 					<div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6">
 						<div class="single-footer-widget tp_widgets">
-							<h4 class="footer_title">Quick Links</h4>
+							<h4 class="footer_title">Otros Enlaces</h4>
 							<ul class="list">
 								<li><a href="#">Inicio</a></li>
 								<li><a href="#">Productos</a></li>
@@ -87,47 +63,47 @@
 					</div>
 					<div class="col-lg-2 col-md-6 col-sm-6">
 						<div class="single-footer-widget instafeed">
-							<h4 class="footer_title">Gallery</h4>
+							<h4 class="footer_title">Galería</h4>
 							<ul class="list instafeed d-flex flex-wrap">
-								<li><img src="img/gallery/r1.jpg" alt=""></li>
-								<li><img src="img/gallery/r2.jpg" alt=""></li>
-								<li><img src="img/gallery/r3.jpg" alt=""></li>
-								<li><img src="img/gallery/r5.jpg" alt=""></li>
-								<li><img src="img/gallery/r7.jpg" alt=""></li>
-								<li><img src="img/gallery/r8.jpg" alt=""></li>
+								<li><img src="recursos/1.png" alt=""></li>
+								<li><img src="recursos/2.jpg" alt=""></li>
+								<li><img src="recursos/3.png" alt=""></li>
+								<li><img src="recursos/4.png" alt=""></li>
+								<li><img src="recursos/5.png" alt=""></li>
+								<li><img src="recursos/6.jpg" alt=""></li>
 							</ul>
 						</div>
 					</div>
 					<div class="offset-lg-1 col-lg-3 col-md-6 col-sm-6">
-							<div class="single-footer-widget tp_widgets">
-								<h4 class="footer_title">Contacto</h4>
-								<div class="ml-40">
-									<p class="sm-head">
-										<span class="fa fa-location-arrow"></span>
-										LinLife
-									</p>
-									<p>123,Polanco,CDMX</p>
-		
-									<p class="sm-head">
-										<span class="fa fa-phone"></span>
-										Telefonos
-									</p>
-									<p>
-										+123 456 78910 <br>
-										+123 456 78910
-									</p>
-		
-									<p class="sm-head">
-										<span class="fa fa-envelope"></span>
-										Email
-									</p>
-									<p>
-										LinLife@infoexample.com <br>
-										www.infoexample.com
-									</p>
-								</div>
+						<div class="single-footer-widget tp_widgets">
+							<h4 class="footer_title">Contacto</h4>
+							<div class="ml-40">
+								<p class="sm-head">
+									<span class="fa fa-location-arrow"></span>
+									LinLife
+								</p>
+								<p>123,Polanco,CDMX</p>
+	
+								<p class="sm-head">
+									<span class="fa fa-phone"></span>
+									Telefonos
+								</p>
+								<p>
+									+123 456 78910 <br>
+									+123 456 78910
+								</p>
+	
+								<p class="sm-head">
+									<span class="fa fa-envelope"></span>
+									Email
+								</p>
+								<p>
+									LinLife@infoexample.com <br>
+									www.infoexample.com
+								</p>
 							</div>
 						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -137,8 +113,8 @@
 				<div class="row d-flex">
 					<p class="col-lg-12 footer-text text-center">
 						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Con la ayuda de: <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+						Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 				</div>
 			</div>
 		</div>

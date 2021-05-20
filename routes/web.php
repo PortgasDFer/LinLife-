@@ -98,6 +98,7 @@ Route::post('/cart-agregar', 'CartController@agregar')->name('cart.agregar');
 Route::get('/cart-checkout', 'CartController@cart')->name('cart.checkout');
 Route::post('/cart-removeitem', 'CartController@removeitem')->name('cart.removeitem');
 Route::get('/cart-clear', 'CartController@clear')->name('cart.clear');
+Route::post('/cart-actualizar', 'CartController@actualizar')->name('cart.actualizar');
 
 Route::get('/paypal/status','PaymentController@payPalStatus')->name('paypal.status');
 Route::get('/paypal/failed','PaymentController@payPalFail')->name('paypal.fail');

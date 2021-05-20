@@ -16,7 +16,7 @@
               <h4>Comprar es divertido</h4>
               <h1>Lin Life</h1>
               <p>Us which over of signs divide dominion deep fill bring they're meat beho upon own earth without morning over third. Their male dry. They are great appear whose land fly grass.</p>
-              <a class="button button-hero" href="#">Explorar ahora</a>
+              <a class="button button-hero" href="/catalogo">Explorar ahora</a>
               &nbsp;
               <br>
             </div>
@@ -67,18 +67,29 @@
             <div class="card text-center card-product">
               <div class="card-product__img">
                 <img class="card-img" src="/productoimg/{{$p->imagen}}" style="height: 280px; width: 255px;">
-                <ul class="card-product__imgOverlay">                  
+                <ul class="card-product__imgOverlay">
+                @guest                   
+                    <li><button type="submit" onClick="Swal.fire({
+                                                        icon: 'error',
+                                                        title: 'Oops...',
+                                                        confirmButtonText: `Aceptar`,
+                                                        text: 'Necesitas Iniciar Sesión',
+                                                        footer: '<a href=/iniciar>Inicia Sesión o Registrate</a>'
+                                                      })">
+                      <i class="ti-shopping-cart"></i></button></li>
+                @else
                   <form method="POST" action="{{route('cart.add')}}">
-                    @csrf                     
-                    <input type="hidden" name="code_producto" value="{{$p->code}}">
-                      <li><button type="submit" ><i class="ti-shopping-cart"></i></button></li>
-                    </form>                   
+                  @csrf                     
+                  <input type="hidden" name="code_producto" value="{{$p->code}}">
+                    <li><button type="submit" ><i class="ti-shopping-cart"></i></button></li>
+                  </form>
+                @endguest                                                       
                 </ul>
               </div>
               <div class="card-body">
                 <p>Accessories</p>
                 <h4 class="card-product__title"><a href="/detalle/{{$p->slug}}">{{$p->nombre}}</a></h4>
-                <p class="card-product__price">${{$p->precio_publico}}</p>
+                <p class="card-product__price">${{number_format($p->precio_publico, 2, '.', ',')}}</}}</p>
               </div>
             </div>
           </div>
