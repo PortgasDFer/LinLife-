@@ -124,7 +124,7 @@
 	              <div class="card-body">
 	                <p>Suplementos</p>
 	                <h4 class="card-product__title"><a href="/detalle/{{$p->slug}}">{{$p->nombre}}</a></h4>
-	                <p class="card-product__price">${{number_format($p->precio_publico, 2, '.', ',')}}</p>
+	                <p class="card-product__price">${{number_format($p->precio_publico, 2)}}</p>
 	              </div>
 	            </div>
 	          </div>

@@ -22,8 +22,7 @@
       <div class="container">
           <div class="cart_inner">
               <div class="table-responsive">
-                @if(count(Cart::getContent())) 
-                {{Cart::getContent()}}
+                @if(count(Cart::getContent()))                 
                   <table class="table">
                       <thead>
                           <tr>
@@ -33,15 +32,14 @@
                               <th scope="col">Remover</th>                          
                               <th scope="col">Total</th>
                           </tr>
-                      </thead>
-                      
+                      </thead>                    
                       <tbody>
-                      @foreach(Cart::getContent() as $pro)                      
+                      @foreach(Cart::getContent()->sortBy('name') as $pro)                      
                           <tr>
                               <td>
                                   <div class="media">
                                     <div class="d-flex">
-                                          <img src="/productoimg/{{$pro->imagen}}}" alt="">
+                                          <img src="/productoimg/{{$pro->attributes->imagen}}" alt="" style="width: 135px; height: 130px;" class="img-fluid">
                                       </div>
                                       <div class="media-body">
                                           <p>{{$pro->name}}</p>
@@ -49,22 +47,17 @@
                                   </div>
                               </td>
                               <td>
-                                  <h5>${{number_format($pro->price, 2, '.', ',')}}</h5>
+                                  <h5>${{number_format($pro->price, 2)}}</h5>
                               </td>
                               <td>
                                 <form method="POST" action="{{route('cart.actualizar')}}">
-                                @csrf      
-                                <input type="hidden" name="code_producto" value="{{$pro->id}}">                          
+                                  @csrf      
+                                  <input type="hidden" value="{{$pro->id}}" id="id" name="id">                          
                                   <div class="product_count">
-                                    <input type="text" name="quantity" id="sst" maxlength="12" value="{{$pro->quantity}}" title="Quantity:" class="input-text qty">
-                                    <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-                                        class="increase items-count" type="button"><i class="fa fa-chevron-up" aria-hidden="true"></i></i></button>
-                                    <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-                                        class="reduced items-count" type="button"><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
-
+                                    <input type="number" id="quantity" name="quantity" value="{{$pro->quantity}}" >
                                   </div>
                                     <button type="submit" class="btn btn-success"><i class="fa fa-undo" aria-hidden="true"></i></button>
-                                  </form>
+                                </form>
                               </td>
                               <td>                                
                                 <form method="POST" action="{{route('cart.removeitem')}}">                                    
@@ -74,14 +67,13 @@
                                 </form>
                               </td>
                               <td>
-                                  <h5>${{number_format($pro->quantity*$pro->price, 2, '.', ',')}}</h5>
+                                  <h5>${{number_format($pro->quantity*$pro->price, 2)}}</h5>
                               </td>
-
                           </tr>
                           @endforeach
                           <tr class="bottom_button">
                               <td>
-                                  <a class="button" href="#">Actualizar Carrito</a>
+                                  
                               </td>
                               <td height="10px;">
 
@@ -116,7 +108,7 @@
                                   <h5>Subtotal</h5>
                               </td>
                               <td>
-                                  <h5>${{number_format(Cart::getSubTotal(), 2, '.', ',')}}</h5>
+                                  <h5>${{number_format(Cart::getSubTotal(), 2)}}</h5>
                               </td>
                           </tr>
                           <tr class="shipping_area">
@@ -172,17 +164,16 @@
                               <td>
                                   <div class="checkout_btn_inner d-flex align-items-center">
                                       <a class="gray_btn" href="/catalogo">Seguir Comprando</a>
-                                      <a class="primary-btn ml-2" href="#">Pasar a Pagar</a>
+                                      <a class="primary-btn ml-2" href="#">Pagar</a>
                                   </div>
                               </td>
                           </tr>                      
-                      </tbody>
-                      
+                      </tbody>                    
                   </table>
                   @else
                   <center>
                     <h1>¡Carrito Vacio!</h1><br>
-                  <img src="/recursos/carritovacio.png" class="img-fluid" style="width: 300px;"><br><br>
+                  <img src="/recursos/carritovacio.png" class="img-fluid"><br><br>
                   <a href="/catalogo"><button type="submit" class="btn btn-primary">Agregar Productos</button></a>
                   </center>                                                         
                 @endif
