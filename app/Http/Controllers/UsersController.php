@@ -41,7 +41,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return view('AdmInterfaces.IntUsers.index');
+        $users=User::all()->count();
+        $verificados=User::where('status_cuenta','=','VERIFICADO')->count();
+        return view('AdmInterfaces.IntUsers.index',compact('users','verificados'));
     }
 
     /**

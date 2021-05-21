@@ -39,12 +39,12 @@
             <div class="col-lg-6">
               <div class="small-box bg-warning">
                 <div class="inner">
-                  <h3>44</h3>
+                  <h3>{{$productos}}</h3>
 
-                  <p>User Registrations</p>
+                  <p>Productos registrados</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-person-add"></i>
+                  <i class="fa fa-sticky-note" aria-hidden="true"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>

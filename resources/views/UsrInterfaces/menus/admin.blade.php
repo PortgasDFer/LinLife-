@@ -23,7 +23,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/usuarios/create" class="nav-link">
                   <i class="far fa-dot-circle nav-icon"></i>
                   <p>Registrar usuarios</p>
                 </a>
@@ -38,12 +38,6 @@
                 <a href="/usuarios" class="nav-link">
                   <i class="far fa-dot-circle nav-icon"></i>
                   <p>Lista de usuarios</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-dot-circle nav-icon"></i>
-                  <p>Verificación de usuarios</p>
                 </a>
               </li>
             </ul>

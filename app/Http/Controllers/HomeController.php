@@ -38,7 +38,7 @@ class HomeController extends Controller
         } else{
             $noProductos=Producto::all()->count();
             $noUsuarios=User::all()->count();
-            $noVentas=Ventas::all()->count();
+            $noVentas=Ventas::where('baja','=',1)->count();
             $ventas=Ventas::join('users','ventas.id_user','=','users.id')
             ->select(array('users.name','users.aPaterno','users.aMaterno','ventas.folio','ventas.fecha','ventas.total'))
             ->where('ventas.baja','=',1)

@@ -23,25 +23,25 @@
 		<div class="row"> 
             <div class="col-lg-6">
               <!-- small box -->
-              <div class="small-box bg-info">
+              <div class="small-box bg-primary">
                 <div class="inner">
-                  <h3>63</h3>
+                  <h3>{{$users}}</h3>
                   <p>Usuarios registrados</p>
                 </div>
                 <div class="icon">
-                  <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                  <i class="fa fa-users" aria-hidden="true"></i>
                 </div>
                 <a href="#" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <div class="col-lg-6">
-              <div class="small-box bg-warning">
+              <div class="small-box bg-lime">
                 <div class="inner">
-                  <h3>44</h3>
+                  <h3>{{$verificados}}</h3>
                   <p>Usuarios activos</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-person-add"></i>
+                  <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                 </div>
                 <a href="#" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
               </div>

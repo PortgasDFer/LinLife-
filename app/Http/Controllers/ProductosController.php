@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str as Str;
 use App\Producto;
+use App\Ventas;
 use Image;
 use Alert;
 use Redirect,Response;
@@ -46,7 +47,8 @@ class ProductosController extends Controller
      */
     public function index()
     {
-        return view('AdmInterfaces.IntProductos.index');
+        $productos=Producto::all()->count();
+        return view('AdmInterfaces.IntProductos.index',compact('productos'));
     }
 
     /**
