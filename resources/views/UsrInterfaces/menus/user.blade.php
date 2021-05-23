@@ -88,6 +88,12 @@
         </a>
       </li>
       <li class="nav-item">
+        <a href="/promociones-del-mes" class="nav-link">
+          <i class="far fa-dot-circle nav-icon"></i>
+          <p>Promociones del mes</p>
+        </a>
+      </li>
+      <li class="nav-item">
         <a href="/cobros-sobre-comisiones" class="nav-link">
           <i class="far fa-dot-circle nav-icon"></i>
           <p>Cobro sobre comisiones</p>

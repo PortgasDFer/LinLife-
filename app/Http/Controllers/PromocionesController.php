@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Producto;
 use App\Promocion;
+use App\Ventas;
 use Alert;
 use Redirect,Response;
 use DataTables;
@@ -136,4 +137,23 @@ class PromocionesController extends Controller
         alert()->warning('LIN LIFE', 'Promoción eliminada');
         return Redirect::to('/promociones');
     }
+
+
+    public function promocionesMes()
+    {
+        $foliobase=Ventas::select('folio')->orderby('folio','DESC')->first();
+        $folionuevo=substr($foliobase,10,-8);
+        $numero=substr($foliobase, 14,-2);
+        $contador=$numero+1;
+        $nuevofolio=$folionuevo.$contador;
+        $fechaactual=now()->format('Y-m-d');
+
+        $promociones=Promocion::join('productos','promociones.code_producto','=','productos.code')
+        ->select(array('productos.nombre','promociones.descripcion','promociones.unidades','promociones.costo','promociones.id'))
+        ->where('promociones.baja','=',0)
+        ->get();
+
+        return view('UsrInterfaces.promociones-mes',compact('nuevofolio','fechaactual'));
+    }
+
 }
