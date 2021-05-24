@@ -35,11 +35,11 @@
   </nav>
   <div class="content">
     <div class="alert alert-primary" role="alert" style="border-radius: 0px; text-align: center; background-color: #4025A6; font-size: 12px; ">
-      info de LinLife
+      <h2>Aprovecha las promociones de este mes.!</h2>
     </div>
   </div>
   <div class="container">
-    <form action="/ventas" method="POST">
+    <form action="/ventas-promocion" method="POST">
       @csrf
       <div class="mb-3">
         <input type="hidden" class="form-control" id="folio" name="folio" value="{{$nuevofolio}}" readonly="">
@@ -50,7 +50,23 @@
     </form>
   </div>
   <div class="container-fluid"> 
-
+    <div class="row">
+      @forelse($promociones as $p)
+      <div class="col-sm-4">
+        <div class="position-relative" style="min-height: 180px;">
+          <img src="productoimg/{{$p->imagen}}" alt="{{$p->nombre}}" class="img-fluid">
+          <div class="ribbon-wrapper ribbon-xl">
+            <div class="ribbon bg-danger text-xl">
+              ${{$p->costo}}
+            </div>
+          </div>
+        </div>
+        <p>{{$p->descripcion}}</p>
+      </div>
+      @empty
+      <h1>Aún no se han registrado nuevas promociones, intentalo de nuevo más tarde.</h1>
+      @endforelse
+    </div>
   </div>
   <!-- jQuery -->
   <script src="{{asset('assets/plugins/jquery/jquery.min.js')}}"></script>

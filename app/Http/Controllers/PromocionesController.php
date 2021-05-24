@@ -149,11 +149,11 @@ class PromocionesController extends Controller
         $fechaactual=now()->format('Y-m-d');
 
         $promociones=Promocion::join('productos','promociones.code_producto','=','productos.code')
-        ->select(array('productos.nombre','promociones.descripcion','promociones.unidades','promociones.costo','promociones.id'))
+        ->select(array('productos.nombre','promociones.descripcion','promociones.unidades','promociones.costo','promociones.id','productos.imagen'))
         ->where('promociones.baja','=',0)
         ->get();
 
-        return view('UsrInterfaces.promociones-mes',compact('nuevofolio','fechaactual'));
+        return view('UsrInterfaces.promociones-mes',compact('nuevofolio','fechaactual','promociones'));
     }
 
 }

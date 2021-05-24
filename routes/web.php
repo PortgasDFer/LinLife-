@@ -80,6 +80,7 @@ Route::get('/indexventas/','VentasController@indventas')->name('ventas.indexof')
 
 
 Route::resource('/ventas','VentasController');
+Route::post('/ventas-promocion','VentasController@promocion')->name('ventas.promocion');
 Route::get('/listado-de-ventas','VentasController@ventas')->name('listado.ventas');
 Route::get('/detalle-venta/{venta}','VentasController@detalleVenta')->name('detalle.venta');
 Route::get('/obtenerVentas','VentasController@datatable')->name('datatable.ventas');
