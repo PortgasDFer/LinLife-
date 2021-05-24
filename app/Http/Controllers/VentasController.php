@@ -97,7 +97,7 @@ class VentasController extends Controller
                     ->where('ventas.folio','=',$venta->folio)
                     ->get();
         alert()->success('LIN LIFE', 'Comience a agregar productos');
-        return view('UsrInterfaces.pedidos-promocion',compact('datos','tabla','usuario', 'domicilios','promociones'));
+        return view('UsrInterfaces.pedidos-promociones',compact('datos','tabla','usuario', 'domicilios','promociones'));
     }
 
     public function detalleVenta($folio)
