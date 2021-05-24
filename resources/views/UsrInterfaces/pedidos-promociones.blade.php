@@ -166,7 +166,7 @@
                   </button>                  
                 </div>
                 <div class="modal-body">
-                  <form action="/pedidos" method="POST" name="productos" id="agregar">
+                  <form action="/promocion" method="POST" name="productos" id="agregar">
                     @csrf
                     <div class="form-group">
                       <label for="message-text" class="col-form-label">Folio</label><br>
@@ -265,14 +265,14 @@
       
       var img_dir = "/productoimg/";
       console.log(code);
-      $.get('/obtenerProducto/' + code, function (data) {
+      $.get('/obtenerPromocion/' + code, function (data) {
         console.log(data);
         if (img) {
           img.src = img_dir+data.imagen;
         }
                      
         let precio=document.getElementById("precio");
-        precio.value=data.precio_publico;       
+        precio.value=data.costo;       
       })
     }
 </script>

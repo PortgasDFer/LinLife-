@@ -55,7 +55,9 @@ Route::get('/mes/{usuario}','UsersController@mes')->name('usuario.mes');
 Auth::routes(['verify' => true]);
 Route::get('/validar-codigo/{usuario}','UsersController@validarCodigo')->name('usuario.validar');
 Route::resource('/promociones','PromocionesController');
+Route::get('/obtenerPromocion/{producto}','PromocionesController@obtenerDatos')->name('obtener.producto');
 Route::get('/obtenerPromos','PromocionesController@datatable')->name('datatable.promociones');
+Route::post('/promocion','PedidosController@registroPromocion')->name('registrofila.promocion');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -156,4 +156,13 @@ class PromocionesController extends Controller
         return view('UsrInterfaces.promociones-mes',compact('nuevofolio','fechaactual','promociones'));
     }
 
+    public function obtenerDatos($id)
+    {
+        $promociones=Promocion::join('productos','promociones.code_producto','=','productos.code')
+        ->select(array('productos.nombre','promociones.descripcion','promociones.unidades','promociones.costo','promociones.id','productos.imagen'))
+        ->where('promociones.id','=',$id)
+        ->firstOrFail();
+        return Response::json($promociones);
+    }
+
 }

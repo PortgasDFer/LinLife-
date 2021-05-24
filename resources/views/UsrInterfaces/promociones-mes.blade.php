@@ -84,7 +84,7 @@
       var img = document.getElementById("myimage");
       
       var img_dir = "/productoimg/";
-      $.get('/obtenerProducto/' + code, function (data) {
+      $.get('/obtenerPromocion/' + code, function (data) {
         console.log(data);
         if (img) {
           img.src = img_dir+data.imagen;
