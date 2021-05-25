@@ -132,19 +132,12 @@
                                           <li><a href="#">Flat Rate: $10.00</a></li>
                                           <li class="active"><a href="#">Local Delivery: $2.00</a></li>
                                       </ul>
-                                      <h6>Calculate Shipping <i class="fa fa-caret-down" aria-hidden="true"></i></h6>
+                                      <h6>Elije Dirección <i class="fa fa-caret-down" aria-hidden="true"></i></h6>
                                       <select class="shipping_select">
-                                          <option value="1">Bangladesh</option>
-                                          <option value="2">India</option>
-                                          <option value="4">Pakistan</option>
+                                        @foreach($domicilio as $d)
+                                          <option value="{{$d->id}}">{{$d->nombre}}</option>
+                                          @endforeach
                                       </select>
-                                      <select class="shipping_select">
-                                          <option value="1">Select a State</option>
-                                          <option value="2">Select a State</option>
-                                          <option value="4">Select a State</option>
-                                      </select>
-                                      <input type="text" placeholder="Postcode/Zipcode">
-                                      <a class="gray_btn" href="#">Update Details</a>
                                   </div>
                               </td>
                           </tr>
@@ -164,7 +157,7 @@
                               <td>
                                   <div class="checkout_btn_inner d-flex align-items-center">
                                       <a class="gray_btn" href="/catalogo">Seguir Comprando</a>
-                                      <a class="primary-btn ml-2" href="#">Pagar</a>
+                                      <a class="primary-btn ml-2" href="/revisar">Continuar</a>
                                   </div>
                               </td>
                           </tr>                      

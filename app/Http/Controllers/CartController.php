@@ -7,6 +7,7 @@ use Alert;
 use Redirect,Response;
 use Cart;
 use App\Producto;
+use App\Domicilio;
 
 class CartController extends Controller
 {
@@ -42,7 +43,8 @@ class CartController extends Controller
     }
 
     public function cart(){
-        return view('ShpInterfaces.carrito');
+        $domicilio=Domicilio::where('id_user','=',auth()->id())->get();
+        return view('ShpInterfaces.carrito', compact('domicilio'));
     }
 
     public function removeitem(Request $request)
@@ -74,5 +76,18 @@ class CartController extends Controller
         alert()->success('LIN LIFE', 'Cantidad Actualizada');
         return back();
     }
+
+    public function procesopedido(Request $request){
+        if (Cart::getContent()->count()>0) {
+            # code...
+        }else{
+
+        }
+    }
+
+    public function revisar(){        
+        return view('ShpInterfaces.revisarpedido');
+    }
+
 
 }

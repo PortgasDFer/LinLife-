@@ -26,10 +26,10 @@
             <a class="button button-header" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                 aria-expanded="false">
                   @if(Auth::user()->avatar!=null)
-                    <img src="/imgusers/{{Auth::user()->avatar}}" style="width: 30px; border-radius: 20px;"> 
+                    <img src="/imgusers/{{Auth::user()->avatar}}" style="width: 30px; border-radius: 20px;" class="img-fluid"> 
                     &nbsp;
                   @else
-                    <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg">
+                    <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" style="width: 30px; border-radius: 20px;" class="img-fluid">
                     &nbsp;
                   @endif
                 {{ Auth::user()->name }} {{Auth::user()->aPaterno}}</a>
