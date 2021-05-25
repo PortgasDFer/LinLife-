@@ -76,21 +76,22 @@
 									<div class="form-group row">
 										<label for="">Porcentaje de comisión</label>
 										<div class="col-sm-12">
-											<input type="text" name="porcentaje" class="form-control">
+											<input type="text" id="porcentaje" name="porcentaje" class="form-control">
+											<input type="hidden" id="total" value="{{($sum*0.16)+($sum-($sum*0.16))}}">
 										</div>
 									</div>
 									<div class="form-group row">
 										<label for="">Total comisión</label>
 										<div class="col-sm-12">
-											<input type="text" name="total" id="total" class="form-control" readonly="">
+											<input type="text" name="cantidad" id="cantidad" class="form-control" readonly="">
 										</div>
 									</div>
 									<div class="form-group row">
 										<div class="col-sm-6">
-											<button type="button" class="btn btn-block btn-warning">Calcular comisión</button>
+											<button type="button" class="btn btn-block btn-warning" onclick="calcular_porcentaje(porcentaje.value)">Calcular comisión</button>
 										</div>
 										<div class="col-sm-6">
-											<button type="submit" class="btn btn-block btn-success">Asignar comisión</button>
+											<button type="submit" disabled="" class="btn btn-block btn-success">Asignar comisión</button>
 										</div>
 									</div>
 								</form>
@@ -102,4 +103,18 @@
 		</div>	
 	</div>	
 </div>	
+@endsection
+@section('scripts')
+<script>
+	var campoComision=document.getElementById('cantidad');
+	const total=document.getElementById('total').value;
+	console.log(total);
+
+	function calcular_porcentaje(porcentaje){
+		let porcentajeReal = "0."+porcentaje;
+		let comision=total*parseFloat(porcentajeReal);
+		campoComision.value=comision;
+		console.log(comision);
+	}
+</script>
 @endsection
