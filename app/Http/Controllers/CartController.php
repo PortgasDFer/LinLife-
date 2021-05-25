@@ -7,6 +7,7 @@ use Alert;
 use Redirect,Response;
 use Cart;
 use App\Producto;
+use App\Ventas;
 use App\Domicilio;
 
 class CartController extends Controller
@@ -85,8 +86,14 @@ class CartController extends Controller
         }
     }
 
-    public function revisar(){        
-        return view('ShpInterfaces.revisarpedido');
+    public function revisar(){
+        $foliobase=Ventas::select('folio')->orderby('folio','DESC')->first();
+        $folionuevo=substr($foliobase,10,-8);
+        $numero=substr($foliobase, 14,-2);
+        $contador=$numero+1;
+        $nuevofolio=$folionuevo.$contador;
+        $fechaactual=now()->format('Y-m-d');        
+        return view('ShpInterfaces.revisarpedido',compact('nuevofolio'));
     }
 
 

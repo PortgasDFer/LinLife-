@@ -24,7 +24,7 @@
       <div class="col-12">
          <div class="order_box">
           @if(count(Cart::getContent()))  
-            <h2>Your Order</h2>
+            <h2>Your Order Folio: {{$nuevofolio}}</h2>
             <ul class="list">
                 <li><a href="#"><h4>Product <span>Total</span></h4></a></li>
                 @foreach(Cart::getContent()->sortBy('name') as $pro) 
