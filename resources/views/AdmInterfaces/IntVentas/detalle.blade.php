@@ -91,7 +91,7 @@
 											<button type="button" class="btn btn-block btn-warning" onclick="calcular_porcentaje(porcentaje.value)">Calcular comisión</button>
 										</div>
 										<div class="col-sm-6">
-											<button type="submit" disabled="" class="btn btn-block btn-success">Asignar comisión</button>
+											<button type="submit" disabled="" class="btn btn-block btn-success" id="asignar">Asignar comisión</button>
 										</div>
 									</div>
 								</form>
@@ -108,6 +108,7 @@
 <script>
 	var campoComision=document.getElementById('cantidad');
 	const total=document.getElementById('total').value;
+	var botonSubmit=document.getElementById('asignar');
 	console.log(total);
 
 	function calcular_porcentaje(porcentaje){
@@ -115,6 +116,7 @@
 		let comision=total*parseFloat(porcentajeReal);
 		campoComision.value=comision;
 		console.log(comision);
+		botonSubmit.disabled=false;
 	}
 </script>
 @endsection
