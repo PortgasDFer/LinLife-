@@ -111,3 +111,7 @@ Route::get('/revisar', 'CartController@revisar')->name('cart.revisar');
 Route::get('/paypal/status','PaymentController@payPalStatus')->name('paypal.status');
 Route::get('/paypal/failed','PaymentController@payPalFail')->name('paypal.fail');
 Route::get('/paypal/ok','PaymentController@payPalOk')->name('paypal.ok');
+
+
+//Comisiones
+Route::post('/asignarComision','ComisionesController@asignar')->name('asignar.comision');

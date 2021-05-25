@@ -58,6 +58,44 @@
 				            </tr>
 						  </tbody>
 						</table>
+						<hr>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-6 justify-content-center">
+								Esta compra genera comisión para el lider de venta: <br>
+								{{$liderVenta->name}} {{$liderVenta->aPaterno}} {{$liderVenta->aMaterno}} <br>
+								@if($liderVenta->avatar!=null)
+                    				<img src="/imgusers/{{$liderVenta->avatar}}" style="width: 80px; border-radius: 20px;" class="img-fluid"> 
+                    				&nbsp;
+                  				@else
+                    				<img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" style="width: 30px; border-radius: 20px;" class="img-fluid">
+                    				&nbsp;
+                  				@endif
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-6">
+								<form action="">
+									<div class="form-group row">
+										<label for="">Porcentaje de comisión</label>
+										<div class="col-sm-12">
+											<input type="text" name="porcentaje" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="">Total comisión</label>
+										<div class="col-sm-12">
+											<input type="text" name="total" id="total" class="form-control" readonly="">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-sm-6">
+											<button type="button" class="btn btn-block btn-warning">Calcular comisión</button>
+										</div>
+										<div class="col-sm-6">
+											<button type="submit" class="btn btn-block btn-success">Asignar comisión</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>			
 					</div>	
 				</div>		
 			</div>	

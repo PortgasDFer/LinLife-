@@ -45,7 +45,7 @@ class HomeController extends Controller
             ->take(5)
             ->get();
             $ventas=Ventas::join('users','ventas.id_user','=','users.id')
-            ->select(array('users.name','users.aPaterno','users.aMaterno','ventas.folio','ventas.fecha','ventas.total'))
+            ->select(array('users.name','users.aPaterno','users.aMaterno','ventas.folio','ventas.fecha','ventas.total','ventas.estado'))
             ->where('ventas.baja','=',1)
             ->take(5)
             ->get();

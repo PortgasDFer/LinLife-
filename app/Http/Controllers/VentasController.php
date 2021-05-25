@@ -56,6 +56,7 @@ class VentasController extends Controller
         return view('AdmInterfaces.IntVentas.index');
     }
 
+
     public function store(Request $request)
     {
         $venta=new Ventas();
@@ -63,6 +64,13 @@ class VentasController extends Controller
         $venta->fecha=$request->input('fecha');        
         $venta->baja=1;
         $venta->id_user=auth()->id();
+        /*
+         * Estados de las ventas:
+         * EN PROCESO = La venta se proceso, aún no tiene asignada comisión
+         * FINALIZADA = La venta ha generado comisión al lider de ventas.
+         * CANCELADA  = La venta no ha sido procesada, el usuario pudo salir de la página o simplemente decidio no comprar. 
+         */
+        $venta->estado="EN PROCESO";
         $venta->save();
         $datos=Ventas::find($venta->folio);
         $usuario = User::find(auth()->id());
@@ -110,11 +118,12 @@ class VentasController extends Controller
                     ->get();
         $venta = Ventas::find($folio)->firstOrFail();
         $asociado=Ventas::join('users','ventas.id_user','=','users.id')
-            ->select(array('users.name','users.aPaterno','users.aMaterno','ventas.folio','ventas.fecha','ventas.total'))
+            ->select(array('users.name','users.aPaterno','users.aMaterno','ventas.folio','ventas.fecha','ventas.total','users.invitacion'))
             ->where('ventas.folio','=',$folio)
             ->first();
+        $liderVenta=User::where('code','=',$asociado->invitacion)->firstOrFail();
 
-        return view('AdmInterfaces.IntVentas.detalle',compact('venta','detalle','asociado'));
+        return view('AdmInterfaces.IntVentas.detalle',compact('venta','detalle','asociado','liderVenta'));
     }
 
     public function historial()

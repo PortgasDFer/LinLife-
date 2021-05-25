@@ -90,6 +90,7 @@
                     <th>FOLIO</th>
                     <th>FECHA</th>
                     <th>ASOCIADO</th>
+                    <th>ESTADO</th>
                     <th>MONTO</th>
                     <th>ACCIONES</th>
                   </tr>
@@ -100,6 +101,7 @@
                     <td>{{$v->folio}}</td>
                     <td>{{$v->fecha}}</td>
                     <td>{{$v->name}} {{$v->aPaterno}} {{$v->aMaterno}}</td>
+                    <td>{{$v->estado}}</td>
                     <td>$  {{$v->total}}</td>
                     <td>
                       <a href="/detalle-venta/{{$v->folio}}"><button class="btn btn-primary">Detalles</button></a>
