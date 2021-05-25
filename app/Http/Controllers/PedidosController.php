@@ -147,9 +147,10 @@ class PedidosController extends Controller
 
         $tabla =  DB::table('ventas')
                 ->join('dvp','ventas.folio','=','dvp.folio_venta')
-                ->join('productos','productos.code','=','dvp.code_producto')
+                ->join('promociones','promociones.id','=','dvp.id_promocion')
+                ->join('productos','promociones.code_producto','=','productos.code')
                 ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
-                ->where('ventas.folio','=', $folio)
+                ->where('ventas.folio','=',$folio)
                 ->get();
 
         foreach ($tabla as $t) {
@@ -159,7 +160,8 @@ class PedidosController extends Controller
                 $dvp->save();
                 $tabla =  DB::table('ventas')
                     ->join('dvp','ventas.folio','=','dvp.folio_venta')
-                    ->join('productos','productos.code','=','dvp.code_producto')
+                    ->join('promociones','promociones.id','=','dvp.id_promocion')
+                    ->join('productos','promociones.code_producto','=','productos.code')
                     ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
                     ->where('ventas.folio','=',$folio)
                     ->get();
@@ -200,11 +202,12 @@ class PedidosController extends Controller
 
         $tabla =  DB::table('ventas')
                 ->join('dvp','ventas.folio','=','dvp.folio_venta')
-                ->join('productos','productos.code','=','dvp.code_producto')
+                ->join('promociones','promociones.id','=','dvp.id_promocion')
+                ->join('productos','promociones.code_producto','=','productos.code')
                 ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
                 ->where('ventas.folio','=',$folio)
                 ->get();
-
+        
         alert()->success('LIN LIFE', 'Producto Agregado');
         return view('UsrInterfaces.pedidos-promociones',compact('datos','tabla','promociones','domicilios','usuario'));
     }
@@ -283,6 +286,26 @@ class PedidosController extends Controller
         return view('UsrInterfaces.pedidos',compact('datos','tabla','productos','domicilios','usuario'));
     }
 
+    public function eliminarPromocion(Request $request,$id)
+    {
+        $usuario = User::find(auth()->id());
+        $domicilios=Domicilio::where('id_user','=',$usuario->id)->get();
+        $folio=$request->input('folio');
+        $dvp=Dvp::find($id);
+        $code=$request->input('code');
+        $promociones=Promocion::where('baja','=',0)->get();
+        $dvp->delete();
+        $datos=Ventas::find($folio);
+        $tabla =  DB::table('ventas')
+                    ->join('dvp','ventas.folio','=','dvp.folio_venta')
+                    ->join('promociones','promociones.id','=','dvp.id_promocion')
+                    ->join('productos','promociones.code_producto','=','productos.code')
+                    ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
+                    ->where('ventas.folio','=',$folio)
+                    ->get();
+        alert()->success('LIN LIFE', 'Producto Agregado');
+        return view('UsrInterfaces.pedidos-promociones',compact('datos','tabla','promociones','domicilios','usuario'));
+    }
     public function detallePedido($folio)
     {
         $pedido=Ventas::join('dvp','ventas.folio','=','dvp.folio_venta')

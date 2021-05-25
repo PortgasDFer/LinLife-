@@ -131,7 +131,7 @@
                 <td>${{number_format($t->costo, 2, '.', ',')}}</td>
                 <td>${{number_format($t->cantidad*$t->costo, 2, '.', ',')}}</td>
                 <td> 
-                  <form action="/pedidos/{{$t->id}}" method="POST">
+                  <form action="/pedidos-promocion/{{$t->id}}" method="POST">
                       @csrf 
                       @method('DELETE')
                       <input type="hidden" name="folio" value="{{$datos->folio}}">

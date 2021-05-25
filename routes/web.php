@@ -58,6 +58,7 @@ Route::resource('/promociones','PromocionesController');
 Route::get('/obtenerPromocion/{producto}','PromocionesController@obtenerDatos')->name('obtener.producto');
 Route::get('/obtenerPromos','PromocionesController@datatable')->name('datatable.promociones');
 Route::post('/promocion','PedidosController@registroPromocion')->name('registrofila.promocion');
+Route::delete('/pedidos-promocion/{promocion}','PedidosController@eliminarPromocion')->name('eliminar.promocion');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
