@@ -11,7 +11,7 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="/home">Home</a></li>
-          <li class="breadcrumb-item"><a href="/promociones">Promociones</a></li>
+          <li class="breadcrumb-item"><a href="/listado-de-ventas">Ventas</a></li>
           <li class="breadcrumb-item active">Detalle venta {{$venta->folio}}</li>
         </ol>
       </div><!-- /.col -->
@@ -72,12 +72,14 @@
                   				@endif
 							</div>
 							<div class="col-xs-12 col-sm-12 col-md-6">
-								<form action="">
+								<form action="/asignarComision/{{$venta->folio}}" method="POST">
+									@csrf
 									<div class="form-group row">
 										<label for="">Porcentaje de comisión</label>
 										<div class="col-sm-12">
 											<input type="text" id="porcentaje" name="porcentaje" class="form-control">
 											<input type="hidden" id="total" value="{{($sum*0.16)+($sum-($sum*0.16))}}">
+											<input type="hidden" name="id_user" value="{{$liderVenta->id}}">
 										</div>
 									</div>
 									<div class="form-group row">

@@ -114,4 +114,4 @@ Route::get('/paypal/ok','PaymentController@payPalOk')->name('paypal.ok');
 
 
 //Comisiones
-Route::post('/asignarComision','ComisionesController@asignar')->name('asignar.comision');
+Route::post('/asignarComision/{venta}','ComisionesController@asignar')->name('asignar.comision');

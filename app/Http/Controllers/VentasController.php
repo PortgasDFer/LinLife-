@@ -116,7 +116,7 @@ class VentasController extends Controller
                     ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
                     ->where('ventas.folio','=',$folio)
                     ->get();
-        $venta = Ventas::find($folio)->firstOrFail();
+        $venta = Ventas::where('folio','=',$folio)->firstOrFail();
         $asociado=Ventas::join('users','ventas.id_user','=','users.id')
             ->select(array('users.name','users.aPaterno','users.aMaterno','ventas.folio','ventas.fecha','ventas.total','users.invitacion'))
             ->where('ventas.folio','=',$folio)
