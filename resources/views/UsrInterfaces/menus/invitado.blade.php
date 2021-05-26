@@ -22,7 +22,7 @@
 				  			@else
 				  			<li class="nav-item"><a href="{{route('cart.checkout')}}"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">0</span></button> </a></li>
 				  			@endif
-				          <li class="nav-item"><a class="button button-header" href="/iniciar">Iniciar sesión</a></li>
+				          <li class="nav-item"><a class="button button-header" href="/iniciar"><i class='fas fa-sign-in-alt'></i> Iniciar Sesión</a></li>
 				        </ul>
 				      </div>
 				    </div>
