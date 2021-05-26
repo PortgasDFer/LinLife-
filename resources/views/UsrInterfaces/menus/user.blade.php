@@ -82,7 +82,7 @@
     </a>
     <ul class="nav nav-treeview">
       <li class="nav-item">
-        <a href="{{ action('VentasController@create') }}" class="nav-link">
+        <a href="{{action('VentasController@create') }}" class="nav-link">
           <i class="far fa-dot-circle nav-icon"></i>
           <p>Realizar pedido</p>
         </a>
