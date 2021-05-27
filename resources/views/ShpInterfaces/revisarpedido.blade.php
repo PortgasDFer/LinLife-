@@ -50,11 +50,19 @@
                 <label for="f-option4">He leído y acepto los términos y condiciones*.</a>
             </div>
             <div class="text-center">
+<<<<<<< HEAD
               <form action="/insertarCarrito/{{$nuevofolio}}" method="POST">
                 @csrf
                 <input type="hidden" name="monto" value="{{number_format(Cart::getTotal(), 2)}}">
                 <input type="hidden" name="folio" value="{{$nuevofolio}}">
                 <button type="submit" class="button button-paypal"> Proceda a Paypal </button>
+=======
+              <form action="/ventas" method="POST">
+                @csrf
+                <input type="hidden" name="monto" value="{{number_format(Cart::getTotal(), 2)}}">
+                <input type="hidden" name="folio" value="{{$nuevofolio}}">
+                <button type="submit" class="button button-paypal">Proceda a Paypal</button>
+>>>>>>> 5ea1f39bec117e5497eba9919c8b8339cb0302ef
               </form>
             </div>
             @else

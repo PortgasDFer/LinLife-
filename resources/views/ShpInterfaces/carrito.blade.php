@@ -135,7 +135,7 @@
                                       <h6>Elije Dirección <i class="fa fa-caret-down" aria-hidden="true"></i></h6>
                                       <select class="shipping_select">
                                         @foreach($domicilio as $d)
-                                          <option value="{{$d->id}}">{{$d->nombre}}</option>
+                                          <option value="{{$d->id}}" style="text-transform:capitalize">{{$d->calle}} #{{$d->noext}}</option>
                                           @endforeach
                                       </select>
                                   </div>
