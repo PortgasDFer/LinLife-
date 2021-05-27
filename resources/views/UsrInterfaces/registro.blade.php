@@ -13,9 +13,12 @@
     <link rel="stylesheet" href="{{asset('assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('assets/dist/css/adminlte.min.css')}}">
-    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
-    <script src=" http://servicios.apiqroo.com.mx/sepomex/public/js/sepomex_js/sepomex.js"></script>
+    <link rel="stylesheet" href="{{asset('assets/shop/css/style.css')}}">
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet"> 
   </head>
+  <style type="text/css">
+   
+  </style>
   <body>    
   <section class="bg-light">
     <div class="container">
@@ -102,26 +105,23 @@
               </div>
               <div class="form-group col-md-4">
                 <label>Código Postal</label>                
-                <input type="text" class="form-control" id="cp" name="cp" placeholder="Código Postal" onchange="cargar_datos(this.value)" >
+                <input type="text" class="form-control" id="cp" name="cp" placeholder="Código Postal">
               </div>
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-4">
                 <label>Colonia</label>
-                <select id="colonia" name="colonia" class="form-control">
-                  <option selected>Selecciona...</option>
-                  <option>...</option>
-                </select>
+                <input type="text" class="form-control" id="colonia" name="colonia" placeholder="Colonia">
               </div>
-              <div class="form-group col-md-3">
+              <div class="form-group col-md-4">
                 <label>Municipio</label>
-                <input type="text" class="form-control" id="localidad" name="localidad" placeholder="Municipio" readonly="">
+                <input type="text" class="form-control" id="localidad" name="localidad" placeholder="Municipio">
               </div>
-              <div class="form-group col-md-3">
+              <div class="form-group col-md-4">
                 <label>Estado</label>
-                <input type="text" class="form-control" id="estado" name="estado" placeholder="Estado" readonly="">
+                <input type="text" class="form-control" id="estado" name="estado" placeholder="Estado">
               </div>              
               <div class="form-group col-md-12">
                 <label>Descripción de la ubicación</label>                
-                <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripción de la ubicación" value="{{ old('descripcion') }}">
+                <textarea id="descripcion" name="descripcion"  class="form-control" placeholder="Descripción de la ubicación">{{ old('descripcion') }}</textarea>
               </div>
             </div>
             <hr>
@@ -134,18 +134,30 @@
                 <label>Teléfono Celular</label>
                 <input type="text" class="form-control" id="cel" name="cel" placeholder="Teléfono Celular" value="{{ old('cel') }}">
               </div>
-              <div class="form-group col-md-2">
+              <div class="form-group col-md-2">                      
                 <label>INE</label>
                 <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="customFileLang" lang="es" name="frente">
-                  <label class="custom-file-label" for="customFileLang">Frente</label>
-                </div>                
+                  <div style="position:relative;">
+                    <a class='button button-login w-100' href='javascript:;'>
+                      Frente...
+                      <input type="file" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0); -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="frente" id="frente" size="40" onchange='$("#upload-file-info").html($(this).val());'>
+                    </a>
+                    &nbsp;
+                    <span class='badge badge-success' id="upload-file-info"></span>
+                  </div>
+                </div>                    
               </div>
               <div class="form-group col-md-2">
                 <label><br></label>                
                 <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="customFileLang" lang="es" name="atras">
-                  <label class="custom-file-label" for="customFileLang">Atras</label>
+                  <div style="position:relative;">
+                    <a class='button button-login w-100' href='javascript:;'>
+                      Atras...
+                      <input type="file" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0); -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="atras" id="atras" size="40" onchange='$("#upload-file-info2").html($(this).val());'>
+                    </a>
+                    &nbsp;
+                    <span class='badge badge-success' id="upload-file-info2"></span>
+                  </div>
                 </div>                
               </div>
               <div class="form-group col-md-2">
@@ -161,12 +173,44 @@
               <div class="form-group col-md-3">
                 <label>Fecha de Nacimiento</label>
                 <input type="date" name="fecha" class="form-control" id="fecha" name="fecha" placeholder="Fecha de Nacimiento" value="{{ old('fecha') }}">
-              </div>
+              </div>              
               <div class="form-group col-md-3">
                 <label>Entidad de Nacimiento</label>
                 <select id="entidad" name="entidad" class="form-control" value="{{ old('entidad') }}">
-                  <option value="">Elige un estado</option>
-                </select>
+                        <option selected="">Selecciona...</option>
+                        <option value="Aguascalientes">Aguascalientes</option>
+                        <option value="Baja California">Baja California</option>
+                        <option value="Baja California Sur">Baja California Sur</option>
+                        <option value="Campeche">Campeche</option>
+                        <option value="Chiapas">Chiapas</option>
+                        <option value="Chihuahua">Chihuahua</option>
+                        <option value="CDMX">Ciudad de México</option>
+                        <option value="Coahuila">Coahuila</option>
+                        <option value="Colima">Colima</option>
+                        <option value="Durango">Durango</option>
+                        <option value="Estado de México">Estado de México</option>
+                        <option value="Guanajuato">Guanajuato</option>
+                        <option value="Guerrero">Guerrero</option>
+                        <option value="Hidalgo">Hidalgo</option>
+                        <option value="Jalisco">Jalisco</option>
+                        <option value="Michoacán">Michoacán</option>
+                        <option value="Morelos">Morelos</option>
+                        <option value="Nayarit">Nayarit</option>
+                        <option value="Nuevo León">Nuevo León</option>
+                        <option value="Oaxaca">Oaxaca</option>
+                        <option value="Puebla">Puebla</option>
+                        <option value="Querétaro">Querétaro</option>
+                        <option value="Quintana Roo">Quintana Roo</option>
+                        <option value="San Luis Potosí">San Luis Potosí</option>
+                        <option value="Sinaloa">Sinaloa</option>
+                        <option value="Sonora">Sonora</option>
+                        <option value="Tabasco">Tabasco</option>
+                        <option value="Tamaulipas">Tamaulipas</option>
+                        <option value="Tlaxcala">Tlaxcala</option>
+                        <option value="Veracruz">Veracruz</option>
+                        <option value="Yucatán">Yucatán</option>
+                        <option value="Zacatecas">Zacatecas</option>                        
+                      </select>
               </div>
               <div class="form-group col-md-3">
                 <label>Estado Civil</label>
@@ -203,16 +247,18 @@
               <div class="form-group col-md-6">
                 <label>Invitación</label>
                 <input type="text" name="invitacion" class="form-control" id="invitacion" placeholder="Código de invitación" value="{{ old('invitacion') }}">
-                <button class="btn btn-primary form-control" onclick="validar_codigo(invitacion.value)" type="button">Validar</button>
+                &nbsp;
+                <button class="button button-paypal" onclick="validar_codigo(invitacion.value)" type="button">Validar</button>
               </div>
-              <div class="form-group col-md-6">
-                <p id="nombre-codigo">Ingrese un código de invitación</p>
-                <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar" style="width: 160px;" id="patrocinador">
-
+              <div class="form-group col-md-3">
+                <center>
+                <p id="nombre-codigo">Ingrese un código de invitación</p>                
+                  <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar" style="width: 120px;" id="patrocinador">
+                  </center>
               </div>
             </div>
             <hr>
-            <button type="submit" class="btn btn-primary" disabled="" id="finalizar">Finalizar Registro</button>
+            <button type="submit" class="gray_btn" disabled="" id="finalizar">Finalizar Registro</button>
           </form>
         </div>
       </div>  
@@ -227,9 +273,6 @@
   <script src="{{asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <!-- AdminLTE App -->
   <script src="{{asset('assets/dist/js/adminlte.min.js')}}"></script>
-  <!-- API sepomex -->
-  <script src="{{asset('js/sepomex.js')}}"></script>
-
   <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
   <script>
     function validar_codigo(codigo){
