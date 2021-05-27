@@ -82,27 +82,25 @@
                     <div class="col-xs-12 col-sm-12 col-md-2">
                       <div class="form-group">
                         <label for="Sku">C.P.</label>
-                        <input type="text" name="cp" class="form-control" id="cp" placeholder="Código Postal" onchange="cargar_datos(this.value)" >
+                        <input type="text" name="cp" class="form-control" id="cp" placeholder="Código Postal">
                       </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-3">
                       <div class="form-group">
                         <label for="Nombre">Colonia</label>
-                        <select id="colonia" name="colonia" class="form-control">
-                          <option selected>Selecciona...</option>                          
-                        </select>
+                        <input type="text" class="form-control" id="colonia" name="colonia" placeholder="Colonia">
                       </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-4">
                       <div class="form-group">
                         <label for="Nombre">Municipio</label>
-                        <input type="text" class="form-control" id="localidad" name="localidad" placeholder="Municipio" readonly="" >
+                        <input type="text" class="form-control" id="municipio" name="municipio" placeholder="Municipio">
                       </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-3">
                       <div class="form-group">
                         <label for="Nombre">Estado</label>
-                        <input type="text" name="estado" class="form-control" id="estado" placeholder="Estado" readonly>
+                        <input type="text" name="estado" class="form-control" id="estado" placeholder="Estado">
                       </div>
                     </div>
                   </div>
@@ -110,7 +108,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                       <div class="form-group">
                         <label for="Sku">Descripción</label>
-                        <textarea name="descripcion" id="descripcion"  class="form-control">{{old('descripcion')}}</textarea>
+                        <textarea name="descripcion" id="descripcion"  class="form-control" placeholder="Descripción">{{old('descripcion')}}</textarea>
                       </div>
                     </div>
                   </div>

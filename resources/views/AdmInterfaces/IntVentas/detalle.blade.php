@@ -47,29 +47,34 @@
 						      <td>{{$d->nombre}}</td>
 						      <td>{{$d->cantidad}}</td>
 						      <td>${{number_format($d->costo, 2, '.', ',')}}</td>
-						      <td style="text-align: right;">$     {{number_format($d->costo*$d->cantidad, 2, '.', ',')}} </td>
+						      <td style="text-align: right;">${{number_format($d->costo*$d->cantidad, 2, '.', ',')}} </td>
 						    </tr>
 						    <?php $sum+= $d->costo*$d->cantidad;?>
 						    @endforeach
 				            <tr>
 				              <td colspan="2"  style="border: none;"></td>  
-				                <td class="total" style="text-align: right;">TOTAL  $</td>
-				                <td style="text-align: right;">{{number_format(($sum*0.16)+($sum-($sum*0.16)), 2, '.', ',')}}</td>  
+				                <td class="total" style="text-align: right;">TOTAL</td>
+				                <td style="text-align: right;">${{number_format(($sum*0.16)+($sum-($sum*0.16)), 2, '.', ',')}}</td>  
 				            </tr>
 						  </tbody>
 						</table>
 						<hr>
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-6 justify-content-center">
-								Esta compra genera comisión para el lider de venta: <br>
-								{{$liderVenta->name}} {{$liderVenta->aPaterno}} {{$liderVenta->aMaterno}} <br>
-								@if($liderVenta->avatar!=null)
-                    				<img src="/imgusers/{{$liderVenta->avatar}}" style="width: 80px; border-radius: 20px;" class="img-fluid"> 
-                    				&nbsp;
-                  				@else
-                    				<img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" style="width: 30px; border-radius: 20px;" class="img-fluid">
-                    				&nbsp;
-                  				@endif
+								<center>
+								Esta compra genera comisión para el lider de venta: <br>&nbsp;
+								
+									<strong>{{$liderVenta->name}} {{$liderVenta->aPaterno}} {{$liderVenta->aMaterno}}</strong> <br>&nbsp;
+									@if($liderVenta->avatar!=null)
+									&nbsp;
+	          				<img src="/imgusers/{{$liderVenta->avatar}}" style="width: 120px; border-radius: 20px;" class="img-fluid"> 
+	          				&nbsp;
+	        				@else
+	        				&nbsp;
+	          				<img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" style="width: 70px; border-radius: 20px;" class="img-fluid">
+	          				&nbsp;
+	        				@endif
+	        			</center>
 							</div>
 							<div class="col-xs-12 col-sm-12 col-md-6">
 								<form action="/asignarComision/{{$venta->folio}}" method="POST">

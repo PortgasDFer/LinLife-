@@ -57,8 +57,7 @@
           <p>Esta semana</p>
         </a>
       </li>
-      <li class="nav-item">
-        <a href="vistas/ingresos/mes.html" class="nav-link">    
+      <li class="nav-item">    
         <a href="/mes/{{Auth::user()->slug}}" class="nav-link">
           <i class="far fa-dot-circle nav-icon"></i>
           <p>Este mes</p>

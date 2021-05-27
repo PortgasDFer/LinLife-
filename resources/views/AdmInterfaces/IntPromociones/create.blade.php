@@ -52,7 +52,7 @@
                 <div class="form-group row"> 
                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                       <label for="">Producto en promoción</label>
-                      <select name="code" class="js-example-basic-single"  style="width: 100%" id="producto">
+                      <select name="code" class="form-control" style="width: 100%" id="producto">
                           <option value="0">Buscar producto</option>
                           @foreach($productos as $p)
                               <option value="{{$p->code}}" >{{$p->code}} {{$p->nombre}}</option>

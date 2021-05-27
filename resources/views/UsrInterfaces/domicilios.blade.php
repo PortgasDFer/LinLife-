@@ -25,7 +25,7 @@
       <div class="container-fluid">
         <div class="card" style="border-radius: 10px; background-color: #007bff; color: white;">
           <div class="card-body">
-             <i class="fa fa-map-marker" aria-hidden="true"></i> Domicilios de socio <span class="badge badge-dark">{{$usu->invitacion}}</span> {{$usu->name}} {{$usu->aPaterno}} {{$usu->aMaterno}}         
+             <i class="fa fa-map-marker" aria-hidden="true"></i> Domicilios de socio <span class="badge badge-dark">{{$usu->code}}</span> {{$usu->name}} {{$usu->aPaterno}} {{$usu->aMaterno}}         
            </div>
         </div>              
         <div class="row">
@@ -42,7 +42,7 @@
                     <th>No Exterior</th>                            
                     <th>CP</th>
                     <th>Colonia</th>
-                    <th>Localidad</th>                            
+                    <th>Municipio</th>                            
                     <th>Editar</th>
                     <th>Elminar</th>
                   </tr>

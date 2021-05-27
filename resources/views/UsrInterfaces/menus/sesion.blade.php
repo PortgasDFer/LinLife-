@@ -21,10 +21,10 @@
   			<li class="nav-item"><a href="{{route('cart.checkout')}}"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">{{count(Cart::getContent())}}</span></button> </a></li>
   			@else
   			<li class="nav-item"><a href="{{route('cart.checkout')}}"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">0</span></button> </a></li>
-  			@endif
+  			@endif        
           <li class="nav-item submenu dropdown">
-            <a class="button button-header" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                aria-expanded="false">
+            <a href="#" class="button button-header"   data-toggle="dropdown" role="button" aria-haspopup="true"
+                  aria-expanded="false">
                   @if(Auth::user()->avatar!=null)
                     <img src="/imgusers/{{Auth::user()->avatar}}" style="width: 30px; border-radius: 20px;" class="img-fluid"> 
                     &nbsp;

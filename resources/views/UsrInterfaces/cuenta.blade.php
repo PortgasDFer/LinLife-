@@ -29,7 +29,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-sm-6 h4" style="margin:0;">
-            <h4>Detalle de socio <span class="badge badge-dark">{{ $usuario->invitacion }}</span></h4>
+            <h4>Detalle de socio <span class="badge badge-dark">{{ $usuario->code }}</span></h4>
           </div>
           <div class="col-sm">
             <div class="btn-group btn-group-justified" role="group" aria-label="Basic mixed styles example">
