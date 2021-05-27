@@ -46,7 +46,7 @@
       <div class="col-lg-4">
         <div class="small-box bg-info">
           <div class="inner">
-            <h3>$0.00</h3>
+            <h3>${{number_format($ingresos, 2, '.', ',')}}</h3>
 
             <p>Mis ingresos</p>
           </div>

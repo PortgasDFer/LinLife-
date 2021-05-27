@@ -9,6 +9,7 @@ use Cart;
 use App\Producto;
 use App\Ventas;
 use App\Domicilio;
+use App\Dvp;
 
 class CartController extends Controller
 {
@@ -96,5 +97,39 @@ class CartController extends Controller
         return view('ShpInterfaces.revisarpedido',compact('nuevofolio'));
     }
 
+
+    public function insertarCarrito(Request $request,$folio)
+    {
+        $venta = new Ventas();
+        $venta->folio=$folio;
+        $venta->fecha=now()->format('Y-m-d');
+        $venta->baja=1;
+        $venta->id_user=auth()->id();
+        /*
+         * Estados de las ventas:
+         * EN PROCESO = La venta se proceso, aún no tiene asignada comisión
+         * FINALIZADA = La venta ha generado comisión al lider de ventas.
+         * CANCELADA  = La venta no ha sido procesada, el usuario pudo salir de la página o simplemente decidio no comprar. 
+         */
+        $venta->estado="EN PROCESO";
+        $venta->save();
+        $arrayCarrito=Cart::getContent();
+        $arrayCarrito->each(function($item,Request $request)
+        {
+            $item->id; // the Id of the item
+            $item->name; // the name
+            $item->price; // the single price without conditions applied
+            $item->quantity; // the quantity
+            
+            $dvp=new Dvp();
+            $dvp->folio_venta=$request->input('folio');
+            $dvp->code_producto=$item->id;
+            $dvp->costo=$item->price;
+            $dvp->cantidad=$item->quantity;
+            $dvp->save();
+        });
+
+        return "Guarde el(los) registro(s)";
+    }
 
 }

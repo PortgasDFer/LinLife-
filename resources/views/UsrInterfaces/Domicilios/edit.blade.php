@@ -83,27 +83,25 @@
                     <div class="col-xs-12 col-sm-12 col-md-2">
                       <div class="form-group">
                         <label for="Sku">C.P.</label>
-                        <input type="text" name="cp" class="form-control" id="cp" placeholder="Código Postal" onchange="cargar_datos(this.value)" value="{{ $dom->cp }}">
+                        <input type="text" name="cp" class="form-control" id="cp" placeholder="Código Postal" value="{{ $dom->cp }}">
                       </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-3">
                       <div class="form-group">
                         <label for="Nombre">Colonia</label>
-                        <select id="colonia" name="colonia" class="form-control">
-                          <option selected>{{ $dom->colonia }}</option>                          
-                        </select>
+                        <input type="text" class="form-control" id="colonia" name="colonia" placeholder="Colonia" value="{{ $dom->colonia }}">
                       </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-4">
                       <div class="form-group">
                         <label for="Nombre">Municipio</label>
-                        <input type="text" class="form-control" id="localidad" name="localidad" placeholder="Municipio" readonly="" value="{{ $dom->localidad }}">
+                        <input type="text" class="form-control" id="municipio" name="municipio" placeholder="Municipio" value="{{ $dom->localidad }}">
                       </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-3">
                       <div class="form-group">
                         <label for="Nombre">Estado</label>
-                        <input type="text" name="estado" class="form-control" id="estado" placeholder="Estado" readonly value="{{ $dom->entidad }}">
+                        <input type="text" name="estado" class="form-control" id="estado" placeholder="Estado" value="{{ $dom->entidad }}">
                       </div>
                     </div>
                   </div>
@@ -111,7 +109,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                       <div class="form-group">
                         <label for="Sku">Descripción</label>
-                        <textarea name="descripcion" id="descripcion"  class="form-control">{{$dom->descripcion}}</textarea>
+                        <textarea name="descripcion" id="descripcion" placeholder="Descripción" class="form-control">{{$dom->descripcion}}</textarea>
                       </div>
                     </div>
                   </div>

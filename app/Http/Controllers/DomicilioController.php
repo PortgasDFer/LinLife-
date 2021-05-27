@@ -57,6 +57,9 @@ class DomicilioController extends Controller
             'calle'        => 'required|min:4',
             'noext'     => 'required|numeric',
             'cp'     => 'required|numeric',
+            'colonia'     => 'required',
+            'municipio'     => 'required',
+            'estado'     => 'required',
             'descripcion'     => 'required|min:10',
         ]);
 
@@ -67,7 +70,7 @@ class DomicilioController extends Controller
         $domicilio->noint=$request->input('noint');
         $domicilio->cp=$request->input('cp');
         $domicilio->colonia=$request->input('colonia');
-        $domicilio->localidad=$request->input('localidad');
+        $domicilio->localidad=$request->input('municipio');
         $domicilio->entidad=$request->input('estado');
         $domicilio->descripcion=$request->input('descripcion');
         $domicilio->id_user=auth()->id();
@@ -115,6 +118,9 @@ class DomicilioController extends Controller
             'calle'        => 'required|min:4',
             'noext'     => 'required|numeric',
             'cp'     => 'required|numeric',
+            'colonia'     => 'required',
+            'municipio'     => 'required',
+            'estado'     => 'required',
             'descripcion'     => 'required|min:10',
         ]);
 
@@ -124,7 +130,7 @@ class DomicilioController extends Controller
         $domicilio->noint=$request->input('noint');
         $domicilio->cp=$request->input('cp');
         $domicilio->colonia=$request->input('colonia');
-        $domicilio->localidad=$request->input('localidad');
+        $domicilio->localidad=$request->input('municipio');
         $domicilio->entidad=$request->input('estado');
         $domicilio->descripcion=$request->input('descripcion');
         $domicilio->id_user=auth()->id();

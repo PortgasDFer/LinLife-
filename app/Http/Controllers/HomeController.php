@@ -7,6 +7,7 @@ use App\User;
 use App\Domicilio;
 use App\Producto;
 use App\Ventas;
+use App\Comision;
 
 class HomeController extends Controller
 {
@@ -34,7 +35,13 @@ class HomeController extends Controller
             $ventas=Ventas::where('id_user','=',$usuario->id)->count();
             $invitados=User::where('invitacion','=',$usuario->code)->count();
             $ventas_tabla=Ventas::where('id_user','=',$usuario->id)->get();
-            return view('userdashboard',compact('domicilio','ventas','invitados','ventas_tabla'));
+
+            $comisiones = Comision::where('id_user','=',$usuario->id)->get();
+            $ingresos=0.0;
+            foreach ($comisiones as $c) {
+                $ingresos+=$c->total_comision;
+            }
+            return view('userdashboard',compact('domicilio','ventas','invitados','ventas_tabla','ingresos'));
         } else{
             $noProductos=Producto::all()->count();
             $noUsuarios=User::all()->count();
