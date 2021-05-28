@@ -114,7 +114,7 @@ class CartController extends Controller
         $venta->estado="EN PROCESO";
         $venta->save();
         $arrayCarrito=Cart::getContent();
-        $arrayCarrito->each(function($item,Request $request)
+        $arrayCarrito->each(function($item) use ($folio)
         {
             $item->id; // the Id of the item
             $item->name; // the name
@@ -122,7 +122,7 @@ class CartController extends Controller
             $item->quantity; // the quantity
             
             $dvp=new Dvp();
-            $dvp->folio_venta=$request->input('folio');
+            $dvp->folio_venta=$folio;
             $dvp->code_producto=$item->id;
             $dvp->costo=$item->price;
             $dvp->cantidad=$item->quantity;
