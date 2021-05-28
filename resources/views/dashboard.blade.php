@@ -77,7 +77,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
         <div class="card">
           <div class="card-header">
             Últimas ventas
@@ -102,7 +102,7 @@
                     <td>{{$v->fecha}}</td>
                     <td>{{$v->name}} {{$v->aPaterno}} {{$v->aMaterno}}</td>
                     <td>{{$v->estado}}</td>
-                    <td>$  {{$v->total}}</td>
+                    <td>${{$v->total}}</td>
                     <td>
                       <a href="/detalle-venta/{{$v->folio}}"><button class="btn btn-primary">Detalles</button></a>
                       <a href=""><button class="btn btn-warning">Eliminar</button></a>
@@ -117,8 +117,45 @@
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-        
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+        <div class="card">
+          <div class="card-header">
+            Últimas Ventas con Promociones
+          </div>
+          <div class="card-body">
+            <div class="table table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>FOLIO</th>
+                    <th>FECHA</th>
+                    <th>ASOCIADO</th>
+                    <th>ESTADO</th>
+                    <th>MONTO</th>
+                    <th>ACCIONES</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @forelse($ventas_promocion as $vp)
+                  <tr>
+                    <td>{{$vp->folio}}</td>
+                    <td>{{$vp->fecha}}</td>
+                    <td>{{$vp->name}} {{$vp->aPaterno}} {{$vp->aMaterno}}</td>
+                    <td>{{$vp->estado}}</td>
+                    <td>${{$vp->total}}</td>
+                    <td>
+                      <a href="/detalle-ventapromocion/{{$vp->folio}}"><button class="btn btn-primary">Detalles</button></a>
+                      <a href=""><button class="btn btn-warning">Eliminar</button></a>
+                    </td>
+                  </tr>
+                  @empty
+                  ¡Aún no hay ventas!
+                  @endforelse
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

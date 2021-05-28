@@ -51,14 +51,16 @@
                 	@forelse($ventas as $v)
                 	<tr>
 	                  <td><a href="#">{{$v->folio}}</a></td>
-	                  <td><span class="badge badge-success">Shipped</span></td>
+	                  <td><span class="badge badge-success">{{$v->estado}}</span></td>
 	                  <td>{{$v->fecha}}</td>
 	                  <td>
 	                    <a href="/pedido/{{$v->folio}}"><button class="btn btn-block btn-primary">Ver</button></a>
 	                  </td>
 	                </tr>
                 	@empty
-                	<h2>Aún no hay compras registradas a esta cuenta</h2>
+                	<tr>
+                  <td><h4>Aún no ha realizado compras</h4></td>                
+                <tr>
                 	@endforelse
                 </tbody>
               </table>
@@ -67,8 +69,7 @@
           </div>
           <!-- /.card-body -->
           <div class="card-footer clearfix">
-            <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Place New Order</a>
-            <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a>
+            <a href="{{action('VentasController@create') }}" class="btn btn-sm btn-info float-left">Nueva compra</a>
           </div>
           <!-- /.card-footer -->
         </div>

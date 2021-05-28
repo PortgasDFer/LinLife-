@@ -160,8 +160,10 @@
                     <td>{{$ventas->fecha}}</td>
                     <td>{{$ventas->total}}</td>
                   </tr>
-                @empty
-                <h2>Aún no ha realizado compras</h2>
+                @empty  
+                <tr>
+                  <td><h4>Aún no ha realizado compras</h4></td>                
+                <tr>
                 @endforelse
                 </tbody>
               </table>
@@ -170,8 +172,8 @@
           </div>
           <!-- /.card-body -->
           <div class="card-footer clearfix">
-            <a href="/pre-pedido" class="btn btn-sm btn-info float-left">Nueva compra</a>
-            <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">Ver todas mis compras</a>
+            <a href="{{action('VentasController@create') }}" class="btn btn-sm btn-info float-left">Nueva compra</a>
+            <a href="/historial" class="btn btn-sm btn-secondary float-right">Ver todas mis compras</a>
           </div>
           <!-- /.card-footer -->
         </div>

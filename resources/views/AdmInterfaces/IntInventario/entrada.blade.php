@@ -34,7 +34,7 @@
 	          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
 	            <div class="form-group">
 	              <label for="Nombre">Seleccione el producto</label>
-	              <select name="code" class="js-example-basic-single"  style="width: 100%" id="producto" onchange="cargar_datos(this.value)">
+	              <select name="code" class="form-control"  style="width: 100%" id="producto" onchange="cargar_datos(this.value)">
 	                  <option value="0">Buscar producto</option>
 	                  @foreach($productos as $p)
 	                      <option value="{{$p->code}}" >{{$p->code}} {{$p->nombre}}</option>
@@ -71,7 +71,7 @@
 	          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
 	            <div class="form-group">
 	              <label for="">Fecha del ultimo ingreso</label>
-	              <input type="text" class="form-control" disabled="" id="fecha_upd" placeholder="fecha en que entro mercancia por ultima vez">
+	              <input type="text" class="form-control" disabled="" id="fecha_upd" placeholder="Fecha en que entro mercancia por ultima vez">
 	            </div>
 	          </div>
 	        </div>
@@ -126,7 +126,7 @@
       		document.inventario.producto_nombre.value=data.nombre;
       		document.inventario.cantidad.value=data.cantidad;
       		document.inventario.precio.value="$ "+data.precio_publico;
-      		document.inventario.fecha_upd.value=data.updated_at;
+      		document.inventario.fecha_upd.value=data.created_at;
       		document.inventario.dist.value="$ "+data.valor_dist;
       })
     }

@@ -61,9 +61,8 @@
           <div class="card">
             <div class="card-header bg-lime">
               <h3 class="card-title">Socios que he registrado</h3>
-
-              <div class="card-tools">
-                <span class="badge badge-danger">{{$noInvitados}} Nuevos miembros registrados</span>
+              <span class="badge badge-danger">{{$noInvitados}} Nuevos miembros registrados</span>
+              <div class="card-tools">              
                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                   <i class="fas fa-minus"></i>
                 </button>
