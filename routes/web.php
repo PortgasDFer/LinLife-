@@ -112,7 +112,7 @@ Route::get('/revisar', 'CartController@revisar')->name('cart.revisar');
 Route::get('/paypal/status','PaymentController@payPalStatus')->name('paypal.status');
 Route::get('/paypal/failed','PaymentController@payPalFail')->name('paypal.fail');
 Route::get('/paypal/ok','PaymentController@payPalOk')->name('paypal.ok');
-Route::post('/insertarCarrito/{venta}','CartController@insertarCarrito')->name('insertar.carrito');
+Route::post('/insertarCarrito/{venta}','PaymentController@insertarCarrito')->name('insertar.carrito');
 
 //Comisiones
 Route::post('/asignarComision/{venta}','ComisionesController@asignar')->name('asignar.comision');

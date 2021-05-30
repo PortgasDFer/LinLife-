@@ -52,7 +52,7 @@
             <div class="text-center">
               <form action="/insertarCarrito/{{$nuevofolio}}" method="POST">
                 @csrf
-                <input type="hidden" name="monto" value="{{number_format(Cart::getTotal(), 2)}}">
+                <input type="hidden" name="monto" value="{{Cart::getTotal()}}">
                 <input type="hidden" name="folio" value="{{$nuevofolio}}">
                 <button type="submit" class="button button-paypal"> Proceda a Paypal </button>
               </form>
