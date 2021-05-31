@@ -167,7 +167,7 @@
                     <td>{{$vp->estado}}</td>
                     <td>${{$vp->total}}</td>
                     <td>
-                      <a href="/detalle-venta/{{$v->folio}}"><button class="btn btn-success btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></button></a>                      
+                      <a href="/detalle-ventapromocion/{{$vp->folio}}"><button class="btn btn-success btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></button></a>                      
                       <a href=""><button class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
                     </td>
                   </tr>
