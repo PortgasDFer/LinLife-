@@ -44,6 +44,8 @@ Route::get('/obtenerUsers','UsersController@datatable')->name('datatable.user');
 Route::resource('/usuarios','UsersController');
 Route::post('/invitar-usuarios','UsersController@invitar')->name('invitar.usuarios');
 Route::get('/validar-identidades','UsersController@identificaciones')->name('validar-identidades');
+Route::get('/usuariosverificados','UsersController@verificados')->name('/usuarios-verificados');
+Route::get('/usuarioverificado/{usuario}','UsersController@usuarioverificado')->name('/usuario-verificado');
 Route::get('/verificar/{usuario}','UsersController@verificarUsuario')->name('verificar.usuario');
 Route::post('/status/{usuario}','UsersController@statusCuenta')->name('status.usuario');
 Route::get('/subir-identificacion','UsersController@subirIdentificacion')->name('subir.identificación');

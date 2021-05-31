@@ -6,7 +6,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">LinLife - Promociones </h1>
+        <h1 class="m-0">LinLife - Promociones</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
@@ -24,7 +24,7 @@
         <!-- small box -->
         <div class="small-box bg-info">
           <div class="inner">
-            <h3>Agregar</h3>
+            <h3>Registrar</h3>
             <p>Nueva promoción</p>
           </div>
           <div class="icon">
@@ -36,13 +36,13 @@
       <div class="col-lg-6">
         <div class="small-box bg-warning">
           <div class="inner">
-            <h3>44</h3>
-            <p>Usuarios activos</p>
+            <h3>{{$noPromociones}}</h3>
+            <p>Promociones activas</p>
           </div>
           <div class="icon">
-            <i class="ion ion-person-add"></i>
+            <i class="fa fa-usd" aria-hidden="true"></i>
           </div>
-          <a href="#" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+          <a class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
 		</div>

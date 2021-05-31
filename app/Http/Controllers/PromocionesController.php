@@ -33,7 +33,8 @@ class PromocionesController extends Controller
      */
     public function index()
     {
-        return view('AdmInterfaces.IntPromociones.index');
+        $noPromociones=Promocion::where('baja','=',0)->count();
+        return view('AdmInterfaces.IntPromociones.index', compact('noPromociones'));
     }
 
     /**

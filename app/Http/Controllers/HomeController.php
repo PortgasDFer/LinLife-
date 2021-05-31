@@ -45,7 +45,8 @@ class HomeController extends Controller
         } else{
             $noProductos=Producto::all()->count();
             $noUsuarios=User::all()->count();
-            $noVentas=Ventas::where('baja','=',1)->count();
+            $noVentas=Ventas::where('baja','=',1)->where('tipo','=','VENTA')->count();
+            $noVentasPromocion=Ventas::where('baja','=',1)->where('tipo','=','PROMOCION')->count();
             $ventas=Ventas::join('users','ventas.id_user','=','users.id')
             ->select(array('users.name','users.aPaterno','users.aMaterno','ventas.folio','ventas.fecha','ventas.total'))
             ->where('ventas.baja','=',1)
@@ -71,7 +72,7 @@ class HomeController extends Controller
             ->where('ventas.tipo','=','PROMOCION')
             ->take(5)
             ->get();
-            return view('dashboard',compact('noProductos','noUsuarios','noVentas','ventas','ventas_promocion'));
+            return view('dashboard',compact('noProductos','noUsuarios','noVentas','ventas','ventas_promocion', 'noVentasPromocion'));
         }
         //return view('dashboard');
     }

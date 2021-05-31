@@ -24,6 +24,22 @@
 <div class="content">
   <div class="container-fluid"> 
     <div class="card">
+    	@if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    	@endif
+
+    	@if ($message = Session::get('success'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
+    	@endif
       <div class="card-header bg-primary">
         Ingreso de productos
       </div>
@@ -99,10 +115,10 @@
 	           <div class="col-md-6">	
 	           	  <label for="">Fecha actual</label>
 	              <input type="text" class="form-control" name="fecha" readonly="" value="{{$fechaactual}} ">
-	           </div>
-	          <div class="col-md-6">
-	          	<label for="">Guardar</label>
-	            <button class="btn btn-primary btn-block btn-lg">Registrar</button>
+	           </div>	           
+	          <div class="col-md-6">	          	
+							<label for="">Registrar</label>  	
+	            <button class="btn btn-primary btn-block"><i class="fa fa-floppy-o" aria-hidden="true"></i> Registrar</button>
 	          </div>
 	        </div>
       	</form>

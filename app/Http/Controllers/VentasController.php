@@ -71,6 +71,7 @@ class VentasController extends Controller
          * CANCELADA  = La venta no ha sido procesada, el usuario pudo salir de la página o simplemente decidio no comprar. 
          */
         $venta->estado="EN PROCESO";
+        $venta->tipo='VENTA';
         $venta->save();
         $datos=Ventas::find($venta->folio);
         $usuario = User::find(auth()->id());
@@ -93,6 +94,8 @@ class VentasController extends Controller
         $venta->fecha=$request->input('fecha');        
         $venta->baja=1;
         $venta->id_user=auth()->id();
+        $venta->estado="EN PROCESO";
+        $venta->tipo='PROMOCION';
         $venta->save();
         $datos=Ventas::find($venta->folio);
         $usuario = User::find(auth()->id());

@@ -280,11 +280,30 @@ class UsersController extends Controller
         return view('AdmInterfaces.IntUsers.validaciones',compact('users','verificados','pendientes','verificar'));
     }
 
+    public function verificados()
+    {
+        $users=User::all()->count();
+        $Noverificados=User::where('status_cuenta','=','VERIFICADO')->count();
+        $pendientes=User::where('status_cuenta','=','PENDIENTE')->count();
+        $verificados=User::select('users.name','users.aPaterno','users.aMaterno','domicilios.localidad','domicilios.colonia','domicilios.entidad','users.slug','users.status_cuenta')
+        ->join("domicilios","domicilios.id_user","=","users.id")
+        ->where('users.status_cuenta','=','VERIFICADO')
+        ->paginate(6);
+        return view('AdmInterfaces.IntUsers.verificados', compact('Noverificados', 'pendientes', 'verificados'));
+    }
+
     public function verificarUsuario($slug)
     {
         $user=User::where('slug','=',$slug)->firstOrFail();
         $domicilio = Domicilio::where('id_user','=',$user->id)->firstOrFail();
         return view('AdmInterfaces.IntUsers.verificar',compact('user','domicilio'));
+    }
+
+    public function usuarioverificado($slug)
+    {
+        $user=User::where('slug','=',$slug)->firstOrFail();
+        $domicilio = Domicilio::where('id_user','=',$user->id)->firstOrFail();
+        return view('AdmInterfaces.IntUsers.usuarioverificado',compact('user','domicilio'));
     }
 
     public function statusCuenta(Request $request, $slug)
@@ -387,4 +406,6 @@ class UsersController extends Controller
         $usuario=User::where('slug','=',$slug)->firstOrFail();
         return view('UsrInterfaces.Ingresos.semana',compact('usuario'));
     }
+
+    
 }

@@ -35,21 +35,11 @@
                 <th>Nombre del producto</th>
                 <th>Cantidad en inventario</th>
                 <th>Ultimo ingreso</th>
-                <th>Acciones</th>
+                <th colspan="2">Acciones</th>
               </tr>
               </thead>
               <tbody>
-
               </tbody>
-              <tfoot>
-              <tr>
-                <th>SKU</th>
-                <th>Nombre del producto</th>
-                <th>Cantidad en inventario</th>
-                <th>Ultimo ingreso</th>
-                <th colspan="2">Acciones</th>
-              </tr>
-              </tfoot>
             </table>
           </div>
           <!-- /.card-body -->

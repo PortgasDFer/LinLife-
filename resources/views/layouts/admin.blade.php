@@ -33,7 +33,7 @@
         <a href="/" class="nav-link">Inicio</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contacto</a>
+        <a href="/contacto" class="nav-link">Contacto</a>
       </li>
     </ul>
 
@@ -63,7 +63,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar elevation-4 sidebar-light-primary">
     <!-- Brand Logo -->
-    <a href="starter.html" class="brand-link navbar-primary">
+    <a href="/home" class="brand-link navbar-primary">
       <img src="{{asset('recursos/logo.jpg')}}" alt="LinLife Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">LinLife</span>
     </a>

@@ -30,10 +30,10 @@
 
                   <p>Nuevo producto</p>
                 </div>
-                <div class="icon">
-                  <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                <div class="icon">                  
+                  <i class="fa fa-plus" aria-hidden="true"></i>
                 </div>
-                <a href="/productos/create" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="/productos/create" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <div class="col-lg-6">
@@ -44,7 +44,7 @@
                   <p>Productos registrados</p>
                 </div>
                 <div class="icon">
-                  <i class="fa fa-sticky-note" aria-hidden="true"></i>
+                  <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
@@ -66,9 +66,9 @@
                   </div>
                 </div>
                 <!-- /.card-header -->
-                <div class="card-body p-0">
-                  <div class="table-responsive mt-2">
-                    <table id="productos" class="table table-striped table-bordered" style="width:100%">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table id="productos" class="table table-striped table-bordered">
                       <thead>
                         <tr>
                             <th>Código de producto</th>
@@ -90,11 +90,6 @@
                   <!-- /.table-responsive -->
                 </div>
                 <!-- /.card-body -->
-                <div class="card-footer clearfix">
-                  <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Place New Order</a>
-                  <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a>
-                </div>
-                <!-- /.card-footer -->
               </div>  
           </div>
           <div class="col-lg-4">

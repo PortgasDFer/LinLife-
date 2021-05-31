@@ -44,7 +44,7 @@
             <div class="icon">
               <i class="fa fa-users" aria-hidden="true"></i>
             </div>
-            <a href="/productos/create" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="/usuarios" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
       </div>
       <div class="col-xs-12 col-md-12 col-lg-4">
@@ -58,7 +58,7 @@
             <div class="icon">
               <i class="fa fa-thumb-tack" aria-hidden="true"></i>
             </div>
-            <a href="/productos/create" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="/productos" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
       </div>
       <div class="col-xs-12 col-md-12 col-lg-4">
@@ -80,10 +80,19 @@
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
         <div class="card">
           <div class="card-header">
-            Últimas ventas
+            <h3 class="card-title">Últimas ventas</h3>
+              <div class="card-tools">
+                <span title="3 New Messages" class="badge badge-primary">{{$noVentas}}</span>
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
           </div>
           <div class="card-body">
-            <div class="table table-responsive">
+            <div class="table table-responsive" style="font-size: 15px;">
               <table>
                 <thead>
                   <tr>
@@ -104,26 +113,40 @@
                     <td>{{$v->estado}}</td>
                     <td>${{$v->total}}</td>
                     <td>
-                      <a href="/detalle-venta/{{$v->folio}}"><button class="btn btn-primary">Detalles</button></a>
-                      <a href=""><button class="btn btn-warning">Eliminar</button></a>
+                      <a href="/detalle-venta/{{$v->folio}}"><button class="btn btn-success btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></button></a>                      
+                      <a href=""><button class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
                     </td>
                   </tr>
                   @empty
-                  ¡Aún no hay ventas!
+                  <tr>
+                    <h5>¡Aún no hay ventas!</h5>
+                  </tr>                  
                   @endforelse
                 </tbody>
               </table>
             </div>
           </div>
+          <div class="card-footer clearfix">
+            <a href="/listado-de-ventas" class="btn btn-sm btn-info float-left">Listado de Ventas</a>
+          </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
         <div class="card">
-          <div class="card-header">
-            Últimas Ventas con Promociones
+          <div class="card-header">            
+            <h3 class="card-title">Últimas Ventas con Promociones</h3>
+              <div class="card-tools">
+                <span title="3 New Messages" class="badge badge-primary">{{$noVentasPromocion}}</span>
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
           </div>
           <div class="card-body">
-            <div class="table table-responsive">
+            <div class="table table-responsive" style="font-size: 15px;">
               <table>
                 <thead>
                   <tr>
@@ -144,16 +167,21 @@
                     <td>{{$vp->estado}}</td>
                     <td>${{$vp->total}}</td>
                     <td>
-                      <a href="/detalle-ventapromocion/{{$vp->folio}}"><button class="btn btn-primary">Detalles</button></a>
-                      <a href=""><button class="btn btn-warning">Eliminar</button></a>
+                      <a href="/detalle-venta/{{$v->folio}}"><button class="btn btn-success btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></button></a>                      
+                      <a href=""><button class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
                     </td>
                   </tr>
                   @empty
-                  ¡Aún no hay ventas!
+                  <tr>
+                    <h5>¡Aún no hay ventas!</h5>
+                  </tr>
                   @endforelse
                 </tbody>
               </table>
             </div>
+          </div>
+          <div class="card-footer clearfix">
+            <a href="/listado-de-ventas" class="btn btn-sm btn-info float-left">Listado de ventas</a>
           </div>
         </div>
       </div>

@@ -80,7 +80,7 @@
 			            <img src="/imgusers/{{$invitado->avatar}}" class="img-circle elevation-2" alt="User Image">
 			        @else
 			            <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" class="img-circle elevation-2" alt="example placeholder avatar">
-			        @endif
+			        @endif                            
                   <a class="users-list-name" href="#">{{$invitado->name}} {{$invitado->aPaterno}} {{$invitado->aMaterno}}</a>
                   <span class="users-list-date">{{$invitado->status_cuenta}}</span>
                 </li>

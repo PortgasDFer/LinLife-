@@ -192,6 +192,13 @@ class ProductosController extends Controller
     
     public function entradaMercancia(Request $request)
     {       
+        $request->validate([
+            'code'        => 'required',
+            'ingresa'      => 'required|numeric',
+            'precio_nuevo'     => 'required|numeric',
+            'valor_distn'     => 'required|numeric',
+        ]);
+
         $producto=Producto::find($request->input('code'));
         $cantidad_nueva=$request->input('ingresa');
         $producto->cantidad=$producto->cantidad+$cantidad_nueva;

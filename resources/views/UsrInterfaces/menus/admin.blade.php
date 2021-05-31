@@ -23,6 +23,12 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
+                <a href="/usuarios" class="nav-link">
+                  <i class="far fa-dot-circle nav-icon"></i>
+                  <p>Lista de usuarios</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="/usuarios/create" class="nav-link">
                   <i class="far fa-dot-circle nav-icon"></i>
                   <p>Registrar usuarios</p>
@@ -33,13 +39,7 @@
                   <i class="far fa-dot-circle nav-icon"></i>
                   <p>Rendimiento</p>
                 </a>
-              </li>
-              <li class="nav-item">
-                <a href="/usuarios" class="nav-link">
-                  <i class="far fa-dot-circle nav-icon"></i>
-                  <p>Lista de usuarios</p>
-                </a>
-              </li>
+              </li>              
             </ul>
           </li>
           <li class="nav-item">
@@ -104,9 +104,32 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
+                <a href="/usuariosverificados" class="nav-link">
+                  <i class="far fa-dot-circle nav-icon"></i>
+                  <p>Usuarios verificados</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="/validar-identidades" class="nav-link">
                   <i class="far fa-dot-circle nav-icon"></i>
                   <p>Validar identidades</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">              
+              <i class="fa fa-money nav-icon" aria-hidden="true"></i>
+              <p>
+                 Ventas
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/listado-de-ventas" class="nav-link">
+                  <i class="far fa-dot-circle nav-icon"></i>
+                  <p>Listado de Ventas</p>
                 </a>
               </li>
             </ul>
