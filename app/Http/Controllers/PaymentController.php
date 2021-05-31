@@ -140,6 +140,7 @@ class PaymentController extends Controller
          */
         //
         $venta->estado="EN PROCESO";
+        $venta->tipo="VENTA";
         $venta->save();
         $arrayCarrito=Cart::getContent();
         $arrayCarrito->each(function($item) use ($folio)
