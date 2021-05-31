@@ -31,8 +31,6 @@ Route::get('/previa', function(){
 	return view('UsrInterfaces.failed');
 });
 
-
-
 Route::get('/obtenerProductos','ProductosController@datatable')->name('datatable.producto');
 Route::resource('/productos','ProductosController');
 Route::get('/ingreso-de-producto','ProductosController@ingreso')->name('ingreso.producto');
@@ -81,6 +79,7 @@ Route::get('/obtenerDomicilios','DomicilioController@datatable')->name('datatabl
 Route::resource('/pedidos','PedidosController');
 Route::get('/promociones-del-mes','PromocionesController@promocionesMes')->name('promociones.mes');
 Route::get('/pedido/{venta}','PedidosController@detallePedido')->name('detalle.pedido');
+Route::get('/imprimir/{venta}','PedidosController@imprimir')->name('detalle.imprimir');
 Route::get('/indexventas/','VentasController@indventas')->name('ventas.indexof');
 
 

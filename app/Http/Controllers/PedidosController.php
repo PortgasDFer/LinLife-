@@ -307,13 +307,44 @@ class PedidosController extends Controller
         return view('UsrInterfaces.pedidos-promociones',compact('datos','tabla','promociones','domicilios','usuario'));
     }
     public function detallePedido($folio)
-    {
-        $pedido=Ventas::join('dvp','ventas.folio','=','dvp.folio_venta')
+    {   
+        $usuario = Ventas::join('users','ventas.id_user','=','users.id')
+            ->select(array('users.name','users.aPaterno','users.aMaterno','ventas.folio','ventas.fecha','ventas.total','users.invitacion','users.email','users.telcel', 'users.telcasa'))
+            ->where('ventas.folio','=',$folio)
+            ->first();
+
+        $domicilios=Domicilio::where('id_user','=',auth()->id())->get();
+        $venta=Ventas::where('folio','=',$folio)->firstOrFail();
+
+        $pedido=DB::table('ventas')
+                    ->join('dvp','ventas.folio','=','dvp.folio_venta')
                     ->join('productos','productos.code','=','dvp.code_producto')
-                    ->select(array('productos.nombre','dvp.cantidad','dvp.costo','ventas.fecha','ventas.folio'))
-                    ->where('ventas.folio','=', $folio)
+                    ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
+                    ->where('ventas.folio','=',$folio)
                     ->get();
-        return $pedido;
+
+        return view('UsrInterfaces.detallecompra',compact('pedido', 'venta', 'usuario', 'domicilios'));
+
+    }
+
+    public function imprimir($folio)
+    {   
+        $usuario = Ventas::join('users','ventas.id_user','=','users.id')
+            ->select(array('users.name','users.aPaterno','users.aMaterno','ventas.folio','ventas.fecha','ventas.total','users.invitacion','users.email','users.telcel', 'users.telcasa'))
+            ->where('ventas.folio','=',$folio)
+            ->first();
+
+        $domicilios=Domicilio::where('id_user','=',auth()->id())->get();
+        $venta=Ventas::where('folio','=',$folio)->firstOrFail();
+
+        $pedido=DB::table('ventas')
+                    ->join('dvp','ventas.folio','=','dvp.folio_venta')
+                    ->join('productos','productos.code','=','dvp.code_producto')
+                    ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
+                    ->where('ventas.folio','=',$folio)
+                    ->get();
+
+        return view('invoice-print',compact('pedido', 'venta', 'usuario', 'domicilios'));
 
     }
 }
