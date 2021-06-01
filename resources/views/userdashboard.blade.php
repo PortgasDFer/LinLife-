@@ -54,7 +54,7 @@
             <i class="fas fa-shopping-cart"></i>
           </div>
           <a href="#" class="small-box-footer">
-            Más información <i class="fas fa-arrow-circle-right"></i>
+            Más Información <i class="fas fa-arrow-circle-right"></i>
           </a>
         </div>
       </div>

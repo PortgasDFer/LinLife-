@@ -15,9 +15,6 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('assets/dist/css/adminlte.min.css')}}">
   <script src="{{asset('vendor/sweetalert/sweetalert.all.js')}}"></script>
-
-  <script src="http://servicios.apiqroo.com.mx/sepomex/public/js/sepomex_js/sepomex.js"></script>
-
   @yield('scripts-header')
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -36,19 +33,6 @@
         <a href="/contacto" class="nav-link">Contacto</a>
       </li>
     </ul>
-
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Buscar" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">

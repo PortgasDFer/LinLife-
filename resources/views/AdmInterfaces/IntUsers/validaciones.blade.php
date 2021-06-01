@@ -31,7 +31,7 @@
                 <div class="icon">
                   <i class="fa fa-users" aria-hidden="true"></i>
                 </div>
-                <a href="/usuarios" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="/usuarios" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
               </div>
 			</div>
 			<div class="col-sm-12 col-md-4">
@@ -44,7 +44,7 @@
                 <div class="icon">
                   <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                 </div>
-                <a href="/usuariosverificados" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="/usuariosverificados" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
               </div>
 			</div>
 			<div class="col-sm-12 col-md-4">
@@ -57,7 +57,7 @@
                 <div class="icon">
                   <i class="fa fa-user-times" aria-hidden="true"></i>
                 </div>
-                <a href="#" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
               </div>
 			</div>
 		</div>

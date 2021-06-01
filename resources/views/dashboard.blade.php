@@ -44,7 +44,7 @@
             <div class="icon">
               <i class="fa fa-users" aria-hidden="true"></i>
             </div>
-            <a href="/usuarios" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="/usuarios" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
           </div>
       </div>
       <div class="col-xs-12 col-md-12 col-lg-4">
@@ -58,7 +58,7 @@
             <div class="icon">
               <i class="fa fa-thumb-tack" aria-hidden="true"></i>
             </div>
-            <a href="/productos" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="/productos" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
           </div>
       </div>
       <div class="col-xs-12 col-md-12 col-lg-4">
@@ -72,7 +72,7 @@
           <div class="icon">
             <i class="fa fa-money" aria-hidden="true"></i>
           </div>
-          <a href="/listado-de-ventas" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="/listado-de-ventas" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
     </div>

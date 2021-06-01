@@ -30,7 +30,7 @@
           <div class="icon">
             <i class="fa fa-plus" aria-hidden="true"></i>
           </div>
-          <a href="/promociones/create" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="/promociones/create" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <div class="col-lg-6">
@@ -42,7 +42,7 @@
           <div class="icon">
             <i class="fa fa-usd" aria-hidden="true"></i>
           </div>
-          <a class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+          <a class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
 		</div>

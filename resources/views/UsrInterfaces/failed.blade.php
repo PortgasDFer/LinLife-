@@ -23,8 +23,8 @@
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="{{asset('recursos/linlife.png')}}" style="width:100px; margin:3px 0;">
+      <a class="navbar-brand" href="/home">
+        <img src="{{asset('recursos/linlife2.png')}}">
       </a>
       <span class="navbar-text">
         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color: #aaa;"><i class="fas fa-sign-out-alt" style="color: #4025A6"></i> Salir
@@ -43,26 +43,65 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-lg-12">
         @if(session('status'))
-          <div class="alert alert-danger" role="alert">
-            {{session('status')}}
-          </div>
+          
         @endif
+        <div class="col-lg-12">
         <div class="card text-center">
-          <div class="card-header bg-primary">
-            <h1>Ha cancelado su compra</h1>
+          <div class="card-header bg-info">
+            <center>
+              <img class="img-fluid" src="{{asset('recursos/rechazado.png')}}" width="150px;">
+                <h1>¡PAGO RECHAZADO!</h1>
+              </center>
+            <h1>¡INTENTALO DE NUEVO!</h1>
           </div>
           <div class="card-body">
-            <p class="card-text"><i class="fa fa-frown-o fa-5x" aria-hidden="true"></i></i></p>
-            <p class="card-text">Esperemos que pueda comprar nuestros productos pronto.</p>
-            <a href="/home" class="btn btn-primary">Ir al inicio.</a>
+            <div class="row">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">
+                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                    Algo salio mal...
+                  </h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <blockquote class="quote-danger">                    
+                    Hubo un error al realizar tu compra. Intentalo de nuevo</p><br>
+                    <small><cite title="¿Qué sigue?"><a href="/home" class="btn btn-danger">Ir al inicio</a></cite></small>
+                  </blockquote>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">
+                    <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                    WhatsApp
+                  </h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body clearfix">
+                  <blockquote class="quote-success">
+                    <p>Ponte en contacto con nosotros mediante WhatsApp.</p>
+                    <small><cite title="WhatsApp"><a href="https://wa.me/525546632792"><img src="{{asset('recursos/whatsapp.png')}}"></a></cite></small>
+                  </blockquote>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div> 
+            </div>           
           </div>
           <div class="card-footer text-muted">
             El equipo de LinLife
           </div>
         </div>
-      </div>
+      </div> 
     </div>
   </div>
   <!-- jQuery -->

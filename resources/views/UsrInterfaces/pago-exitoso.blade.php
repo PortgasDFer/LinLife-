@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Realizar Pedido</title>
+    <title>Pago Exitoso</title>
 
     <link rel="icon" href="{{asset('recursos/favicon.ico')}}" type="image/png">
     <!-- Google Font: Source Sans Pro -->
@@ -23,8 +23,8 @@
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="{{asset('recursos/linlife.png')}}" style="width:100px; margin:3px 0;">
+      <a class="navbar-brand" href="/home">
+        <img src="{{asset('recursos/linlife2.png')}}">
       </a>
       <span class="navbar-text">
         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color: #aaa;"><i class="fas fa-sign-out-alt" style="color: #4025A6"></i> Salir
@@ -38,32 +38,70 @@
   </nav>
   <div class="content">
     <div class="alert alert-primary" role="alert" style="border-radius: 0px; text-align: center; background-color: #4025A6; font-size: 12px; ">
-      info de LinLife
+      LinLife
     </div>
   </div>
   <div class="container">
     <div class="row">
       @if(session('status'))
-          <div class="alert alert-success" role="alert">
-            {{session('status')}}
-          </div>
+            
       @endif
       <div class="col-lg-12">
         <div class="card text-center">
-          <div class="card-header bg-primary">
+          <div class="card-header bg-info">
+            <center>
+              <img class="img-fluid" src="{{asset('recursos/exitoso.png')}}">
+                <h1>¡PAGO EXITOSO!</h1>
+              </center>
             <h1>¡MUCHAS GRACIAS POR SU COMPRA!</h1>
           </div>
           <div class="card-body">
-            <p class="card-text"><i class="fa fa-smile-o fa-5x" aria-hidden="true"></i></p>
-            <p class="card-text">¿Qué sigue?. Nuestro sistema ha procesado su pedido, a la brevedad nos pondremos en contacto vía correo electronico para proporcionarle la guía de rastreo, su paquete llegará al domicilio que selecciono.</p>
-            <p>Puede comprobar el status de su pedido en sus compras</p>
-            <a href="/historial" class="btn btn-primary">Ir a mis compras</a>
+            <div class="row">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">
+                    <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+                    ¿Qué sigue?
+                  </h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <blockquote>                    
+                    Puede comprobar el status de su pedido en sus compras.</p><br>
+                    <small><cite title="¿Qué sigue?"><a href="/historial" class="btn btn-primary">Ir a mis compras</a></cite></small>
+                  </blockquote>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">
+                    <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                    WhatsApp
+                  </h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body clearfix">
+                  <blockquote class="quote-success">
+                    <p>Ponte en contacto con nosotros mediante WhatsApp.</p>
+                    <small><cite title="WhatsApp"><a href="https://wa.me/525546632792"><img src="{{asset('recursos/whatsapp.png')}}"></a></cite></small>
+                  </blockquote>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div> 
+            </div>           
           </div>
           <div class="card-footer text-muted">
             El equipo de LinLife
           </div>
         </div>
-      </div>
+      </div>      
     </div>
   </div>
   <!-- jQuery -->

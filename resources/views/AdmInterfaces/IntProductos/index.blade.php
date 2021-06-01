@@ -33,7 +33,7 @@
                 <div class="icon">                  
                   <i class="fa fa-plus" aria-hidden="true"></i>
                 </div>
-                <a href="/productos/create" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
+                <a href="/productos/create" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <div class="col-lg-6">
@@ -46,7 +46,7 @@
                 <div class="icon">
                   <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
         </div>
@@ -67,7 +67,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                  <div class="table-responsive">
+                  <div class="table-responsive" style="font-size:15px;">
                     <table id="productos" class="table table-striped table-bordered">
                       <thead>
                         <tr>

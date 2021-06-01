@@ -20,8 +20,8 @@
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="/recursos/linlife.png" style="width:100px; margin:3px 0;">
+      <a class="navbar-brand" href="/home">
+        <img src="/recursos/linlife2.png">
       </a>
       <span class="navbar-text">
         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color: #aaa;"><i class="fas fa-sign-out-alt" style="color: #4025A6"></i> Salir

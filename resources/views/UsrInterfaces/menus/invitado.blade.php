@@ -1,7 +1,7 @@
 <div class="main_menu">
 				  <nav class="navbar navbar-expand-lg navbar-light">
 				    <div class="container">
-				      <a class="navbar-brand logo_h" href="/"><img src="/recursos/linlife.png"></a>
+				      <a class="navbar-brand logo_h" href="/"><img src="/recursos/linlife2.png"></a>
 				      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 				        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				        <span class="icon-bar"></span>
@@ -22,7 +22,7 @@
 				  			@else
 				  			<li class="nav-item"><a href="{{route('cart.checkout')}}"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">0</span></button> </a></li>
 				  			@endif
-				          <li class="nav-item"><a class="button button-header" href="/iniciar"><i class='fas fa-sign-in-alt'></i> Iniciar Sesión</a></li>
+				          <li class="nav-item"><a class="button button-header" href="/iniciar">Iniciar Sesión</a></li>
 				        </ul>
 				      </div>
 				    </div>

@@ -31,7 +31,7 @@
           <div class="icon">
             <i class="fa fa-user-circle-o" aria-hidden="true"></i>
           </div>
-          <a href="#" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="#" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <div class="col-sm-12 col-md-6">
@@ -44,14 +44,14 @@
             <div class="icon">
               <i class="fa fa-user-times" aria-hidden="true"></i>
             </div>
-            <a href="/validar-identidades" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="/validar-identidades" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
           </div>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-12">
         <div class="card">
-          <div class="card-header bg-purple">
+          <div class="card-header bg-green">
             USUARIOS VERIFICADOS
           </div>
           <div class="card-body">

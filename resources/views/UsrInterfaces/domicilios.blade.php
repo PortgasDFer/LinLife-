@@ -12,7 +12,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#"><button type="button" class="btn btn-success btn-sm"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Compras</button></a></li>
+              <li class="breadcrumb-item"><a href="/historial"><button type="button" class="btn btn-success btn-sm"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Compras</button></a></li>
               <li class="breadcrumb-item active"><a href="/cuenta"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-user" aria-hidden="true"></i> Datos de socio</button></a></li>
             </ol>
           </div>
