@@ -43,106 +43,108 @@
     <div class="col-lg-12">
       <div class="card">
         <div class="card-header bg-primary">
-          Tabla de ingresos 2021
+          Tabla de ingresos 2021 (Mes actual {{$dt->monthName}})
         </div>
         <div class="card-body">
-          <table class="table">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">Mes</th>
-                <th scope="col">Compras de mi red</th>
-                <th scope="col">Comisiones</th>
-                <th scope="col">Bono</th>
-                <th scope="col">TOTAL</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Enero</td>
-                <td>0</td>
-                <td>$0.00</td>
-                <td>$0.00</td>
-                <td>$0.00</td>
-              </tr>
-              <tr>
-                <td>Febrero</td>
-                <td>0</td>
-                <td>$0.00</td>
-                <td>$0.00</td>
-                <td>$0.00</td>
-              </tr>
-              <tr>
-                <td>Marzo</td>
-                <td>0</td>
-                <td>$0.00</td>
-                <td>$0.00</td>
-                <td>$0.00</td>
-              </tr>
-              <tr class="bg-success">
-                <td>Abril</td>
-                <td>0</td>
-                <td>$0.00</td>
-                <td>$0.00</td>
-                <td>$0.00</td>
-              </tr>
-              <tr>
-                <td>Mayo</td>
-                <td>0</td>
-                <td>$0.00</td>
-                <td>$0.00</td>
-                <td>$0.00</td>
-              </tr>
-              <tr>
-                <td>Junio</td>
-                <td>0</td>
-                <td>$0.00</td>
-                <td>$0.00</td>
-                <td>$0.00</td>
-              </tr>
-              <tr>
-                <td>Julio</td>
-                <td>0</td>
-                <td>$0.00</td>
-                <td>$0.00</td>
-                <td>$0.00</td>
-              </tr>
-              <tr>
-                <td>Agosto</td>
-                <td>0</td>
-                <td>$0.00</td>
-                <td>$0.00</td>
-                <td>$0.00</td>
-              </tr>
-              <tr>
-                <td>Septiembre</td>
-                <td>0</td>
-                <td>$0.00</td>
-                <td>$0.00</td>
-                <td>$0.00</td>
-              </tr>
-              <tr>
-                <td>Octubre</td>
-                <td>0</td>
-                <td>$0.00</td>
-                <td>$0.00</td>
-                <td>$0.00</td>
-              </tr>
-              <tr>
-                <td>Noviembre</td>
-                <td>0</td>
-                <td>$0.00</td>
-                <td>$0.00</td>
-                <td>$0.00</td>
-              </tr>
-              <tr>
-                <td>Diciembre</td>
-                <td>0</td>
-                <td>$0.00</td>
-                <td>$0.00</td>
-                <td>$0.00</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Mes</th>
+                  <th scope="col">Compras de mi red</th>
+                  <th scope="col">Comisiones</th>
+                  <th scope="col">Bono</th>
+                  <th scope="col">TOTAL</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="enero">
+                  <td>Enero</td>
+                  <td>0</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                </tr id="febrero">
+                <tr>
+                  <td>Febrero</td>
+                  <td>0</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                </tr>
+                <tr id="marzo">
+                  <td>Marzo</td>
+                  <td>0</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                </tr>
+                <tr id="abril">
+                  <td>Abril</td>
+                  <td>0</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                </tr>
+                <tr id="mayo">
+                  <td>Mayo</td>
+                  <td>0</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                </tr>
+                <tr id="junio">
+                  <td>Junio</td>
+                  <td>0</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                </tr>
+                <tr id="julio">
+                  <td>Julio</td>
+                  <td>0</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                </tr>
+                <tr id="agosto">
+                  <td>Agosto</td>
+                  <td>0</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                </tr>
+                <tr id="septiembre">
+                  <td>Septiembre</td>
+                  <td>0</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                </tr>
+                <tr id="octubre">
+                  <td>Octubre</td>
+                  <td>0</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                </tr>
+                <tr id="noviembre">
+                  <td>Noviembre</td>
+                  <td>0</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                </tr>
+                <tr id="diciembre">
+                  <td>Diciembre</td>
+                  <td>0</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>          
@@ -150,6 +152,12 @@
 </div> 
 @endsection
 @section('scripts')
+<script>
+const monthNames = ["enero", "febrero", "marzo", "abril", "mayo", "junio","julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+const d = new Date();
+var fila = document.getElementById(monthNames[d.getMonth()]);
+fila.className = 'bg-success';
+</script>
 <!-- ChartJS -->
 <script src="{{asset('assets/plugins/chart.js/Chart.min.js')}}"></script>
 <script>

@@ -400,7 +400,8 @@ class UsersController extends Controller
     public function mes($slug)
     {
         $usuario=User::where('slug','=',$slug)->firstOrFail();
-        return view('UsrInterfaces.Ingresos.mes',compact('usuario'));
+        $dt=Carbon::now();
+        return view('UsrInterfaces.Ingresos.mes',compact('usuario','dt'));
     }
 
     public function semana($slug)
