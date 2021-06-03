@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Illuminate\Support\Str as Str;
 use App\Domicilio;
 use App\User;
 use App\Role;
+use App\Comision;
 use Redirect,Response;
 use DataTables;
 use Alert;
@@ -404,7 +406,25 @@ class UsersController extends Controller
     public function semana($slug)
     {
         $usuario=User::where('slug','=',$slug)->firstOrFail();
-        return view('UsrInterfaces.Ingresos.semana',compact('usuario'));
+        $dt = Carbon::now();
+        $inicioSemana=$dt->startOfWeek()->format('Y-m-d');
+        $finSemana=$dt->endOfWeek()->format('Y-m-d');
+
+        $numComisiones=Comision::whereBetween('fecha', [$inicioSemana, $finSemana])
+                                    ->where('id_user','=',$usuario->id)
+                                    ->count();
+
+        $comisiones=Comision::whereBetween('fecha', [$inicioSemana, $finSemana])
+                                    ->where('id_user','=',$usuario->id)
+                                    ->get();
+
+        
+        $totalComisiones=0.0;       
+        foreach ($comisiones as $comision) {
+            $totalComisiones+=$comision->total_comision;
+        }
+
+        return view('UsrInterfaces.Ingresos.semana',compact('usuario','dt','numComisiones','totalComisiones'));
     }
 
     

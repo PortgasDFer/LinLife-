@@ -34,12 +34,12 @@
         <div class="sticky-top mb-3">
           <div class="card">
             <div class="card-header bg-primary">
-              <h4 class="card-title">Resumen de ventas</h4>
+              <h4 class="card-title">Resumen de comisiones</h4>
             </div>
             <div class="card-body">
               <!-- the events -->
               <div id="external-events">
-                Esta semana
+                Esta semana {{$dt->startOfWeek()->format('d-m-Y')}} -- {{$dt->endOfWeek()->format('d-m-Y')}}
               </div>
               <div class="table-responsive">  
                 <table class="table table-hover text-nowrap">
@@ -52,23 +52,23 @@
                   <tbody>
                     <tr>
                       <td><b>Comisiones</b></td>
-                      <td></td>
+                      <td>{{$numComisiones}}</td>
                     </tr>
                     <tr>  
                       <td><b>Bono</b></td>
-                      <td></td>
+                      <td>-</td>
                     </tr> 
                     <tr>  
                       <td><b>Subtotal</b></td>
-                      <td></td>
+                      <td>{{$totalComisiones}}</td>
                     </tr> 
                     <tr>  
                       <td><b>Retención</b></td>
-                      <td></td>
+                      <td>N/A</td>
                     </tr> 
                     <tr>
                       <td><b>Total</b></td>
-                      <td>   </td>
+                      <td>{{$totalComisiones}}</td>
                     </tr>
                   </tbody>
                 </table>
