@@ -102,7 +102,8 @@
 									<div class="form-group row">
 										<div class="col-sm-6">
 											<button type="button" class="btn btn-block btn-warning" onclick="calcular_porcentaje(porcentaje.value)">Calcular comisión</button>
-										</div>
+											&nbsp;
+										</div>										
 										<div class="col-sm-6">
 											<button type="submit" disabled="" class="btn btn-block btn-success" id="asignar">Asignar comisión</button>
 										</div>

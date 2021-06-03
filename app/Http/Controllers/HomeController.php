@@ -47,12 +47,7 @@ class HomeController extends Controller
             $noUsuarios=User::all()->count();
             $noVentas=Ventas::where('baja','=',1)->where('tipo','=','VENTA')->count();
             $noVentasPromocion=Ventas::where('baja','=',1)->where('tipo','=','PROMOCION')->count();
-            $ventas=Ventas::join('users','ventas.id_user','=','users.id')
-            ->select(array('users.name','users.aPaterno','users.aMaterno','ventas.folio','ventas.fecha','ventas.total'))
-            ->where('ventas.baja','=',1)
-            ->where('ventas.tipo','=','VENTA')
-            ->take(5)
-            ->get();
+
             $ventas=Ventas::join('users','ventas.id_user','=','users.id')
             ->select(array('users.name','users.aPaterno','users.aMaterno','ventas.folio','ventas.fecha','ventas.total','ventas.estado'))
             ->where('ventas.baja','=',1)
@@ -66,12 +61,7 @@ class HomeController extends Controller
             ->where('ventas.tipo','=','PROMOCION')
             ->take(5)
             ->get();
-            $ventas_promocion=Ventas::join('users','ventas.id_user','=','users.id')
-            ->select(array('users.name','users.aPaterno','users.aMaterno','ventas.folio','ventas.fecha','ventas.total','ventas.estado'))
-            ->where('ventas.baja','=',1)
-            ->where('ventas.tipo','=','PROMOCION')
-            ->take(5)
-            ->get();
+
             return view('dashboard',compact('noProductos','noUsuarios','noVentas','ventas','ventas_promocion', 'noVentasPromocion'));
         }
         //return view('dashboard');

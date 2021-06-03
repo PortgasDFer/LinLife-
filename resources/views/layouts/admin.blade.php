@@ -146,8 +146,6 @@
 <script src="{{asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('assets/dist/js/adminlte.min.js')}}"></script>
-<script src="{{asset('js/sepomex.js')}}"></script>
-
  
 @yield('scripts')
 </body>
