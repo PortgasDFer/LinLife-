@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Ventas;
 use App\Comision;
+use Carbon\Carbon;
 use Alert;
 use Redirect,Response;
 

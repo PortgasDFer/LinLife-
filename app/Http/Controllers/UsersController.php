@@ -11,6 +11,7 @@ use App\Domicilio;
 use App\User;
 use App\Role;
 use App\Comision;
+use App\Ventas;
 use Redirect,Response;
 use DataTables;
 use Alert;
@@ -401,7 +402,19 @@ class UsersController extends Controller
     {
         $usuario=User::where('slug','=',$slug)->firstOrFail();
         $dt=Carbon::now();
-        return view('UsrInterfaces.Ingresos.mes',compact('usuario','dt'));
+        $inicioMes=$dt->startOfMonth()->format('Y-m-d');
+        $finMes=$dt->endOfMonth()->format('Y-m-d');
+        $asociados=User::where('invitacion','=',$usuario->code)->get();
+        $comisiones=Comision::whereBetween('fecha', [$inicioMes, $finMes])
+                                    ->where('id_user','=',$usuario->id)
+                                    ->get();
+        $totalComisiones=0.0;       
+        foreach ($comisiones as $comision) {
+            $totalComisiones+=$comision->total_comision;
+        }
+        $numComisiones=Comision::where('id_user','=',$usuario->id)->count();
+
+        return view('UsrInterfaces.Ingresos.mes',compact('usuario','dt','numComisiones','totalComisiones'));
     }
 
     public function semana($slug)

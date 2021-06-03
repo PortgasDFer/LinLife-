@@ -58,89 +58,12 @@
                 </tr>
               </thead>
               <tbody>
-                <tr id="enero">
-                  <td>Enero</td>
-                  <td>0</td>
+                <tr id="{{$dt->monthName}}">
+                  <td>{{$dt->monthName}}</td>
+                  <td>{{$numComisiones}}</td>
+                  <td>${{number_format($totalComisiones, 2)}}</td>
                   <td>$0.00</td>
-                  <td>$0.00</td>
-                  <td>$0.00</td>
-                </tr id="febrero">
-                <tr>
-                  <td>Febrero</td>
-                  <td>0</td>
-                  <td>$0.00</td>
-                  <td>$0.00</td>
-                  <td>$0.00</td>
-                </tr>
-                <tr id="marzo">
-                  <td>Marzo</td>
-                  <td>0</td>
-                  <td>$0.00</td>
-                  <td>$0.00</td>
-                  <td>$0.00</td>
-                </tr>
-                <tr id="abril">
-                  <td>Abril</td>
-                  <td>0</td>
-                  <td>$0.00</td>
-                  <td>$0.00</td>
-                  <td>$0.00</td>
-                </tr>
-                <tr id="mayo">
-                  <td>Mayo</td>
-                  <td>0</td>
-                  <td>$0.00</td>
-                  <td>$0.00</td>
-                  <td>$0.00</td>
-                </tr>
-                <tr id="junio">
-                  <td>Junio</td>
-                  <td>0</td>
-                  <td>$0.00</td>
-                  <td>$0.00</td>
-                  <td>$0.00</td>
-                </tr>
-                <tr id="julio">
-                  <td>Julio</td>
-                  <td>0</td>
-                  <td>$0.00</td>
-                  <td>$0.00</td>
-                  <td>$0.00</td>
-                </tr>
-                <tr id="agosto">
-                  <td>Agosto</td>
-                  <td>0</td>
-                  <td>$0.00</td>
-                  <td>$0.00</td>
-                  <td>$0.00</td>
-                </tr>
-                <tr id="septiembre">
-                  <td>Septiembre</td>
-                  <td>0</td>
-                  <td>$0.00</td>
-                  <td>$0.00</td>
-                  <td>$0.00</td>
-                </tr>
-                <tr id="octubre">
-                  <td>Octubre</td>
-                  <td>0</td>
-                  <td>$0.00</td>
-                  <td>$0.00</td>
-                  <td>$0.00</td>
-                </tr>
-                <tr id="noviembre">
-                  <td>Noviembre</td>
-                  <td>0</td>
-                  <td>$0.00</td>
-                  <td>$0.00</td>
-                  <td>$0.00</td>
-                </tr>
-                <tr id="diciembre">
-                  <td>Diciembre</td>
-                  <td>0</td>
-                  <td>$0.00</td>
-                  <td>$0.00</td>
-                  <td>$0.00</td>
+                  <td>${{number_format($totalComisiones, 2)}}</td>
                 </tr>
               </tbody>
             </table>
