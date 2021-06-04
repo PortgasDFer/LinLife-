@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Ventas;
 use App\Comision;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Alert;
 use Redirect,Response;
 
@@ -43,5 +44,18 @@ class ComisionesController extends Controller
         ->get();
 
         return response(json_encode($comisiones),200)->header('Content-type', 'text/plain');        
+    }
+
+    public function listaComisiones()
+    {
+        //JOIN CON SUM :) 
+        $usuariosComision = \DB::table('comisiones')
+                            ->join('users','comisiones.id_user','=','users.id')
+                            ->select('id','name','aPaterno','aMaterno')
+                            ->selectRaw("SUM(total_comision) as comision_total")
+                            ->groupBy('id')
+                            ->get();
+
+        return $usuariosComision;
     }
 }
