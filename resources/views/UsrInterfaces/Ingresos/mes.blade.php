@@ -10,7 +10,7 @@
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item"><a href="/home">Home</a></li>
           <li class="breadcrumb-item active">Ingresos mensuales {{Auth::user()->name}}</li>
         </ol>
       </div><!-- /.col -->
@@ -22,49 +22,31 @@
   <div class="row">
     <div class="col-lg-12">
        <div class="card">
-              <div class="card-header border-0">
-                <div class="d-flex justify-content-between">
-                  <h3 class="card-title">Ventas</h3>
-                  <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>                  
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="d-flex">
-                  <p class="d-flex flex-column">
-                    <span class="text-bold text-lg">$18,230.00</span>
-                    <span>Ventas a lo largo del tiempo</span>
-                  </p>
-                  <p class="ml-auto d-flex flex-column text-right">
-                    <span class="text-success">
-                      <i class="fas fa-arrow-up"></i> 33.1%
-                    </span>
-                    <span class="text-muted">Since last month</span>
-                  </p>
-                </div>
-                <!-- /.d-flex -->
+        <canvas id="myChart"></canvas>        
+      </div>
+      <div class="card">
+        <div class="card-header border-0">
+          <div class="d-flex justify-content-between">
+            <h3 class="card-title">Comisiones</h3>
+            <a href="javascript:void(0);">View Report</a>
+          </div>
+        </div>
+        <div class="card-body">                
+          <div class="position-relative mb-4">
+            <canvas id="sales-chart" height="200"></canvas>
+          </div>
 
-                <div class="position-relative mb-4">
-                  <canvas id="sales-chart" height="250"></canvas>
-                </div>
+          <div class="d-flex flex-row justify-content-end">
+            <span class="mr-2">
+              <i class="fas fa-square text-primary"></i> Comisión ($)
+            </span>
 
-                <div class="d-flex flex-row justify-content-end">
-                  <span class="mr-2">
-                    <i class="fas fa-square text-primary"></i> Compras
-                  </span>
-
-                  <span>
-                    <i class="fas fa-square text-gray"></i> Comisiones
-                  </span>
-                </div>
-              </div>
-            </div>
+            <span>
+              <i class="fas fa-square text-gray"></i> Porcentaje de Comisión
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row mt-2">
@@ -112,8 +94,7 @@
 </div> 
 <form action="POST" action="/grafica" id="formgrafica">
       @csrf
-      <input type="hidden" name="id" value="1"/>
-      <input type="hidden" name=""/>
+      <input type="hidden" name="id" value="1"/>      
     </form>
 @endsection
 @section('scripts')
@@ -121,23 +102,98 @@
   const monthNames = ["enero", "febrero", "marzo", "abril", "mayo", "junio","julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
   const d = new Date();
   var fila = document.getElementById(monthNames[d.getMonth()]);
-  fila.className = 'bg-success';
-
-
+  fila.className = 'bg-success'; 
+</script>
+<script>
   $(document).ready(function(){
+
+    var comisiones=[];
+    var valores=[];
 
     $.ajax({
       url:'/grafica',
       method:'POST',
-      data:$("#formgrafica").serialize() 
+      data:$("#formgrafica").serialize(),
     }).done(function(res){
-      alert(res);
-    });
+      var arreglo = JSON.parse(res);
+      console.log(arreglo);
+      for (var x=0; x<arreglo.length;x++) {
+          var todo= arreglo[x].id_comision;
+          todo+=arreglo[x].total_comision;
+          todo+=arreglo[x].fecha;
+          comisiones.push(arreglo[x].total_comision);
+          valores.push(arreglo[x].fecha);
+      }
+        generarGrafica();
+    });    
+  
+
+  function generarGrafica(){
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+      labels: valores,
+      datasets: [{
+          label: '$ Comisión Generada',
+          data: comisiones,
+          backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+      }]
+  },
+  options: {
+      scales: {
+          y: {
+              beginAtZero: true
+          }
+      }
+    }
+  });
+}  
+});
 </script>
-
 <script>
+$(document).ready(function(){
 
-  $(function () {
+    var comisiones=[];
+    var valores=[];
+    var porcentaje=[];
+
+    $.ajax({
+      url:'/grafica',
+      method:'POST',
+      data:$("#formgrafica").serialize(),
+    }).done(function(res){
+      var arreglo = JSON.parse(res);
+      console.log(arreglo);
+      for (var x=0; x<arreglo.length;x++) {
+          var todo= arreglo[x].id_comision;
+          todo+=arreglo[x].total_comision;
+          todo+=arreglo[x].fecha;
+          todo+=arreglo[x].porcentaje;
+          comisiones.push(arreglo[x].total_comision);
+          valores.push(arreglo[x].fecha);
+          porcentaje.push(arreglo[x].porcentaje);
+      }
+        generarGrafica();
+    }); 
+
+     function generarGrafica(){
   'use strict'
 
   var ticksStyle = {
@@ -153,17 +209,17 @@
   var salesChart = new Chart($salesChart, {
     type: 'bar',
     data: {
-      labels  : ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+      labels: valores,
       datasets: [
         {
           backgroundColor: '#007bff',
           borderColor: '#007bff',
-          data: [1000, 2000, 3000, 2500, 2700, 2500, 3000, 3000, 2500, 2700, 2500, 3000]
+          data: comisiones
         },
         {
           backgroundColor: '#ced4da',
           borderColor: '#ced4da',
-          data: [700, 1700, 2700, 2000, 1800, 1500, 2000, 2700, 2000, 1800, 1500, 2000]
+          data: porcentaje
         }
       ]
     },
@@ -213,73 +269,8 @@
       }
     }
   })
-
-  var $visitorsChart = $('#visitors-chart')
-  // eslint-disable-next-line no-unused-vars
-  var visitorsChart = new Chart($visitorsChart, {
-    data: {
-      labels: ['18th', '20th', '22nd', '24th', '26th', '28th', '30th'],
-      datasets: [{
-        type: 'line',
-        data: [100, 120, 170, 167, 180, 177, 160],
-        backgroundColor: 'transparent',
-        borderColor: '#007bff',
-        pointBorderColor: '#007bff',
-        pointBackgroundColor: '#007bff',
-        fill: false
-        // pointHoverBackgroundColor: '#007bff',
-        // pointHoverBorderColor    : '#007bff'
-      },
-      {
-        type: 'line',
-        data: [60, 80, 70, 67, 80, 77, 100],
-        backgroundColor: 'tansparent',
-        borderColor: '#ced4da',
-        pointBorderColor: '#ced4da',
-        pointBackgroundColor: '#ced4da',
-        fill: false
-        // pointHoverBackgroundColor: '#ced4da',
-        // pointHoverBorderColor    : '#ced4da'
-      }]
-    },
-    options: {
-      maintainAspectRatio: false,
-      tooltips: {
-        mode: mode,
-        intersect: intersect
-      },
-      hover: {
-        mode: mode,
-        intersect: intersect
-      },
-      legend: {
-        display: false
-      },
-      scales: {
-        yAxes: [{
-          // display: false,
-          gridLines: {
-            display: true,
-            lineWidth: '4px',
-            color: 'rgba(0, 0, 0, .2)',
-            zeroLineColor: 'transparent'
-          },
-          ticks: $.extend({
-            beginAtZero: true,
-            suggestedMax: 200
-          }, ticksStyle)
-        }],
-        xAxes: [{
-          display: true,
-          gridLines: {
-            display: false
-          },
-          ticks: ticksStyle
-        }]
-      }
-    }
-  })
-})
+}  
+}); 
 
 </script>
 @endsection

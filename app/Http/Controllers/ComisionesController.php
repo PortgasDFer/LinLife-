@@ -35,12 +35,13 @@ class ComisionesController extends Controller
 
     public function all(Request $request)
     {
-        //$comisiones = \DB::table('comisiones')
-        //->select('comisiones.*')
-        //->orderby('id_comision', 'DESC')
-        //->get();
+        $comisiones = \DB::table('comisiones')
+        ->select('comisiones.*')
+        ->where('comisiones.id_user','=',auth()->id())
+        ->orderby('fecha', 'DESC')
+        ->take(10)
+        ->get();
 
-        //return response(json_encode($comisiones),200)->header('Content-type', 'text/plain');
-        return "Hola";
+        return response(json_encode($comisiones),200)->header('Content-type', 'text/plain');        
     }
 }
