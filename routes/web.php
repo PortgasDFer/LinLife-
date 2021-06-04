@@ -119,3 +119,4 @@ Route::post('/insertarCarrito/{venta}','PaymentController@insertarCarrito')->nam
 Route::post('/asignarComision/{venta}','ComisionesController@asignar')->name('asignar.comision');
 Route::post('/grafica','ComisionesController@all')->name('grafica.all');
 Route::get('/lista-comisiones','ComisionesController@listaComisiones')->name('lista.comisiones');
+Route::get('/revisar-pago-comision/{usuario}','ComisionesController@revisarComision')->name('revisar.comision');

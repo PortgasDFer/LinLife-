@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Ventas;
 use App\Comision;
+use App\User;
+use App\Domicilio;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Alert;
@@ -48,14 +50,44 @@ class ComisionesController extends Controller
 
     public function listaComisiones()
     {
+        
+        $dt=Carbon::now();
+        $inicioMes=$dt->startOfMonth()->format('Y-m-d');
+        $finMes=$dt->endOfMonth()->format('Y-m-d');
+
+
+
         //JOIN CON SUM :) 
         $usuariosComision = \DB::table('comisiones')
                             ->join('users','comisiones.id_user','=','users.id')
-                            ->select('id','name','aPaterno','aMaterno')
+                            ->select('id','slug','name','aPaterno','aMaterno')
                             ->selectRaw("SUM(total_comision) as comision_total")
+                            ->whereBetween('comisiones.fecha', [$inicioMes, $finMes])
                             ->groupBy('id')
+                            
                             ->get();
 
-        return $usuariosComision;
+        //return $usuariosComision;
+
+        return view('AdmInterfaces.IntVentas.lista-comisiones',compact('usuariosComision'));
+    }
+
+
+    public function revisarComision($slug)
+    {
+        $liderVenta=User::where('slug','=',$slug)->firstOrFail();
+        $domicilio=Domicilio::where('id_user','=',$liderVenta->id)->firstOrFail();
+        $dt=Carbon::now();
+        $inicioMes=$dt->startOfMonth()->format('Y-m-d');
+        $finMes=$dt->endOfMonth()->format('Y-m-d');
+        $comisiones=Comision::where('id_user','=',$liderVenta->id)
+                            ->whereBetween('comisiones.fecha', [$inicioMes, $finMes])
+                            ->get();
+        $totalComisiones=0.0;       
+        foreach ($comisiones as $comision) {
+            $totalComisiones+=$comision->total_comision;
+        }
+
+        return view('AdmInterfaces.IntVentas.pagar-comision',compact('liderVenta','comisiones','totalComisiones','domicilio','dt'));
     }
 }
