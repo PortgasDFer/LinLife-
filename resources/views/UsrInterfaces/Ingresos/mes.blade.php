@@ -107,9 +107,14 @@
           </div>
         </div>
       </div>
-    </div>          
+    </div>            
   </div>
 </div> 
+<form action="POST" action="/grafica" id="formgrafica">
+      @csrf
+      <input type="hidden" name="id" value="1"/>
+      <input type="hidden" name=""/>
+    </form>
 @endsection
 @section('scripts')
 <script>
@@ -117,9 +122,21 @@
   const d = new Date();
   var fila = document.getElementById(monthNames[d.getMonth()]);
   fila.className = 'bg-success';
+
+
+  $(document).ready(function(){
+
+    $.ajax({
+      url:'/grafica',
+      method:'POST',
+      data:$("#formgrafica").serialize() 
+    }).done(function(res){
+      alert(res);
+    });
 </script>
 
 <script>
+
   $(function () {
   'use strict'
 

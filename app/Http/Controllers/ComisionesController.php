@@ -32,4 +32,15 @@ class ComisionesController extends Controller
     	return Redirect::to('/listado-de-ventas');
 
     }
+
+    public function all(Request $request)
+    {
+        //$comisiones = \DB::table('comisiones')
+        //->select('comisiones.*')
+        //->orderby('id_comision', 'DESC')
+        //->get();
+
+        //return response(json_encode($comisiones),200)->header('Content-type', 'text/plain');
+        return "Hola";
+    }
 }
