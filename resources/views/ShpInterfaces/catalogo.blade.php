@@ -19,7 +19,7 @@
 <!-- ================ end banner area ================= -->
 <!-- ================ category section start ================= -->		  
 <section class="section-margin--small mb-5">
-	<div class="container">
+	<div class="container">			
 	  <div class="row">
 	    <div class="col-xl-3 col-lg-4 col-md-5">
 	      <div class="sidebar-categories">
@@ -32,7 +32,7 @@
 	                <li class="filter-list"><input class="pixel-radio" type="radio" id="women" name="brand"><label for="women">Otra categoria<span> (21)</span></label></li>
 	                <li class="filter-list"><input class="pixel-radio" type="radio" id="women" name="brand"><label for="women">Otra categoria<span> (21)</span></label></li>
 	                <li class="filter-list"><input class="pixel-radio" type="radio" id="women" name="brand"><label for="women">Otra categoria<span> (21)</span></label></li>
-	                <li class="filter-list"><input class="pixel-radio" type="radio" id="women" name="brand"><label for="women">Otra categoria<span> (21)</span></label></li>
+	                <li class="filter-list"><input class="pixel-radio" type="radio" id="women" name="brand"><label for="women">Otra categoria<span> (21)</span></label></li>               
 	              </ul>
 	            </form>
 	          </li>
@@ -65,32 +65,40 @@
 	            </ul>
 	          </form>
 	        </div>
+	        <div class="common-filter">
+              <div class="head">Price</div>
+              <div class="price-range-area">
+                <input type="range">
+              </div>
+            </div>
 	      </div>
 	    </div>
 	    <div class="col-xl-9 col-lg-8 col-md-7">
 	      <!-- Start Filter Bar -->
 	      <div class="filter-bar d-flex flex-wrap align-items-center">
 	        <div class="sorting">
-	          <select>
+	          <select class="form-control" id="exampleFormControlSelect1">
 	            <option value="1">Ordenar por...</option>
 	            <option value="1">Ordenar por...</option>
 	            <option value="1">Ordenar por...</option>
 	          </select>
 	        </div>
 	        <div class="sorting mr-auto">
-	          <select>
+	          <select class="form-control" id="exampleFormControlSelect1">
 	            <option value="1">Mostrar 10</option>
 	            <option value="1">Mostrar 15</option>
 	            <option value="1">Mostrar 30</option>
 	          </select>
 	        </div>
 	        <div>
-	          <div class="input-group filter-bar-search">
-	            <input type="text" placeholder="Buscar">
-	            <div class="input-group-append">
-	              <button type="button"><i class="ti-search"></i></button>
-	            </div>
-	          </div>
+	        	<form>
+	          		<div class="input-group filter-bar-search">	          	
+			            <input type="text" placeholder="Buscar" name="buscar" value="{{$buscar}}">
+			            <div class="input-group-append">
+			              <button type="input"><i class="ti-search"></i></button>
+			            </div>		            
+	          		</div>
+	          </form>
 	        </div>
 	      </div>
 	      <!-- End Filter Bar -->
@@ -128,12 +136,15 @@
 	              </div>
 	            </div>
 	          </div>
-	          @endforeach
+	          @endforeach	
+
 	        </div>
-	      </section>
+	      </section>	      
 	      <!-- End Best Seller -->
+	      <div class="float-right">{{$productos->links()}}</div>	      
 	    </div>
-	  </div>
+
+	  </div>	  
 	</div>
 </section>
 <!-- ================ category section end ================= -->		  

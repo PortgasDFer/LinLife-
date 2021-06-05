@@ -9,12 +9,14 @@
 		<link rel="stylesheet" href="{{asset('assets/shop/vendors/bootstrap/bootstrap.min.css')}}">
 		<link rel="stylesheet" href="{{asset('assets/shop/vendors/fontawesome/css/all.min.css')}}">
 		<link rel="stylesheet" href="{{asset('assets/shop/vendors/themify-icons/themify-icons.css')}}">
+		<link rel="stylesheet" href="{{asset('assets/shop/vendors/linericon/style.csss')}}">
 		<link rel="stylesheet" href="{{asset('assets/shop/vendors/nice-select/nice-select.css')}}">
 		<link rel="stylesheet" href="{{asset('assets/shop/vendors/owl-carousel/owl.theme.default.min.css')}}">
 		<link rel="stylesheet" href="{{asset('assets/shop/vendors/owl-carousel/owl.carousel.min.css')}}">
 		<link rel="stylesheet" href="{{asset('assets/shop/css/style.css')}}">
 		<link rel="stylesheet" href="{{asset('assets/shop/vendors/nouislider/nouislider.min.css')}}">
 		<link rel="stylesheet" href="{{asset('assets/shop/vendorsvendors/nice-select/nice-select.css')}}">
+		
 		<script src="{{asset('vendor/sweetalert/sweetalert.all.js')}}"></script>
 		<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 	</head>
@@ -126,6 +128,7 @@
 	<!--<script src="{{asset('assets/shop/vendors/skrollr.min.js')}}"></script>Scroll no funciona en moviles-->
 	<script src="{{asset('assets/shop/vendors/owl-carousel/owl.carousel.min.js')}}"></script>
 	<script src="{{asset('assets/shop/vendors/nice-select/jquery.nice-select.min.js')}}"></script>
+	<script src="{{asset('assets/shop/vendors/nouislider/nouislider.min.js')}}"></script>
 	<script src="{{asset('assets/shop/vendors/jquery.ajaxchimp.min.js')}}"></script>
 	<script src="{{asset('assets/shop/vendors/mail-script.js')}}"></script>
 	<script src="{{asset('assets/shop/js/main.js')}}"></script>

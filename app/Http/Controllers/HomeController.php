@@ -42,8 +42,8 @@ class HomeController extends Controller
                 $ingresos+=$c->total_comision;
             }
             return view('userdashboard',compact('domicilio','ventas','invitados','ventas_tabla','ingresos'));
-        } else{
-            $noProductos=Producto::all()->count();
+        } else{            
+            $noProductos=Producto::where('baja','=',1)->count();
             $noUsuarios=User::all()->count();
             $noVentas=Ventas::where('baja','=',1)->where('tipo','=','VENTA')->count();
             $noVentasPromocion=Ventas::where('baja','=',1)->where('tipo','=','PROMOCION')->count();

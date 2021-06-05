@@ -66,7 +66,7 @@ class PedidosController extends Controller
         $code=$request->input('code');
         $producto=Producto::find($code);
         $existente=$producto->cantidad;
-        $productos=Producto::all();
+        $productos=Producto::where('baja','=',1)->get();
         $datos=Ventas::find($folio);
 
         $tabla =  DB::table('ventas')

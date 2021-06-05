@@ -247,9 +247,13 @@
               </div>
               <div class="form-group col-md-3">
                 <center>
-                <p id="nombre-codigo">{{Auth::user()->name}} {{Auth::user()->aPaterno}} {{Auth::user()->aMaterno}}</p>                
-                   <img src="/imgusers/{{Auth::user()->avatar}}" class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar" style="width: 120px;" id="patrocinador">
-                  </center>
+                <p id="nombre-codigo">{{Auth::user()->name}} {{Auth::user()->aPaterno}} {{Auth::user()->aMaterno}}</p>   
+                @if(Auth::user()->avatar!=null)                      
+                    <img src="/imgusers/{{Auth::user()->avatar}}" class="rounded-circle z-depth-1-half avatar-pic" style="width: 120px;" id="patrocinador"/>
+                  @else
+                    <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar" style="width: 120px;" id="patrocinador">
+                    @endif             
+                  </center>                  
               </div>
             </div>
             <hr>

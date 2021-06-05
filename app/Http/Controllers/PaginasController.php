@@ -19,10 +19,11 @@ class PaginasController extends Controller
         return view('inicio', compact('productos'));
     }
 
-    public function catalogo()
+    public function catalogo(Request $request)
     {       
-    	$productos=Producto::all();
-        return view('ShpInterfaces.catalogo', compact('productos'));
+        $buscar=$request->get('buscar');
+    	$productos=Producto::where('baja','=',1)->where('nombre','like','%'.$buscar.'%')->orderBy('nombre','asc')->paginate(9);        
+        return view('ShpInterfaces.catalogo', ['productos'=>$productos,'buscar'=>$buscar]);
     }
 
     public function detalle($slug)

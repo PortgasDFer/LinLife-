@@ -136,7 +136,7 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="fa fa-paypal" aria-hidden="true"></i>
+              <i class="fa fa-paypal nav-icon" aria-hidden="true"></i>
               <p>
                 Pagos
                 <i class="right fas fa-angle-left"></i>

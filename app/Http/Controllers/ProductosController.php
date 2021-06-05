@@ -22,7 +22,7 @@ class ProductosController extends Controller
      */
     public function datatable()
     {
-        $productos=Producto::all();
+        $productos=Producto::where('baja','=',1);
         return DataTables::of($productos)
                 ->addColumn('edit','AdmInterfaces.IntProductos.botones.edit')
                 ->addColumn('delete','AdmInterfaces.IntProductos.botones.delete')
@@ -30,8 +30,8 @@ class ProductosController extends Controller
                 ->toJson();  
     }
      public function existenciasTable()
-    {
-        $productos=Producto::orderBy('cantidad','DESC')->get();
+    {           
+        $productos=Producto::where('baja','=',1)->orderBy('cantidad','DESC')->get();
         return DataTables::of($productos)
                 ->addColumn('promos','AdmInterfaces.IntProductos.botones.promos')
                 ->addColumn('ingreso','AdmInterfaces.IntProductos.botones.ingreso')
@@ -97,6 +97,7 @@ class ProductosController extends Controller
         }
         $producto->cantidad=$request->input('existencia');
         $producto->slug=Str::slug($producto->nombre);
+        $producto->baja=1;
         $producto->save();
         alert()->success('LIN LIFE', 'Producto registrado correctamente');
         return Redirect::to('/productos');
@@ -165,9 +166,11 @@ class ProductosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Producto $producto)
+    public function destroy($code)
     {
-        $producto->delete();
+        $producto=Producto::find($code);
+        $producto->baja=0;
+        $producto->save();
         alert()->info('LIN LIFE', 'Producto eliminado');
         return Redirect::to('/productos');
     }
@@ -175,7 +178,7 @@ class ProductosController extends Controller
     public function ingreso()
     {
         $fechaactual=now()->toDateString();
-        $productos=Producto::all();
+        $productos=Producto::where('baja','=',1)->get();
         return view('AdmInterfaces.IntInventario.entrada', compact('productos','fechaactual'));
     }
 
