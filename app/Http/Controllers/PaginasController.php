@@ -20,10 +20,17 @@ class PaginasController extends Controller
     }
 
     public function catalogo(Request $request)
-    {       
-        $buscar=$request->get('buscar');
-    	$productos=Producto::where('baja','=',1)->where('nombre','like','%'.$buscar.'%')->orderBy('nombre','asc')->paginate(9);        
-        return view('ShpInterfaces.catalogo', ['productos'=>$productos,'buscar'=>$buscar]);
+    {            
+        $buscar=$request->get('buscar'); 
+        $query = Producto::where('baja','=',1)->where('nombre','like','%'.$buscar.'%')->orderBy('nombre','asc'); 
+        $min=$request->get('minimo');  
+        $max=$request->get('maximo');         
+        if($min && $max){
+            $query = $query->where('precio_publico','>=',$min);
+            $query = $query->where('precio_publico','<=',$max);
+        }
+        $productos = $query->paginate(9);
+        return view('ShpInterfaces.catalogo', ['productos'=>$productos,'buscar'=>$buscar] ,compact('productos'));
     }
 
     public function detalle($slug)
