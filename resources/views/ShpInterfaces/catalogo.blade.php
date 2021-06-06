@@ -1,5 +1,8 @@
 @extends('layouts.sitio')
 @section('content')
+<style type="text/css">
+	
+</style>
 <!-- ================ start banner area ================= -->	
 <section class="blog-banner-area" id="category">
 	<div class="container h-100">
@@ -148,4 +151,9 @@
 	</div>
 </section>
 <!-- ================ category section end ================= -->		  
+@endsection
+@section('scripts')
+<script type="text/javascript">
+
+</script>
 @endsection

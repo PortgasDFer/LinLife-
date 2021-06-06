@@ -13,7 +13,7 @@ class PaginasController extends Controller
 {
     public function index()
     {       
-    	$productos=Producto::first()
+    	$productos=Producto::where('baja','=',1)
             ->take(4)
             ->get();
         return view('inicio', compact('productos'));
