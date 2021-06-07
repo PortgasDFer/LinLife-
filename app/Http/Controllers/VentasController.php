@@ -10,6 +10,7 @@ use App\Promocion;
 use App\User;
 use App\Dvp;
 use App\Domicilio;
+use App\Comision;
 use Alert;
 use Redirect,Response;
 use DataTables;
@@ -139,6 +140,7 @@ class VentasController extends Controller
         return view('AdmInterfaces.IntVentas.detalle',compact('venta','detalle','asociado','liderVenta'));
     }
 
+
     public function detalleVentapromocion($folio)
     {
         $detalle =    DB::table('ventas')
@@ -155,6 +157,28 @@ class VentasController extends Controller
         $liderVenta=User::where('code','=',$asociado->invitacion)->firstOrFail();
 
         return view('AdmInterfaces.IntVentas.detallepromocion',compact('venta','detalle','asociado','liderVenta'));
+    }
+
+    public function revisarComision($folio)
+    {
+        $detalle =    DB::table('ventas')
+                    ->join('dvp','ventas.folio','=','dvp.folio_venta')
+                    ->join('productos','productos.code','=','dvp.code_producto')
+                    ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code','ventas.total_final')
+                    ->where('ventas.folio','=',$folio)
+                    ->get();
+
+        $venta = Ventas::where('folio','=',$folio)->firstOrFail();
+
+        $asociado=Ventas::join('users','ventas.id_user','=','users.id')
+            ->select(array('users.name','users.aPaterno','users.aMaterno','ventas.folio','ventas.fecha','ventas.total','users.invitacion'))
+            ->where('ventas.folio','=',$folio)
+            ->first();
+
+        $liderVenta=User::where('code','=',$asociado->invitacion)->firstOrFail();
+
+        $comision=Comision::where('folio_venta','=',$venta->folio)->firstOrFail();
+        return view('AdmInterfaces.IntVentas.revisar-comision',compact('venta','detalle','asociado','liderVenta','comision'));
     }
 
     public function historial()

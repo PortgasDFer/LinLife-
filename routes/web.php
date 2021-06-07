@@ -120,3 +120,4 @@ Route::post('/asignarComision/{venta}','ComisionesController@asignar')->name('as
 Route::post('/grafica','ComisionesController@all')->name('grafica.all');
 Route::get('/lista-comisiones','ComisionesController@listaComisiones')->name('lista.comisiones');
 Route::get('/revisar-pago-comision/{usuario}','ComisionesController@revisarComision')->name('revisar.comision');
+Route::get('/revisar-comision/{venta}','VentasController@revisarComision')->name('detalle-comision');
