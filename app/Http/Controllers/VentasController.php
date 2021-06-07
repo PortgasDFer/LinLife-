@@ -13,6 +13,7 @@ use App\Domicilio;
 use Alert;
 use Redirect,Response;
 use DataTables;
+use Carbon\Carbon;
 
 class VentasController extends Controller
 {
@@ -23,10 +24,15 @@ class VentasController extends Controller
 
     public function datatable()
     {
-    	$ventas=Ventas::where('baja','=',1)->get();
+    	$ventas=Ventas::join('users','ventas.id_user','=','users.id')
+                ->select(array('ventas.folio','ventas.fecha','ventas.total','ventas.total_final','users.name','users.aPaterno','users.aMaterno'));
+        //$ventas=Ventas::where('baja','=',1)->get();
     	return DataTables::of($ventas)
-                ->addColumn('promos','AdmInterfaces.IntProductos.botones.promos')
-                ->addColumn('ingreso','AdmInterfaces.IntProductos.botones.ingreso')
+                ->editColumn('fecha', function ($venta) {
+                    return $venta->fecha ? with(new Carbon($venta->fecha))->format('m/d/Y') : '';
+                })
+                ->addColumn('promos','AdmInterfaces.IntVentas.botones.detalle')
+                ->addColumn('ingreso','AdmInterfaces.IntVentas.botones.comision')
                 ->rawColumns(['promos','ingreso'])
                 ->toJson();
     }
@@ -119,13 +125,17 @@ class VentasController extends Controller
                     ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
                     ->where('ventas.folio','=',$folio)
                     ->get();
+
         $venta = Ventas::where('folio','=',$folio)->firstOrFail();
+
         $asociado=Ventas::join('users','ventas.id_user','=','users.id')
             ->select(array('users.name','users.aPaterno','users.aMaterno','ventas.folio','ventas.fecha','ventas.total','users.invitacion'))
             ->where('ventas.folio','=',$folio)
             ->first();
+
         $liderVenta=User::where('code','=',$asociado->invitacion)->firstOrFail();
 
+        
         return view('AdmInterfaces.IntVentas.detalle',compact('venta','detalle','asociado','liderVenta'));
     }
 

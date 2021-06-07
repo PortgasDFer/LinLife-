@@ -20,19 +20,24 @@
 <div class="content">	
 	<div class="container-fluid">	
 		<div class="row">	
-			<div class="col-lg-12">	
-				<table class="table" id="ventas">
-				  <thead class="thead-dark">
-				    <tr>
-				      <th scope="col">FOLIO</th>
-				      <th scope="col">Fecha</th>
-				      <th scope="col">Total</th>
-				      <th scope="col" colspan="2">Acciones</th>
-				    </tr>
-				  </thead>
-				  <tbody>
-				  </tbody>
-				</table>
+			<div class="col-lg-12">
+        <div class="table-responsive">
+          <table class="table" id="ventas">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">FOLIO</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Total</th>
+                <th scope="col">Total con comisión</th>
+                <th scope="col" colspan="3">Comprador</th>
+                <th scope="col">Revisar</th>
+                <th scope="col">Comisión</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>	
 			</div>
 		</div>	
 	</div>
@@ -47,9 +52,13 @@
         "autoWidth": false,
         "ajax": "/obtenerVentas",
         "columns": [
-            {data:'folio'},
-            {data:'fecha'},
-            {data:'total'},
+            {data:'folio',name:'ventas.folio'},
+            {data:'fecha', displayFormat: 'dddd D MMMM YYYY',name:'ventas.fecha'},
+            {data:'total', render: $.fn.dataTable.render.number( ',', '.', 2, '$' ),name:'ventas.total'},
+            {data:'total_final', render: $.fn.dataTable.render.number( ',', '.', 2, '$' ),name:'ventas.total_final'},
+            {data:'name',name:'users.name'},
+            {data:'aPaterno',name:'users.aPaterno'},
+            {data:'aMaterno',name:'users.aMaterno'},
             {data:'promos',orderable:false, searchable:false},
             {data:'ingreso',orderable:false, searchable:false}
         ],
