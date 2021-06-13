@@ -41,7 +41,7 @@
     </div>
   </div>
   <div class="container">
-    <form name="formulario1">
+    <!--<form name="formulario1">
       <div class="form-group row">
         <label for="colFormLabel" class="col-sm-2 col-form-label"><i class="  fas fa-credit-card" aria-hidden="true"></i> Tipo de entrega</label>
         <div class="col-sm-4">
@@ -88,7 +88,7 @@
             </select>
           </div>
         </div>
-    </form>
+    </form>-->
       <hr>
       <div class="form-group row">
         <br>
