@@ -41,6 +41,57 @@
     </div>
   </div>
   <div class="container">
+<<<<<<< HEAD
+=======
+    <!--<form name="formulario1">
+      <div class="form-group row">
+        <label for="colFormLabel" class="col-sm-2 col-form-label"><i class="  fas fa-credit-card" aria-hidden="true"></i> Tipo de entrega</label>
+        <div class="col-sm-4">
+           <select name="entrega" onchange="cambia()" class="form-control">
+              <option value="0">Selecciona...</option>
+              <option value="1">DHL</option>
+              <option value="2">Fedex</option>
+              <option value="3">UPS</option>
+            </select>
+        </div>
+        &nbsp;
+        <div class="col-sm-4">
+          <select id="opt" name="opt" class="form-control">
+            <option selected>Selecciona...</option>
+          </select>
+        </div>        
+        <div class="col-sm-1 text-right">
+          <p style="color: #aaa;">$ 0.00</p>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="colFormLabel" class="col-sm-2 col-form-label"><i class="  fas fa-credit-card" aria-hidden="true"></i> Método de pago</label>
+        <div class="col-sm-4">
+           <select id="tipo" name="tipo" class="form-control">
+            <option selected>Selecciona...</option>
+            <option value="Efectivo">Efectivo</option>
+            <option value="Tarjeta de Credito">Tarjeta de Credito</option>
+          </select>
+        </div>
+        &nbsp;
+        <div class="col-sm-4"></div>
+        <div class="col-sm-1 text-right">
+          <p style="color: #aaa;">$ 0.00</p>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="colFormLabel" class="col-sm-2 col-form-label"><i class="  fas fa-home" aria-hidden="true"></i> Domicilio</label>
+        <div class="col-sm-4">
+           <select id="destino" name="destino" class="form-control">
+              <option selected>Selecciona un domicilio... </option>
+              @foreach($domicilios as $d)
+                <option value="{{$d->id}}">{{$d->nombre}}</option>
+              @endforeach
+            </select>
+          </div>
+        </div>
+    </form>-->
+>>>>>>> 3d4cba26f29954ce0d8e40b888e1fc63859beb4b
       <hr>
       <div class="form-group row">
         <br>

@@ -71,7 +71,7 @@
                               </td>
                           </tr>
                           @endforeach
-                          <tr class="bottom_button">
+                          <!--<tr class="bottom_button">
                               <td>
                                   
                               </td>
@@ -93,7 +93,7 @@
                                       <a class="primary-btn" href="#">Aplicar</a>
                                   </div>
                               </td>
-                          </tr>
+                          </tr>-->
                           <tr>
                               <td>
                                 <a class="button" href="{{route('cart.clear')}}">Vaciar Carrito</a>

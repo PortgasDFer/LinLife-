@@ -30,18 +30,18 @@
 	            	@csrf
 	              Seleccione precio minimo:
 	              <center>
-						      <input type="range" name="minimo" value="0" min="100" max="500" oninput="this.nextElementSibling.value = this.value">
-									$<output>0</output>
-								</center>
-								Seleccione precio maximo:
-								<center>
-									<input type="range" name="maximo" value="0" min="200" max="1000" oninput="this.nextElementSibling.value = this.value">
-									$<output>0</output>
-									</center> 
-									&nbsp;									
-									<center> 
-					      	<button type="submit" class="button button-header btn-sm">Aplicar</button>
-					      </center>              	
+				      <input type="range" name="minimo" value="0" min="100" max="500" oninput="this.nextElementSibling.value = this.value">
+							$<output>0</output>
+						</center>
+						Seleccione precio maximo:
+						<center>
+							<input type="range" name="maximo" value="0" min="200" max="1000" oninput="this.nextElementSibling.value = this.value">
+							$<output>0</output>
+							</center> 
+							&nbsp;									
+							<center> 
+			      	<button type="submit" class="button button-header btn-sm">Aplicar</button>
+			      </center>              	
 	            </form>	           
 	          </li>
 	        </ul>
