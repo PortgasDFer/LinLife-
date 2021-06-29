@@ -41,54 +41,6 @@
     </div>
   </div>
   <div class="container">
-    <form name="formulario1">
-      <div class="form-group row">
-        <label for="colFormLabel" class="col-sm-2 col-form-label"><i class="  fas fa-credit-card" aria-hidden="true"></i> Tipo de entrega</label>
-        <div class="col-sm-4">
-           <select name="entrega" onchange="cambia()" class="form-control">
-              <option value="0">Selecciona...</option>
-              <option value="1">DHL</option>
-              <option value="2">Fedex</option>
-              <option value="3">UPS</option>
-            </select>
-        </div>
-        &nbsp;
-        <div class="col-sm-4">
-          <select id="opt" name="opt" class="form-control">
-            <option selected>Selecciona...</option>
-          </select>
-        </div>        
-        <div class="col-sm-1 text-right">
-          <p style="color: #aaa;">$ 0.00</p>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="colFormLabel" class="col-sm-2 col-form-label"><i class="  fas fa-credit-card" aria-hidden="true"></i> Método de pago</label>
-        <div class="col-sm-4">
-           <select id="tipo" name="tipo" class="form-control">
-            <option selected>Selecciona...</option>
-            <option value="Efectivo">Efectivo</option>
-            <option value="Tarjeta de Credito">Tarjeta de Credito</option>
-          </select>
-        </div>
-        &nbsp;
-        <div class="col-sm-4"></div>
-        <div class="col-sm-1 text-right">
-          <p style="color: #aaa;">$ 0.00</p>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="colFormLabel" class="col-sm-2 col-form-label"><i class="  fas fa-home" aria-hidden="true"></i> Domicilio</label>
-        <div class="col-sm-4">
-           <select id="destino" name="destino" class="form-control">
-              <option selected>Selecciona un domicilio... </option>
-              @foreach($domicilios as $d)
-                <option value="{{$d->id}}">{{$d->nombre}}</option>
-              @endforeach
-            </select>
-          </div>
-        </div>
-    </form>
       <hr>
       <div class="form-group row">
         <br>
@@ -122,6 +74,7 @@
                   </tr>
               </thead>            
               <tbody>
+                <?php $comision=0.0?>
                 <?php $sum=0.0;?>
                 @if(count($tabla)>0)
                 @foreach($tabla as $t)
@@ -142,6 +95,7 @@
                 </tr>
                 <?php $sum+= $t->costo*$t->cantidad;?>
                 @endforeach
+                <?php $comision=($sum/100)*4.9?>
                 @else
                 <div class="alert alert-secondary" role="alert" style="background-color:  #E4E4E4; color: black;font-size: 22px; border-color: #E4E4E4;">
                   <i class="fa fa-exclamation-circle" aria-hidden="true"></i> Pedido vacío
@@ -222,20 +176,23 @@
           <h5 style="text-align: right;">Subtotal de productos <strong>$ {{number_format($sum, 2, '.', ',')}}</strong></h5>
         </div> 
         <div class="col-md-4 offset-md-7">                 
-          <h1 style="text-align: right;">Total <strong>$ {{number_format($sum, 2, '.', ',')}}</strong></h1>
+          <h5 style="text-align: right;">Comisión PayPal <strong>$ {{number_format($comision+4, 2, '.', ',')}}</strong></h5>
+        </div> 
+        <div class="col-md-4 offset-md-7">                 
+          <h1 style="text-align: right;">Total <strong>$ {{number_format($sum + $comision+4, 2, '.', ',')}}</strong></h1>
         </div>                   
       </div>
       <div class="form-group row">
         <div class="col-sm-7">
            <div class="alert alert-secondary" role="alert" style="background-color:  #E4E4E4; color: black;font-size: 12px; border-color: #E4E4E4;">
-            <i class="fa fa-exclamation-triangle" aria-hidden="true" style="color: red;"></i>   Si deseas solicitar factura electrónica por tu compra, necesitas proporcionar los datos de facturación requeridos en tu oficina virtual BENELEIT
+            <i class="fa fa-exclamation-triangle" aria-hidden="true" style="color: red;"></i>   Si deseas solicitar factura electrónica por tu compra, necesitas proporcionar los datos de facturación requeridos en tu oficina virtual LinLife
           </div>
         </div>
         &nbsp;
         <div class="col-sm-4">
           <form action="/pay/{{$datos->folio}}" method="POST">
             @csrf
-            <input type="hidden" name="monto" value="{{$sum}}" >
+            <input type="hidden" name="monto" value="{{$sum+$comision+4}}" >
             <input type="hidden" name="folio" value="{{$datos->folio}}">
             <button type="submit" class="btn btn-success btn-lg btn-block"><i class="fa fa-check" aria-hidden="true"></i> Finalizar Pedido</button>
           </form>

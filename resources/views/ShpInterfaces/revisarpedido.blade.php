@@ -33,8 +33,9 @@
             </ul>
             <ul class="list list_2">
                 <li><a href="#">Subtotal <span>${{number_format(Cart::getSubTotal(), 2)}}</span></a></li>
-                <li><a href="#">Envío <span>Flat rate: $50.00</span></a></li>
-                <li><a href="#">Total <span>${{number_format(Cart::getTotal(), 2)}}</span></a></li>
+                <li><a href="#">Comisión PayPal <span>${{number_format((Cart::getSubTotal()-(Cart::getSubTotal()/1.04)/1.04), 2)}}</span></a></li>
+                <?php $comision=(Cart::getSubTotal()-(Cart::getSubTotal()/1.04)/1.04) ?>
+                <li><a href="#">Total <span>${{number_format(Cart::getTotal() +$comision, 2)}}</span></a></li>
             </ul>
             <div class="payment_item active">
                 <div class="radion_btn">
@@ -52,7 +53,7 @@
             <div class="text-center">
               <form action="/insertarCarrito/{{$nuevofolio}}" method="POST">
                 @csrf
-                <input type="hidden" name="monto" value="{{Cart::getTotal()}}">
+                <input type="text" name="monto" value="{{number_format(Cart::getTotal()+$comision,2)}}">
                 <input type="hidden" name="folio" value="{{$nuevofolio}}">
                 <button type="submit" class="button button-paypal"> Proceda a Paypal </button>
               </form>

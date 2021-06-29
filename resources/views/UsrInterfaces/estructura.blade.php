@@ -45,7 +45,7 @@
 	                <!-- /.col -->
 	                <div class="col-sm-6 border-right">
 	                  <div class="description-block">
-	                    <h5 class="description-header">274</h5>
+	                    <h5 class="description-header">{{$noVentas}}</h5>
 	                    <span class="description-text">Compras</span>
 	                  </div>
 	                  <!-- /.description-block -->

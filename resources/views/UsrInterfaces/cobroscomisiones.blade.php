@@ -55,7 +55,7 @@
                 <i class="fas fa-shopping-cart"></i> Pedido
               </div>
               <div class="card-body">
-                <a href="/pedidos-automaticos">
+                <a href="/ventas/create">
                 	<h1><i class="fas fa-cart-plus"></i></h1>
                 	<small>Configure un nuevo pedido</small>
                 </a>

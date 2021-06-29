@@ -63,12 +63,14 @@
           <p>Este mes</p>
         </a>
       </li>
+      <!--
       <li class="nav-item">
         <a href="/desglose/{{Auth::user()->slug}}" class="nav-link">
           <i class="far fa-dot-circle nav-icon"></i>
           <p>Desglose</p>
         </a>
       </li>
+      -->
     </ul>
   </li>
   <li class="nav-item">
@@ -106,6 +108,7 @@
       </li>
     </ul>
   </li>
+  <!--
   <li class="nav-item">
     <a href="#" class="nav-link active">
       <i class="nav-icon fas fa-wrench"></i> 
@@ -129,6 +132,7 @@
       </li>
     </ul>
   </li>
+  -->
   <li class="nav-item">
     <a href="#" class="nav-link active">
       <i class="nav-icon fas fa-cog"></i>

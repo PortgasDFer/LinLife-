@@ -42,7 +42,8 @@ class PaymentController extends Controller
 		
 		$total=$request->input('monto');
 		$venta=Ventas::where('folio','=',$folio)->firstOrFail();
-		$venta->total=$total;
+		$comision=$request->input('comision');
+		$venta->total=$total-$comision;
 		$venta->save();
 
 

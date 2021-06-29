@@ -99,10 +99,10 @@
                                 <a class="button" href="{{route('cart.clear')}}">Vaciar Carrito</a>
                               </td>
                               <td>
-
+                                <h5> Comisión PayPal</h5>
                               </td>
                               <td>
-                                
+                               <h5>${{number_format(((Cart::getSubTotal()/1.04)/1.04) - Cart::getSubTotal() , 2)}}
                               </td>
                               <td>
                                   <h5>Subtotal</h5>

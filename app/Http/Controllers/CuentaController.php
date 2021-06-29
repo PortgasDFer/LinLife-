@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Domicilio;
+use App\Ventas;
 use Image;
 use Alert;
 use Redirect,Response;
@@ -162,8 +163,10 @@ class CuentaController extends Controller
         $noInvitados=$user::where('invitacion','=',$user->code)->count();
         $domicilio=Domicilio::where('id_user','=',$user->id)->firstOrFail();
 
+        $noVentas=Ventas::where('id_user','=',$user->id)->count();
+
         $porcentaje=$noInvitados/10*100;
-        return view('UsrInterfaces.estructura',compact('user','invitados','porcentaje','domicilio','noInvitados'));
+        return view('UsrInterfaces.estructura',compact('user','invitados','porcentaje','domicilio','noInvitados','noVentas'));
     }
     
     public function miLista($slug)
