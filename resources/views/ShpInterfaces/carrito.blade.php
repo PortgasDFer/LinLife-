@@ -100,9 +100,10 @@
                               </td>
                               <td>
                                 <h5> Comisión PayPal</h5>
+                                <?php $comision = (Cart::getSubTotal()/100)*4.9; ?>
                               </td>
                               <td>
-                               <h5>${{number_format(((Cart::getSubTotal()/1.04)/1.04) - Cart::getSubTotal() , 2)}}
+                               <h5>${{number_format( $comision+4,2) }}
                               </td>
                               <td>
                                   <h5>Subtotal</h5>
@@ -127,10 +128,7 @@
                               <td>
                                   <div class="shipping_box">
                                       <ul class="list">
-                                          <li><a href="#">Flat Rate: $5.00</a></li>
-                                          <li><a href="#">Free Shipping</a></li>
-                                          <li><a href="#">Flat Rate: $10.00</a></li>
-                                          <li class="active"><a href="#">Local Delivery: $2.00</a></li>
+                                          <li><a href="#">Total:${{number_format(Cart::getSubTotal()+$comision+4, 2)}} </a></li>
                                       </ul>
                                       <h6>Elije Dirección <i class="fa fa-caret-down" aria-hidden="true"></i></h6>
                                       <select class="shipping_select">
