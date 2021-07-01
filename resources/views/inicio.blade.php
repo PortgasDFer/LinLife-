@@ -60,7 +60,7 @@
     <section class="section-margin calc-60px">
       <div class="container">
         <div class="section-intro pb-60px">
-          <p>Nuevos productos</p>
+          <p>Productos</p>
           <h2>Últimos <span class="section-intro__style">Productos</span></h2>
         </div>
         <div class="row">
