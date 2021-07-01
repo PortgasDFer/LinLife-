@@ -76,16 +76,13 @@
                 <label>Confirmar contraseña</label>
                 <input type="password" class="form-control" id="password" name="password_confirmation" placeholder="Confirmar contraseña">             
               </div>
-              <div class="form-group col-md-1">
-                <label>Sexo</label>
-                <br>
-                <input type="checkbox" checked data-toggle="toggle" data-on="H" data-off="M" data-onstyle="success" data-offstyle="warning" name="sexo">                                    
-              </div>
-              <div class="form-group col-md-1">
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                <p style="font-size:65%;">H (Hombre) <br> M (Mujer)</p>
+              <div class="form-group col-md-2">
+                <label>Sexo</label> 
+                <select name="sexo" id="sexo" class="form-control">
+                  <option>Selecciona...</option>
+                  <option value="h">Hombre</option>
+                  <option value="m">Mujer</option>
+                </select>                                 
               </div>
             </div>
 
@@ -225,10 +222,7 @@
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label>Banco</label>
-                <select id="banco" name="banco" class="form-control" value="{{ old('banco') }}">
-                  <option selected>Selecciona...</option>
-                  <option>...</option>
-                </select>
+                <input type="text" class="form-control" id="banci" name="banco"  placeholder="Banco" value="{{ old('banco') }}">
               </div>
               <div class="form-group col-md-3">
                 <br>
@@ -254,7 +248,7 @@
                 <center>
                 <p id="nombre-codigo">Ingrese un código de invitación</p>                
                   <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar" style="width: 120px;" id="patrocinador">
-                  </center>
+                  </center>                  
               </div>
             </div>
             <hr>

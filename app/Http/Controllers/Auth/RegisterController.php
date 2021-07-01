@@ -116,7 +116,7 @@ class RegisterController extends Controller
             'fechanac'  => $data['fecha'],
             'entidadnac'    => $data['entidad'],
             'estado_civil'=>$data['estado-civil'],
-            'invitacion'=> $data['invitacion'],
+            'invitacion'=> $data['invitacion'],            
             'frente'    => $filename,
             'atras'     => $filename_atras,
             'baja'      => 0,

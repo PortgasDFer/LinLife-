@@ -41,12 +41,14 @@ class CuentaController extends Controller
             'email' => 'required',
             'fecha' => 'required|max:200',
             'entidadnac' => 'required',
+            'estado' => 'required',
             //'nombre' => 'required|regex:/^[\pL\s\-]+$/u',
         ]);           
         $user = User::find($id);
         $user->email=$request->input('email');
         $user->fechanac=$request->input('fecha');
         $user->entidadnac=$request->input('entidadnac');
+        $user->estado_civil=$request->input('estado');
         $user->save();
         alert()->success('LIN LIFE', 'Datos actualizados');
         return Redirect::to('/cuenta');
@@ -89,7 +91,8 @@ class CuentaController extends Controller
             'banco'   => ['required'],
             'clabe'   => ['required'],  
             'rfc'   => ['required'],
-            'constancia'   => ['required'],            
+            'constancia'   => ['required'],   
+            'beneficiario'   => ['required'],        
         ]);
         $user = User::find($id);
 
@@ -102,6 +105,7 @@ class CuentaController extends Controller
         $user->curp=$request->input('curp');
         $user->banco=$request->input('banco');
         $user->clabe=$request->input('clabe');
+        $user->beneficiario=$request->input('beneficiario');
         $user->rfc=$request->input('rfc');
         $user->constancia=$pdf;
         $user->save();

@@ -84,6 +84,21 @@
                         </span>
                       @enderror
                     </div>
+                    <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Estado Civil</label>
+                    <div class="col-sm-4">
+                       <select id="estado" name="estado" class="form-control @error('estado') is-invalid @enderror">                                          
+                        <option selected>{{$usuario->estado_civil}}</option>
+                        <option value="Soltero">Soltero</option>
+                        <option value="Casado">Casado</option>
+                        <option value="Unión Libre">Unión Libre</option>
+                        
+                      </select>
+                      @error('estado')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror                      
+                    </div>
                   </div>
                   <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Fecha de Nacimiento</label>
@@ -137,6 +152,23 @@
                             <strong>{{ $message }}</strong>
                         </span>
                       @enderror 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Estado Civil</label>
+                    <div class="col-sm-4">
+                       <select id="estado" name="estado" class="form-control @error('estado') is-invalid @enderror">                                          
+                        <option selected>{{$usuario->estado_civil}}</option>
+                        <option value="Soltero">Soltero</option>
+                        <option value="Casado">Casado</option>
+                        <option value="Unión Libre">Unión Libre</option>
+                        
+                      </select>
+                      @error('estado')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror                      
                     </div>
                   </div>
                   <div class="form-group row">
@@ -312,6 +344,17 @@
                     <div class="col-sm-4">
                       <input type="text" class="form-control  @error('clabe') is-invalid @enderror" id="clabe" name="clabe" placeholder="CLABE Interbancaria" value="{{$usuario->clabe}}">
                       @error('clabe')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror 
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Beneficiario</label>
+                    <div class="col-sm-4">
+                      <input type="text" style="text-transform:uppercase;" class="form-control  @error('beneficiario') is-invalid @enderror" id="beneficiario" name="beneficiario" placeholder="Beneficiario" value="{{$usuario->beneficiario}}">
+                      @error('beneficiario')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
