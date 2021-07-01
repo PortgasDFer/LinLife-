@@ -42,7 +42,7 @@
           <div class="media contact-info">
             <span class="contact-info__icon"><i class="ti-email"></i></span>
             <div class="media-body">
-              <h3><a href="ventas2@linlife.com.mx">ventas2@linlife.com.mx</a></h3>
+              <h3><a href="mailto:ventas2@linlife.com.mx">ventas2@linlife.com.mx</a></h3>
               <p>¡Envíanos tu consulta en cualquier momento!</p>
             </div>
           </div>
