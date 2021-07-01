@@ -155,23 +155,6 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Estado Civil</label>
-                    <div class="col-sm-4">
-                       <select id="estado" name="estado" class="form-control @error('estado') is-invalid @enderror">                                          
-                        <option selected>{{$usuario->estado_civil}}</option>
-                        <option value="Soltero">Soltero</option>
-                        <option value="Casado">Casado</option>
-                        <option value="Unión Libre">Unión Libre</option>
-                        
-                      </select>
-                      @error('estado')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                      @enderror                      
-                    </div>
-                  </div>
-                  <div class="form-group row">
                     <div class="col-sm-2">
                         &nbsp;
                     </div>

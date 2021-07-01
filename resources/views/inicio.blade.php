@@ -108,10 +108,10 @@
         <div class="row">
           <div class="col-xl-5">
             <div class="offer__content text-center">
-              <h3>Up To 50% Off</h3>
-              <h4>Winter Sale</h4>
-              <p>Him she'd let them sixth saw light</p>
-              <a class="button button--active mt-3 mt-xl-4" href="#">Shop Now</a>
+              <h3>Registrarte y empieza a GANAR YA MISMO</h3>
+              <h4>!Gana un Producto¡</h4>
+              <p>Solo por referir, muy simple.</p>
+              <a class="button button--active mt-3 mt-xl-4" href="/registro">Registrar</a>
             </div>
           </div>
         </div>
