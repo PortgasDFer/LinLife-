@@ -90,8 +90,7 @@
 									Telefonos
 								</p>
 								<p>
-									+123 456 78910 <br>
-									+123 456 78910
+									5510647080 <br>									
 								</p>
 	
 								<p class="sm-head">
@@ -99,8 +98,7 @@
 									Email
 								</p>
 								<p>
-									LinLife@infoexample.com <br>
-									www.infoexample.com
+									ventas2@linlife.com.mx
 								</p>
 							</div>
 						</div>

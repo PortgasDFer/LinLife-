@@ -55,7 +55,7 @@ class PaginasController extends Controller
         ]);
 
         $mensaje = $request->all();
-        Mail::to('daniel29_oct@hotmail.com')->send(new FormularioContacto($mensaje));        
+        Mail::to('ventas2@linlife.com.mx')->send(new FormularioContacto($mensaje));        
         alert()->success('LIN LIFE', 'Gracias! Nos pondremos en contacto a la brevedad.');
         return Redirect::to('/contacto');   
     }
