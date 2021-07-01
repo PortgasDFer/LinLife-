@@ -42,11 +42,10 @@
 						<div class="single-footer-widget tp_widgets ">
 							<h4 class="footer_title large_title">LinLife</h4>
 							<p>
-								So seed seed green that winged cattle in. Gathering thing made fly you're no 
-								divided deep moved us lan Gathering thing us land years living.
+								Somos una empresa 100% mexicana fundada por alumnos del ITV y la UV tomando la iniciativa de mejorar la salud del pueblo mexicano, buscando los mejores laboratorios para maquilar su producto. 
 							</p>
 							<p>
-								So seed seed green that winged cattle in. Gathering thing made fly you're no divided deep moved 
+								Considerando CDMX y EDOMEX para dar a conocer el producto, en consecuencia estudiantes de Medicina de la UNAM se han sumado a la causa.
 							</p>
 						</div>
 					</div>
