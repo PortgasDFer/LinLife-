@@ -79,6 +79,16 @@
                       </div>
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                      <div class="form-group">
+                        <label for="Sku">Descripción</label>
+                        <textarea name="descripcion" id="descripcion"  class="form-control">
+                          {{$producto->descripcion}}
+                        </textarea>
+                      </div>
+                    </div>
+                  </div>
                   <p>Reparto de comisiones por nivel</p>
                   <div class="row">
                   	<div class="col-xs-12 col-sm-12 col-md-4">

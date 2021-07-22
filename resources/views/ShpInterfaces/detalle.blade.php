@@ -68,5 +68,6 @@
 			</div>
 		</div>
 	</div>
+	&nbsp;
 	<!--================End Single Product Area =================-->	
 @endsection

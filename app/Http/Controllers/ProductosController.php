@@ -75,6 +75,7 @@ class ProductosController extends Controller
             'nombre'      => 'required|min:4',
             'dist'        => 'required|min:4',
             'publico'     => 'required|min:4',
+            'descripcion'     => 'required|min:8',
             'nivel-1'     => 'required',
             'nivel-2'     => 'required',
             'nivel-3'     => 'required',
@@ -86,6 +87,7 @@ class ProductosController extends Controller
         $producto->nombre=$request->input('nombre');
         $producto->valor_dist=$request->input('dist');
         $producto->precio_publico=$request->input('publico');
+        $producto->descripcion=$request->input('descripcion');
         $producto->nivel_1=$request->input('nivel-1');
         $producto->nivel_2=$request->input('nivel-2');
         $producto->nivel_3=$request->input('nivel-3');
@@ -134,6 +136,7 @@ class ProductosController extends Controller
             'nombre'      => 'required|min:4',
             'dist'        => 'required|min:4',
             'publico'     => 'required|min:4',
+            'descripcion'     => 'required|min:8',
             'nivel-1'     => 'required',
             'nivel-2'     => 'required',
             'nivel-3'     => 'required'
@@ -141,6 +144,7 @@ class ProductosController extends Controller
         $producto->nombre=$request->input('nombre');
         $producto->valor_dist=$request->input('dist');
         $producto->precio_publico=$request->input('publico');
+        $producto->descripcion=$request->input('descripcion');
         $producto->nivel_1=$request->input('nivel-1');
         $producto->nivel_2=$request->input('nivel-2');
         $producto->nivel_3=$request->input('nivel-3');
