@@ -8,6 +8,7 @@ use App\Mail\FormularioContacto;
 use Alert;
 use Redirect;
 use App\Producto;
+use App\User;
 
 class PaginasController extends Controller
 {
@@ -16,7 +17,8 @@ class PaginasController extends Controller
     	$productos=Producto::where('baja','=',1)
             ->take(4)
             ->get();
-        return view('inicio', compact('productos'));
+        $users=User::where('baja','=',0)->orderBy('created_at','desc')->take(5)->get();
+        return view('inicio', compact('productos', 'users'));
     }
 
     public function catalogo(Request $request)

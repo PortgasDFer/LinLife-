@@ -59,8 +59,7 @@
     <!-- ================ trending product section start ================= -->  
     <section class="section-margin calc-60px">
       <div class="container">
-        <div class="section-intro pb-60px">
-          <p>Productos</p>
+        <div class="section-intro pb-60px">        
           <h2>Últimos <span class="section-intro__style">Productos</span></h2>
         </div>
         <div class="row">
@@ -175,7 +174,32 @@
       </div>
     </section>
     <!-- ================ Best Selling item  carousel end ================= --> 
-
+    <section class="section-margin calc-60px">
+      <div class="container">
+        <div class="section-intro pb-60px">          
+          <h2>Nuevos <span class="section-intro__style">Socios</span></h2>
+        </div>
+        <div class="row">
+          @forelse($users as $u)
+          <div class="col">
+            <center>
+              @if($u->avatar!=null)
+                <img src="/imgusers/{{$u->avatar}}" class="rounded-circle img-fluid" style="width: 100px;">
+              @else
+                <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg"class="rounded-circle img-fluid" style="width: 100px;">
+                @endif
+              <br>
+              &nbsp;
+              <h5>{{$u->code}}</h5>
+              <p class="text-uppercase">{{$u->name}}</p>
+            </center>
+          </div>
+          @empty
+          <p>No hay Usuarios nuevos.</p>
+          @endforelse
+        </div>    
+      </div>
+    </section>
     <!-- ================ Blog section start ================= -->  
 
   </main>
