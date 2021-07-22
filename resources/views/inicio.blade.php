@@ -181,7 +181,7 @@
         </div>
         <div class="row">
           @forelse($users as $u)
-          <div class="col">
+          <div class="col-md-7 col-lg-12 col-xl-2">
             <center>
               @if($u->avatar!=null)
                 <img src="/imgusers/{{$u->avatar}}" class="rounded-circle img-fluid" style="width: 100px;">
@@ -191,7 +191,7 @@
               <br>
               &nbsp;
               <h5>{{$u->code}}</h5>
-              <p class="text-uppercase">{{$u->name}}</p>
+              <p class="text-uppercase">{{$u->name}} {{$u->aPaterno}}</p>
             </center>
           </div>
           @empty

@@ -17,7 +17,7 @@ class PaginasController extends Controller
     	$productos=Producto::where('baja','=',1)
             ->take(4)
             ->get();
-        $users=User::where('baja','=',0)->orderBy('created_at','desc')->take(5)->get();
+        $users=User::where('baja','=',0)->orderBy('created_at','desc')->take(6)->get();
         return view('inicio', compact('productos', 'users'));
     }
 
