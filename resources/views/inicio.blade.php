@@ -121,9 +121,8 @@
     <!-- ================ Best Selling item  carousel ================= --> 
     <section class="section-margin calc-60px">
       <div class="container">
-        <div class="section-intro pb-60px">
-          <p>Consulta</p>
-          <h2>Nuestra <span class="section-intro__style">Afiliación y sus beneficios</span></h2>
+        <div class="section-intro pb-60px">          
+          <h2>Nuestra Afiliación<span class="section-intro__style"> y sus beneficios</span></h2>
         </div>
         <div class="row">
           <div class="col-sm-12 col-md-6 col-lg-6">
