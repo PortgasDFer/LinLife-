@@ -48,7 +48,7 @@
   <aside class="main-sidebar elevation-4 sidebar-light-primary">
     <!-- Brand Logo -->
     <a href="/home" class="brand-link navbar-primary">
-      <img src="{{asset('recursos/logo.jpg')}}" alt="LinLife Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="{{asset('recursos/icono.png')}}" alt="LinLife Logo" class="brand-image img-circle elevation-3" style="opacity: .8; width: 26px;">
       <span class="brand-text font-weight-light">LinLife</span>
     </a>
 

@@ -283,6 +283,7 @@
         }else{
           nombre.innerHTML="INGRESA UN CÓDIGO VALIDO";
         }
+        
       })
     }
   </script>

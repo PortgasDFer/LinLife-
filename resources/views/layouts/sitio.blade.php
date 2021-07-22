@@ -51,8 +51,7 @@
 							<h4 class="footer_title">Otros Enlaces</h4>
 							<ul class="list">
 								<li><a href="/">Inicio</a></li>
-								<li><a href="/catalogo">Productos</a></li>
-								<li><a href="/cart-checkout">Carrito</a></li>								
+								<li><a href="/catalogo">Productos</a></li>												
 								<li><a href="/negocio">Negocio</a></li>
 								<li><a href="/nosotros">Nosotros</a></li>
 								<li><a href="/contacto">Contacto</a></li>

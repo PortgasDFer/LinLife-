@@ -64,19 +64,19 @@
               </div>
             </div>
             <div class="form-row">
-              <div class="form-group col-md-12">
+              <div class="form-group col-md-7">
                 <label>Correo Electrónico</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Correo Electrónico" value="{{$user->email}}">
+              </div>            
+            <div class="form-group col-md-5">
+                <label>Sexo</label> 
+                <select name="sexo" id="sexo" class="form-control">
+                  <option selected="">{{$user->sexo}}</option>
+                  <option value="h">Hombre</option>
+                  <option value="m">Mujer</option>
+                </select>                                 
               </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-4">
-                <label>Sexo</label>
-                <br>
-                <input type="checkbox" checked data-toggle="toggle" data-on="H" data-off="M" data-onstyle="success" data-offstyle="warning" name="sexo"> 
-                <p style="font-size:80%;">H (Hombre) <br> M (Mujer)</p>                   
               </div>
-            </div>
             <hr>
             <div class="form-row">
               <div class="form-group col-md-6">
@@ -196,7 +196,7 @@
               </div>
             </div>
             <hr>
-            <button type="submit" class="btn btn-primary">Finalizar Registro</button>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
           </form>
         </div>
       </div>  

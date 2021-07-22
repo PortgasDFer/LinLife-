@@ -217,13 +217,6 @@
                       @enderror 
                   </div>                  
                 </div>
-                <div class="form-group row">                  
-                  <div class="col-sm-12">
-                    <div class="alert alert-danger" role="alert" style="background-color:  #E4E4E4; color: black; font-size: 12px;">
-                      <i class='fas fa-exclamation-circle'></i> Al cambiar la contraseña, se enviará un mensaje a la dirección de correo electrónico relacionada con la cuenta de socio.
-                    </div>
-                  </div>            
-                </div>
                 <div class="form-group row">
                   <div class="col-sm-2">
                   </div>
