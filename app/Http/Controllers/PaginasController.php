@@ -39,6 +39,19 @@ class PaginasController extends Controller
         return view('ShpInterfaces.detalle',compact('detalle'));
    	}
 
+
+    public function negocio()
+    {
+        
+        return view('ShpInterfaces.negocio');
+    }
+
+    public function nosotros()
+    {
+        
+        return view('ShpInterfaces.nosotros');
+    }
+
     public function contacto(Request $request)
     {
         

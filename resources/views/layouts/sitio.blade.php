@@ -44,21 +44,18 @@
 							<p>
 								Somos una empresa 100% mexicana fundada por alumnos del ITV y la UV tomando la iniciativa de mejorar la salud del pueblo mexicano, buscando los mejores laboratorios para maquilar su producto. 
 							</p>
-							<p>
-								Considerando CDMX y EDOMEX para dar a conocer el producto, en consecuencia estudiantes de Medicina de la UNAM se han sumado a la causa.
-							</p>
 						</div>
 					</div>
 					<div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6">
 						<div class="single-footer-widget tp_widgets">
 							<h4 class="footer_title">Otros Enlaces</h4>
 							<ul class="list">
-								<li><a href="#">Inicio</a></li>
-								<li><a href="#">Productos</a></li>
-								<li><a href="#">Carrito</a></li>
-								<li><a href="#">Registrarse</a></li>
-								<li><a href="#">Iniciar sesión</a></li>
-								<li><a href="#">Contacto</a></li>
+								<li><a href="/">Inicio</a></li>
+								<li><a href="/catalogo">Productos</a></li>
+								<li><a href="/cart-checkout">Carrito</a></li>								
+								<li><a href="/negocio">Negocio</a></li>
+								<li><a href="/nosotros">Nosotros</a></li>
+								<li><a href="/contacto">Contacto</a></li>
 							</ul>
 						</div>
 					</div>

@@ -11,9 +11,11 @@
       <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
         <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
           <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="/catalogo">Productos</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{route('cart.checkout')}}">Carrito</a></li>
-          <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>		              
+          <li class="nav-item"><a class="nav-link" href="/catalogo">Productos</a></li>          
+          <li class="nav-item"><a class="nav-link" href="/negocio">Negocio</a></li>      
+          <li class="nav-item"><a class="nav-link" href="/nosotros">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{route('cart.checkout')}}">Carrito</a></li>		              
         </ul>
         <ul class="nav-shop">
         	<li class="nav-item"><button><i class="ti-search"></i></button></li>

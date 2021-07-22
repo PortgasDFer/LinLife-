@@ -11,12 +11,12 @@
 				      <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 				        <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
 				          <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
-				          <li class="nav-item"><a class="nav-link" href="/catalogo">Productos</a></li>
-				          <li class="nav-item"><a class="nav-link" href="/registro">Registrarse</a></li>
+				          <li class="nav-item"><a class="nav-link" href="/catalogo">Productos</a></li>				          		
+				          <li class="nav-item"><a class="nav-link" href="/negocio">Negocio</a></li>			 
+				          <li class="nav-item"><a class="nav-link" href="/nosotros">Nosotros</a></li>
 				          <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>		              
 				        </ul>
-				        <ul class="nav-shop">
-				        	<li class="nav-item"><button><i class="ti-search"></i></button></li>
+				        <ul class="nav-shop">				        	
 				        	@if(count(Cart::getContent()))
 				  			<li class="nav-item"><a href="{{route('cart.checkout')}}"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">{{count(Cart::getContent())}}</span></button> </a></li>
 				  			@else
