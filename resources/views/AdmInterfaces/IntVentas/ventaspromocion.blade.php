@@ -1,17 +1,17 @@
 @extends('layouts.admin')
-@section('title','Listado de ventas')
+@section('title','Lis. Ventas Promoción')
 @section('content')
 <!-- Content Header (Page header) -->
 <div class="content-header">
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">LinLife - Listado de ventas<h1>
+        <h1 class="m-0">LinLife - Lis. Ventas Promoción<h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="/home">Home</a></li>
-          <li class="breadcrumb-item active">Listado de ventas</li>
+          <li class="breadcrumb-item active">Lis. Ventas Promoción</li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -50,7 +50,7 @@
         "processing": true,
         "serverSide": true,
         "autoWidth": false,
-        "ajax": "/obtenerVentas",
+        "ajax": "/obtenerVentaspromocion",
         "columns": [
             {data:'folio',name:'ventas.folio'},
             {data:'fecha', displayFormat: 'dddd D MMMM YYYY',name:'ventas.fecha'},

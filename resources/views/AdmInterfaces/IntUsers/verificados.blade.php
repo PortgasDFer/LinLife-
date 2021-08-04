@@ -31,21 +31,21 @@
           <div class="icon">
             <i class="fa fa-user-circle-o" aria-hidden="true"></i>
           </div>
-          <a href="#" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
       </div>
       <div class="col-sm-12 col-md-6">
         <!-- small box -->
-          <div class="small-box bg-purple">
-            <div class="inner">
-              <h3>{{$pendientes}}</h3>
-              <p>Pendientes de verificación</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-user-times" aria-hidden="true"></i>
-            </div>
-            <a href="/validar-identidades" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
+              <div class="small-box bg-purple">
+                <div class="inner">
+                  <h3>{{$pendientes}}</h3>
+                  <p>Pendientes de verificación</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-user-times" aria-hidden="true"></i>
+                </div>
+                <a href="/validar-identidades" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
       </div>
     </div>
     <div class="row">

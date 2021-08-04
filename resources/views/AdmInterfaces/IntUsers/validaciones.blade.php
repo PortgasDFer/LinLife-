@@ -21,6 +21,20 @@
 <div class="content">
 	<div class="container-fluid">
 		<div class="row">
+            <div class="col-sm-12 col-md-4">
+        <!-- small box -->
+              <div class="small-box bg-purple">
+                <div class="inner">
+                  <h3>{{$pendientes}}</h3>
+                  <p>Pendientes de verificación</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-user-times" aria-hidden="true"></i>
+                </div>
+                &nbsp;
+                &nbsp;
+              </div>
+      </div>
 			<div class="col-sm-12 col-md-4">
 				<!-- small box -->
               <div class="small-box bg-primary">
@@ -45,19 +59,6 @@
                   <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                 </div>
                 <a href="/usuariosverificados" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-			</div>
-			<div class="col-sm-12 col-md-4">
-				<!-- small box -->
-              <div class="small-box bg-purple">
-                <div class="inner">
-                  <h3>{{$pendientes}}</h3>
-                  <p>Pendientes de verificación</p>
-                </div>
-                <div class="icon">
-                  <i class="fa fa-user-times" aria-hidden="true"></i>
-                </div>
-                <a href="#" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
               </div>
 			</div>
 		</div>
@@ -93,6 +94,7 @@
                     				<h1>No hay pendientes para verificar</h1>
                     			@endforelse
                     		</table>
+                        {{ $verificar->links() }}
 						</div>
 					</div>
 				</div>

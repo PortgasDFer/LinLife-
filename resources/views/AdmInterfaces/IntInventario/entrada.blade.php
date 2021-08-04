@@ -14,7 +14,7 @@
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item"><a href="/home">Home</a></li>
           <li class="breadcrumb-item active">Lin Life</li>
         </ol>
       </div><!-- /.col -->
@@ -50,8 +50,8 @@
 	          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
 	            <div class="form-group">
 	              <label for="Nombre">Seleccione el producto</label>
-	              <select name="code" class="form-control"  style="width: 100%" id="producto" onchange="cargar_datos(this.value)">
-	                  <option value="0">Buscar producto</option>
+	              <select name="code" class="form-control"  id="code" onchange="cargar_datos(this.value)">
+	                  <option>Buscar producto</option>
 	                  @foreach($productos as $p)
 	                      <option value="{{$p->code}}" >{{$p->code}} {{$p->nombre}}</option>
 	                  @endforeach
@@ -102,12 +102,14 @@
 	            <div class="form-group">
 	              <label for="">Precio nuevo</label>
 	              <input type="text"  name="precio_nuevo" class="form-control" placeholder="$">
+	              <small id="passwordHelpBlock" class="form-text text-muted">*Opcional</small>
 	            </div>
 	          </div>
 	          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
 	            <div class="form-group">
 	              <label for="	">Valor DIST nuevo</label>
 	              <input type="text" name="valor_distn" class="form-control" placeholder="$">
+	              <small id="passwordHelpBlock" class="form-text text-muted">*Opcional</small>
 	            </div>
 	          </div>
 	        </div>

@@ -26,9 +26,28 @@ class VentasController extends Controller
     public function datatable()
     {
     	$ventas=Ventas::join('users','ventas.id_user','=','users.id')
+                ->where('ventas.baja','=',1)
+                ->where('ventas.tipo','=','VENTA')
                 ->select(array('ventas.folio','ventas.fecha','ventas.total','ventas.total_final','users.name','users.aPaterno','users.aMaterno'));
         //$ventas=Ventas::where('baja','=',1)->get();
     	return DataTables::of($ventas)
+                ->editColumn('fecha', function ($venta) {
+                    return $venta->fecha ? with(new Carbon($venta->fecha))->format('m/d/Y') : '';
+                })
+                ->addColumn('promos','AdmInterfaces.IntVentas.botones.detalle')
+                ->addColumn('ingreso','AdmInterfaces.IntVentas.botones.comision')
+                ->rawColumns(['promos','ingreso'])
+                ->toJson();
+    }
+
+    public function datatablepromocion()
+    {
+        $ventas=Ventas::join('users','ventas.id_user','=','users.id')
+                ->where('ventas.baja','=',1)
+                ->where('ventas.tipo','=','PROMOCION')
+                ->select(array('ventas.folio','ventas.fecha','ventas.total','ventas.total_final','users.name','users.aPaterno','users.aMaterno'));
+        //$ventas=Ventas::where('baja','=',1)->get();
+        return DataTables::of($ventas)
                 ->editColumn('fecha', function ($venta) {
                     return $venta->fecha ? with(new Carbon($venta->fecha))->format('m/d/Y') : '';
                 })
@@ -61,6 +80,11 @@ class VentasController extends Controller
     public function ventas()
     {
         return view('AdmInterfaces.IntVentas.index');
+    }
+
+    public function ventaspromocion()
+    {
+        return view('AdmInterfaces.IntVentas.ventaspromocion');
     }
 
 

@@ -19,6 +19,24 @@
 		
 		<script src="{{asset('vendor/sweetalert/sweetalert.all.js')}}"></script>
 		<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" integrity="sha512-WEQNv9d3+sqyHjrqUZobDhFARZDko2wpWdfcpv44lsypsSuMO0kHGd3MQ8rrsBn/Qa39VojphdU6CMkpJUmDVw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha512-+EoPw+Fiwh6eSeRK7zwIKG2MA8i3rV/DGa3tdttQGgWyatG/SkncT53KHQaS5Jh9MNOT3dmFL0FjTY08And/Cw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+		<style type="text/css">
+			/* padding-bottom and top for image */
+			.mfp-no-margins img.mfp-img {
+				padding: 0;
+			}
+			/* position of shadow behind the image */
+			.mfp-no-margins .mfp-figure:after {
+				top: 0;
+				bottom: 0;
+			}
+			/* padding for main container */
+			.mfp-no-margins .mfp-container {
+				padding: 0;
+			}
+		</style>
 	</head>
 	<body>
 		<!--================ Start Header Menu Area =================-->
@@ -62,12 +80,12 @@
 						<div class="single-footer-widget instafeed">
 							<h4 class="footer_title">Galería</h4>
 							<ul class="list instafeed d-flex flex-wrap">
-								<li><img src="recursos/1.png" alt=""></li>
-								<li><img src="recursos/2.jpg" alt=""></li>
-								<li><img src="recursos/3.png" alt=""></li>
-								<li><img src="recursos/4.png" alt=""></li>
-								<li><img src="recursos/5.png" alt=""></li>
-								<li><img src="recursos/6.jpg" alt=""></li>
+								<li><a class="image-popup-vertical-fit" href="recursos/ARANDANO.png"><img src="recursos/1.png"></a></li>
+								<li><a class="image-popup-vertical-fit" href="recursos/CITRICOS.jpg"><img src="recursos/2.jpg"></a></li>
+								<li><a class="image-popup-vertical-fit" href="recursos/GELATINA.png"><img src="recursos/3.png"></a></li>
+								<li><a class="image-popup-vertical-fit" href="recursos/TAMARINDO.png"><img src="recursos/4.png"></a></li>
+								<li><a class="image-popup-vertical-fit" href="recursos/VASO-DIARIO.png"><img src="recursos/5.png"></a></li>
+								<li><a class="image-popup-vertical-fit" href="recursos/vitamina-c.jpg"><img src="recursos/6.jpg"></a></li>
 							</ul>
 						</div>
 					</div>
@@ -108,7 +126,7 @@
 				<div class="row d-flex">
 					<p class="col-lg-12 footer-text text-center">
 						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+						Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Esta plantilla está hecha por <i class="fa fa-heart" aria-hidden="true"></i> <a href="https://colorlib.com" target="_blank">Colorlib</a>
 						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 				</div>
 			</div>
@@ -125,5 +143,21 @@
 	<script src="{{asset('assets/shop/vendors/jquery.ajaxchimp.min.js')}}"></script>
 	<script src="{{asset('assets/shop/vendors/mail-script.js')}}"></script>
 	<script src="{{asset('assets/shop/js/main.js')}}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js" integrity="sha512-C1zvdb9R55RAkl6xCLTPt+Wmcz6s+ccOvcr6G57lbm8M2fbgn2SUjUJbQ13fEyjuLViwe97uJvwa1EUf4F1Akw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			$('.image-popup-vertical-fit').magnificPopup({
+				type: 'image',
+				closeOnContentClick: true,
+				mainClass: 'mfp-img-mobile',
+				image: {
+					verticalFit: true
+				}
+				
+			});
+		});
+	</script>
 	</body>
 </html>

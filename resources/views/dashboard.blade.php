@@ -181,7 +181,7 @@
             </div>
           </div>
           <div class="card-footer clearfix">
-            <a href="/listado-de-ventas" class="btn btn-sm btn-info float-left">Listado de ventas</a>
+            <a href="/listado-de-ventaspromocion" class="btn btn-sm btn-info float-left">Listado de ventas</a>
           </div>
         </div>
       </div>

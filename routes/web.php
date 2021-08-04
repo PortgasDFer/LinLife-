@@ -88,9 +88,11 @@ Route::get('/indexventas/','VentasController@indventas')->name('ventas.indexof')
 Route::resource('/ventas','VentasController');
 Route::post('/ventas-promocion','VentasController@promocion')->name('ventas.promocion');
 Route::get('/listado-de-ventas','VentasController@ventas')->name('listado.ventas');
+Route::get('/listado-de-ventaspromocion','VentasController@ventaspromocion')->name('listado.ventaspromocion');
 Route::get('/detalle-venta/{venta}','VentasController@detalleVenta')->name('detalle.venta');
 Route::get('/detalle-ventapromocion/{venta}','VentasController@detalleVentapromocion')->name('detalle.ventaspromocion');
 Route::get('/obtenerVentas','VentasController@datatable')->name('datatable.ventas');
+Route::get('/obtenerVentaspromocion','VentasController@datatablepromocion')->name('datatable.ventaspromocion');
 
 
 Route::get('/pedidos-automaticos','PedidosController@automaticos')->name('pedidos.automaticos');

@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Listado de ventas')
+@section('title','Listado de comisiones')
 @section('content')
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -45,6 +45,7 @@
             <tbody>
             </tbody>
           </table>
+          {{ $usuariosComision->links() }}
         </div>	
 				
 			</div>

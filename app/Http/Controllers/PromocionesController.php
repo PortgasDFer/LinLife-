@@ -9,6 +9,7 @@ use App\Ventas;
 use Alert;
 use Redirect,Response;
 use DataTables;
+use Illuminate\Support\Facades\DB;
 
 class PromocionesController extends Controller
 {
@@ -17,7 +18,7 @@ class PromocionesController extends Controller
     {
         $promociones=Promocion::join('productos','promociones.code_producto','=','productos.code')
         ->select(array('productos.nombre','promociones.descripcion','promociones.unidades','promociones.costo','promociones.id'))
-        ->where('promociones.baja','=',0);
+        ->where('promociones.baja','=',0);      
         return DataTables::of($promociones)
         ->addColumn('edit','AdmInterfaces.IntPromociones.botones.edit')
         ->addColumn('delete','AdmInterfaces.IntPromociones.botones.delete')
@@ -44,7 +45,7 @@ class PromocionesController extends Controller
      */
     public function create()
     {
-        $productos=Producto::all();
+        $productos=DB::select('select * from productos where baja = 1');        
         return view('AdmInterfaces.IntPromociones.create',compact('productos'));
     }
 
@@ -92,8 +93,8 @@ class PromocionesController extends Controller
      */
     public function edit($id)
     {
-        $productos=Producto::all();
-        $promocion=Promocion::find($id)->firstOrFail();
+        $productos=DB::select('select * from productos where baja = 1');
+        $promocion=Promocion::find($id);
         return view('AdmInterfaces.IntPromociones.edit',compact('promocion','productos'));
     }
 
@@ -107,8 +108,8 @@ class PromocionesController extends Controller
     public function update(Request $request, $id)
     {
         $promocion=Promocion::find($id)->firstOrFail();
-         $request->validate([            
-            'code'      => 'required',
+        $request->validate([            
+            
             'unidades'        => 'required|numeric|min:1',
             'costo'     => 'required|numeric',
             'descripcion'     => 'required|min:10',
@@ -132,7 +133,7 @@ class PromocionesController extends Controller
      */
     public function destroy($id)
     {
-        $promocion=Promocion::find($id)->firstOrFail();
+        $promocion=Promocion::find($id);
         $promocion->baja=1;
         $promocion->save();
         alert()->warning('LIN LIFE', 'Promoción eliminada');

@@ -279,7 +279,7 @@ class UsersController extends Controller
         $verificar=User::select('users.name','users.aPaterno','users.aMaterno','domicilios.localidad','domicilios.colonia','domicilios.entidad','users.slug','users.status_cuenta')
         ->join("domicilios","domicilios.id_user","=","users.id")
         ->where('users.status_cuenta','=','PENDIENTE')
-        ->paginate(6);
+        ->paginate(10);
         return view('AdmInterfaces.IntUsers.validaciones',compact('users','verificados','pendientes','verificar'));
     }
 

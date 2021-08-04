@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Registro de nuevo socio</title>
+    <title>Editar socio</title>
     <link rel="icon" href="{{asset('recursos/favicon.ico')}}" type="image/png">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -13,14 +13,16 @@
     <link rel="stylesheet" href="{{asset('assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('assets/dist/css/adminlte.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/shop/css/style.css')}}">
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
     <script src=" http://servicios.apiqroo.com.mx/sepomex/public/js/sepomex_js/sepomex.js"></script>
   </head>
   <body>    
   <section class="bg-light">
 
-    <div class="container">
-      <a href="/usuarios">Volver</a>
+    <div class="container">      
+      <br>
+      <i class="fas fa-angle-left"></i>  <a href="/usuarios">Volver</a>
       <br>
       <br>
       @if (count($errors) > 0)
@@ -127,17 +129,27 @@
               </div>
               <div class="form-group col-md-2">
                 <label>INE</label>
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="customFileLang" lang="es" name="frente">
-                  <label class="custom-file-label" for="customFileLang">Frente</label>
-                </div>                
+               <div style="position:relative;">
+                    <a class='button button-login w-100' href='javascript:;'>
+                      Frente...
+                      <input type="file" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0); -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="frente" id="frente" size="40" onchange='$("#upload-file-info").html($(this).val());'>
+                    </a>
+                    &nbsp;
+                    <span class='badge badge-success' id="upload-file-info"></span>
+                  </div>             
               </div>
               <div class="form-group col-md-2">
                 <label><br></label>                
                 <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="customFileLang" lang="es" name="atras">
-                  <label class="custom-file-label" for="customFileLang">Atras</label>
-                </div>                
+                  <div style="position:relative;">
+                    <a class='button button-login w-100' href='javascript:;'>
+                      Atras...
+                      <input type="file" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0); -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="atras" id="atras" size="40" onchange='$("#upload-file-info2").html($(this).val());'>
+                    </a>
+                    &nbsp;
+                    <span class='badge badge-success' id="upload-file-info2"></span>
+                  </div>
+                </div>                    
               </div>
               <div class="form-group col-md-2">
                 <br>
@@ -156,8 +168,39 @@
               <div class="form-group col-md-3">
                 <label>Entidad de Nacimiento</label>
                 <select id="entidad" name="entidad" class="form-control">
-                  <option selected>Selecciona...</option>
-                  <option>...</option>
+                  <option selected="">Selecciona...</option>
+                        <option value="Aguascalientes">Aguascalientes</option>
+                        <option value="Baja California">Baja California</option>
+                        <option value="Baja California Sur">Baja California Sur</option>
+                        <option value="Campeche">Campeche</option>
+                        <option value="Chiapas">Chiapas</option>
+                        <option value="Chihuahua">Chihuahua</option>
+                        <option value="CDMX">Ciudad de México</option>
+                        <option value="Coahuila">Coahuila</option>
+                        <option value="Colima">Colima</option>
+                        <option value="Durango">Durango</option>
+                        <option value="Estado de México">Estado de México</option>
+                        <option value="Guanajuato">Guanajuato</option>
+                        <option value="Guerrero">Guerrero</option>
+                        <option value="Hidalgo">Hidalgo</option>
+                        <option value="Jalisco">Jalisco</option>
+                        <option value="Michoacán">Michoacán</option>
+                        <option value="Morelos">Morelos</option>
+                        <option value="Nayarit">Nayarit</option>
+                        <option value="Nuevo León">Nuevo León</option>
+                        <option value="Oaxaca">Oaxaca</option>
+                        <option value="Puebla">Puebla</option>
+                        <option value="Querétaro">Querétaro</option>
+                        <option value="Quintana Roo">Quintana Roo</option>
+                        <option value="San Luis Potosí">San Luis Potosí</option>
+                        <option value="Sinaloa">Sinaloa</option>
+                        <option value="Sonora">Sonora</option>
+                        <option value="Tabasco">Tabasco</option>
+                        <option value="Tamaulipas">Tamaulipas</option>
+                        <option value="Tlaxcala">Tlaxcala</option>
+                        <option value="Veracruz">Veracruz</option>
+                        <option value="Yucatán">Yucatán</option>
+                        <option value="Zacatecas">Zacatecas</option> 
                 </select>
               </div>
               <div class="form-group col-md-3">
@@ -173,7 +216,7 @@
             <div class="form-row">
               <div class="form-group col-md-2">
                 <label>Invitación</label>
-                <input type="text" name="invitacion" class="form-control" id="invitacion" placeholder="Patrocinador">
+                <input type="text" name="invitacion" class="form-control" id="invitacion" placeholder="Invitación" readonly="" value="{{$user->invitacion}}">
               </div>
               <div class="form-group col-md-2">
                 <label>Banco</label>
@@ -211,8 +254,6 @@
   <script src="{{asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <!-- AdminLTE App -->
   <script src="{{asset('assets/dist/js/adminlte.min.js')}}"></script>
-  <!-- API sepomex -->
-  <script src="{{asset('js/sepomex.js')}}"></script>
 
   <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
   </body>

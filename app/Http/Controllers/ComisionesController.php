@@ -63,9 +63,8 @@ class ComisionesController extends Controller
                             ->select('id','slug','name','aPaterno','aMaterno')
                             ->selectRaw("SUM(total_comision) as comision_total")
                             ->whereBetween('comisiones.fecha', [$inicioMes, $finMes])
-                            ->groupBy('id')
-                            
-                            ->get();
+                            ->groupBy('id')                            
+                            ->paginate(10);
 
         //return $usuariosComision;
 

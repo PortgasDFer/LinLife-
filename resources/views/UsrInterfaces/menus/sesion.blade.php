@@ -33,14 +33,18 @@
                     &nbsp;
                   @endif
                 {{ Auth::user()->name }} {{Auth::user()->aPaterno}}</a>
+                <center>
               <ul class="dropdown-menu">
-                <a class="dropdown-item" href="/home" style="width: 206px;"><i class="fa fa-user" aria-hidden="true"></i> Mi Cuenta</a>                
-                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link"><i class='fas fa-sign-out-alt'></i> Cerrar sesión
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                    </form>        
-                  </a>
+                
+                  <a class="dropdown-item" href="/home"><i class="fa fa-user" aria-hidden="true"></i> Mi Cuenta</a>                
+                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link"><i class='fas fa-sign-out-alt'></i> Cerrar sesión
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                      </form>        
+                    </a>
+                  
               </ul>
+              </center>
             </li>
         </ul>
       </div>

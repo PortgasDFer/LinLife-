@@ -61,17 +61,17 @@
                    </div>
                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                       <label for="">Unidades</label>
-                      <input type="text" name="unidades" class="form-control">
+                      <input type="text" name="unidades" class="form-control" value="{{old('unidades')}}">
                    </div>
                 </div>
                 <div class="form-group row">  
                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                     <label for="">Descripción</label>
-                    <input type="text" name="descripcion" class="form-control">
+                    <input type="text" name="descripcion" class="form-control" value="{{old('descripcion')}}">
                   </div>
                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                     <label for="">Costo</label>
-                    <input type="text" name="costo" class="form-control">
+                    <input type="text" name="costo" class="form-control" value="{{old('costo')}}">
                   </div>
                 </div>
                 <div class="form-group">  

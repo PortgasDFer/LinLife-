@@ -42,7 +42,7 @@
           <div class="icon">
             <i class="fa fa-usd" aria-hidden="true"></i>
           </div>
-          <a class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
+          &nbsp;&nbsp;          
         </div>
       </div>
 		</div>

@@ -4,13 +4,7 @@
           <li class="nav-item">
             <a href="/home" class="nav-link">
               <i class="fas fa-home nav-icon"></i>
-              <p>Página principal</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="fa fa-user-circle nav-icon"></i>
-              <p>Panel de administración</p>
+              <p>Inicio</p>
             </a>
           </li>
           <li class="nav-item">
@@ -130,6 +124,14 @@
                 <a href="/listado-de-ventas" class="nav-link">
                   <i class="far fa-dot-circle nav-icon"></i>
                   <p>Listado de Ventas</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/listado-de-ventaspromocion" class="nav-link">
+                  <i class="far fa-dot-circle nav-icon"></i>
+                  <p>Lis. de Ventas Promoción</p>
                 </a>
               </li>
             </ul>
