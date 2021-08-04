@@ -20,6 +20,15 @@
 <!-- /.content-header -->
 <!-- Main content -->
 <section class="content">
+  @if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+  @endif
   <div class="card">
     <div class="card-header">
       <h3 class="card-title">Frente</h3>
@@ -34,14 +43,18 @@
       </div>
     </div>
     <div class="card-body">
-      <form action="/guardarine/{{Auth::user()->slug}}" enctype="multipart/form-data" method="POST">
+      <form action="/guardarine/{{Auth::user()->id}}" enctype="multipart/form-data" method="POST">
         @csrf
         <div class="form-group row">
           <div class="col-sm-2">
             &nbsp;
           </div>
           <div class="col-sm-4">
-            <img src="https://static.vecteezy.com/system/resources/thumbnails/002/165/416/small/line-icon-for-identity-vector.jpg" style="width: 140px;">
+            @if(Auth::user()->frente!=null)                                    
+              <img src="/identificaciones/{{Auth::user()->frente}}.webp" style="width:260px;"/>
+            @else              
+              <img src="https://static.vecteezy.com/system/resources/thumbnails/002/165/416/small/line-icon-for-identity-vector.jpg" style="width: 140px;">
+              @endif            
           </div>
           <div class="col-sm-4">
             <div class="form-group">                  
@@ -77,14 +90,19 @@
       </div>
     </div>
     <div class="card-body">
-      <form action="/guardarineReverso/{{Auth::user()->slug}}" enctype="multipart/form-data" method="POST">
+      <form action="/guardarineReverso/{{Auth::user()->id}}" enctype="multipart/form-data" method="POST">
         @csrf
         <div class="form-group row">
           <div class="col-sm-2">
             &nbsp;
           </div>
           <div class="col-sm-4">
-            <img src="https://www.vippng.com/png/full/190-1906997_tarjetas-de-identificacin-graphics.png" alt="example placeholder avatar" style="width: 140px;">
+
+             @if(Auth::user()->atras!=null)                      
+              <img src="/identificaciones/{{Auth::user()->atras}}.webp" style="width: 260px;"/>
+            @else
+              <img src="https://www.vippng.com/png/full/190-1906997_tarjetas-de-identificacin-graphics.png" alt="example placeholder avatar" style="width: 140px;">
+              @endif     
           </div>
           <div class="col-sm-4">
             <div class="form-group">                  
@@ -97,7 +115,7 @@
               <br>
               <button type="submit" class="btn btn-warning btn-block btn-sm"><i class="fa fa-upload" aria-hidden="true"></i> Cargar</button>
             </div>
-          </div>                  
+          </div>
         </div> 
       </form>
     </div>
@@ -107,4 +125,13 @@
     </div>
   </div>
 </section>
+@section('scripts')
+  <script src="{{asset('assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
+  <script>  
+      $(function () {
+        bsCustomFileInput.init();
+      });  
+  </script>
+@endsection
+
 @endsection

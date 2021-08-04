@@ -22,8 +22,8 @@
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="{{asset('recursos/linlife.png')}}" style="width:100px; margin:3px 0;">
+      <a class="navbar-brand" href="/home">
+        <img src="{{asset('recursos/linlife2.png')}}">
       </a>
       <span class="navbar-text">
         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color: #aaa;"><i class="fas fa-sign-out-alt" style="color: #4025A6"></i> Salir
@@ -37,7 +37,7 @@
   </nav>
   <div class="content">
     <div class="alert alert-primary" role="alert" style="border-radius: 0px; text-align: center; background-color: #4025A6; font-size: 12px; ">
-      info de LinLife
+      LinLife
     </div>
   </div>
   <div class="container">
@@ -83,7 +83,7 @@
            <select id="destino" name="destino" class="form-control">
               <option selected>Selecciona un domicilio... </option>
               @foreach($domicilios as $d)
-                <option value="{{$d->id}}">{{$d->nombre}}</option>
+                <option value="{{$d->id}}">{{$d->calle}} {{$d->noext}}</option>
               @endforeach
             </select>
           </div>
@@ -101,12 +101,7 @@
         </div>
         <div class="col-sm-3 text-align center">                      
           <p style="font-size: 12px;"><strong>{{$usuario->name}}</strong> {{$usuario->aPaterno}} {{$usuario->aMaterno}}<br>
-          <span class="badge badge-dark" style="font-size: 12px;"> {{$usuario->invitacion}}</span><br><i class="fa fa-user" aria-hidden="true"></i> Titular del pedido <br>
-          Compra aplica en
-          <select id="compra" name="compra" class="form-control" style="width: 100px; height: 20px;">
-            <option value="cargar_entrega();">Selecciona...</option>
-            <option>...</option>
-          </select>
+          <span class="badge badge-dark" style="font-size: 12px;"> {{$usuario->code}}</span><br><i class="fa fa-user" aria-hidden="true"></i> Titular del pedido <br>
           </p>
         </div>
         <div class="col-sm-7">          

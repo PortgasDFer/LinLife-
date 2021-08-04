@@ -113,6 +113,7 @@ class VentasController extends Controller
                     ->join('productos','productos.code','=','dvp.code_producto')
                     ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
                     ->where('ventas.folio','=',$venta->folio)
+                    ->where('productos.baja','=',1)
                     ->get();
         alert()->success('LIN LIFE', 'Comience a agregar productos');
         return view('UsrInterfaces.pedidos',compact('datos','tabla','usuario', 'domicilios','productos'));

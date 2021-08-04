@@ -54,18 +54,29 @@ class CuentaController extends Controller
         return Redirect::to('/cuenta');
     }
 
-    public function telefonos(Request $request, $id)
+    public function telefono(Request $request, $id)
     {              
         $validate = $request->validate([
-            'fijo'   => ['required','numeric','min:10','max'],
-            'celular'   => ['required','numeric','min:10','max'],
+            'fijo'   => ['required','numeric','digits:10'],
             //'nombre' => 'required|regex:/^[\pL\s\-]+$/u',
         ]);       
         $user = User::find($id);
         $user->telcasa=$request->input('fijo');
+        $user->save();
+        alert()->success('LIN LIFE', 'Telefono fijo actualizado');
+        return Redirect::to('/cuenta');
+    }
+
+    public function celular(Request $request, $id)
+    {              
+        $validate = $request->validate([            
+            'celular'   => ['required','numeric','digits:10'],
+            //'nombre' => 'required|regex:/^[\pL\s\-]+$/u',
+        ]);       
+        $user = User::find($id);        
         $user->telcel=$request->input('celular');
         $user->save();
-        alert()->success('LIN LIFE', 'Telefonos actualizados');
+        alert()->success('LIN LIFE', 'Telefono celular actualizado');
         return Redirect::to('/cuenta');
     }
 

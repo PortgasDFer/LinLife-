@@ -333,7 +333,7 @@ class UsersController extends Controller
     }
 
     public function subirIdentificacion()
-    {
+    {        
         return view('UsrInterfaces.identificaciones');
     }
 
@@ -358,38 +358,42 @@ class UsersController extends Controller
         return Redirect::to('/subir-identificacion');
     }
 
-    public function frente(Request $request, $slug)
+    public function frente(Request $request, $id)
     {
-        $user=User::where('slug','=',$slug)->firstOrFail();
-        if($request->hasfile('frente')){
+        $user=User::find($id);
+        $request->validate([
+            'frente'        => 'required'
+        ]);        
+         if($request->hasfile('frente')){
+            $file_path = public_path() . "/identificaciones/$user->frente";
+            \File::delete($file_path);
             $frente=$request->file('frente');
-            $filename= time(). '.'. $frente->getClientOriginalExtension();
+            $filename= time().$frente->getClientOriginalExtension();
             $image= Image::make($frente)->encode('webp',90)->save(public_path('/identificaciones/' . $filename.'.webp'));
+            $user->frente=$filename;
         }
         $user->save();
         alert()->success('LIN LIFE', 'Parte de enfrente cargada con éxito');
-        return Redirect::to('/home');
+        return Redirect::to('/subir-identificacion');
     }
 
-    public function atras(Request $request, $slug)
+    public function atras(Request $request, $id)
     {
-        $user=User::where('slug','=',$slug)->firstOrFail();
-        if($request->hasfile('atras')){
+        $user=User::find($id);
+        $request->validate([
+            'atras'        => 'required'
+        ]);        
+         if($request->hasfile('atras')){
+            $file_path = public_path() . "/identificaciones/$user->atras";
+            \File::delete($file_path);
             $atras=$request->file('atras');
-            $filename_atras= time(). '.' .$atras->getClientOriginalExtension();
-            $image= Image::make($atras)->encode('webp',90)->save(public_path('/identificaciones/' . $filename_atras.'.webp'));
+            $filename= time().$atras->getClientOriginalExtension();
+            $image= Image::make($atras)->encode('webp',90)->save(public_path('/identificaciones/' . $filename.'.webp'));
+            $user->atras=$filename;
         }
-            $user->atras=$filename_atras;
-            $user->status_cuenta='VERIFICADO';
-            $codigobase=User::select('code')->orderby('code','DESC')->first();
-            $codigonuevo=substr($codigobase, 9,-7);
-            $numero=substr($codigobase,14,-2);
-            $contador=$numero+1;
-            $codigo=$codigonuevo.$contador;
-            $user->code=$codigo;
-            $user->save();
-            alert()->success('LIN LIFE', 'CUENTA ACTIVADA');
-            return Redirect::to('/subir-identificacion');
+        $user->save();
+        alert()->success('LIN LIFE', 'Parte de atras cargada con éxito');
+        return Redirect::to('/subir-identificacion');
     }
 
     public function desglose($slug)

@@ -22,7 +22,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/home">
         <img src="{{asset('recursos/linlife2.png')}}">
       </a>
       <span class="navbar-text">
@@ -37,7 +37,7 @@
   </nav>
   <div class="content">
     <div class="alert alert-primary" role="alert" style="border-radius: 0px; text-align: center; background-color: #4025A6; font-size: 12px; ">
-      info de LinLife
+      LinLife
     </div>
   </div>
   <div class="container">
@@ -53,12 +53,12 @@
         </div>
         <div class="col-sm-3 text-align center">                      
           <p style="font-size: 12px;"><strong>{{$usuario->name}}</strong> {{$usuario->aPaterno}} {{$usuario->aMaterno}}<br>
-          <span class="badge badge-dark" style="font-size: 12px;"> {{$usuario->invitacion}}</span><br><i class="fa fa-user" aria-hidden="true"></i> Titular del pedido <br>
-          Compra aplica en
+          <span class="badge badge-dark" style="font-size: 12px;"> {{$usuario->code}}</span><br><i class="fa fa-user" aria-hidden="true"></i> Titular del pedido <br>
+          <!--Compra aplica en
           <select id="compra" name="compra" class="form-control" style="width: 100px; height: 20px;">
             <option value="cargar_entrega();">Selecciona...</option>
             <option>...</option>
-          </select>
+          </select>-->
           </p>
         </div>
         <div class="col-sm-7">          

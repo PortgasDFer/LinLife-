@@ -27,7 +27,7 @@
 	      		</div>
 	      		<div class="card-body p-0">
 	      			<div class="table-responsive">
-	      				<table class="table table-sm">
+	      				<table class="table m-0">
 	      					<thead>
 			                    <tr>
 			                      <th>Estado</th>
@@ -51,7 +51,8 @@
 			                      <td>{{$invitado->fechanac}}</td>
 			                    </tr>
 			      			@empty
-			      				<h2> No hay usuarios registrados todavía. </h2>
+			      			<tr><h4> No hay usuarios registrados. </h4></tr>
+			      				
 			      			@endforelse
 	      				</tbody>
 	      				</table>

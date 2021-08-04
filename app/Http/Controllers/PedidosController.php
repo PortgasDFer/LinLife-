@@ -303,7 +303,7 @@ class PedidosController extends Controller
                     ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
                     ->where('ventas.folio','=',$folio)
                     ->get();
-        alert()->success('LIN LIFE', 'Producto Agregado');
+        alert()->warning('LIN LIFE', 'Promoción eliminada');
         return view('UsrInterfaces.pedidos-promociones',compact('datos','tabla','promociones','domicilios','usuario'));
     }
     public function detallePedido($folio)

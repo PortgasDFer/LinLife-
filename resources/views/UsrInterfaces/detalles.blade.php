@@ -130,7 +130,7 @@
                   	<p>
                   		Utiliza tú código de invitación para registrar a un amigo
                   		<br>
-                  		Tú código es: {{Auth::user()->code}}
+                  		Tú código es: <strong>{{Auth::user()->code}}</strong>
                   	</p>
                   	@endforelse
                     

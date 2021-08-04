@@ -179,14 +179,17 @@
                 <div class="form-group col-sm-4-offset">
                     <a href="/domicilios"><button type="button" class="btn btn-warning btn-block"><i class="fa fa-map-marker" aria-hidden="true"></i> Editar Domicilios</button></a>
                   </div>
+                   <div class="row no-gutters">
                   @foreach($domicilio as $d)
-                <div class="card bg-light mb-12" style="max-width: 18rem;">
+                <div class="card bg-light mb-12">
                   <div class="card-header">{{$d->nombre}}</div>
                   <div class="card-body">                    
                     <p>Calle: {{$d->calle}} #{{ $d->noext}} {{ $d->noint}} <br>Colonia: {{$d->colonia}}<br>C.P.: {{ $d->cp}}<br><strong>{{ $d->entidad}} </strong><br></p>                    
                   </div>
                 </div>
+                &nbsp;&nbsp;&nbsp;
                 @endforeach
+              </div>
             </div>
           </div>
         </div>
@@ -257,7 +260,9 @@
                     <button type="submit" class="btn btn-warning btn-block"><i class='fas fa-pencil-alt'></i> Actualizar</button>
                   </div>
                 </div>
-
+                </form>
+                <form method="POST" action="/cel/{{auth()->id()}}" enctype="multipart/form-data">                
+                @csrf
                 <div class="form-group row">
                   <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Celular</label>
                   <div class="col-sm-4">
@@ -271,8 +276,8 @@
                   <div class="col-sm-3">
                     <button type="submit" class="btn btn-warning btn-block"><i class='fas fa-pencil-alt'></i> Actualizar</button>
                   </div>
-                </div> 
-                    </form>        
+                </div>
+                </form>                           
               </div>
             </div>
           </div>

@@ -11,7 +11,7 @@
 	  </div><!-- /.col -->
 	  <div class="col-sm-6">
 	    <ol class="breadcrumb float-sm-right">
-	      <li class="breadcrumb-item"><a href="#">Home</a></li>
+	      <li class="breadcrumb-item"><a href="/home">Home</a></li>
 	      <li class="breadcrumb-item active">Lin Life</li>
 	    </ol>
 	  </div><!-- /.col -->
@@ -92,7 +92,9 @@
       document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth'
+          locale: 'es',
+          initialView: 'dayGridMonth',
+          
         });
         calendar.render();
       });

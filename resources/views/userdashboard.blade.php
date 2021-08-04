@@ -30,12 +30,29 @@
           <a href="/subir-identificacion"><button class="btn btn-primary">Subir identificación</button></a>
         </div> 
       </div>
-      @elseif(Auth::user()->status_cuenta="PENDIENTE")
+      @endif      
+      @if(Auth::user()->status_cuenta=="CANCELADA")
+      <div class="col-lg-12">
+        <div class="alert alert-danger alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <h5><i class="icon fas fa-exclamation-triangle"></i> ¡ATENCIÓN!</h5>
+         Tú cuenta ha sido cancelada por tiempo indefinido.
+        </div> 
+      </div>
+      @elseif(Auth::user()->status_cuenta=="VERIFICADO")
       <div class="col-lg-12">
         <div class="alert alert-success alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
           <h5><i class="icon fas fa-exclamation-triangle"></i> ¡ATENCIÓN!</h5>
          Tú cuenta ha sido aprobada.  Invita a tus amigos a registrarse con el código <span class="bg-primary">{{Auth::user()->code}}</span>, y comienza a generar ingresos con LinLife. 
+        </div> 
+      </div>
+      @elseif(Auth::user()->status_cuenta=="PENDIENTE")
+      <div class="col-lg-12">
+        <div class="alert alert-warning alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <h5><i class="icon fas fa-exclamation-triangle"></i> ¡ATENCIÓN!</h5>
+         Tú identificación ah sido solicitada nuevamente. <a href="/subir-identificacion"><button class="btn btn-primary">Subir identificación</button></a>
         </div> 
       </div>
       @endif
@@ -53,7 +70,7 @@
           <div class="icon">
             <i class="fas fa-shopping-cart"></i>
           </div>
-          <a href="#" class="small-box-footer">
+          <a href="/mes/{{Auth::user()->slug}}" class="small-box-footer">
             Más Información <i class="fas fa-arrow-circle-right"></i>
           </a>
         </div>
@@ -92,7 +109,7 @@
               <!-- /.col -->
               <div class="col-sm-4">
                 <div class="description-block">
-                  <h5 class="description-header">0</h5>
+                  <h5 class="description-header">{{$noComisiones}}</h5>
                   <span class="description-text">Comisiones</span>
                 </div>
                 <!-- /.description-block -->
@@ -120,7 +137,11 @@
             $0.00 
           </div>
           <div class="card-footer"> 
-              Activa tu cuenta para comenzar
+              @if(Auth::user()->status_cuenta=="VERIFICADO")
+                <p>Invita a tus amigos a tu red. <a href="/estructura-de-red/{{Auth::user()->slug}}"><button class="btn btn-primary btn-sm">Mi Red</button></a></p>
+              @elseif(Auth::user()->status_cuenta=="PENDIENTE")
+                <p>Tu cuenta debe de ser activada</p>
+              @endif
           </div>  
           <!-- /.card-body -->
         </div>
@@ -182,9 +203,8 @@
         <div class="card mb-2 bg-gradient-dark">
           <img class="card-img-top" src="recursos/Nutricion-lamina.png" alt="Dist Photo 1">
           <div class="card-img-overlay d-flex flex-column justify-content-end">
-            <h5 class="card-title text-primary text-white">Card Title</h5>
-            <p class="card-text text-white pb-2 pt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor.</p>
-            <a href="#" class="text-white">Last update 2 mins ago</a>
+            <h5 class="card-title text-primary text-white">LinLife</h5>
+            <p class="card-text text-white pb-2 pt-1"> </p>            
           </div>
         </div>
       </div>

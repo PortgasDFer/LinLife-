@@ -50,7 +50,7 @@ Route::get('/verificar/{usuario}','UsersController@verificarUsuario')->name('ver
 Route::post('/status/{usuario}','UsersController@statusCuenta')->name('status.usuario');
 Route::get('/subir-identificacion','UsersController@subirIdentificacion')->name('subir.identificación');
 Route::post('/guardarineReverso/{usuario}','UsersController@atras')->name('identificacion.atras');
-Route::post('/guardarine/{usuario}','UsersController@guardarIne')->name('guardar.ine');
+Route::post('/guardarine/{usuario}','UsersController@frente')->name('guardar.ine');
 Route::get('/desglose/{usuario}','UsersController@desglose')->name('usuario.desglose');
 Route::get('/semana/{usuario}','UsersController@semana')->name('usuario.semana');
 Route::get('/mes/{usuario}','UsersController@mes')->name('usuario.mes');
@@ -69,7 +69,8 @@ Route::get('/estructura-de-red/{usuario}','CuentaController@miEstructura')->name
 Route::get('/lista-de-red/{usuario}','CuentaController@miLista')->name('lista.usuario');
 Route::resource('/cuenta','CuentaController');
 Route::resource('/domicilios','DomicilioController');
-Route::post('/tel/{user}', 'CuentaController@telefonos')->name('tel');
+Route::post('/tel/{user}', 'CuentaController@telefono')->name('tel');
+Route::post('/cel/{user}', 'CuentaController@celular')->name('cel');
 Route::post('/datos/{user}', 'CuentaController@datospersonales')->name('datos');
 Route::post('/contra/{user}', 'CuentaController@contraseña')->name('contra');
 Route::post('/fac/{user}', 'CuentaController@facturacion')->name('fac');

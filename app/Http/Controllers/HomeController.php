@@ -37,11 +37,12 @@ class HomeController extends Controller
             $ventas_tabla=Ventas::where('id_user','=',$usuario->id)->get();
 
             $comisiones = Comision::where('id_user','=',$usuario->id)->get();
+            $noComisiones = Comision::where('id_user','=',$usuario->id)->count();
             $ingresos=0.0;
             foreach ($comisiones as $c) {
                 $ingresos+=$c->total_comision;
             }
-            return view('userdashboard',compact('domicilio','ventas','invitados','ventas_tabla','ingresos'));
+            return view('userdashboard',compact('domicilio','ventas','invitados','ventas_tabla','ingresos','noComisiones'));
         } else{            
             $noProductos=Producto::where('baja','=',1)->count();
             $noUsuarios=User::all()->count();

@@ -148,6 +148,8 @@
 <script src="{{asset('assets/dist/js/adminlte.min.js')}}"></script>
 <!-- ChartJS -->
 <script src="{{asset('assets/plugins/chart.js/Chart.min.js')}}"></script>
+
+
  
 @yield('scripts')
 </body>
