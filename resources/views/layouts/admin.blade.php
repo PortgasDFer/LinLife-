@@ -108,8 +108,7 @@
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
     <div class="p-3">
-		<h5>{{ auth()->user()->name }}</h5>		
-		<p>Avisos de LinLife</p>
+		<h5>{{ auth()->user()->name }}</h5>				
 		<p>¿Desea cerrar sesión?</p>
 		<ul class="nav nav-pills nav-sidebar flex-column">
 		<li class="nav-item">
