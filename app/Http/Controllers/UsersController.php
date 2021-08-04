@@ -66,7 +66,7 @@ class UsersController extends Controller
             'apaterno'   => ['required','string','max:35'],
             'amaterno'   => ['required','string','max:35'],
             'email'      => ['required', 'string', 'email', 'max:191', 'unique:users'],
-            'sexo'       => ['required','string','max:10'],
+            'sexo'       => ['required'],
             'calle'      => ['required','string'],
             'ext'        => ['required','string'],
             'cp'         => ['required','min:4'],
@@ -80,7 +80,7 @@ class UsersController extends Controller
             'fecha'   => ['required'],
             'entidad' => ['required'],
             'estado'     => ['required'],
-            'invitacion' => ['required','string'],
+            'invitacion' => ['required'],
         ]);
     }
 
