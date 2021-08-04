@@ -79,7 +79,7 @@
               <div class="form-group col-md-2">
                 <label>Sexo</label> 
                 <select name="sexo" id="sexo" class="form-control">
-                  <option>Selecciona...</option>
+                  <option value="">Selecciona...</option>
                   <option value="h">Hombre</option>
                   <option value="m">Mujer</option>
                 </select>                                 

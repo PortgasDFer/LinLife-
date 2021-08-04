@@ -59,7 +59,7 @@ class RegisterController extends Controller
             'amaterno'   => ['required','string','max:35'],
             'email'      => ['required', 'string', 'email', 'max:191', 'unique:users'],
             'password'   => ['required', 'string', 'min:8', 'confirmed'],
-            'sexo'       => ['required','string','max:10'],
+            'sexo'       => ['required'],
             'calle'      => ['required','string'],
             'ext'        => ['required','string'],
             'cp'         => ['required','min:4'],
@@ -73,7 +73,7 @@ class RegisterController extends Controller
             'fecha'   => ['required'],
             'entidad' => ['required'],
             'estado-civil'     => ['required'],
-            'invitacion' => ['required','string','min:10','max:10'],
+            'invitacion' => ['required','integer'],
         ]);
     }
 
