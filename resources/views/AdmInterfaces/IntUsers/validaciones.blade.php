@@ -70,7 +70,7 @@
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
-							<table class="table">
+							<table class="table table-hover" style="width:100%">
                     			<thead class="thead-lime">
                     				<tr>
 								      <th scope="col">Nombre completo</th>
@@ -94,7 +94,9 @@
                     				<h1>No hay pendientes para verificar</h1>
                     			@endforelse
                     		</table>
-                        {{ $verificar->links() }}
+                        <div class="float-right">
+                          {{ $verificar->links() }}
+                      </div>
 						</div>
 					</div>
 				</div>

@@ -10,8 +10,9 @@
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome-free/css/all.min.css')}}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <!-- DataTables -->
+    <link rel="stylesheet" href="{{asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
    
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('assets/dist/css/adminlte.min.css')}}">
@@ -139,7 +140,6 @@
 
 <!-- REQUIRED SCRIPTS -->
 @include('sweetalert::alert')
-<script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>
 <!-- jQuery -->
 <script src="{{asset('assets/plugins/jquery/jquery.min.js')}}"></script>
 <!-- Bootstrap 4 -->
@@ -149,7 +149,9 @@
 <!-- ChartJS -->
 <script src="{{asset('assets/plugins/chart.js/Chart.min.js')}}"></script>
 
-
+<!-- DataTables  & Plugins -->
+<script src="{{asset('assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
  
 @yield('scripts')
 </body>

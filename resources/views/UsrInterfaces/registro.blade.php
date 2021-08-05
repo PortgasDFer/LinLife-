@@ -222,7 +222,7 @@
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label>Banco</label>
-                <input type="text" class="form-control" id="banci" name="banco"  placeholder="Banco" value="{{ old('banco') }}">
+                <input type="text" class="form-control" id="banco" name="banco"  placeholder="Banco" value="{{ old('banco') }}">
               </div>
               <div class="form-group col-md-3">
                 <br>

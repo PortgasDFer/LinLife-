@@ -218,10 +218,7 @@
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label>Banco</label>
-                <select id="banco" name="banco" class="form-control" value="{{ old('banco') }}">
-                  <option selected>Selecciona...</option>
-                  <option>...</option>
-                </select>
+                <input type="text" class="form-control" id="banco" name="banco"  placeholder="Banco" value="{{ old('banco') }}">
               </div>
               <div class="form-group col-md-3">
                 <br>

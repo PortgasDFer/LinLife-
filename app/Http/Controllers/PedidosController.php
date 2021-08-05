@@ -74,6 +74,7 @@ class PedidosController extends Controller
                 ->join('productos','productos.code','=','dvp.code_producto')
                 ->select('productos.nombre','dvp.cantidad','dvp.costo','dvp.id','ventas.folio','productos.code')
                 ->where('ventas.folio','=', $folio)
+                ->where('productos.baja','=',1)
                 ->get();
 
         foreach ($tabla as $t) {

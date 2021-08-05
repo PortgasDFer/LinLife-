@@ -34,7 +34,7 @@
           <div class="card-header bg-primary">Lista de usuarios</div>
           <div class="card-body"> 
             <div class="table-responsive">  
-              <table id="domicilios" class="table table-bordered table-striped">
+              <table id="domicilios" class="table table-hover" style="width:100%">
                 <thead>
                   <tr>
                     <th>Nombre</th>                                                        

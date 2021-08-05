@@ -66,7 +66,7 @@
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table">
+            <table class="table table-hover" style="width:100%">
               <thead class="thead-dark">
                 <tr>
                   <th scope="col">Mes</th>

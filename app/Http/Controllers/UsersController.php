@@ -78,8 +78,8 @@ class UsersController extends Controller
             'cel'        => ['required','numeric','min:10'],
             'curp'       => ['required','string','min:18','max:18'],
             'fecha'   => ['required'],
-            'entidad' => ['required'],
-            'estado'     => ['required'],
+            'entidad' => ['required'],            
+            'beneficiario'     => ['required','string','min:4'],
             'invitacion' => ['required'],
         ]);
     }
@@ -103,7 +103,7 @@ class UsersController extends Controller
             'apaterno'   => ['required','string','max:35'],
             'amaterno'   => ['required','string','max:35'],
             'email'      => ['required', 'string', 'email', 'max:191', 'unique:users'],
-            'sexo'       => ['required','string','max:10'],
+            'sexo'       => ['required'],
             'calle'      => ['required','string'],
             'ext'        => ['required','string'],
             'cp'         => ['required','min:4'],
@@ -117,7 +117,8 @@ class UsersController extends Controller
             'fecha'   => ['required'],
             'entidad' => ['required'],
             'estado'     => ['required'],
-            'invitacion' => ['required','string'],
+            'beneficiario'     => ['required','string','min:4'],
+            'invitacion' => ['required'],
         ]);
 
         $user=new User();
@@ -291,7 +292,7 @@ class UsersController extends Controller
         $verificados=User::select('users.name','users.aPaterno','users.aMaterno','domicilios.localidad','domicilios.colonia','domicilios.entidad','users.slug','users.status_cuenta')
         ->join("domicilios","domicilios.id_user","=","users.id")
         ->where('users.status_cuenta','=','VERIFICADO')
-        ->paginate(6);
+        ->paginate(10);
         return view('AdmInterfaces.IntUsers.verificados', compact('Noverificados', 'pendientes', 'verificados'));
     }
 

@@ -68,8 +68,8 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                  <div class="table-responsive" style="font-size:15px;">
-                    <table id="productos" class="table table-striped table-bordered">
+                  <div class="table-responsive" >
+                    <table id="productos" class="table table-hover" style="width:100%">
                       <thead>
                         <tr>
                             <th>Código de producto</th>

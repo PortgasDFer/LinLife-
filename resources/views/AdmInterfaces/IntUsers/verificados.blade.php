@@ -56,7 +56,7 @@
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table">
+              <table class="table table-hover" style="width:100%">
                 <thead class="thead-lime">
                   <tr>
                     <th scope="col">Nombre completo</th>
@@ -80,6 +80,9 @@
                     <h1>No hay usuarios verificados</h1>
                   @endforelse
               </table>
+              <div class="float-right">
+                {{ $verificados->links() }}
+              </div>
             </div>
           </div>
         </div>

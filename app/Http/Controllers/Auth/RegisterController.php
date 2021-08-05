@@ -73,6 +73,7 @@ class RegisterController extends Controller
             'fecha'   => ['required'],
             'entidad' => ['required'],
             'estado-civil'     => ['required'],
+            'beneficiario'     => ['required','string','min:4'],
             'invitacion' => ['required','integer'],
         ]);
     }
@@ -116,6 +117,7 @@ class RegisterController extends Controller
             'fechanac'  => $data['fecha'],
             'entidadnac'    => $data['entidad'],
             'estado_civil'=>$data['estado-civil'],
+            'beneficiario'=>$data['beneficiario'],
             'invitacion'=> $data['invitacion'],            
             'frente'    => $filename,
             'atras'     => $filename_atras,

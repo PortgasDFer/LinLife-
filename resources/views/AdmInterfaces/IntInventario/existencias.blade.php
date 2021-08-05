@@ -28,7 +28,7 @@
           </div>
           <!-- /.card-header -->
           <div class="card-body">
-            <table id="productos" class="table table-bordered table-striped">
+            <table id="productos" class="table table-hover" style="width:100%">
               <thead>
               <tr>
                 <th>SKU</th>

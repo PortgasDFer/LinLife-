@@ -35,7 +35,7 @@
   </nav>
   <div class="content">
     <div class="alert alert-primary" role="alert" style="border-radius: 0px; text-align: center; background-color: #4025A6; font-size: 12px; ">
-      info de LinLife
+      LinLife
     </div>
   </div>
   <div class="container">

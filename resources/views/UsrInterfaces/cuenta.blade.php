@@ -28,16 +28,24 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-sm-6 h4" style="margin:0;">
+          <div class="col align-self-start" style="margin:0;">
             <h4>Detalle de socio <span class="badge badge-dark">{{ $usuario->code }}</span></h4>
           </div>
-          <div class="col-sm">
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        
+          <div class="col align-self-end">
             <div class="btn-group btn-group-justified" role="group" aria-label="Basic mixed styles example">
               <a href="/home"><button type="button" class="btn btn-secondary "><i class="fa fa-home" aria-hidden="true"></i> Inicio</button></a>
-              <button type="button" class="btn btn-info"><i class='fas fa-money-bill-alt'></i> Pagos</button>
-              <button type="button" class="btn btn-success"><i class="fa fa-download" aria-hidden="true"></i> Downline</button>
-              <button type="button" class="btn btn-success"><i class="fa fa-upload" aria-hidden="true"></i> Upline</button>
-              <button type="button" class="btn btn-warning"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Pedidos</button>
+              <a href="/semana/{{$usuario->slug}}"><button type="button" class="btn btn-info"><i class='fas fa-money-bill-alt'></i> Pagos</button></a>
+              <a href="/historial"><button type="button" class="btn btn-warning"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Pedidos</button></a>
             </div>
           </div>
          </div>
@@ -308,10 +316,7 @@
                   <div class="form-group row">
                    <label for="colFormLabel" class="col-sm-2 col-form-label" style="text-align: right;">Banco</label>
                     <div class="col-sm-4">
-                      <select id="banco" name="banco" class="form-control @error('banco') is-invalid @enderror">
-                        <option selected>{{$usuario->banco}}</option>
-                        <option value="Azteca">Azteca</option>                        
-                      </select>                      
+                      <input type="text" class="form-control @error('banco') is-invalid @enderror" id="banco" name="banco" placeholder="Banco" value="{{ $usuario->banco }}">                          
                       @error('banco')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

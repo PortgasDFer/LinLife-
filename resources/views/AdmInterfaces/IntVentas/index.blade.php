@@ -21,23 +21,27 @@
 	<div class="container-fluid">	
 		<div class="row">	
 			<div class="col-lg-12">
-        <div class="table-responsive">
-          <table class="table" id="ventas">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">FOLIO</th>
-                <th scope="col">Fecha</th>
-                <th scope="col">Total</th>
-                <th scope="col">Total con comisión</th>
-                <th scope="col" colspan="3">Comprador</th>
-                <th scope="col">Revisar</th>
-                <th scope="col">Comisión</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
-        </div>	
+        <div class="card">
+           <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover" style="width:100%" id="ventas">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">FOLIO</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Total con comisión</th>
+                    <th scope="col" colspan="3">Comprador</th>
+                    <th scope="col">Revisar</th>
+                    <th scope="col">Comisión</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>	
+          </div>
+        </div>
 			</div>
 		</div>	
 	</div>

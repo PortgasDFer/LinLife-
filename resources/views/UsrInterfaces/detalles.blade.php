@@ -103,14 +103,14 @@
         </div>
 	</div>
 	<div class="row mb-2">
-        <div class="col-lg-6">
+        <div class="col-lg-8">
           <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Nuevos socios</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table class="table table-bordered">
+                <table class="table table-hover" style="width:100%">
                   <thead>
                     <tr>
                       <th>Estado</th>

@@ -93,7 +93,7 @@
           </div>
           <div class="card-body">
             <div class="table table-responsive" style="font-size: 15px;">
-              <table>
+              <table class="table table-hover" style="width:100%">
                 <thead>
                   <tr>
                     <th>FOLIO</th>
@@ -147,7 +147,7 @@
           </div>
           <div class="card-body">
             <div class="table table-responsive" style="font-size: 15px;">
-              <table>
+              <table class="table table-hover" style="width:100%">
                 <thead>
                   <tr>
                     <th>FOLIO</th>

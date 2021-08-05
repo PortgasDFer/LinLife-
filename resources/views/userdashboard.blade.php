@@ -166,7 +166,7 @@
           <!-- /.card-header -->
           <div class="card-body p-0">
             <div class="table-responsive">
-              <table class="table m-0">
+              <table class="table table-hover" style="width:100%">
                 <thead>
                 <tr>
                   <th>Folio</th>
@@ -179,7 +179,7 @@
                   <tr>
                     <td>{{$ventas->folio}}</td>
                     <td>{{$ventas->fecha}}</td>
-                    <td>{{$ventas->total}}</td>
+                    <td>$ {{$ventas->total}}</td>
                   </tr>
                 @empty  
                 <tr>
