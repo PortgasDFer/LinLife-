@@ -307,7 +307,10 @@ class UsersController extends Controller
     {
         $user=User::where('slug','=',$slug)->firstOrFail();
         $domicilio = Domicilio::where('id_user','=',$user->id)->firstOrFail();
-        return view('AdmInterfaces.IntUsers.usuarioverificado',compact('user','domicilio'));
+        $invitados=$user::where('invitacion','=',$user->code)->get();
+        $noInvitados=$user::where('invitacion','=',$user->code)->count();
+        $porcentaje=$noInvitados/10*100;
+        return view('AdmInterfaces.IntUsers.usuarioverificado',compact('user','domicilio','invitados','noInvitados','porcentaje'));
     }
 
     public function statusCuenta(Request $request, $slug)
@@ -315,12 +318,7 @@ class UsersController extends Controller
         $user=User::where('slug','=',$slug)->firstOrFail();
         $user->status_cuenta=$request->input('status');
         if($user->status_cuenta=='VERIFICADO'){
-            $codigobase=User::select('code')->orderby('code','DESC')->first();
-            $codigonuevo=substr($codigobase, 9,-7);
-            $numero=substr($codigobase,14,-2);
-            $contador=$numero+1;
-            $codigo=$codigonuevo.$contador;
-            $user->code=$codigo;
+            $user->code=$user->id;
         }
         $user->save();
         alert()->success('LIN LIFE', 'Status de cuenta actualizado con éxito');

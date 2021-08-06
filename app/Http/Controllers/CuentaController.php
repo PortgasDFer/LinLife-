@@ -198,6 +198,15 @@ class CuentaController extends Controller
         return view('UsrInterfaces.lista',compact('user','invitados'));
     }
 
+    public function suLista($slug)
+    {
+        $user=User::where('slug','=', $slug)->firstOrFail();
+        $invitados=User::select('users.name','users.aPaterno','users.aMaterno','domicilios.localidad','domicilios.colonia','domicilios.entidad','users.slug','users.status_cuenta','users.telcasa','users.telcel','users.email','users.fechanac')
+        ->join("domicilios","domicilios.id_user","=","users.id")
+        ->where('users.invitacion','=',$user->code)
+        ->get();
+        return view('UsrInterfaces.listado',compact('user','invitados'));
+    }
     /**
      * Show the form for editing the specified resource.
      *

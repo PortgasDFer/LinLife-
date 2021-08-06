@@ -66,6 +66,7 @@ Route::delete('/pedidos-promocion/{promocion}','PedidosController@eliminarPromoc
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/micuenta/{usuario}','CuentaController@detallesCuenta')->name('cuenta.usuario');
 Route::get('/estructura-de-red/{usuario}','CuentaController@miEstructura')->name('estructura.usuario');
+Route::get('/lista-de-red-usuario/{usuario}','CuentaController@suLista')->name('lista-de.usuario');
 Route::get('/lista-de-red/{usuario}','CuentaController@miLista')->name('lista.usuario');
 Route::resource('/cuenta','CuentaController');
 Route::resource('/domicilios','DomicilioController');

@@ -1,1 +1,1 @@
-<a href="/verificar/{{$slug}}"><button class="btn btn-success"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
+<a href="/usuarioverificado/{{$slug}}"><button class="btn btn-success"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
