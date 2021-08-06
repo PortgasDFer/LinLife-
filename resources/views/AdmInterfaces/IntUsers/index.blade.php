@@ -56,6 +56,7 @@
 							<table id="usuarios" class="table table-bordered table-striped">
 								<thead>
                   <tr>
+                    <th>ID</th>
                     <th colspan="3">Nombre</th>
                     <th>Telefono casa</th>
                     <th>Celular</th>
@@ -82,11 +83,12 @@
         "autoWidth": false,
         "ajax": "/obtenerUsers",
         "columns": [
-            {data:'name'},
-            {data:'aPaterno'},
-            {data:'aMaterno'},
-            {data:'telcasa'},
-            {data:'telcel'},
+            {data:'id'},
+            {data:'name',orderable:false, searchable:false},
+            {data:'aPaterno',orderable:false, searchable:false},
+            {data:'aMaterno',orderable:false, searchable:false},
+            {data:'telcasa',orderable:false, searchable:false},
+            {data:'telcel',orderable:false, searchable:false},
             {data:'edit',orderable:false, searchable:false},
             {data:'view',orderable:false,searchable:false},
             {data:'delete',orderable:false,searchable:false}
@@ -102,7 +104,7 @@
           "lengthMenu": "Mostrar _MENU_ Registros",
           "loadingRecords": "Cargando...",
           "processing": "Procesando...",
-          "search": "Buscar:",
+          "search": "Busqueda por ID:",
           "zeroRecords": "Sin resultados encontrados",
           "paginate": {
               "first": "Primero",
