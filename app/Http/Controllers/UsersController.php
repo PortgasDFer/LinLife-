@@ -310,7 +310,28 @@ class UsersController extends Controller
         $invitados=$user::where('invitacion','=',$user->code)->get();
         $noInvitados=$user::where('invitacion','=',$user->code)->count();
         $porcentaje=$noInvitados/10*100;
-        return view('AdmInterfaces.IntUsers.usuarioverificado',compact('user','domicilio','invitados','noInvitados','porcentaje'));
+
+        $dt = Carbon::now();
+        $inicioSemana=$dt->startOfWeek()->format('Y/m/d');
+        $finSemana=$dt->endOfWeek()->format('Y/m/d');
+
+        $numComisiones=Comision::whereBetween('fecha', [$inicioSemana, $finSemana])
+                                    ->where('id_user','=',$user->id)
+                                    ->count();
+
+        $comisiones=Comision::whereBetween('fecha', [$inicioSemana, $finSemana])
+                                    ->where('id_user','=',$user->id)
+                                    ->get();
+
+        
+        $totalComisiones=0.0;       
+        foreach ($comisiones as $comision) {
+            $totalComisiones+=$comision->total_comision;
+        }
+
+        
+
+        return view('AdmInterfaces.IntUsers.usuarioverificado',compact('user','domicilio','invitados','noInvitados','porcentaje','dt','inicioSemana','finSemana','numComisiones','comisiones','totalComisiones'));
     }
 
     public function statusCuenta(Request $request, $slug)

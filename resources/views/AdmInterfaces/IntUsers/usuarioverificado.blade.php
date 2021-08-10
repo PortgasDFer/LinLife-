@@ -120,6 +120,86 @@
         </div>
       </div>
       <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-4">
+          <div class="card">
+            <div class="card-header bg-primary">
+              <h4 class="card-title">Resumen de comisiones</h4>
+            </div>
+            <div class="card-body">
+              <!-- the events -->
+              <div id="external-events">
+                Esta semana {{$dt->startOfWeek()->format('d-m-Y')}} -- {{$dt->endOfWeek()->format('d-m-Y')}}
+              </div>
+              <div class="table-responsive">  
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><b>Comisiones</b></td>
+                      <td>{{$numComisiones}}</td>
+                    </tr>
+                    <tr>  
+                      <td><b>Bono</b></td>
+                      <td>-</td>
+                    </tr> 
+                    <tr>  
+                      <td><b>Subtotal</b></td>
+                      <td>{{$totalComisiones}}</td>
+                    </tr> 
+                    <tr>  
+                      <td><b>Retención</b></td>
+                      <td>N/A</td>
+                    </tr> 
+                    <tr>
+                      <td><b>Total</b></td>
+                      <td>{{$totalComisiones}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>      
+            </div>
+            <!-- /.card-body -->
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-8">
+          <div class="card">
+        <div class="card-header bg-primary">
+          Tabla de ingresos 2021 (Mes actual {{$dt->monthName}})
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover" style="width:100%">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Mes</th>
+                  <th scope="col">Compras de mi red</th>
+                  <th scope="col">Comisiones</th>
+                  <th scope="col">Bono</th>
+                  <th scope="col">TOTAL</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr id="{{$dt->monthName}}">
+                  <td>{{$dt->monthName}}</td>
+                  <td>{{$numComisiones}}</td>
+                  <td>${{number_format($totalComisiones, 2)}}</td>
+                  <td>$0.00</td>
+                  <td>${{number_format($totalComisiones, 2)}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-lg-12">
           <div class="card">
             <div class="card-header bg-purple">
