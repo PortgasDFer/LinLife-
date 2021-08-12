@@ -61,7 +61,7 @@
 							</div>
 							<div class="col-md-12 form-group">
 								<button type="submit" value="submit" class="button button-login w-100">Iniciar Sesión</button>
-								<a href="#">¿Has olvidado tu contraseña?</a>
+								<a href="{{ route('password.request') }}">¿Has olvidado tu contraseña?</a>
 							</div>
 						</form>
 					</div>
