@@ -1,0 +1,1 @@
+<a href="/detalle-ventapromocion/{{$folio}}"><button class="btn btn-warning"><i class="fa fa-money" aria-hidden="true"></i></button></a>

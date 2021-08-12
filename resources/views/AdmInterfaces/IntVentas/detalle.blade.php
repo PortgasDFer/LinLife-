@@ -6,7 +6,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">LinLife - Detalle de venta  {{$venta->folio}}</h1>
+        <h1 class="m-0">Lin Life - Detalle de venta  {{$venta->folio}}</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
@@ -26,7 +26,7 @@
 					<div class="card-header bg-primary">	
 						Folio de venta: {{$venta->folio}}
 						<hr>	
-						Fecha de venta: {{$venta->fecha}}
+						Fecha de venta: {{ \Carbon\Carbon::parse($venta->fecha)->format('d-m-Y') }}
 					</div>
 					<div class="card-body">	
 						Compra realizada por: {{$asociado->name}} {{$asociado->aPaterno}} {{$asociado->aMaterno}}
@@ -119,11 +119,13 @@
 	console.log(total);
 
 	function calcular_porcentaje(porcentaje){
-		let porcentajeReal = "0."+porcentaje;
-		let comision=total*parseFloat(porcentajeReal);
-		campoComision.value=comision;
+		let porcentajeReal = porcentaje*total; 
+		let comision=porcentajeReal/100;
+		campoComision.value="$"+comision;
 		console.log(comision);
 		botonSubmit.disabled=false;
+
+		//
 	}
 </script>
 @endsection

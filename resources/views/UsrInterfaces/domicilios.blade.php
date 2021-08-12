@@ -31,7 +31,7 @@
         <div class="row">
       <div class="col-md-12"> 
         <div class="card">  
-          <div class="card-header bg-primary">Lista de usuarios</div>
+          <div class="card-header bg-primary">Tus domicilios</div>
           <div class="card-body"> 
             <div class="table-responsive">  
               <table id="domicilios" class="table table-hover" style="width:100%">

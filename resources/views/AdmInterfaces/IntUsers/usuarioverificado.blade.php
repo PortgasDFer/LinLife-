@@ -6,7 +6,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">LinLife -ID: {{$user->id}} {{$user->name}} {{$user->aMaterno}} {{$user->aPaterno}}</h1>
+        <h1 class="m-0">Lin Life -ID: {{$user->id}} {{$user->name}} {{$user->aMaterno}} {{$user->aPaterno}}</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
@@ -114,7 +114,7 @@
                   </div>
                 </div>
               <!-- /.card-body -->
-              <span >{{$porcentaje}}% completado, registra otros ? usuarios para subir de nivel.</span>
+              <span >{{$porcentaje}}% completado, registra otros 10 usuarios para subir de nivel.</span>
             </div>
           </div>
         </div>

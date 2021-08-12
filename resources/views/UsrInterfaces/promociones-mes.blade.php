@@ -35,7 +35,7 @@
   </nav>
   <div class="content">
     <div class="alert alert-primary" role="alert" style="border-radius: 0px; text-align: center; background-color: #4025A6; font-size: 12px; ">
-      <h2>Aprovecha las promociones de este mes.!</h2>
+      <h2>Aprovecha las promociones de este mes!.</h2>
     </div>
   </div>
   <div class="container">

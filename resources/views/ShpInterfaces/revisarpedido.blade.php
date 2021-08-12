@@ -1,4 +1,5 @@
 @extends('layouts.sitio')
+@section('title','- Pedido')
 @section('content')
 <!-- ================ start banner area ================= -->	
 <section class="blog-banner-area" id="category">

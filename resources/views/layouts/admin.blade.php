@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LinLife | @yield('title')</title>
+  <title>Lin Life - @yield('title')</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -51,7 +51,7 @@
     <!-- Brand Logo -->
     <a href="/home" class="brand-link navbar-primary">
       <img src="{{asset('recursos/icono.png')}}" alt="LinLife Logo" class="brand-image img-circle elevation-3" style="opacity: .8; width: 26px;">
-      <span class="brand-text font-weight-light">LinLife</span>
+      <span class="brand-text font-weight-light">Lin Life</span>
     </a>
 
     <!-- Sidebar -->
@@ -130,7 +130,7 @@
   <footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
-      LinLife
+      Lin Life
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> Todos los derechos reservados.

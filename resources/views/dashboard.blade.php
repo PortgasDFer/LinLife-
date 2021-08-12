@@ -108,7 +108,7 @@
                   @forelse($ventas as $v)
                   <tr>
                     <td>{{$v->folio}}</td>
-                    <td>{{$v->fecha}}</td>
+                    <td>{{ \Carbon\Carbon::parse($v->fecha)->format('d-m-Y') }}</td>
                     <td>{{$v->name}} {{$v->aPaterno}} {{$v->aMaterno}}</td>
                     <td>{{$v->estado}}</td>
                     <td>${{$v->total}}</td>
@@ -162,7 +162,7 @@
                   @forelse($ventas_promocion as $vp)
                   <tr>
                     <td>{{$vp->folio}}</td>
-                    <td>{{$vp->fecha}}</td>
+                    <td>{{ \Carbon\Carbon::parse($vp->fecha)->format('d-m-Y') }}</td>
                     <td>{{$vp->name}} {{$vp->aPaterno}} {{$vp->aMaterno}}</td>
                     <td>{{$vp->estado}}</td>
                     <td>${{$vp->total}}</td>

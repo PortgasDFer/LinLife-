@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>Lin Life - Inicio</title>
+		<title>Lin Life @yield('title')</title>
 		<link rel="icon" href="{{asset('recursos/favicon.ico')}}" type="image/png">
 		<link rel="stylesheet" href="{{asset('assets/shop/vendors/bootstrap/bootstrap.min.css')}}">
 		<link rel="stylesheet" href="{{asset('assets/shop/vendors/fontawesome/css/all.min.css')}}">
@@ -58,7 +58,7 @@
 				<div class="row section_gap">
 					<div class="col-lg-3 col-md-6 col-sm-6">
 						<div class="single-footer-widget tp_widgets ">
-							<h4 class="footer_title large_title">LinLife</h4>
+							<h4 class="footer_title large_title">Lin Life</h4>
 							<p>
 								Somos una empresa 100% mexicana fundada por alumnos del ITV y la UV tomando la iniciativa de mejorar la salud del pueblo mexicano, buscando los mejores laboratorios para maquilar su producto. 
 							</p>
@@ -66,7 +66,7 @@
 					</div>
 					<div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6">
 						<div class="single-footer-widget tp_widgets">
-							<h4 class="footer_title">Otros Enlaces</h4>
+							<h4 class="footer_title">Enlaces</h4>
 							<ul class="list">
 								<li><a href="/">Inicio</a></li>
 								<li><a href="/catalogo">Productos</a></li>												
@@ -80,12 +80,12 @@
 						<div class="single-footer-widget instafeed">
 							<h4 class="footer_title">Galería</h4>
 							<ul class="list instafeed d-flex flex-wrap">
-								<li><a class="image-popup-vertical-fit" href="recursos/ARANDANO.png"><img src="recursos/1.png"></a></li>
-								<li><a class="image-popup-vertical-fit" href="recursos/CITRICOS.jpg"><img src="recursos/2.jpg"></a></li>
-								<li><a class="image-popup-vertical-fit" href="recursos/GELATINA.png"><img src="recursos/3.png"></a></li>
-								<li><a class="image-popup-vertical-fit" href="recursos/TAMARINDO.png"><img src="recursos/4.png"></a></li>
-								<li><a class="image-popup-vertical-fit" href="recursos/VASO-DIARIO.png"><img src="recursos/5.png"></a></li>
-								<li><a class="image-popup-vertical-fit" href="recursos/vitamina-c.jpg"><img src="recursos/6.jpg"></a></li>
+								<li><a class="image-popup-vertical-fit" href="/recursos/ARANDANO.png"><img src="/recursos/1.png"></a></li>
+								<li><a class="image-popup-vertical-fit" href="/recursos/CITRICOS.jpg"><img src="/recursos/2.jpg"></a></li>
+								<li><a class="image-popup-vertical-fit" href="/recursos/GELATINA.png"><img src="/recursos/3.png"></a></li>
+								<li><a class="image-popup-vertical-fit" href="/recursos/TAMARINDO.png"><img src="/recursos/4.png"></a></li>
+								<li><a class="image-popup-vertical-fit" href="/recursos/VASO-DIARIO.png"><img src="/recursos/5.png"></a></li>
+								<li><a class="image-popup-vertical-fit" href="/recursos/vitamina-c.jpg"><img src="/recursos/6.jpg"></a></li>
 							</ul>
 						</div>
 					</div>
@@ -95,7 +95,7 @@
 							<div class="ml-40">
 								<p class="sm-head">
 									<span class="fa fa-location-arrow"></span>
-									LinLife
+									Lin Life
 								</p>
 								<p>123,Polanco,CDMX</p>
 	

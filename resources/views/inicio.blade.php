@@ -1,4 +1,5 @@
 @extends('layouts.sitio')
+@section('title','- Inicio')
 @section('content')
 <main class="site-main">
     

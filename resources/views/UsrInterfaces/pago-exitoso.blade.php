@@ -98,7 +98,7 @@
             </div>           
           </div>
           <div class="card-footer text-muted">
-            El equipo de LinLife
+            El equipo de Lin Life
           </div>
         </div>
       </div>      

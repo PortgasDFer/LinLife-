@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LinLife | Imprimir Compra</title>
+  <title>Lin Life - Imprimir Compra</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -21,8 +21,8 @@
     <div class="row">
       <div class="col-12">
         <h2 class="page-header">
-          <i class="fas fa-globe"></i> LinLife
-          <small class="float-right">Fecha: {{ \Carbon\Carbon::parse($venta->fecha)->format('d M, Y') }}</small>
+          <i class="fas fa-globe"></i> Lin Life
+          <small class="float-right">Fecha: {{ \Carbon\Carbon::parse($venta->fecha)->format('d-m-Y') }}</small>
         </h2>
       </div>
       <!-- /.col -->
@@ -32,7 +32,7 @@
       <div class="col-sm-4 invoice-col">
         De
         <address>
-          <strong>LinLife</strong><br>
+          <strong>Lin Life</strong><br>
           795 Folsom Ave, Suite 600<br>
           San Francisco, CA 94107<br>
           Teléfono: (804) 123-5432<br>

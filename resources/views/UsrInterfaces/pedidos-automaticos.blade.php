@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LIN LIFE | Pedidos automaticos</title>
+  <title>Lin Life | Pedidos automaticos</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -30,7 +30,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </nav>
 <div class="content">
   <div class="alert alert-primary" role="alert" style="border-radius: 0px; text-align: center; background-color: #4025A6;">
-  info de LinLife
+  Lin Life
   </div>
 </div>
 <!-- ./wrapper -->

@@ -1,4 +1,5 @@
 @extends('layouts.sitio')
+@section('title','- Detalle de Producto')
 @section('content')
 <!-- ================ start banner area ================= -->	
 <section class="blog-banner-area" id="blog">
@@ -33,8 +34,7 @@
 						<ul class="list">							
 							<li><a href="#"><span>En Stock</span> : {{$detalle->cantidad}}</a></li>
 						</ul>
-						<p>{{$detalle->descripcion}}</p>
-						<br>
+						<hr>						
 						@guest
 						<div class="product_count">
 							<label for="qty">Cantidad:</label>

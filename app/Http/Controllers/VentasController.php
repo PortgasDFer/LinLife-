@@ -52,7 +52,7 @@ class VentasController extends Controller
                     return $venta->fecha ? with(new Carbon($venta->fecha))->format('m/d/Y') : '';
                 })
                 ->addColumn('promos','AdmInterfaces.IntVentas.botones.detalle')
-                ->addColumn('ingreso','AdmInterfaces.IntVentas.botones.comision')
+                ->addColumn('ingreso','AdmInterfaces.IntVentas.botones.comisionpromocion')
                 ->rawColumns(['promos','ingreso'])
                 ->toJson();
     }

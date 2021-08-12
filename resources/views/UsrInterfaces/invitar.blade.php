@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Registro de nuevo socio</title>
+    <title>Invitar nuevo socio</title>
     <link rel="icon" href="{{asset('recursos/favicon.ico')}}" type="image/png">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -77,8 +77,8 @@
                 <label>Sexo</label> 
                 <select name="sexo" id="sexo" class="form-control">
                   <option value="">Selecciona...</option>
-                  <option value="h">Hombre</option>
-                  <option value="m">Mujer</option>
+                  <option value="Hombre">Hombre</option>
+                  <option value="Mujer">Mujer</option>
                 </select>                                 
               </div>
             </div>
